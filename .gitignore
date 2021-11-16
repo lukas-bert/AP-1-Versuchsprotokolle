@@ -3,3 +3,5 @@
 *.pyc
 *.tmp
 *.log
+*.bcf
+*.aux
