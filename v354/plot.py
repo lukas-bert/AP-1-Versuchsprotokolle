@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
+t, U_0 = np.genfromtxt("content/test.txt", unpack = True)
 x = np.linspace(0, 10, 1000)
 y = x ** np.sin(x)
 
