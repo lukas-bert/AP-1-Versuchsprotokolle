@@ -1,4 +1,88 @@
 \section{Theorie}
 \label{sec:Theorie}
 
-\cite{sample}
+\subsection{Gedämpfter Schwingkreis}
+\label{sec:Theorie_1}
+
+Zuerst wird der gedämpfte Schwingkreis ohne externe Anregung betrachtet. 
+Bei Diesem oszilliert zuvor hinzugefügte Energie zwischen der Induktivität L und der Kapazität C,
+wobei über den Ohmschen Widerstand R Enrgie in Form von Wärme aus dem System geführt wird.
+
+\begin{figure}
+	\centering
+    \includegraphics[width=0.33\textwidth]{content/RLC-Kreis.pdf}
+	\caption{Schaltskizze des gedämpften Schwingkreises \cite{v354}}
+	\label{fig:RLC}
+\end{figure}
+
+Mit Hilfe der zweiten Kirchhoffschen Regel lässt sich die Gleichung:
+
+\begin{equation}
+    \label{eqn:RLC1}
+    U_R(t) + U_C(t)+ U_L(t) = 0
+\end{equation}
+
+Mit den Bedingungen:
+
+\begin{align*}
+    U_R(t) &= R*I(t) & U_L(t) &= L \frac{\symup{d}I}{\symup{d}t} \\
+    U_C(t) &= \frac{Q(t)}{C} & I(t) &= \frac{\symup{d}Q}{\symup{d}t}
+\end{align*}
+
+folgt nach einmaligen differenzieren nach der Zeit und durch Division von L:
+
+\begin{equation}
+    \label{eqn:RLC_dgl}
+    \frac{\symup{d}^{2}I}{\symup{d}t^2} + \frac{R}{L}\frac{\symup{d}I}{\symup{d}t} + \frac{1}{LC}I = 0   
+\end{equation}
+
+Diese lineare, homogene Differentialgleichung zweiter Ordnung wird durch den Exponentialansatz 
+$I(t) = A e^{i\omega t} \text{ mit } A, \omega \in \mathbb{C}$ gelöst. Die Lösung lautet dann wie folgt:
+
+\begin{align*}
+    \omega &= i \frac{R}{2L} \pm \sqrt{\frac{1}{LC}- \frac{R^2}{4L^2}} & ,\omega &= i2 \pi \mu \pm 2\pi \nu
+\end{align*}
+\begin{equation}
+    \label{eqn:RLC_lsg}
+    I(t) = e^{-2 \pi \mu t} (A_1e^{i2 \pi \nu t} + A_2e^{-i2 \pi \nu t})
+\end{equation}
+$A_1$ und $A_2$ sind wieder komplexe Zahlen und es gilt die Konvention 
+\begin{equation*}
+    2\pi \mu := \frac{R}{2L} \qquad , 2\pi \nu := \sqrt{\frac{1}{LC}- \frac{R^2}{4L^2}}
+\end{equation*}
+Man unterscheidet zwei allgemeine Arten von Lösungen:\\
+\\
+\textbf{1. Fall:} Schwingfall (gedämpfte Schwingung)
+
+Wenn $\nu$ reell ist, also $\frac{1}{LC} > \frac{R^2}{LC}$ gilt, lässt sich die Lösung 
+in reeller Form ausdrücken, wenn $A_1 = \overline{A_2}$ gestzt wird und lautet dann:
+
+\begin{equation}
+    I(t) = A_0e^{-2\pi \mu t}\cos(2\pi \nu t + \phi) \qquad , \phi, A_0 \in \mathbb{R}
+\end{equation}
+
+Die Gleichung beschreibt eine gedämpfte Schwingung mit Schwingungsdauer $T = \frac{1}{\nu}$.
+Die sogenannte Abklingdauer beschreibt die Zeit, in der die Amplitude um den Faktor $\frac{1}{e}$ vermindert
+wird und ist über die Relation 
+\begin{equation}
+    \label{eqn:T_ex}
+    T_\text{ex} = \frac{1}{2\pi\mu} = \frac{2L}{R}
+\end{equation}
+gegeben. \\
+\\
+\textbf{2. Fall:} Aperiodische Dämpfung
+
+Wenn $\nu$ imaginär ist, also $\frac{1}{LC} < \frac{R^2}{LC}$ gilt, wird der Exponent in der Lösung reell
+und es liegt keine Schwingung mehr vor. $I(t)$ ist dann proportional zu reellen e-Funktionen:
+
+\begin{equation}
+    I(t) \propto e^{(-2\pi\mu-i2\pi\nu)*t}
+\end{equation}
+
+Der Sonderfall $\nu = 0$ wird aperiodischer Grenzfall genannt. Er tritt ein, wenn der Widerstand $R_\text{ap}$
+erreicht wird. Der Wert dieses Widerstands lautet dann:
+
+\begin{equation}
+    \label{eqn:R_ap}
+    R_\text{ap} =2L \sqrt{\frac{1}{LC}}
+\end{equation}

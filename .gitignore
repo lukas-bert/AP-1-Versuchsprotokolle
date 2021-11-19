@@ -1,4 +1,3 @@
-*.pdf
 **/build
 *.pyc
 *.tmp
@@ -6,3 +5,5 @@
 *.bcf
 *.aux
 *.xml
+*.run.xml
+*.run
