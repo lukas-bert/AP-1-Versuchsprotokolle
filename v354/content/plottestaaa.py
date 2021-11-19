@@ -2,17 +2,20 @@ import matplotlib.pyplot as plt
 import numpy as np
 import scipy.optimize
 
-def ExpFit(x, m, t, b):
-    return m * np.exp(-t * x) + b
-
+def ExpFit(x, m, tt):
+    return m * np.exp(-tt * x)
 t_0, U_0 = np.genfromtxt("data_a.txt", unpack = True)
 t = t_0 * 0.05
 errt = 0.025
 errU_0 = 0.05
-p0 = (0, 3.4, 50)
-params, cv = scipy.optimize.curve_fit(ExpFit, t, U_0, p0)
-m, tt, b = params
-b=0
+p0 = (0, 3.4)
+params = scipy.optimize.curve_fit(ExpFit, t, U_0, p0)
+m, tt = params
+#fit = np.polyfit(t, (-1)*np.log(U_0),1)
+#x = np.linspace(0,1,100)
+#y = np.exp(fit[0]) + (np.exp(fit[1]))**x
+#print(fit)
+
 #sampleRate = 20_000 # Hz
 #tauSec = (1 / tt) / sampleRate
 
@@ -24,8 +27,9 @@ b=0
 #(noch evtl zur berechnung nutzen) print(m, tt, b)
 
 #Plots
-plt.plot(t, ExpFit(t, m, tt, b), 'r--')
+plt.plot(t, ExpFit(t, m, tt), 'r--')
 plt.errorbar(t, U_0,xerr = errt, yerr = errU_0, fmt='o')
+#plt.plot(x,y)
 #Aussehen
 plt.yscale('log')
 plt.xlabel("$t /$ " "$\mathrm{\mu}$" r'$\mathrm{s}$')
