@@ -1,2 +1,61 @@
 \section{Durchführung}
-\label{sec:Durchführung}
+\label{sec:Durchfuehrung}
+\subsection{Erste Problemstellung}
+Zuerst soll die Zeitabhängigkeit der Spannungsamplitude eines gedämpften RLC-SChwingkreises untersucht werden. Daraus soll der effektive Dämpfungswiderstand bestimmt
+werden. Mit der Schaltung aus \autoref{fig:SchaltungZuA} können die notwendigen Daten gemessen werden. Es soll aber anstatt einer Sägezahnspannung eine Rechtecksspannung 
+angelegt werden. Diese wird durch einen Frequenzgenerator, an dem die Art der Schwingung und die dazugehörige Frequenz eingestellt werden kann, in die den Schwingkreis 
+eingespeist. Das Oszilloskop zeigt den Schwingungsverlauf der eingespeisten Spannung gegen die Zeitachse an. Am Oszilloskop kann die Amplitude und die Zeit abgelesen werden. Es soll 
+gemessen werden bis die Amplitude um den Faktor 3-8 abgenommen hat. 
+\begin{figure}
+    \includegraphics[width=\textwidth]{content/SchaltungZuA.pdf}
+    \centering
+    \caption{Schaltung zur Bestimmung der Zeitabhängigkeit der Amplitude und des Dämpfungswiderstandes eines gedämpften RLC-SChwingkreises.}
+    \label{fig:SchaltungZuA}
+\end{figure}
+\subsection{Zweite Problemstellung}
+Nun soll der Dämpfungswiderstand, bei dem der aperiodischen Grenzfall eintritt, bestimmt werden. Dieser soll mit der Schaltung aus \autoref{fig:SchaltungZuB} bestimmt werden. 
+Die Schaltung ist ähnlich zu der Schaltung aus \autoref{fig:SchaltungZuA}, allerdings wird der feste Widerstand durch einen regelbaren Widerstand ausgetauscht. Zur Messung 
+soll der regelbare Widerstand zunächst auf seinen Maximalwert(10\unit{\ohm}) eingestellt werden. Auf dem Oszilloskop wird dann ein Überdämpfungsverlauf der Spannung angezeigt.
+Nun soll der Wiederstand solange runtergeregelt werden bis sich ein "Überschwingen" zeigt. Dann muss man den Widerstand nohc leicht erhöhen, bis die Überschwingung gerade 
+verschwindet. Der Widerstand zum aperiodischen Grenzfall ist nun am regelbare Widerstand abzulesen.
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{content/SchaltungZuB.pdf}
+    \caption{Schaltung zur Bestimmung des Widerstandes zum aperiodischen Grenzfalls.}    
+    \label{fig:SchaltungZuB}
+\end{figure}
+\subsection{Dritte Problemstellung}
+Im weiteren Messverlauf wird eine sinusförmige Schwingung betrachtet. Zunächst soll die Frequenzabhängigkeit der Kondensatorspannung $U_{C}$ zur anregenden Frequenz bestimmt 
+werden. Hierzu muss beachtet werden, dass der Tastkopf(siehe \autoref{fig:SchaltungZuC}) selbst einen Frequenzgang besitzt. Daher wird auch die Erregerspannung $U$ gemessen.
+Aus diesen beiden Messungen soll dann der Quotient $\sfrac{U_{C}}{U}$ bestimmt werden. Den Spannungsverlauf von  $U_{C}$ kann man mit der Schaltung aus \autoref{fig:SchaltungZuC}
+aufgenommen werden. Anstatt eines AC-Milli-Voltmeters wird ein Oszilloskopangeschlossen an dem man die Spannung ablesen kann. Bei dieser Messung beginnt man bei einer angepasst
+niedrigen Frequenz, welche man am Sinusgenerator einstellen kann, und regelt diese dann in konstanten Abständen hoch. Dabei wird bei jeder eingestellten Frequenz $U_{C}$ und 
+$U$ gemessen. 
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{content/SchaltungZuC.pdf}
+    \caption{Schaltung zur Bestimmung der Frequenzabhängigkeit der Kondensatorspannung.}    
+    \label{fig:SchaltungZuC}
+\end{figure}
+\subsection{Vierte Problemstellung}
+Zuletzt soll die Frequenzabhängigkeit der Phase $\phi$ zwischen der Erreger- und der Kondensatorspannung bestimmt werden. Dazu wird der Aufbau gemäß \autoref{fig:SchaltungZuD} verwendet.
+Er wird ein Zweikanal-Oszilloskop an den RLC-SChwingkreis angeschlossen. Durch den Frequenzgenerator wird eine sinusförmige Schwingung in den RLC-Kreis eingespeist.
+Auf dem Oszilloskop werden die Spannungsverläufe von der Kondensatorspannung $U_{C}$ und der Erregerspannung $U$ angezeigt. Die Frequenzabhängigkeit der Phase $\phi$ kann, wie 
+in \autoref{fig:Phasenbestimmung} gegeben, bestimmt werden. Daher ließt man den Abstand der Nulldurchgänge $a$ und die Periodendauer $b$ der Kondensatorspannung $U_{C}$ auf dem 
+Oszilloskop ab. Man beginnt mit einer angepasst niedrigen Frequenz und regelt diese dann in konstanten Abständen hoch. Die Phase $\phi$ soll dann gemäß der Formel 
+\begin{equation}
+    \phi = \frac{a}{b}2\pi 
+\end{equation}
+bestimmt werden.
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{content/SchaltungZuD.pdf}
+    \caption{Schaltung zur Bestimmung der Frequenzabhängigkeit der Phase.}    
+    \label{fig:SchaltungZuD}
+\end{figure}
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{content/Phasenbestimmung.pdf}
+    \caption{Hilfsskizze zur Bestimmung der Phase zweier Schwingungen.}    
+    \label{fig:Phasenbestimmung}
+\end{figure}
