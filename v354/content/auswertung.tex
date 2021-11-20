@@ -25,6 +25,26 @@ Man benötigt nun noch den Faktor $2\pi\mu$. Diesen kann man durch die erstellte
 bestimmen, da $2\pi\mu$ dem positiven Faktor des Exponenten der erstellten Exponentialfunktion entspricht. 
 Daher ist $2\pi\mu = 6.98[\mu]$, wobei $[\mu]$ der Einheit von $\mu$ entspricht. 
 $R_{eff}$ ergibt sich durch einsetzen zu:
-\begin{equation}
+\begin{equation*}
   R_{eff} = (2\cdot 6.98\cdot \num{16.87\pm 0.05}) \unit{\ohm} = (\num{117.75 \pm 0.05})\,\unit{\ohm}
-\end{equation}
+\end{equation*}
+
+\subsection{Aperiodischer Grenzfall}
+\label{subsec:AuswertungB}
+
+Der Theoriewert des Widerstands, bei dem der aperiodische Grenzfall eintritt, lässt sich mit Formel \eqref{eqn:R_ap} berechnen.
+Der Fehler dieses Wertes ergibt sich nach der gaußschen Fehlerfortpflanzung zu:
+
+\begin{align*}
+  \label{eqn:err_R_ap}
+  \Delta R_{\text{ap}} &= \sqrt{\Bigl(\frac{\symup{d}R_{\text{ap}}}{\symup{d}L}\Delta L \Bigr)^2+\Bigl(\frac{\symup{d}R_{\text{ap}}}{\symup{d}C}\Delta C\Bigr)^2} \\
+  &= \sqrt{\Bigl(\frac{1}{\sqrt{LC}}\Delta L\Bigr)^2+\Bigl(\frac{\sqrt{LC}}{C^2}\Delta C\Bigr)} \\
+  &\approx 43 symup{\Omega}
+\end{align*}
+
+Insgesamt erhält man $R_{\text{ap, Theorie}} = (5,72 \pm 0,043) \text{k}\symup{\Omega}$. Der experimentell ermittelte Wert wurde 
+zu $R_{\text{ap, exp}} = (4,49 \pm 0,01) \text{k}\symup{\Omega}$ bestimmt.
+
+\subsection{frequenzabhängigkeit der Kondensatorspannung}
+\label{subsec:AuswertungC}
+
