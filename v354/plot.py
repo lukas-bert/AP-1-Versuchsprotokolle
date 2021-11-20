@@ -13,26 +13,26 @@ a,b = scipy.optimize.curve_fit(ExpFit, t, U_0,p0)
 x = np.linspace(-0.01,0.36,100)
 
 #Plot Zu A
-
-plt.figure(figsize=(8, 12))
+plt.subplot(1, 2, 1)
 plt.plot(x,ExpFit(x,a[0],a[1]), label = "Fit")
 plt.errorbar(t, U_0,xerr = errt, yerr = errU_0, fmt='ro', label = "Messdaten")
 plt.xlabel("$t\, /$ " "$\mathrm{\mu}$" r'$\mathrm{s}$')
 plt.ylabel("$U_0\, /$ "  r'$\mathrm{V}$')
 plt.grid(True, which="both", ls="-")
-plt.legend(loc='best', fontsize=20)
-plt.savefig("build/PlotZuAa.pdf", dpi = 100)
-plt.close
+plt.legend(loc='best')
+plt.legend(loc='best',prop={"size":6})
 
-plt.figure(figsize=(8, 12))
-plt.plot(x,ExpFit(x,a[0],a[1]), label = "Fit")
+plt.subplot(1, 2, 2)
+plt.plot(x,ExpFit(x,a[0],a[1]), label = "Fit (Logarithmische Skala)")
 plt.errorbar(t, U_0,xerr = errt, yerr = errU_0, fmt='ro', label = "Messdaten")
 plt.xlabel("$t\, /$ " "$\mathrm{\mu}$" r'$\mathrm{s}$')
 plt.ylabel("$U_0\, /$ "  r'$\mathrm{V}$')
 plt.grid(True, which="both", ls="-")
 plt.yscale('log')
-plt.legend(loc='best', fontsize=20)
-plt.savefig("build/PlotZuAb.pdf", dpi = 100)
+plt.legend(loc='best')
+plt.legend(loc='best',prop={"size":5})
+
+plt.savefig('PlotZuA.pdf')
 plt.close
 
 

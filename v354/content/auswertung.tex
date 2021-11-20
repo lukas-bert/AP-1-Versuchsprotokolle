@@ -15,23 +15,12 @@ Durch Umstellen auf $R_{\text{eff}}$ ergibt sich eine Berechnungsformel:
 \end{equation}
 Um nun $R_{\text{eff}}$ zu berechnen wird zunächst eine Fit-Kurve durch die Messwerte gelegt (siehe \autoref{fig:PlotZuA}).
 
-\begin{figure}%
-  \begin{subfigure}{0.48\textwidth}%
-    \centering%
-    \includegraphics[height=10cm]{build/PlotZuAa.pdf}%
-    \caption{Lineare Skalen}%
-    \label{fig:PlotZuAa}%
-  \end{subfigure}%
-  \hfill% Fills available space in the center -> space between figures
-  \begin{subfigure}{0.48\textwidth}%
-    \centering%
-    \includegraphics[height=10cm]{build/PlotZuAb.pdf}%
-    \caption{Logarithmische Skala für $U$}%
-    \label{fig:PlotZuAb}%
-    \end{subfigure}%
-  \caption{Exponentieller Fit zu den Messwerten}%
-  \label{fig:PlotZuA}%
-\end{figure}%
+\-\begin{figure}
+  \centering
+  \includegraphics[width=0.7\textwidth]{PlotZuA.pdf}
+  \caption{Exponentieller Fit zu den Messwerten mit linearer Skala (links) und logarithmischer Skala für $U$ (rechts)}
+  \label{fig:PlotZuA}
+\end{figure}
 
 Man benötigt nun noch den Faktor $2\pi\mu$. Diesen kann man durch die erstellte exponentielle Regression 
 bestimmen, da $2\pi\mu$ dem positiven Faktor des Exponenten der erstellten Exponentialfunktion entspricht. 
