@@ -13,24 +13,26 @@ a,b = scipy.optimize.curve_fit(ExpFit, t, U_0,p0)
 x = np.linspace(-0.01,0.36,100)
 
 #Plot Zu A
-plt.plot(x,ExpFit(x,a[0],a[1]), label = "exponetielle Fitkurve")
-plt.errorbar(t, U_0,xerr = errt, yerr = errU_0, fmt='ro', label = "zeitlicher Amplitudenverlauf")
+
+plt.figure(figsize=(8, 12))
+plt.plot(x,ExpFit(x,a[0],a[1]), label = "Fit")
+plt.errorbar(t, U_0,xerr = errt, yerr = errU_0, fmt='ro', label = "Messdaten")
 plt.xlabel("$t\, /$ " "$\mathrm{\mu}$" r'$\mathrm{s}$')
 plt.ylabel("$U_0\, /$ "  r'$\mathrm{V}$')
 plt.grid(True, which="both", ls="-")
-plt.legend(loc='best',prop={"size":6})
-plt.savefig("PlotZuAa.pdf")
+plt.legend(loc='best', fontsize=20)
+plt.savefig("build/PlotZuAa.pdf", dpi = 100)
 plt.close
 
-
-plt.plot(x,ExpFit(x,a[0],a[1]), label = "lineare Fitkurve")
-plt.errorbar(t, U_0,xerr = errt, yerr = errU_0, fmt='ro', label = "logarithmierter zeitlicher Amplitudenverlauf")
+plt.figure(figsize=(8, 12))
+plt.plot(x,ExpFit(x,a[0],a[1]), label = "Fit")
+plt.errorbar(t, U_0,xerr = errt, yerr = errU_0, fmt='ro', label = "Messdaten")
 plt.xlabel("$t\, /$ " "$\mathrm{\mu}$" r'$\mathrm{s}$')
 plt.ylabel("$U_0\, /$ "  r'$\mathrm{V}$')
 plt.grid(True, which="both", ls="-")
 plt.yscale('log')
-plt.legend(loc='best',prop={"size":5})
-plt.savefig('PlotZuAb.pdf')
+plt.legend(loc='best', fontsize=20)
+plt.savefig("build/PlotZuAb.pdf", dpi = 100)
 plt.close
 
 
