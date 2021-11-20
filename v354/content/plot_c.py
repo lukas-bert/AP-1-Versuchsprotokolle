@@ -3,7 +3,7 @@ import numpy as np
 
 f, U_C, U, a, b = np.genfromtxt("data_c_d.txt", unpack = True)
 phi, U_x = np.genfromtxt("Messwerte_cd.txt", unpack = True)
-R = 67.2
+R = 732
 L = 16.87*10**-3
 C = 2.060 *10**-9
 
