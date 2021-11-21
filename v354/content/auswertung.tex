@@ -1,5 +1,10 @@
 \section{Auswertung}
 \label{sec:Auswertung}
+Vorab: Die Fehlerrechnung wurde gemäß der Formel:
+\begin{equation}
+  \label{eqn:Gauss}
+  \Delta F = \sqrt{\sum_i\left(\frac{\symup{d}F}{\symup{d}y_i}\Delta y_i \right)^2}
+\end{equation}
 
 Zuerst wurden alle Gerätekonstanten festgestellt und notiert. Verwendet wurde das Oszilloskop Nummer 4, sowie
 die Schaltung Nummer 1. Die Bauteile des Verwendeten Gerätes haben folgende Werte:
@@ -47,7 +52,7 @@ Um nun $R_{\text{eff}}$ zu berechnen wird zunächst eine Fit-Kurve durch die Mes
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth]{build/PlotZuA.pdf}
-  \caption{Exponentieller Fit zu den Messwerten mit linearer Skala (links) und logarithmischer Skala für $U$ (rechts)}
+  \caption{Exponentieller Fit \cite{scipy} zu den Messwerten mit linearer Skala (links) und logarithmischer Skala für $U$ (rechts)}
   \label{fig:PlotZuA}
 \end{figure}
 
@@ -68,7 +73,7 @@ Die Abklingdauer lässt sich nach Gleichung \eqref{eqn:T_ex} berechnen.
 \label{subsec:AuswertungB}
 
 Der Theoriewert des Widerstands, bei dem der aperiodische Grenzfall eintritt, lässt sich mit Formel \eqref{eqn:R_ap} berechnen.
-Der Fehler dieses Wertes ergibt sich nach der gaußschen Fehlerfortpflanzung zu:
+Der Fehler dieses Wertes ergibt sich nach der gaußschen Fehlerfortpflanzung \eqref{eqn:Gauss} zu:
 
 \begin{align*}
   \label{eqn:err_R_ap}
@@ -82,14 +87,14 @@ zu $R_{\text{ap, exp}} = (4,49 \pm 0,01) \unit{\kilo\ohm}$ bestimmt.
 
 \subsection{Frequenzabhängigkeit der Kondensatorspannung}
 \label{subsec:AuswertungC}
-In \autoref{tab:Mess3} wird das Verhältniss $\frac{U_C}{U}$ gegen die Freuquenz $f$ aufgetragen. Der Maximalwerte dieses Verhältnisses liegt bei $f_{res} \approx 25 \unit{\kilo\hertz}$.
+In \autoref{tab:Mess3} wird das Verhältniss $\frac{U_C}{U}$ gegen die Freuquenz $\nu$ (im Folgenden auch $f$ genannt) aufgetragen. Der Maximalwerte dieses Verhältnisses liegt bei $\nu_{res} \approx 25 \unit{\kilo\hertz}$.
 Bei dieser Frequenz ergibt sich für die Resonanzüberhöhung, auch Güte $q$ genannt:
 \begin{equation}
   q \pm \Delta q = \frac{U_{C,max}}{U} \pm \sqrt{\frac{\Delta U_{C}}{U_{C}} + \frac{\Delta U}{U}}
   = \left(\frac{9.5\unit{\volt}}{2.8\unit{\volt}} \, \pm \sqrt{\left(\frac{0.05}{11.72}\right)^2 + \left(\frac{0.1}{3}\right)^2}\right)
   = \left(3.39 \pm 0.03\right)
 \end{equation}
-Der Theoriewert der Güte ergibt sich nach \eqref{eqn:Guete_Resonanzkurve2} zu: $q_{Theorie} = 3.909$.
+Der Theoriewert der Güte ergibt sich nach \eqref{eqn:Guete_Resonanzkurve2} zu: $q_{\text{Theorie}} = 3.909$.
 
 \begin{table}
   \centering
@@ -127,22 +132,22 @@ Der Theoriewert der Güte ergibt sich nach \eqref{eqn:Guete_Resonanzkurve2} zu: 
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth]{build/PlotZuC1.pdf}
-  \caption{Güte}
+  \caption{Messwerte im Vergleich zur Theoriekurve, mit halblogarithmischer Skala.}
   \label{fig:PlotZuC1}
 \end{figure}
 
-Die Breite der Resonanzkurve $f_{diff}$ kann bestimmt werden durch:
+Die Breite der Resonanzkurve $\nu_{\text{diff}}$ kann bestimmt werden durch:
 \begin{equation}
-  f_{diff} = f_+ - f_-
+  \nu_{diff} = \nu_+ - \nu_-
 \end{equation}
-Hierzu werden zunächst die Grenzfrequenzen $f_+$ und $f_-$ bestimmt. Diese können \autoref{fig:PlotZuC2} entnommen werden.
+Hierzu werden zunächst die Grenzfrequenzen $\nu_+$ und $\nu_-$ bestimmt. Diese können \autoref{fig:PlotZuC2} entnommen werden.
 \begin{equation}
-  f_+ = 29.37\unit{\kilo\hertz} \,\,\,\,\,\, f_- = 22.27\unit{\kilo\hertz} \\
-  \rightarrow f_{diff} = 7.1 \unit{\kilo\hertz}
+  \nu_+ = 29.37\unit{\kilo\hertz} \,\,\,\,\,\, \nu_- = 22.27\unit{\kilo\hertz} \\
+  \rightarrow \nu_{\text{diff}} = 7.1 \unit{\kilo\hertz}
 \end{equation}
 Die theoretische Resonanzbreite wird durch
 \begin{equation}
-  f_{diff,Theorie} = \frac{R_2 +50\unit{\ohm}}{2\pi L} = \left(6.91 \pm 0.47\right)\unit{\kilo\hertz}
+  \nu_{\text{diff,Theorie}} = \frac{R_2 +50\unit{\ohm}}{2\pi L} = \left(6.91 \pm 0.47\right)\unit{\kilo\hertz}
 \end{equation}
 
 \begin{figure}
@@ -151,4 +156,34 @@ Die theoretische Resonanzbreite wird durch
   \caption{Breite der Resonanzkurve}
   \label{fig:PlotZuC2}
 \end{figure}
+
+\subsection{Frequenzabhängigkeit der Phase zwischen Erreger- und Kondensatorspannung}
+\label{subsec:AuswertungD}
+
+Der letzte zu untersuchende Zusammenhang besteht zwischen der Phase $\phi$ und der Generatorfrequenz $\nu$ ($f$). Die ensprechenden Messwerte finden sich
+ebenfalls in \autoref{tab:Mess3}. In \autoref{fig:PlotZuD1} ist die Frequenzabhängigkeit der Phase zu erkennen.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{build/PlotZuD1.pdf}
+  \caption{Messwerte im Vergleich zur Theoriekurve. (halblogarithmische Skala)}
+  \label{fig:PlotZuD1}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{build/PlotZuD2.pdf}
+  \caption{Die Frequenzen $f_1$ ($\nu_1$) und $f_2$ ($\nu_2$) lassen sich gut am Graphen der Messwerte ablesen. (Skala linear)}
+  \label{fig:PlotZuD2}
+\end{figure}
+
+In \autoref{fig:PlotZuD2} sind die experimentell ermittelten Frequenzen $\nu_1 = 22.9 \, \symup{kHz}$ und \\ $\nu_2 = 29.8 \, \symup{kHz}$ eingezeichnet.
+Die Theoriewerte ergeben sich nach \eqref{eqn:w_1_w_2} unter berücksichtigung der gaußschen Fehlerfortpflanzung \eqref{eqn:Gauss} zu:
+
+\begin{align*}
+  \omega_1 &= (23.54 \pm 0.04) \symup{kHz} \\
+  \omega_2 &= (30.45 \pm 0.05) \symup{kHz}
+\end{align*}
+
+\cite{uncertainties}
 
