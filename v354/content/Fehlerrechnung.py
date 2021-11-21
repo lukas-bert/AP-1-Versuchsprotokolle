@@ -13,3 +13,9 @@ print(f_f1,f_f2)
 F_f1 = f_f1/(2000*np.pi)
 F_f2 = f_f2/(2000*np.pi)
 print(F_f1,F_f2)
+
+Ab1 = (117.75-(67.2+50))/117.75
+print(Ab1)
+
+Ab2 = (7.1-6.91)/7.1
+print(Ab2)

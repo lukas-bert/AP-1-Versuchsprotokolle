@@ -16,7 +16,7 @@ die Schaltung Nummer 1. Die Bauteile des Verwendeten Gerätes haben folgende Wer
   &C   = (2.060 \pm 0.003) \unit{\nano\farad} \\
 \end{align*}
 
-\subsection{Verwertung der Messwerte zur zeitabhängigkeit der Amplitude}
+\subsection{Messung zur zeitabhängigkeit der Amplitude}
 \label{subsec:AuswertungA}
 
 Um den effektiven Dämpfungswiderstand zu bestimmen verwende man den Zusammenhang \eqref{eqn:def_mu_nu}.
@@ -62,11 +62,11 @@ So ist $2\pi\mu = 6.98\,\unit{\second}$ gegeben.
 $R_{\text{eff}}$ ergibt sich durch einsetzen zu:
 
 \begin{equation*}
-  R_{\text{eff}} = (2\cdot 6.98\cdot \num{16.87\pm 0.05}) \unit{\ohm} = (\num{117.75 \pm 0.05})\,\unit{\ohm}
+  R_{\text{eff}} = 2\cdot 6.98\cdot 16.87\,\unit{\ohm} = 117.75\,\unit{\ohm}
 \end{equation*}
 
-Auffällig ist, dass $R_{\text{eff}}$ genau $R_1 + 50\unit{\ohm}$ entspricht. Dies hat den Grund, dass der Innenwiderstand des Generators
-$50 \unit{\ohm}$ beträgt. Aus diesem Grund wird dieser in den Folgenden Auswertungen berücksichtigt.
+Auffällig ist, dass $R_{\text{eff}}$ \approx $R_1 + 50\unit{\ohm}$ entspricht. Dies hat den Grund, dass der Innenwiderstand des Generators
+$50 \unit{\ohm}$ beträgt. Daher wird dieser in den Folgenden Auswertungen berücksichtigt. Damit beträgt die relative Abweichung gerade einmal $\Delta R_{\text{rel}} = 0.46\%$.
 Die Abklingdauer lässt sich nach Gleichung \eqref{eqn:T_ex} berechnen.
 
 \subsection{Aperiodischer Grenzfall}
@@ -181,8 +181,8 @@ In \autoref{fig:PlotZuD2} sind die experimentell ermittelten Frequenzen $\nu_1 =
 Die Theoriewerte ergeben sich nach \eqref{eqn:w_1_w_2} unter berücksichtigung der gaußschen Fehlerfortpflanzung \eqref{eqn:Gauss} zu:
 
 \begin{align*}
-  \omega_1 &= (23.54 \pm 0.04) \symup{kHz} \\
-  \omega_2 &= (30.45 \pm 0.05) \symup{kHz}
+  \nu_{1,\text{Theorie}} &= (23.54 \pm 0.04) \symup{kHz} \\
+  \nu_{2,\text{Theorie}} &= (30.45 \pm 0.05) \symup{kHz}
 \end{align*}
 
 \cite{uncertainties}
