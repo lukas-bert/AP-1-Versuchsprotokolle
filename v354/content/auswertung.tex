@@ -1,6 +1,6 @@
 \section{Auswertung}
 \label{sec:Auswertung}
-Vorab: Die Fehlerrechnung wurde gemäß der Formel:
+Vorab: Die Messunsicherheiten wurden gemäß der gaußschen Fehlerfortpflanzung berechnet:
 \begin{equation}
   \label{eqn:Gauss}
   \Delta F = \sqrt{\sum_i\left(\frac{\symup{d}F}{\symup{d}y_i}\Delta y_i \right)^2}
@@ -23,13 +23,13 @@ Um den effektiven Dämpfungswiderstand zu bestimmen verwende man den Zusammenhan
 Durch Umstellen auf $R_{\text{eff}}$ ergibt sich die Berechnungsformel:
 \begin{equation}
   \label{Abklingdauer1}
-  \Longleftrightarrow R_{\text{eff}} = 4\pi\mu L
+  R_{\text{eff}} = 4\pi\mu L
 \end{equation}
 Um nun $R_{\text{eff}}$ zu berechnen wird zunächst eine Fit-Kurve durch die Messwerte gelegt (siehe \autoref{fig:PlotZuA}).
 
 \begin{table}
   \centering
-  \caption{Messdaten zur Zeitabhängigkeit der Amplitude.}
+  \caption{Messdaten zur Zeitabhängigkeit der Amplitude. Abgelesen wurdne die positiven Maxima im Abstand einer Periodendauer.}
   \label{tab:Mess1}
   \begin{tabular}{S[table-format=1.2]}
       \toprule
@@ -58,16 +58,22 @@ Um nun $R_{\text{eff}}$ zu berechnen wird zunächst eine Fit-Kurve durch die Mes
 
 Man benötigt nun noch den Faktor $2\pi\mu$. Diesen kann man durch die erstellte exponentielle Regression 
 bestimmen, da er dem positiven Faktor des Exponenten der Exponentialfunktion entspricht. 
-So ist $2\pi\mu = 6.98\,\unit{\second}$ gegeben.
-$R_{\text{eff}}$ ergibt sich durch einsetzen zu:
+So ist $2\pi\mu = 6.98\, (µs)^{-1}$ gegeben.
+$R_{\text{eff}}$ ergibt sich durch einsetzen.
 
 \begin{equation*}
   R_{\text{eff}} = 2\cdot 6.98\cdot 16.87\,\unit{\ohm} = 117.75\,\unit{\ohm}
 \end{equation*}
 
-Auffällig ist, dass $R_{\text{eff}}$ \approx $R_1 + 50\unit{\ohm}$ entspricht. Dies hat den Grund, dass der Innenwiderstand des Generators
-$50 \unit{\ohm}$ beträgt. Daher wird dieser in den Folgenden Auswertungen berücksichtigt. Damit beträgt die relative Abweichung gerade einmal $\Delta R_{\text{rel}} = 0.46\%$.
-Die Abklingdauer lässt sich nach Gleichung \eqref{eqn:T_ex} berechnen.
+Auffällig ist, dass $R_{\text{eff}} \approx R_1 + 50\unit{\ohm}$ entspricht. Dies hat den Grund, dass der Innenwiderstand des Generators
+$50 \unit{\ohm}$ beträgt. Daher wird dieser in den Folgenden Auswertungen berücksichtigt. Unter dieser Voraussetzung beträgt die relative Abweichung des Messwertes
+gerade einmal $\Delta R_{\text{rel}} = 0.46\%$.
+Die Abklingdauer lässt sich nach Gleichung \eqref{eqn:T_ex} berechnen und ist konkret gegeben durch:
+\begin{align*}
+  T_{\text{ex, exp}} &= \frac{1}{2\pi\mu} = 143 \unit{\nano\second} \\
+  \text{Der Theorie Wert beträgt:} \\
+  T_{\text{ex, theo}} &= \frac{2L}{R} = 288 \unit{\nano\second}
+\end{align*}
 
 \subsection{Aperiodischer Grenzfall}
 \label{subsec:AuswertungB}
@@ -88,7 +94,7 @@ zu $R_{\text{ap, exp}} = (4,49 \pm 0,01) \unit{\kilo\ohm}$ bestimmt.
 \subsection{Frequenzabhängigkeit der Kondensatorspannung}
 \label{subsec:AuswertungC}
 In \autoref{tab:Mess3} wird das Verhältniss $\frac{U_C}{U}$ gegen die Freuquenz $\nu$ (im Folgenden auch $f$ genannt) aufgetragen. Der Maximalwerte dieses Verhältnisses liegt bei $\nu_{res} \approx 25 \unit{\kilo\hertz}$.
-Bei dieser Frequenz ergibt sich für die Resonanzüberhöhung, auch Güte $q$ genannt:
+Bei dieser Frequenz ergibt sich für die Resonanzüberhöhung (auch Güte $q$ genannt):
 \begin{equation}
   q \pm \Delta q = \frac{U_{C,max}}{U} \pm \sqrt{\frac{\Delta U_{C}}{U_{C}} + \frac{\Delta U}{U}}
   = \left(\frac{9.5\unit{\volt}}{2.8\unit{\volt}} \, \pm \sqrt{\left(\frac{0.05}{11.72}\right)^2 + \left(\frac{0.1}{3}\right)^2}\right)
@@ -138,14 +144,14 @@ Der Theoriewert der Güte ergibt sich nach \eqref{eqn:Guete_Resonanzkurve2} zu: 
 
 Die Breite der Resonanzkurve $\nu_{\text{diff}}$ kann bestimmt werden durch:
 \begin{equation}
-  \nu_{diff} = \nu_+ - \nu_-
+  \nu_{\text{diff}} = \nu_+ - \nu_-
 \end{equation}
 Hierzu werden zunächst die Grenzfrequenzen $\nu_+$ und $\nu_-$ bestimmt. Diese können \autoref{fig:PlotZuC2} entnommen werden.
 \begin{equation}
   \nu_+ = 29.37\unit{\kilo\hertz} \,\,\,\,\,\, \nu_- = 22.27\unit{\kilo\hertz} \\
   \rightarrow \nu_{\text{diff}} = 7.1 \unit{\kilo\hertz}
 \end{equation}
-Die theoretische Resonanzbreite wird durch
+Die theoretische Resonanzbreite ist nach \eqref{eqn:DeltaOmega} gegeben durch:
 \begin{equation}
   \nu_{\text{diff,Theorie}} = \frac{R_2 +50\unit{\ohm}}{2\pi L} = \left(6.91 \pm 0.47\right)\unit{\kilo\hertz}
 \end{equation}

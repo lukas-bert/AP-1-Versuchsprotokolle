@@ -6,7 +6,7 @@
 
 Zuerst wird der gedämpfte Schwingkreis ohne externe Anregung betrachtet. 
 Bei Diesem oszilliert zuvor hinzugefügte Energie zwischen der Induktivität L und der Kapazität C,
-wobei über den Ohmschen Widerstand R Enrgie in Form von Wärme aus dem System geführt wird.
+wobei über den Ohmschen Widerstand R Energie in Form von Wärme aus dem System geführt wird.
 
 \begin{figure}
 	\centering
@@ -17,7 +17,7 @@ wobei über den Ohmschen Widerstand R Enrgie in Form von Wärme aus dem System g
 
 Mit Hilfe der zweiten Kirchhoffschen Regel lässt sich die Gleichung:
 
-\begin{equation}-
+\begin{equation}
     \label{eqn:RLC1}
     U_R(t) + U_C(t) + U_L(t) = 0
 \end{equation}
@@ -26,7 +26,7 @@ Mit den Bedingungen:
 
 \begin{align}
     \label{eqn:RLC_relations}
-        U_R(t) &= R*I(t) & U_L(t) &= L \frac{\symup{d}I}{\symup{d}t} \nonumber \\
+        U_R(t) &= R \cdot I(t) & U_L(t) &= L \frac{\symup{d}I}{\symup{d}t} \nonumber \\
         U_C(t) &= \frac{Q(t)}{C} & I(t) &= \frac{\symup{d}Q}{\symup{d}t} 
 \end{align}
 
@@ -40,9 +40,9 @@ folgt nach einmaligen differenzieren nach der Zeit und durch Division von L:
 Diese lineare, homogene Differentialgleichung zweiter Ordnung wird durch den Exponentialansatz 
 $I(t) = A e^{i\tilde{\omega} t} \text{ mit } A, \tilde{\omega} \in \mathbb{C}$ gelöst. Die Lösung lautet dann wie folgt:
 
-\begin{align*}
-    \tilde{\omega} &= i \frac{R}{2L} \pm \sqrt{\frac{1}{LC}- \frac{R^2}{4L^2}} & ,\tilde{\omega} &= i2 \pi \mu \pm 2\pi \nu
-\end{align*}
+\begin{equation*}
+    \tilde{\omega} = i \frac{R}{2L} \pm \sqrt{\frac{1}{LC} - \frac{R^2}{4L^2}} := i2 \pi \mu \pm 2\pi \nu
+\end{equation*}
 \begin{equation}
     \label{eqn:RLC_lsg}
     I(t) = e^{-2 \pi \mu t} (A_1e^{i2 \pi \nu t} + A_2e^{-i2 \pi \nu t})
@@ -57,7 +57,7 @@ Man unterscheidet zwei allgemeine Arten von Lösungen:\\
 \textbf{1. Fall:} Schwingfall (gedämpfte Schwingung)
 
 Wenn $\nu$ reell ist, also $\frac{1}{LC} > \frac{R^2}{LC}$ gilt, lässt sich die Lösung 
-in reeller Form ausdrücken, wenn $A_1 = \overline{A_2}$ gestzt wird und lautet dann:
+in reeller Form ausdrücken, indem $A_1 = \overline{A_2}$ gestzt wird und lautet dann:
 
 \begin{equation}
     I(t) = A_0e^{-2\pi \mu t}\cos(2\pi \nu t + \phi) \qquad , \phi, A_0 \in \mathbb{R}
@@ -96,8 +96,8 @@ $\omega_0$ ist die Kreisfrequenz des ungedämpften Schwingkreises.
 \label{sec:Theorie_2}
 
 Im zweiten Teil des Versuchs wird ein angeregter RLC-Schwingkreis behandelt. Dieser unterscheidet sich zu dem zuvor
-beschriebenen Schwingkreis darin, dass eine Wechselspannung $U(t)$ eingeschaltet wird. Dadurch wird kontinuirlich Energie in das 
-System eingeführt. Dies bewirkt eine oszillierende Spannung $U_C$ am Kondensator, die in Phase zu der Erregerspannung ist.
+beschriebenen Schwingkreis darin, dass eine Wechselspannung $U(t)$ eingeschaltet wird, wodurch dem System kontinuierlich Energie
+zugefügt wird. Dies bewirkt eine oszillierende Spannung $U_C$ am Kondensator, die -- je nach Frequenz der Quelle -- in Phase zu der Erregerspannung ist.
 
 \begin{figure}
 	\centering
@@ -126,7 +126,7 @@ woraus
     U(\omega) = \frac{U_0 (1-LC\omega^2-i\omega RC)}{(1-LC\omega^2)^2+\omega^2 R^2 C^2}
 \end{equation}
 für die frequenzabhängige Amplitude folgt. Aus \eqref{eqn:RLC_Amplitude} lässt sich wiederum mit den Rechenregeln für
-komplexe Zahlen der Betrag von U und die Phase ($\phi$) berechnen. Es gilt für den Betrag:
+komplexe Zahlen der Betrag von $U$ und die Phase ($\phi$) berechnen. Es gilt für den Betrag:
 
 \begin{equation}
     \label{eqn:RLC_Betrag}
@@ -148,12 +148,12 @@ $\omega_{\text{res}}$ heißt Resonanzfrequenz und hat den Wert:
     \omega_{\text{res}} = \sqrt{\frac{1}{LC}-\frac{R^2}{2L^2}}
 \end{equation}
 Ein interessanter Zusammenhang findet sich im Fall der schwachen Dämpfung: $\frac{R^2}{2L^2} \ll \frac{1}{LC}$. Dann geht $\omega_{\text{res}}$ 
-in die Eigenfrequenz $\omega_0$ eines des Systems über und die Kondensatorspannung erreicht den Wert: 
+in die Eigenfrequenz $\omega_0$ des ungedämpften Systems  ($R = 0$) über und die Kondensatorspannung erreicht den Wert: 
 \begin{equation}
     \label{eqn:Guete_Resonanzkurve}
     U_{C, \text{max}} = \frac{1}{\omega_0 RC} U_0 := q U_0
 \end{equation}
-Der Faktor $q$ wird als Güte der Resonanzkurve bezeichnet. Bei $R \to 0$ geht $q \to \infty$ und somit auch $U_{C, \text{max}} \to \infty$.
+Der Faktor $q$ wird als Güte der Resonanzkurve bezeichnet. Bei $R \to 0$ geht \\ $q \to \infty$ und somit auch $U_{C, \text{max}} \to \infty$. \\
 Ein weiteres Kennzeichen der Resonanzkurve ist ihre Breite. Diese wird über die Frequenzen $\omega_+$ und $\omega_-$ beschrieben, bei denen
 die Kondensatorspannung jeweils den Wert $\sfrac{1}{\sqrt{2}}\; U_{C,\text{max}}$ annimmt. Die gesuchten Frequenzen lassen sich mit Formel
 \eqref{eqn:RLC_Betrag} bestimmen. Unter der Annahme, dass eine schwache Dämpfung vorliegt gilt für die Breite der Resonanzkurve:
@@ -164,11 +164,11 @@ die Kondensatorspannung jeweils den Wert $\sfrac{1}{\sqrt{2}}\; U_{C,\text{max}}
 \end{gather}
 
 Für die Phasenverschiebung werden aus Gleichung \eqref{eqn:RLC_Phase} die beiden Frequenzen $\omega_1$ und $\omega_2$ identifiziert, bei denen
-die Phasenverschiebung den Wert $\sfrac{\pi}{4}$ und $\sfrac{3\pi}{4}$ annimmt. Für ihren Wert gilt:
+die Phasenverschiebung den Wert $\frac{\pi}{4}$ und $\frac{3\pi}{4}$ annimmt. Für ihren Wert gilt:
 
 \begin{equation}
     \label{eqn:w_1_w_2}
-    \omega_1,2 = \pm \frac{R}{2L} + \sqrt{\frac{R^2}{4L^2}+\frac{1}{LC}}
+    \omega_{1,2} = \pm \frac{R}{2L} + \sqrt{\frac{R^2}{4L^2}+\frac{1}{LC}}
 \end{equation}
 ebenfalls gilt der Zusammenhang:
 \begin{equation}
