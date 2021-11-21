@@ -1,14 +1,14 @@
 all: build/v354.pdf
 
 # hier Python-Skripte:
-build/plotZuA.pdf: plot.py ../matplotlibrc ../header-matplotlib.tex | build
+build/plotZuA.pdf build/plotZuC1.pdf build/plotZuC2.pdf build/plotZuD1.pdf build/plotZuD2.pdf: plot.py ../matplotlibrc ../header-matplotlib.tex | build
 	# so that matplotlib can find the tex header when running
 	# LaTeX in the tmp directory
 	# and set the matplotlibrc
 	TEXINPUTS=$$(pwd)/..: MATPLOTLIBRC=../matplotlibrc python plot.py
 
 # hier weitere Abhängigkeiten für build/v354.pdf deklarieren:
-build/v354.pdf: build/plotZuA.pdf
+build/v354.pdf: build/plotZuA.pdf build/plotZuC1.pdf build/plotZuC2.pdf build/plotZuD1.pdf build/plotZuD2.pdf
 
 build/v354.pdf: FORCE | build
 	# to find header and bib files in the main directory
