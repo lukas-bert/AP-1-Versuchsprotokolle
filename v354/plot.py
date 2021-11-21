@@ -60,5 +60,13 @@ plt.ylabel("$\phi\,/$"r'$\,\mathrm{rad}$')
 plt.grid(True, which="both", ls="-")
 plt.legend(loc='best',prop={"size":6})
 plt.yticks([0,(1/4)*np.pi,(1/2)*np.pi,(3/4)*np.pi,np.pi],["0","$1/4\pi$","$1/2\pi$","$3/4\pi$","$\pi$"])
-plt.savefig("PlotZuD.pdf")
+plt.savefig("build/PlotZuD.pdf")
 plt.close
+R1 = 67.2
+print(1/(1000*a[1]))
+T_ext = (2*L)/R1
+T_ext1 = (2*L)/(R1+50)
+print(T_ext,T_ext1)
+abweichung = (1/(1000*a[1]) - T_ext)/(1/(1000*a[1]))
+abweichung1 = (1/(1000*a[1]) - T_ext1)/(1/(1000*a[1]))
+print(abweichung,abweichung1)
