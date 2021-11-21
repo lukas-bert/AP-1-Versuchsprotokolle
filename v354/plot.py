@@ -55,7 +55,7 @@ def Theorie_c(w, R, L, C):
     return (1/np.sqrt((1-L*C*w**2)**2+w**2*R**2*C**2))
 
 #print(R/(2*L))
-print(np.sqrt(L*C)*1/(R*C)) 
+#print(np.sqrt(L*C)*1/(R*C)) 
 #print(np.sqrt(1/(L*C)-R**2/(2*L**2))/(2*np.pi*1000))  
 
 w = np.linspace(10, 70, 1000)
@@ -103,32 +103,62 @@ plt.close()
 
 #Plot zu D
 def theory(w, R, L, C):
-    return np.arctan((((-w)*R*C)/(1-(L*C*(w**2)))))
+    return np.arctan((((w)*R*C)/(1-(L*C*(w**2)))))
 w = np.linspace(0,80,100)
-R = 732
-L = 16.87*(10**(-3))
-C = 2.060*(10**(-9))
 errf = 0
 errphi = 0.005
-f, U_C, U, a_d, b_d = np.genfromtxt("content/data_c_d.txt", unpack = True)
-phi, nix = np.genfromtxt("content/Messwerte_cd.txt", unpack = True)
 
-plt.subplot(2,2,1)
+plt.plot(f, phi, "r-", label = "Messwertkurve")
 plt.plot(f, phi, "rx")
-# funktioniert einfach nicht plt.plot(w,theory(2000*np.pi*w,R,L,C))
+plt.plot(w,theory(2000*np.pi*w,R,L,C))
 plt.errorbar(f, phi,xerr = errf, yerr = errphi, fmt='r.', label = "Freuquenzabhänigkeit der Phase")
 plt.xlabel("$f\,/$"r'$\,\mathrm{Hz}$')
 plt.ylabel("$\phi\,/$"r'$\,\mathrm{rad}$')
 plt.grid(True, which="both", ls="-")
-plt.legend(loc='best',prop={"size":6})
+plt.legend(loc='lower right')
 plt.yticks([0,(1/4)*np.pi,(1/2)*np.pi,(3/4)*np.pi,np.pi],["0","$1/4\pi$","$1/2\pi$","$3/4\pi$","$\pi$"])
+#plt.xlim(15, 35, 1)
 plt.savefig("build/PlotZuD.pdf")
-plt.close
-R1 = 67.2
-print(1/(1000*a[1]))
-T_ext = (2*L)/R1
-T_ext1 = (2*L)/(R1+50)
-print(T_ext,T_ext1)
-abweichung = (1/(1000*a[1]) - T_ext)/(1/(1000*a[1]))
-abweichung1 = (1/(1000*a[1]) - T_ext1)/(1/(1000*a[1]))
-print(abweichung,abweichung1)
+plt.close()
+#R1 = 67.2
+#print(1/(1000*a[1]))
+#T_ext = (2*L)/R1
+#T_ext1 = (2*L)/(R1+50)
+#print(T_ext,T_ext1)
+#abweichung = (1/(1000*a[1]) - T_ext)/(1/(1000*a[1]))
+#abweichung1 = (1/(1000*a[1]) - T_ext1)/(1/(1000*a[1]))
+#print(abweichung,abweichung1)
+
+import uncertainties as unc
+import uncertainties.unumpy as unp
+
+flinspace2 = np.linspace(0, 300, 1000)
+
+plt.plot(f, phi, 'rx', label='Messwerte')
+plt.plot(flinspace2, np.pi/2+unp.nominal_values(unp.arctan((-2*np.pi*flinspace2*1e3*(R)*C/(1-L*C*(2*np.pi*flinspace2*1e3)**2))**(-1))), 'k-', label='Theoriekurve')
+plt.xscale('log')
+plt.xlabel(r'$f/$kHz')
+plt.ylabel(r'$\phi/$rad')
+plt.axis((10, 100, -0.2, 4))  # 1e-3 weil f in kHZ ist
+# Slicing: -3 ist drittletztes Element, : bedeutet bis zum Ende
+
+# Macht die y-Achse schön
+x = np.linspace(0, 2 * np.pi)
+
+plt.ylim(0, 1.25 * np.pi)
+# erste Liste: Tick-Positionen, zweite Liste: Tick-Beschriftung
+plt.yticks([0, np.pi / 4, np.pi / 2, 3 * np.pi/4, np.pi],
+           [r"$0$", r"$\frac{1}{4}\pi$", r"$\frac{1}{2}\pi$", r"$\frac{3}{4}\pi$", r"$\pi$"])
+
+plt.legend()
+plt.grid()
+plt.tight_layout()
+plt.savefig('build/PlotZuD1.pdf')
+
+plt.xscale('linear')
+plt.axis((17500*1e-3, 85000*1e-3, 0, np.pi))
+plt.axvline(30000*1e-3, color='k', linestyle=':', label=r'$f_1$ und $f_2$')
+plt.axvline(38150*1e-3, color='k', linestyle=':')
+plt.axvline(33800*1e-3, color='b', linestyle=':', label='Resonanzfrequenz')
+plt.legend()
+plt.savefig('build/PlotZuD2.pdf')
