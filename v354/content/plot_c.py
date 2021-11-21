@@ -15,11 +15,35 @@ print(np.sqrt(L*C)*1/(R*C))
 print(np.sqrt(1/(L*C)-R**2/(2*L**2))/(2*np.pi*1000))  
 
 w = np.linspace(10, 70, 1000)
+# Erster Subplot
+plt.subplot(1, 2, 1)
 plt.plot(w, Theorie_c(2*np.pi*1000*w, R, L, C))
-plt.plot(f, U_x)
+plt.plot(f, U_x, 'rx')
 
-plt.plot(26.55,3.92013543016825 , 'rx')
-
+plt.xlabel("$U_C \mathbin{/} U$")
+plt.ylabel("\nu \mathbin{/} \unit{\kilo\herz}")
+plt.grid(True, which="both", ls="-")
+plt.legend(loc='best')
 plt.xscale('log')
-plt.ylim(0, 7)
-plt.show()
+plt.ylim(0, 5)
+plt.plot(26.55,3.92013543016825 , 'go')
+
+#Zweiter Subplot
+plt.subplot(1, 2, 2)
+plt.plot(w, Theorie_c(2*np.pi*1000*w, R, L, C))
+plt.plot(f, U_x, 'rx')
+
+plt.xlabel("$U_C \mathbin{/} U$")
+plt.ylabel("\nu \mathbin{/} \unit{\kilo\herz}")
+plt.grid(True, which="both", ls="-")
+plt.yscale('log')
+plt.xscale('log')
+plt.legend(loc='best')
+plt.ylim(0, 5)
+plt.plot(26.55,3.92013543016825 , 'go')
+
+plt.tight_layout()
+
+plt.savefig(build/PlotZuC.pdf)
+
+
