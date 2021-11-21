@@ -65,7 +65,7 @@ plt.plot(f, U_x, 'rx', label = "Messwerte")
 plt.plot(26.55, 3.92013543016825 , 'go', label = "Maximum Theorie")
 
 plt.ylabel("$U_C / U$")
-plt.xlabel("f /" r'$\mathrm{kHz}$')
+plt.xlabel(r'$f\,/\,$kHz')
 plt.grid(True, which="both", ls="-")
 plt.legend(loc='best')
 plt.xscale('log')
@@ -92,7 +92,7 @@ plt.plot(x, Breite_theo(x), '--', label = "Breite der Theoriekurve")
 plt.plot(x_1, Breite_exp(x),'--', label = "Breite der Messwertkurve")
 
 plt.ylabel("$U_C / U$")
-plt.xlabel("f /" r'$\mathrm{kHz}$')
+plt.xlabel(r'$f\,/\,$kHz')
 plt.grid(True, which="both", ls="-")
 plt.legend(loc='best')
 plt.ylim(0, 5)
@@ -102,45 +102,20 @@ plt.savefig("build/PlotZuC2.pdf")
 plt.close()
 
 #Plot zu D
-def theory(w, R, L, C):
-    return np.arctan((((w)*R*C)/(1-(L*C*(w**2)))))
-w = np.linspace(0,80,100)
-errf = 0
-errphi = 0.005
-
-plt.plot(f, phi, "r-", label = "Messwertkurve")
-plt.plot(f, phi, "rx")
-plt.plot(w,theory(2000*np.pi*w,R,L,C))
-plt.errorbar(f, phi,xerr = errf, yerr = errphi, fmt='r.', label = "Freuquenzabhänigkeit der Phase")
-plt.xlabel("$f\,/$"r'$\,\mathrm{Hz}$')
-plt.ylabel("$\phi\,/$"r'$\,\mathrm{rad}$')
-plt.grid(True, which="both", ls="-")
-plt.legend(loc='lower right')
-plt.yticks([0,(1/4)*np.pi,(1/2)*np.pi,(3/4)*np.pi,np.pi],["0","$1/4\pi$","$1/2\pi$","$3/4\pi$","$\pi$"])
-#plt.xlim(15, 35, 1)
-plt.savefig("build/PlotZuD.pdf")
-plt.close()
-#R1 = 67.2
-#print(1/(1000*a[1]))
-#T_ext = (2*L)/R1
-#T_ext1 = (2*L)/(R1+50)
-#print(T_ext,T_ext1)
-#abweichung = (1/(1000*a[1]) - T_ext)/(1/(1000*a[1]))
-#abweichung1 = (1/(1000*a[1]) - T_ext1)/(1/(1000*a[1]))
-#print(abweichung,abweichung1)
 
 import uncertainties as unc
 import uncertainties.unumpy as unp
 
-flinspace2 = np.linspace(0, 300, 1000)
+flinspace2 = np.linspace(0, 100, 1000)
 
 plt.plot(f, phi, 'rx', label='Messwerte')
-plt.plot(flinspace2, np.pi/2+unp.nominal_values(unp.arctan((-2*np.pi*flinspace2*1e3*(R)*C/(1-L*C*(2*np.pi*flinspace2*1e3)**2))**(-1))), 'k-', label='Theoriekurve')
+plt.plot(flinspace2, np.pi/2+unp.nominal_values(unp.arctan((-2*np.pi*flinspace2*1e3*(R)*C/(1-L*C*(2*np.pi*flinspace2*1e3)**2))**(-1))), label='Theoriekurve')
 plt.xscale('log')
-plt.xlabel(r'$f/$kHz')
+plt.xlabel(r'$f\,/\,$kHz')
 plt.ylabel(r'$\phi/$rad')
-plt.axis((10, 100, -0.2, 4))  # 1e-3 weil f in kHZ ist
+plt.axis((10, 70, -0.2, 4))  # 1e-3 weil f in kHZ ist
 # Slicing: -3 ist drittletztes Element, : bedeutet bis zum Ende
+plt.plot(f[-1:], phi[-1:], 'ok', markersize=8, markeredgewidth=1, markerfacecolor='None' )
 
 # Macht die y-Achse schön
 x = np.linspace(0, 2 * np.pi)
@@ -155,10 +130,16 @@ plt.grid()
 plt.tight_layout()
 plt.savefig('build/PlotZuD1.pdf')
 
+#Zweiter Plot zu D
+w_1 = -R/(2*L) + np.sqrt(R**2/(4*L**2)+ 1/(L*C))
+w_2 = R/(2*L) + np.sqrt(R**2/(4*L**2)+ 1/(L*C))
+w_res = np.sqrt(1/(L*C)-R**2/(2*L**2))/(2*np.pi*1000)
+
 plt.xscale('linear')
-plt.axis((17500*1e-3, 85000*1e-3, 0, np.pi))
-plt.axvline(30000*1e-3, color='k', linestyle=':', label=r'$f_1$ und $f_2$')
-plt.axvline(38150*1e-3, color='k', linestyle=':')
-plt.axvline(33800*1e-3, color='b', linestyle=':', label='Resonanzfrequenz')
+plt.plot(f, phi, 'r-', label='Messwertkurve')
+plt.axis((10, 60, 0, np.pi))
+plt.axvline(22.9, color='tab:orange', linestyle=':', label=r'$f_1 = 22.9$kHz und $f_2 = 29.8$kHz')
+plt.axvline(29.8, color='tab:orange', linestyle=':')
+plt.axvline(w_res, color='g', linestyle=':', label='Resonanzfrequenz')
 plt.legend()
 plt.savefig('build/PlotZuD2.pdf')
