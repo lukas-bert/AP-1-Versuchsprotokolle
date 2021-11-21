@@ -16,7 +16,7 @@ x = np.linspace(-0.01,0.36,100)
 plt.subplot(1, 2, 1)
 plt.plot(x,ExpFit(x,a[0],a[1]), label = "Fit")
 plt.errorbar(t, U_0,xerr = errt, yerr = errU_0, fmt='ro', label = "Messdaten")
-plt.xlabel("$t\, /$ " "$\mathrm{\mu}$" r'$\mathrm{s}$')
+plt.xlabel("$t\, /$ " "$\mathrm{\mu}$" r'$\mathrm{µs}$')
 plt.ylabel("$U_0\, /$ "  r'$\mathrm{V}$')
 plt.grid(True, which="both", ls="-")
 plt.legend(loc='best')
@@ -25,14 +25,16 @@ plt.legend(loc='best',prop={"size":6})
 plt.subplot(1, 2, 2)
 plt.plot(x,ExpFit(x,a[0],a[1]), label = "Fit (Logarithmische Skala)")
 plt.errorbar(t, U_0,xerr = errt, yerr = errU_0, fmt='ro', label = "Messdaten")
-plt.xlabel("$t\, /$ " "$\mathrm{\mu}$" r'$\mathrm{s}$')
+plt.xlabel("$t\, /$ " "$\mathrm{\mu}$" r'$\mathrm{µs}$')
 plt.ylabel("$U_0\, /$ "  r'$\mathrm{V}$')
 plt.grid(True, which="both", ls="-")
 plt.yscale('log')
 plt.legend(loc='best')
-plt.legend(loc='best',prop={"size":5})
+plt.legend(loc='best',prop={"size":6})
 
-plt.savefig('PlotZuA.pdf')
+plt.tight_layout()
+
+plt.savefig('build/PlotZuA.pdf')
 plt.close
 
 

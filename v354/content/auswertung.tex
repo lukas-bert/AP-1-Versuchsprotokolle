@@ -1,34 +1,46 @@
 \section{Auswertung}
 \label{sec:Auswertung}
+
+Zuerst wurden alle Gerätekonstanten festgestellt und notiert. Verwendet wurde das Oszilloskop Nummer 4, sowie
+die Schaltung Nummer 1. Die Bauteile des Verwendeten Gerätes haben folgende Werte:
+
+\begin{align*}
+  &R_1 = (67.2 \pm 0.1) \unit{\ohm} \\
+  &R_2 = (682 \pm 0.5) \unit{\ohm}  \\
+  &L   = (16.87 \pm 0.05) \unit{\milli\henry} \\
+  &C   = (2.060 \pm 0.003) \unit{\nano\farad} \\
+\end{align*}
+
 \subsection{Verwertung der Messwerte zur zeitabhängigkeit der Amplitude}
 \label{subsec:AuswertungA}
 
-Um den effektiven Dämpfungswiderstand zu bestimmen kann man folgende Formel betrachten: 
-\begin{equation}
-  \label{eqn:Abklingdauer}
-  \frac{1}{2\pi\mu} = \frac{2L}{R_{\text{eff}}}
-\end{equation}
-Durch Umstellen auf $R_{\text{eff}}$ ergibt sich eine Berechnungsformel:
+Um den effektiven Dämpfungswiderstand zu bestimmen verwende man den Zusammenhang \eqref{eqn:def_mu_nu}.
+Durch Umstellen auf $R_{\text{eff}}$ ergibt sich die Berechnungsformel:
 \begin{equation}
   \label{Abklingdauer1}
   \Longleftrightarrow R_{\text{eff}} = 4\pi\mu L
 \end{equation}
 Um nun $R_{\text{eff}}$ zu berechnen wird zunächst eine Fit-Kurve durch die Messwerte gelegt (siehe \autoref{fig:PlotZuA}).
 
-\-\begin{figure}
+\begin{figure}
   \centering
-  \includegraphics[width=0.7\textwidth]{PlotZuA.pdf}
+  \includegraphics[width=\textwidth]{build/PlotZuA.pdf}
   \caption{Exponentieller Fit zu den Messwerten mit linearer Skala (links) und logarithmischer Skala für $U$ (rechts)}
   \label{fig:PlotZuA}
 \end{figure}
 
 Man benötigt nun noch den Faktor $2\pi\mu$. Diesen kann man durch die erstellte exponentielle Regression 
-bestimmen, da $2\pi\mu$ dem positiven Faktor des Exponenten der erstellten Exponentialfunktion entspricht. 
-Daher ist $2\pi\mu = 6.98\unit{\second}$.
+bestimmen, da er dem positiven Faktor des Exponenten der Exponentialfunktion entspricht. 
+So ist $2\pi\mu = 6.98\,\unit{\second}$ gegeben.
 $R_{\text{eff}}$ ergibt sich durch einsetzen zu:
+
 \begin{equation*}
   R_{\text{eff}} = (2\cdot 6.98\cdot \num{16.87\pm 0.05}) \unit{\ohm} = (\num{117.75 \pm 0.05})\,\unit{\ohm}
 \end{equation*}
+
+Auffällig ist, dass $R_{\text{eff}}$ genau $R_1 + 50\unit{\ohm}$ entspricht. Dies hat den Grund, dass der Innenwiderstand des Generators
+$50 \unit{ohm}$ beträgt. Aus diesem Grund wird dieser in den Folgenden Auswertungen berücksichtigt.
+Die Abklingdauer lässt sich nach Gleichung \eqref{eqn:T_ex} berechnen.
 
 \subsection{Aperiodischer Grenzfall}
 \label{subsec:AuswertungB}
