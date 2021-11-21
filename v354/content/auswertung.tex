@@ -22,6 +22,28 @@ Durch Umstellen auf $R_{\text{eff}}$ ergibt sich die Berechnungsformel:
 \end{equation}
 Um nun $R_{\text{eff}}$ zu berechnen wird zunächst eine Fit-Kurve durch die Messwerte gelegt (siehe \autoref{fig:PlotZuA}).
 
+\begin{table}
+  \centering
+  \caption{Messdaten zur Zeitabhängigkeit der Amplitude.}
+  \label{tab:Mess1}
+  \begin{tabular}{S[table-format=1.2]}
+      \toprule
+      $U \mathbin{/} \unit{\volt}$ \\
+      \midrule
+      3.40 \\
+      2.55 \\
+      1.95 \\
+      1.45 \\
+      1.15 \\
+      0.85 \\
+      0.70 \\
+      0.60 \\
+      0.50 \\
+      0.40 \\
+  \bottomrule 
+  \end{tabular}
+\end{table}
+
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth]{build/PlotZuA.pdf}
@@ -58,6 +80,75 @@ Der Fehler dieses Wertes ergibt sich nach der gaußschen Fehlerfortpflanzung zu:
 Insgesamt erhält man $R_{\text{ap, Theorie}} = (5,72 \pm 0,043) \unit{\kilo\ohm}$. Der experimentell ermittelte Wert wurde 
 zu $R_{\text{ap, exp}} = (4,49 \pm 0,01) \unit{\kilo\ohm}$ bestimmt.
 
-\subsection{frequenzabhängigkeit der Kondensatorspannung}
+\subsection{Frequenzabhängigkeit der Kondensatorspannung}
 \label{subsec:AuswertungC}
+In \autoref{tab:Mess3} wird das Verhältniss $\frac{U_C}{U}$ gegen die Freuquenz $f$ aufgetragen. Der Maximalwerte dieses Verhältnisses liegt bei $f_{res} \approx 25 \unit{\kilo\hertz}$.
+Bei dieser Frequenz ergibt sich für die Resonanzüberhöhung, auch Güte $q$ genannt:
+\begin{equation}
+  q \pm \Delta q = \frac{U_{C,max}}{U} \pm \sqrt{\frac{\Delta U_{C}}{U_{C}} + \frac{\Delta U}{U}}
+  = \left(\frac{9.5\unit{\volt}}{2.8\unit{\volt}} \, \pm \sqrt{\left(\frac{0.05}{11.72}\right)^2 + \left(\frac{0.1}{3}\right)^2}\right)
+  = \left(3.39 \pm 0.03\right)
+\end{equation}
+Der Theoriewert der Güte ergibt sich nach \eqref{eqn:Guete_Resonanzkurve2} zu: $q_{Theorie} = 3.909$.
+
+\begin{table}
+  \centering
+  \caption{Frequenzabhängigkeit der Kondensatorspannung $U_c$ und Phase zwischen Erreger- und
+   Kondensatorspannung im Serienresonanzkreis. Die Phase $\phi$ wird dabei nach Formel \eqref{eqn:Phase} berechnet}
+  \label{tab:Mess3}
+  \begin{tabular}{S[table-format=2.1] S[table-format=1.2] S[table-format=1.1] S[table-format=1.2] S[table-format=2.1] S[table-format=3.2] S[table-format=1.2]}
+      \toprule
+      {$\nu \mathbin{/} \unit{\kilo\hertz}$} & {$U_C \mathbin{/} \unit{\volt}$} & {$U \mathbin{/} \unit{\volt}$} & {$\frac{U_C}{U} \mathbin{/} \unit{\volt}$} &%
+      {$a \mathbin{/} \unit{\micro\second}$} & {$b \mathbin{/} \unit{\micro\second}$} & {$\phi \mathbin{/} \unit{\radian}$}\\
+      \midrule
+      12.5 & 3.10 & 2.9 & 1.07 & 2.5 & 80.0  & 0.20 \\
+      15.0 & 3.60 & 3.0 & 1.20 & 2.5 & 66.5  & 0.24 \\
+      17.5 & 4.40 & 3.0 & 1.47 & 3.0 & 56.0  & 0.34 \\
+      20.0 & 5.40 & 3.0 & 1.80 & 3.5 & 49.5  & 0.44 \\
+      22.5 & 7.20 & 2.9 & 2.48 & 5.0 & 44.5  & 0.71 \\
+      25.0 & 9.50 & 2.8 & 3.39 & 7.5 & 40.0  & 1.18 \\
+      27.5 & 9.00 & 2.8 & 3.21 & 11.0 & 36.0 & 1.92 \\
+      30.0 & 6.20 & 2.9 & 2.14 & 12.5 & 33.0 & 2.38 \\
+      32.5 & 4.20 & 2.9 & 1.45 & 12.5 & 30.5 & 2.58 \\
+      35.0 & 3.10 & 2.9 & 1.07 & 12.0 & 28.5 & 2.65 \\
+      37.5 & 2.40 & 2.9 & 0.83 & 11.5 & 26.5 & 2.73 \\
+      40.0 & 1.90 & 2.9 & 0.66 & 11.0 & 24.5 & 2.82 \\
+      42.5 & 1.55 & 2.9 & 0.53 & 11.0 & 23.5 & 2.94 \\
+      45.0 & 1.30 & 2.9 & 0.45 & 10.5 & 22.0 & 3.00 \\
+      47.5 & 1.10 & 2.9 & 0.38 & 10.0 & 21.0 & 2.99 \\
+      50.0 & 0.95 & 2.9 & 0.33 & 9.5 & 20.0  & 2.98 \\
+      52.5 & 0.85 & 2.9 & 0.29 & 9.0 & 19.0  & 2.98 \\
+      55.0 & 0.75 & 2.9 & 0.26 & 8.5 & 18.0  & 2.97 \\
+      57.5 & 0.70 & 2.9 & 0.24 & 8.0 & 18.0  & 2.79 \\
+      \bottomrule
+      \end{tabular}
+  \end{table}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{build/PlotZuC1.pdf}
+  \caption{Güte}
+  \label{fig:PlotZuC1}
+\end{figure}
+
+Die Breite der Resonanzkurve $f_{diff}$ kann bestimmt werden durch:
+\begin{equation}
+  f_{diff} = f_+ - f_-
+\end{equation}
+Hierzu werden zunächst die Grenzfrequenzen $f_+$ und $f_-$ bestimmt. Diese können \autoref{fig:PlotZuC2} entnommen werden.
+\begin{equation}
+  f_+ = 29.37\unit{\kilo\hertz} \,\,\,\,\,\, f_- = 22.27\unit{\kilo\hertz} \\
+  \rightarrow f_{diff} = 7.1 \unit{\kilo\hertz}
+\end{equation}
+Die theoretische Resonanzbreite wird durch
+\begin{equation}
+  f_{diff,Theorie} = \frac{R_2 +50\unit{\ohm}}{2\pi L} = \left(6.91 \pm 0.47\right)\unit{\kilo\hertz}
+\end{equation}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{build/PlotZuC2.pdf}
+  \caption{Breite der Resonanzkurve}
+  \label{fig:PlotZuC2}
+\end{figure}
 
