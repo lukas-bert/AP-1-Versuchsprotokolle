@@ -58,11 +58,11 @@ Um nun $R_{\text{eff}}$ zu berechnen wird zunächst eine Fit-Kurve durch die Mes
 
 Man benötigt nun noch den Faktor $2\pi\mu$. Diesen kann man durch die erstellte exponentielle Regression 
 bestimmen, da er dem positiven Faktor des Exponenten der Exponentialfunktion entspricht. 
-So ist $2\pi\mu = 6.98\, (µs)^{-1}$ gegeben.
+So ist $2\pi\mu = 6.98\, (\unit{\micro\second})^{-1}$ gegeben.
 $R_{\text{eff}}$ ergibt sich durch einsetzen.
 
 \begin{equation*}
-  R_{\text{eff}} = 2\cdot 6.98\cdot 16.87\,\unit{\ohm} = 117.75\,\unit{\ohm}
+  R_{\text{eff}} = 117.75\,\unit{\ohm}
 \end{equation*}
 
 Auffällig ist, dass $R_{\text{eff}} \approx R_1 + 50\unit{\ohm}$ entspricht. Dies hat den Grund, dass der Innenwiderstand des Generators
@@ -70,7 +70,7 @@ $50 \unit{\ohm}$ beträgt. Daher wird dieser in den Folgenden Auswertungen berü
 gerade einmal $\Delta R_{\text{rel}} = 0.46\%$.
 Die Abklingdauer lässt sich nach Gleichung \eqref{eqn:T_ex} berechnen und ist konkret gegeben durch:
 \begin{align*}
-  T_{\text{ex, exp}} &= \frac{1}{2\pi\mu} = 143 \unit{\nano\second} \\
+  T_{\text{ex, exp}} &= \frac{1}{2\pi\mu} = 286 \unit{\nano\second} \\
   \text{Der Theorie Wert beträgt:} \\
   T_{\text{ex, theo}} &= \frac{2L}{R} = 288 \unit{\nano\second}
 \end{align*}
