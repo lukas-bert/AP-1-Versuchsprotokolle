@@ -1,0 +1,7 @@
+d_K  = 5.4          #cm (Kugeldurchmesser)
+m_K  = 141.76       #g (Kugelmasse)
+m_1  = 1.39         #g (Masse des Zylinders am Stab)
+m_1s = 1.64         #g (" " " mit Stab)
+d_1s = 0.995        #cm (Höhe des Zylinders)
+l_s  = 10.79        #cm (Länge des Alustabs)
+l_Ks = 1.25         #cm (Länge des Kugelstiels) 
