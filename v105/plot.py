@@ -26,5 +26,5 @@ plt.ylabel("$B\, / \, mT$")
 #plt.ylabel(r'$y \mathbin{/} \unit{\micro\joule}$')
 #plt.legend(loc='best')
 
-#plt.savefig('build/plot.pdf')
+plt.savefig('build/plot.pdf')
 #plt.close()
