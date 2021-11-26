@@ -1,12 +1,52 @@
 \section{Auswertung}
 \label{sec:Auswertung}
+Vorab: Die Messunsicherheiten wurden gemäß der gaußschen Fehlerfortpflanzung berechnet:
+\begin{equation}
+  \label{eqn:Gauss}
+  \Delta F = \sqrt{\sum_i\left(\frac{\symup{d}F}{\symup{d}y_i}\Delta y_i \right)^2}
+\end{equation}
+Gerätekonstanten zu den Bauteilen:
+Helmholtzspulenpaar:
+\begin{align*}
+    Windungen N &= 195 \\
+    Radius r_H &= 0.109 \unit{\metre} \\
+    Abstand der Spulen d_H = 0.138 \unit{\metre} \\
+\end{align*}
+Material:
+\begin{align*}
+    Kugeldurchmesser d_K &= (5.40 \pm 0.01) \unit{\centi\metre} \\
+    Kugelmasse m_K &=  141.76  \unit{\gram} \\
+    Masse des Zylinders am Stab m_1 &=  1.39  \unit{\gram} \\
+    Masse des Zylinders am Stab mit Stab m_{1,s} &= 1.64 \unit{\gram} \\
+    Höhe des Zylinders d_{1,s} &= (0.995 \pm 0.01) \unit{\centi\metre} \\
+    Länge des Alustabs l_s &= (10.79 \pm 0.01) \unit{\centi\metre} \\
+    Länge des Kugelstiels l_{Ks} &= (1.25 \pm 0.01) \unit{\centi\metre} \\
+\end{align*}
 
+\subsection{Bestimmung des magnetischen Momentes über die Erdgravitation}
+\label{AuswertungZu1}
+In \autoref{fig:Plot1} wird die Magentfeldstärke $B$ gegen den Abstand $r$ der aufgesteckten Masse bis zum Dipol aufgetragen. Der Abstand r wurde mit einer Ungenauigkeit von $\pm 0.001\unit{\centi\metre}$ gemessen.
+Die Magentfeldstärke $B$ in der Mitte des Helmholtzspulenpaares lässt sich gemäß der Gleichung \eqref{eqn:Helmholtz_B} aus der gemessenen Stromstärke $I$ (vgl.\autoref{tab:Mess1}) 
+berechnen(vgl.\autoref{tab:Mess1}). Die gemessene Stromstärke ist mit einem Fehler von $\pm 0.05\unit{\ampere}$ behaftet. Zur Berechnung von B werden $R = r_H$ und $x = \frac{d_H}{2}$
+verwendet.
 \begin{figure}
-  \centering
-  \includegraphics{plot.pdf}
-  \caption{Plot.}
-  \label{fig:plot}
-\end{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/plot1.pdf}
+    \caption{linearer Fit \cite{scipy} zu den Messwerten der Gravitationsmethode}
+    \label{fig:Plot1}
+\end{figure} 
 
-
-Siehe \autoref{fig:plot}!
+Mittels einer linearen Regression \cite{scipy} 
+\begin{equation*}
+    B = ar_{ges} + b
+\end{equation*}
+ergeben sich die Parameter 
+\begin{align*}
+    a &= (3.10 \pm 0.04) 10^{-2}\unit{\tesla\per\metre}
+    b &= (3.24 \pm 0.34) 10^{-4} \unit{\tesla}
+\end{align*}
+für den Fit. Dieser Fit wird dann in Formel \eqref{eqn:Drehmoment_Gleichgewicht2} eingesetzt. Dabei kann $b$ vernachlässigt. Nach umstellen der Formel 
+\eqref{eqn:Drehmoment_Gleichgewicht2} kann das magnetische Moment berechnet werden.
+\begin{align*}
+    \mu_{\text{Dipol}} = (0.440 \pm 0.006) \unit{\square\ampere\per\metre}
+\end{align*}
