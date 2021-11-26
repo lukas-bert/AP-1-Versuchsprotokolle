@@ -1,52 +1,80 @@
 \section{Auswertung}
 \label{sec:Auswertung}
-Vorab: Die Messunsicherheiten wurden gemäß der gaußschen Fehlerfortpflanzung berechnet:
+Vorab: Die Messunsicherheiten wurden gemäß der gaußschen Fehlerfortpflanzung
 \begin{equation}
   \label{eqn:Gauss}
   \Delta F = \sqrt{\sum_i\left(\frac{\symup{d}F}{\symup{d}y_i}\Delta y_i \right)^2}
 \end{equation}
-Gerätekonstanten zu den Bauteilen:
+mittels Scipy \cite{scipy}  berechnet.\\
+\\
+Gerätekonstanten zu den Bauteilen:\\
 Helmholtzspulenpaar:
 \begin{align*}
-    Windungen N &= 195 \\
-    Radius r_H &= 0.109 \unit{\metre} \\
-    Abstand der Spulen d_H = 0.138 \unit{\metre} \\
+    &\text{Windungen}& N &= 195 \\
+    &\text{Radius}& r_H &= 0.109 \unit{\metre} \\
+    &\text{Abstand der Spulen}& d_H &= 0.138 \unit{\metre} \\
 \end{align*}
 Material:
 \begin{align*}
-    Kugeldurchmesser d_K &= (5.40 \pm 0.01) \unit{\centi\metre} \\
-    Kugelmasse m_K &=  141.76  \unit{\gram} \\
-    Masse des Zylinders am Stab m_1 &=  1.39  \unit{\gram} \\
-    Masse des Zylinders am Stab mit Stab m_{1,s} &= 1.64 \unit{\gram} \\
-    Höhe des Zylinders d_{1,s} &= (0.995 \pm 0.01) \unit{\centi\metre} \\
-    Länge des Alustabs l_s &= (10.79 \pm 0.01) \unit{\centi\metre} \\
-    Länge des Kugelstiels l_{Ks} &= (1.25 \pm 0.01) \unit{\centi\metre} \\
+    &\text{Kugeldurchmesser}& d_K &= (5.40 \pm 0.01) \unit{\centi\metre} \\
+    &\text{Kugelmasse}& m_K &=  141.76  \unit{\gram} \\
+    &\text{Masse des Zylinders am Stab}& m_1 &=  1.39  \unit{\gram} \\
+    &\text{Masse des Zylinders am Stab mit Stab}& m_{1,s} &= 1.64 \unit{\gram} \\
+    &\text{Höhe des Zylinders}& d_{1,s} &= (0.995 \pm 0.01) \unit{\centi\metre} \\
+    &\text{Länge des Alustabs}& l_s &= (10.79 \pm 0.01) \unit{\centi\metre} \\
+    &\text{Länge des Kugelstiels}& l_{Ks} &= (1.25 \pm 0.01) \unit{\centi\metre} \\
 \end{align*}
+
+\begin{table}
+    \centering
+    \caption{Messdaten zur Methode 1: Ausnutzung der Gravitation. \\ $r$: gemessener Abstand der verschiebbaren Masse, $r_{\text{ges}}$: reale Hebellänge,\\ 
+            $B$: Magnetfeldstärke errechnet aus I}
+    \label{tab:Mess1}
+    \begin{tabular}{S S[table-format=1.2] S[table-format=2.2] S[table-format=1.2]}
+        \toprule
+        $r \mathbin{/} \unit{\centi\metre}$ & $I \mathbin{/} \unit{\ampere}$ & $r_{\text{ges}} \mathbin{/} \unit{\centi\metre}$ & $B \mathbin{/} \unit{\milli\tesla}$ \\
+        \midrule
+        6.03 & 2.65 & 10.48 & 3.59 \\
+        5.5  & 2.50 & 9.95  & 3.39 \\
+        5.0  & 2.40 & 9.45  & 3.25 \\
+        4.5  & 2.30 & 8.95  & 3.12 \\
+        4.0  & 2.20 & 8.45  & 2.98 \\
+        3.5  & 2.05 & 7.95  & 2.78 \\
+        3.0  & 1.90 & 7.45  & 2.58 \\
+        2.5  & 1.80 & 6.95  & 2.44 \\
+        2.0  & 1.70 & 6.45  & 2.31 \\
+        1.5  & 1.60 & 5.95  & 2.17 \\
+        1.0  & 1.50 & 5.45  & 2.03 \\
+        0.5  & 1.40 & 4.95  & 1.90 \\
+        0.0  & 1.25 & 4.45  & 1.70 \\
+    \bottomrule 
+    \end{tabular}
+\end{table}
 
 \subsection{Bestimmung des magnetischen Momentes über die Erdgravitation}
 \label{AuswertungZu1}
 In \autoref{fig:Plot1} wird die Magentfeldstärke $B$ gegen den Abstand $r$ der aufgesteckten Masse bis zum Dipol aufgetragen. Der Abstand r wurde mit einer Ungenauigkeit von $\pm 0.001\unit{\centi\metre}$ gemessen.
-Die Magentfeldstärke $B$ in der Mitte des Helmholtzspulenpaares lässt sich gemäß der Gleichung \eqref{eqn:Helmholtz_B} aus der gemessenen Stromstärke $I$ (vgl.\autoref{tab:Mess1}) 
-berechnen(vgl.\autoref{tab:Mess1}). Die gemessene Stromstärke ist mit einem Fehler von $\pm 0.05\unit{\ampere}$ behaftet. Zur Berechnung von B werden $R = r_H$ und $x = \frac{d_H}{2}$
-verwendet.
+Die Magentfeldstärke $B$ in der Mitte des Helmholtzspulenpaares lässt sich gemäß der Gleichung \eqref{eqn:Helmholtz_B} aus der gemessenen Stromstärke $I$  berechnen(vgl.\autoref{tab:Mess1}). 
+Die gemessene Stromstärke ist mit einem Fehler von $\pm 0.05\unit{\ampere}$ behaftet. Zur Berechnung von B werden $R = r_H$ und $x = \frac{d_H}{2}$ verwendet.
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{build/plot1.pdf}
     \caption{linearer Fit \cite{scipy} zu den Messwerten der Gravitationsmethode}
     \label{fig:Plot1}
 \end{figure} 
-
+\\
+\\
 Mittels einer linearen Regression \cite{scipy} 
 \begin{equation*}
     B = ar_{ges} + b
 \end{equation*}
 ergeben sich die Parameter 
 \begin{align*}
-    a &= (3.10 \pm 0.04) 10^{-2}\unit{\tesla\per\metre}
-    b &= (3.24 \pm 0.34) 10^{-4} \unit{\tesla}
+    a &= (3.10 \pm 0.04) 10^{-2}\unit{\tesla\per\metre}\\
+    b &= (3.24 \pm 0.34) 10^{-4} \unit{\tesla}\\
 \end{align*}
 für den Fit. Dieser Fit wird dann in Formel \eqref{eqn:Drehmoment_Gleichgewicht2} eingesetzt. Dabei kann $b$ vernachlässigt. Nach umstellen der Formel 
 \eqref{eqn:Drehmoment_Gleichgewicht2} kann das magnetische Moment berechnet werden.
 \begin{align*}
-    \mu_{\text{Dipol}} = (0.440 \pm 0.006) \unit{\square\ampere\per\metre}
+    \mu_{\text{Dipol}} = (0.440 \pm 0.006) \unit{\square\ampere\per\metre}\\
 \end{align*}
