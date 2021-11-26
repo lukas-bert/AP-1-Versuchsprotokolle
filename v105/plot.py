@@ -37,14 +37,17 @@ r_ges = (r_m +  r_z + l_ks + r_k)                                       # Gesamt
 
 B_1 = B(I_1)                                                            # Werte für B-Feld aus Messwerten
 
+np.savetxt("content/Messung1_Ergebnisse.txt", np.transpose([unp.nominal_values(r_ges)*10**2, unp.nominal_values(B_1)*10**3]), fmt = ['%.2f', '%.2f'], header="# r_ges in cm, B1 in mT")
+
 # Linearer Fit zu Messung A
 params1, pcov1 = op.curve_fit(f, unp.nominal_values(r_ges), unp.nominal_values(B_1), sigma=unp.std_devs(B_1))
 err = np.sqrt(np.diag(pcov1))       # Fehler der Variablen aus dem Fit
 x1 = np.linspace(0,0.15,100)
 a1 = ufloat(params1[0], err[0])
 mu1 = (m_z*const.g)/a1              # Berechnung des Dipolmoments
+b = ufloat(params1[1], err[1])
 
-print(a1, mu1)
+print(a1, b, mu1)
 
 
 # Plot zu Messung A
@@ -75,10 +78,12 @@ B_2 = 1/B(I_2)                                                      # Werte zum 
 params2, pcov2 = op.curve_fit(f, unp.nominal_values(B_2), unp.nominal_values(T_squared), sigma=unp.std_devs(T_squared))
 x2 = np.linspace(0,350000,100000)
 a2 = ufloat(params2[0],np.sqrt(np.diag(pcov2))[0])
-J_k = (2/5)*m_k*(r_k**2)
+b2 = ufloat(params2[1],np.sqrt(np.diag(pcov2))[1])
+
+J_k = (2/5)*m_k*(r_k**2)                                # Trägheitsmoment der Kugel
 mu1 = (4*(np.pi**2)*J_k)/a2
 
-print(a2, mu1)
+print(a2, b2, mu1)
 
 # Plot zu Messung B
 plt.errorbar(unp.nominal_values(B_2), unp.nominal_values(T_squared), xerr = unp.std_devs(B_2), yerr = unp.std_devs(T_squared), fmt='r.', label='Messdaten')
