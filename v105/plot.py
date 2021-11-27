@@ -47,7 +47,7 @@ a1 = ufloat(params1[0], err[0])
 mu1 = (m_z*const.g)/a1              # Berechnung des Dipolmoments
 b = ufloat(params1[1], err[1])
 
-print(a1, b, mu1)
+#print(a1, b, mu1)
 
 
 # Plot zu Messung A
@@ -83,12 +83,12 @@ b2 = ufloat(params2[1],np.sqrt(np.diag(pcov2))[1])
 J_k = (2/5)*m_k*(r_k**2)                                # Trägheitsmoment der Kugel
 mu1 = (4*(np.pi**2)*J_k)/a2
 
-print(a2, b2, mu1)
+#print(J_k)
+#print(a2, b2, mu1)
 
 # Plot zu Messung B
 plt.errorbar(unp.nominal_values(B_2), unp.nominal_values(T_squared), xerr = unp.std_devs(B_2), yerr = unp.std_devs(T_squared), fmt='r.', label='Messdaten')
 plt.plot(x2, f(x2, params2[0], params2[1]), label='lineare Regression')
-#plt.xlabel(r'$B^{-1} \,/\, \mathrm{T}^{-1}\cdot 10^{-4}$')
 plt.ylabel(r'$T^{2} \,/\, \mathrm{s}^{2}$')
 plt.xlabel(r'$B^{-1}   \,/\, \mathrm{T}^{-1}$')
 plt.xlim(0, 1750)
