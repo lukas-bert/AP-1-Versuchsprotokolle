@@ -9,9 +9,9 @@ import scipy.constants as const
 #plt.rcParams.update({'font.size': 22})          # Stellt Fontsize ein
 
 #Materialkonstanten
-r_z = ufloat(0.995/2, 0.001)*(10**(-2))         # Radius der Masse am Aluminiumstab
-l_ks = ufloat(1.25, 0.001)*(10**(-2))           # Länge des Kugelstiels
-r_k = ufloat(5.4/2,0.001)*(10**(-2))            # Radius der Kugel
+r_z = ufloat(0.995/2, 0.01)*(10**(-2))         # Radius der Masse am Aluminiumstab
+l_ks = ufloat(1.25, 0.01)*(10**(-2))           # Länge des Kugelstiels
+r_k = ufloat(5.4/2,0.01)*(10**(-2))            # Radius der Kugel
 m_k = 0.14176                                   # Masse der Kugel in kg
 m_z = 0.00139                                   # Masse der Zylinderförmigen Masse am Alustab in kg
 
@@ -31,7 +31,7 @@ def f(x, m, b):
 
 r_m, I_1 = np.genfromtxt("content/Messung1.txt", unpack = True)         # Importieren der Messwerte: r_m ist nur das Stück zwischen Kugelstiel und dem unteren Ende der Masse
 I_1 = unp.uarray(I_1,0.05)                                              # I_1 hat den Fehler 0.05 A
-r_m = unp.uarray(r_m,0.001)*(10**(-2))                                  # r_m hat den Fehler 0.001 cm
+r_m = unp.uarray(r_m,0.01)*(10**(-2))                                  # r_m hat den Fehler 0.001 cm
 
 r_ges = (r_m +  r_z + l_ks + r_k)                                       # Gesamte Hebellänge in m
 
@@ -81,7 +81,7 @@ a2 = ufloat(params2[0],np.sqrt(np.diag(pcov2))[0])
 b2 = ufloat(params2[1],np.sqrt(np.diag(pcov2))[1])
 
 J_k = (2/5)*m_k*(r_k**2)                                # Trägheitsmoment der Kugel
-mu1 = (4*(np.pi**2)*J_k)/a2
+mu2 = (4*(np.pi**2)*J_k)/a2
 
 #print(J_k)
 #print(a2, b2, mu1)
@@ -97,3 +97,6 @@ plt.grid(True, which="both", ls="-")
 plt.legend(loc='best')
 plt.savefig('build/plot2.pdf')
 plt.close()
+#print(mu1,mu2)
+#abw = np.abs(mu1-mu2)/mu2 #Abweichung der beiden Methoden
+#print(abw)
