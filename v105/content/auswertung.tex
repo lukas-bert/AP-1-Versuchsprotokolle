@@ -1,10 +1,10 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 Vorab: Die Messunsicherheiten wurden gemäß der gaußschen Fehlerfortpflanzung
-\begin{equation}
+\begin{equation*}
   \label{eqn:Gauss}
   \Delta F = \sqrt{\sum_i\left(\frac{\symup{d}F}{\symup{d}y_i}\Delta y_i \right)^2}
-\end{equation}
+\end{equation*}
 mittels Scipy \cite{scipy}  berechnet.\\
 \\
 Gerätekonstanten zu den Bauteilen:\\
@@ -59,12 +59,12 @@ Die gemessene Stromstärke ist mit einer Messunsicherheit von $\pm 0.05\unit{\am
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{build/plot1.pdf}
-    \caption{Linearer Fit \cite{scipy} zu den Messwerten der Gravitationsmethode.}
+    \caption{Linearer Fit mit Scipy \cite{scipy} zu den Messwerten der Gravitationsmethode. Der Plot wurde mit dem Paket Matplotlib \cite{matplotlib} erstellt.}
     \label{fig:Plot1}
 \end{figure} 
 \\
 \\
-Mittels einer linearen Regression \cite{scipy} 
+Mittels einer linearen Regression mit dem Paket Scipy \cite{scipy} und der Gleichung
 \begin{equation*}
     B = ar_{ges} + b
 \end{equation*}
@@ -110,18 +110,19 @@ sich aus den Messwerten berechnet.
     \end{tabular}
 \end{table}
 
-Wie man an \eqref{eqn:Schwingungsdauer} erkennen kann, besteht ein linearer Zusammenhang zwischen dem Quadrat der Schwingungsdauer und dem Kehrwert des Betrags der magnetischen
-Flussdichte $B$, der die Form hat:
+Wie man an \autoref{eqn:Schwingungsdauer} erkennen kann, besteht ein linearer Zusammenhang 
 \begin{equation*}
     T^2 = a \cdot \frac{1}{B}
 \end{equation*}
+zwischen dem Quadrat der Schwingungsdauer und dem Kehrwert des Betrags der magnetischen
+Flussdichte $B$
 
 Zur Ermittlung des Parameters a werden die aus den Messwerten berechneten Größen $B^{-1}$ und $T^2$ gegeneinander aufgetragen, wie es in \autoref{fig:Plot2} zu erkennen ist.
 
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{build/plot2.pdf}
-    \caption{Linearer Fit \cite{scipy} zu den Messwerten der Schwingungsmethode.}
+    \caption{Linearer Fit mit Scipy \cite{scipy} zu den Messwerten der Schwingungsmethode. (Erstellt mit Matplotlib \cite{matplotlib})}
     \label{fig:Plot2}
 \end{figure} 
 
@@ -131,10 +132,11 @@ Die bestimmten Parameter der Geraden $f(x) = ax + b$  lauten:
     a &= (3.84 \pm 0.04) \cdot 10^{-3} \unit{\tesla\second\squared} \\
     b &= (-0.046 \pm 0.014) \unit{\second\squared}
 \end{align*}
-Das Trägheitsmoment $J_\text{K}$ der Kugel berechnet sich mit den oben genannten Abmessungen zu \eqref{eqn:Trägheitsmoment_Kugel}:
+Das Trägheitsmoment $J_\text{K}$ der Kugel berechnet sich mit den oben genannten Abmessungen und \autoref{eqn:Trägheitsmoment_Kugel}. Es hate den Betrag
 \begin{equation*}
     J_\text{K} = \frac{2}{5} m_{\text{K}} r_{\text{K}}^2 = (4.1337 \pm 0.0031) \cdot 10^{-5} \unit{\kilogram\meter\squared}  
 \end{equation*}
+.
 Damit folgt aus Formel \eqref{eqn:Schwingungsdauer}, unter Vernachlässigung von $b$ (da theoretisch $b = 0$ gilt):
 \begin{equation*}
     a = \frac{4 \pi^2 J_{\text{K}}}{\mu_{\text{Dipol}}}
