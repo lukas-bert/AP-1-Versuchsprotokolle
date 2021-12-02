@@ -9,7 +9,7 @@ welcher sich an der Kugel befindet, ausgerichtet. In diesen Stiel lässt sich wi
 
 Die Billiardkugel wird für beide Verfahren in ein homogenes Magnetfeld gesetzt. Dies geschieht mit Hilfe eines Helmholtz-Spulenpaares, in dessen Mitte sich eine
 Messinghalterung befindet, auf der die Kugel abgelegt werden kann. In der Halterung befinet sich ein Loch, über das ein \glqq Luftkissen\grqq \: erzeugt werden kann, auf dem
-die Kugel (im Optimalfall) reibungsfrei gelagert ist. Die Apparatur wird über ein Steuergerät reguliert. An diesem lässt sich das Luftkissen einschalten, die Feldrichtung
+die Kugel reibungsarm gelagert ist. Die Apparatur wird über ein Steuergerät reguliert. An diesem lässt sich das Luftkissen einschalten, die Feldrichtung
 des Magnetfeldes anpassen und die Stromstärke einstellen. Die Stromstärke kann an einer analogen Anzeige abgelesen werden. Der Aufbau kann \autoref{fig:Aufbau} entnommen werden.
 
 \begin{figure}
@@ -29,12 +29,12 @@ $d = 0.138\unit{\meter}$.
 
 Zur Vorbereitung sollte der Betrag der Flussdichte $B$ in der Mitte des Spulenpaares bei einem Strom von $I = 1\unit{\ampere}$ und das Trägheitsmoment $J_{\text{K}}$
 einer Kugel mit Radius $r_k = 2.5\unit{\centi\metre}$ und Masse $m_k = 150\unit{\gram}$ bestimmt werden.
-Ersteres berechnet sich nach Formel \eqref{eqn:Helmholtz_B} zu:
+Ersteres berechnet sich nach \autoref{eqn:Helmholtz_B} zu:
 \begin{equation*}
     B = 195 \cdot \frac{\mu_0 1\unit{\ampere}(0.109\unit{\metre})^2}{((0.109\unit{\metre})^2 + (0.5 \cdot 0.138\unit{\meter})^2)^{3/2}} = 1.356 \unit{\milli\tesla}
 \end{equation*}
 (Magnetische Feldkonstante $\mu_0 = 1.25663706212 \cdot 10^{-6} \unit{\newton\per\ampere\squared}$ \cite{scipy}) \\
-Das Trägheitsmoment ergibt sich nach \eqref{eqn:Trägheitsmoment_Kugel} zu:
+Das Trägheitsmoment ergibt sich nach \autoref{eqn:Trägheitsmoment_Kugel} zu:
 \begin{equation*}
     J_{\text{K}} = \frac{2}{5} \cdot 0.150\unit{\kilogram} \cdot (0.025\unit{\metre})^2 = 3.75 \cdot 10^{-5} \unit{\kilogram\metre\squared} 
 \end{equation*}
