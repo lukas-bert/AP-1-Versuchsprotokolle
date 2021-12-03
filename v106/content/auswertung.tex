@@ -1,12 +1,76 @@
 \section{Auswertung}
 \label{sec:Auswertung}
+Im Folgenden werden alle zu untersuchenden Werte für beide Pendellängen bestimmt. In der ersten Messung wurde die Pendellänge auf $(28.4\pm 0.1)\unit{\centi\metre}$ eingestellt. 
+Für den zweiten Messdurchgang wurde die Länge auf $(78.4\pm 0.1)\unit{\centi\metre}$ geändert.
 
-\begin{figure}
-  \centering
-  \includegraphics{plot.pdf}
-  \caption{Plot.}
-  \label{fig:plot}
-\end{figure}
+\begin{table}
+    \centering
+    \caption{Messwerte zur Pendellänge $l_1 = {28.4}\unit{\centi\metre}$} 
+    \label{tab:Mess1}
+    \begin{tabular}{S S S S S S[table-format=1.2]}
+        \toprule
+        $\unit{{5}T_{1}\per\second}$ & $\unit{{5}T_{2}\per\second}$ & $\unit{{5}T_+\per\second}$ & $\unit{{5}T_-\per\second}$ & $\unit{{5}T\per\second}$ & $\unit{{5}T_s\per\second}$ \\
+        \midrule
+        6.18 & 5.98 & 6.11 & 5.07 & 3.32 & 6.06 \\
+        6.11 & 5.79 & 6.15 & 5.07 & 3.45 & 6.20 \\
+        6.11 & 5.99 & 6.04 & 5.13 & 3.23 & 6.20 \\
+        5.91 & 5.93 & 5.99 & 5.08 & 3.43 & 6.35 \\
+        6.10 & 5.99 & 6.19 & 5.11 & 3.39 & 5.87 \\
+        5.85 & 6.18 & 6.16 & 5.11 & 3.36 & 6.07 \\
+        5.89 & 5.97 & 6.14 & 5.12 & 3.34 & 6.25 \\
+        5.99 & 6.04 & 6.23 & 5.16 & 3.40 & 6.12 \\
+        5.94 & 6.09 & 6.16 & 5.14 & 3.44 & 6.19 \\
+        5.96 & 6.05 & 6.14 & 5.12 & 3.44 & 6.12 \\
+        \bottomrule 
+    \end{tabular}
+\end{table}
 
+\begin{table}
+    \centering
+    \caption{Messwerte zur Pendellänge $l_1 = {78.4}\unit{\centi\metre}$}
+    \label{tab:Mess2}
+    \begin{tabular}{S S S S S[table-format=1.2] S[table-format=2.2]}
+        \toprule
+        $\unit{{5}T_{1}\per\second}$ & $\unit{{5}T_{2}\per\second}$ & $\unit{{5}T_+\per\second}$ & $\unit{{5}T_-\per\second}$ & $\unit{{5}T\per\second}$ & $\unit{{5}T_s\per\second}$ \\
+        \midrule
+        8.89 & 8.81 & 8.93 & 8.09 & 8.22 & 20.20 \\
+        8.79 & 8.75 & 8.98 & 8.20 & 8.33 & 20.10 \\
+        8.93 & 8.86 & 8.98 & 8.13 & 8.52 & 19.49 \\
+        8.97 & 8.82 & 8.87 & 8.12 & 8.36 & 19.61 \\
+        8.91 & 8.91 & 8.89 & 8.18 & 8.50 & 20.00 \\
+        8.75 & 8.84 & 8.75 & 8.27 & 8.39 & 20.31 \\
+        8.85 & 8.90 & 8.89 & 8.18 & 8.51 & 20.25 \\
+        8.82 & 9.01 & 8.98 & 8.31 & 8.45 & 19.94 \\
+        8.85 & 8.91 & 8.84 & 8.22 & 8.43 & 19.53 \\
+        8.96 & 8.99 & 8.89 & 8.23 & 8.56 & 20.24 \\
+        \bottomrule 
+    \end{tabular}
+\end{table}
 
-Siehe \autoref{fig:plot}!
+\subsection{Einzelpendel und gleichsinnige Schwingung}
+\label{subsec:Einzelpendelugleichsinnig}
+Die Einzelpendel und die gleichsinnige Schwingung können zusammen betrachtet werden, da die Kopplungsfeder bei der gleichsinnigen Schwingung keinen Einfluss auf die Dynamik hat und sie
+somit auch als Einzelpendel behandelt werden kann. Die gemessenen Schwingungsdauern $T_1, T_2 \text{und} T_+$ können mit jeweiliger Pendellänge den Tabellen \autoref{Mess1} 
+und \autoref{Mess2} entnommen werden. Zu den Längen $L_1$ und $l_2$ lassen sich die theoretisch vorhergesagten Frequenzen der Pendel errechnen. Mit \autoref{eqn:omega} berechnet 
+ergeben sich die theoretischen Frequenzen $\omega_1 = (5.87\pm 0.01)\unit{\per\second}$ und $\omega_2 = (3.537\pm 0.002)\unit{\per\second}$. Aus den gemessenen Schwebungsdauern wird 
+zunächst der Mittelwert gebildet. Dieser bestimmt sich durch 
+\begin{equation}
+    \label{eqn:Mittelwert}
+    \overline{T} = \frac{1}{N}\sum_{k = 1}^N T_k
+\end{equation}
+zu $\overline{T} = XXX$. Der Mittelwertfehler lässt sich druch 
+\begin{equation}
+    \label{eqn:MWFehler}
+    \symup{\Delta} T = \frac{\sigma}{\sqrt{N}} \qquad \sigma = \sqrt{\frac{1}{N-1}\sum_{i = 1}^N (\overline{T}-T_i)^2}
+\end{equation}
+berechnen. Daraus folgen die fehlerbehafteten Schwingungsdauern $\overline{T_1} = XXX$, $\overline{T_2} = YYY$ und $\overline{T_+} =ZZZ$. Diese kann man durch 
+\begin{equation}
+    \label{eqn:DeltaOmega}
+    \symup{\Delta}\omega = \frac{2\pi}{T^2}\symup{\Delta}T
+\end{equation}
+gemäß der Gaußschen Fehlerfortpflantung in fehlerbehaftete Frequenzen umrechnen. 
+\begin{align*}
+    \omega_1 &= XX \\
+    \omega_2 &= YY \\
+    \omega_+ &= ZZ \\
+\end{align*}
