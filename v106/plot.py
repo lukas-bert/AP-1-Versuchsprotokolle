@@ -101,8 +101,30 @@ for i in range(10):
     meanTs2 = meanTs2 + T_s2[i]
 meanTs2 = meanTs2/10
 
+#Standardabweichung
+
+sigmaTl = np.sqrt((1/9)*(np.sum((meanTl-T_l)**2)))
+sigmaTl = sigmaTl/(np.sqrt(10))
+
+sigmaTr = np.sqrt((1/9)*(np.sum((meanTr-T_r)**2)))
+sigmaTr = sigmaTr/(np.sqrt(10))
+
+sigmaTp = np.sqrt((1/9)*(np.sum((meanTp-T_p)**2)))
+sigmaTp = sigmaTp/(np.sqrt(10))
+
+sigmaTm = np.sqrt((1/9)*(np.sum((meanTm-T_m)**2)))
+sigmaTm = sigmaTm/(np.sqrt(10))
+
+sigmaT = np.sqrt((1/9)*(np.sum((meanT-T)**2)))
+sigmaT = sigmaT/(np.sqrt(10))
+
+sigmaTs = np.sqrt((1/9)*(np.sum((meanTs-T_s)**2)))
+sigmaTs = sigmaTs/(np.sqrt(10))
+
+
+
+print(sigmaTl, sigmaTr, sigmaTp, sigmaTm, sigmaT, sigmaTs)
 #print(meanTl, meanTr, meanTp, meanTm, meanT, meanTs)
 #print(meanTl2, meanTr2, meanTp2, meanTm2, meanT2, meanTs2)
-
 #print(MfT_l, MfT_r, MfT_p,MfT_m,MfT,MfT_s)
 #print(MfT_l2, MfT_r2, MfT_p2,MfT_m2,MfT2,MfT_s2)
