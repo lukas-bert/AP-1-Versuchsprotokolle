@@ -47,6 +47,14 @@ dT_m = np.sqrt(1/(N*(N-1))*(np.sum((wT_m/5-T_m)**2)))
 dT = np.sqrt(1/(N*(N-1))*(np.sum((wT/3-T)**2)))
 dT_s = np.sqrt(1/(N*(N-1))*(np.sum((wT_s-T_s)**2)))
 
+# ufloats erstellen (u: ufloat)
+uT_l = ufloat(T_l, dT_l)
+uT_r = ufloat(T_r, dT_r)
+uT_p = ufloat(T_p, dT_p)
+uT_m = ufloat(T_m, dT_m)
+uT = ufloat(T, dT)
+uT_s = ufloat(T_s, dT_s)
+
 # Frequenzen und deren Fehler berechnen: (Nur w+, w- und ws sind gefragt)
 w_p = funcw(T_p)
 w_m = funcw(T_m)
@@ -65,6 +73,7 @@ uw_s = ufloat(w_s, dw_s)
 
 K = (T_p**2 - T_m**2)/(T_p**2 + T_m**2)
 dK = (4*T_p*T_m)/(T_p**2 + T_m**2)**2 * np.sqrt(T_m**2 * dT_p**2 + T_p**2 * dT_m**2)
+uK = ufloat(K, dK)
 
 #print(K, dK)
 
@@ -87,14 +96,22 @@ uw_st = ufloat(w_st, dw_st)
 #print(uw_st)
 
 ##################### Ausgeben der Werte #####################
+print('---------------------------------------------------------------------------------------------------')
+print("Messung 1 Mittelwerte:           ", "T_1 = ", uT_l, "T_2 = ", uT_r)
+print("                                 ", "T_+ = ", uT_p, "T_- = ", uT_m)
+print("                                 ", "T   = ", uT, "T_s = ", uT_s)
+print('---------------------------------------------------------------------------------------------------')
 print("Messung 1 Experimentelle Werte:  ", r'w_+: ', '{0:.4f}'.format(uw_p), r'w_-: ', '{0:.4f}'.format(uw_m), r'w_s: ', '{0:.4f}'.format(uw_s))
 print("Messung 1 Theoretische Werte:    ", r'w_+: ', '{0:.4f}'.format(uw_pt), r'w_-: ', '{0:.4f}'.format(uw_mt), r'w_s: ', '{0:.4f}'.format(uw_st))
-print()
+print("Messung 1 Kopplungskonstante:    ", "K =", uK)
+print('---------------------------------------------------------------------------------------------------')
 ##############################################################
+print()
+#######################################################################################################################################################
+#######################################################################################################################################################
 
-#######################################################################################################################################################
-#######################################################################################################################################################
-# Messung 2
+# Messung 2 (Eigentlich genau das Selbe)
+
 #######################################################################################################################################################
 #######################################################################################################################################################
 
@@ -117,6 +134,14 @@ dT_m = np.sqrt(1/(N*(N-1))*(np.sum((wT_m/5-T_m)**2)))
 dT = np.sqrt(1/(N*(N-1))*(np.sum((wT/5-T)**2)))
 dT_s = np.sqrt(1/(N*(N-1))*(np.sum((wT_s-T_s)**2)))
 
+# ufloats erstellen (u: ufloat)
+uT_l = ufloat(T_l, dT_l)
+uT_r = ufloat(T_r, dT_r)
+uT_p = ufloat(T_p, dT_p)
+uT_m = ufloat(T_m, dT_m)
+uT = ufloat(T, dT)
+uT_s = ufloat(T_s, dT_s)
+
 # Frequenzen und deren Fehler berechnen: (Nur w+, w- und ws sind gefragt)
 w_p = funcw(T_p)
 w_m = funcw(T_m)
@@ -135,6 +160,7 @@ uw_s = ufloat(w_s, dw_s)
 
 K = (T_p**2 - T_m**2)/(T_p**2 + T_m**2)
 dK = (4*T_p*T_m)/(T_p**2 + T_m**2)**2 * np.sqrt(T_m**2 * dT_p**2 + T_p**2 * dT_m**2)
+uK = ufloat(K, dK)
 
 #print(K, dK)
 
@@ -157,6 +183,13 @@ uw_st = ufloat(w_st, dw_st)
 #print(uw_st)
 
 ##################### Ausgeben der Werte #####################
+print('---------------------------------------------------------------------------------------------------')
+print("Messung 2 Mittelwerte:           ", "T_1 = ", uT_l, "T_2 = ", uT_r)
+print("                                 ", "T_+ = ", uT_p, "T_- = ", uT_m)
+print("                                 ", "T   = ", uT, "T_s = ", uT_s)
+print('---------------------------------------------------------------------------------------------------')
 print("Messung 2 Experimentelle Werte:  ", r'w_+: ', '{0:.4f}'.format(uw_p), r'w_-: ', '{0:.4f}'.format(uw_m), r'w_s: ', '{0:.4f}'.format(uw_s))
 print("Messung 2 Theoretische Werte:    ", r'w_+: ', '{0:.4f}'.format(uw_pt), r'w_-: ', '{0:.4f}'.format(uw_mt), r'w_s: ', '{0:.4f}'.format(uw_st))
+print("Messung 2 Kopplungskonstante:    ", "K =", uK)
+print('---------------------------------------------------------------------------------------------------')
 ##############################################################
