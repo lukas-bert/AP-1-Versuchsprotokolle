@@ -1,0 +1,60 @@
+\input{../../header.tex}
+
+\begin{document}
+\subsection{Fehlerrechnung}    
+\label{subsec:Fehler}
+Mittelwert:
+\begin{equation}
+    \label{eqn:Mittelwert}
+    \overline{T} = \frac{1}{N}\sum_{k = 1}^N T_k
+\end{equation}
+
+Mittelwertfehler:
+\begin{gather}
+    \label{eqn:MWFehler}
+    \symup{\Delta} T = \frac{\sigma}{\sqrt{N}} \qquad \sigma = \sqrt{\frac{1}{N-1}\sum_{i = 1}^N (\overline{T}-T_i)^2}
+\end{gather}
+
+Gaußsche Fehlerfortpflanzung: \\    
+$\symup{\Delta}T$:
+\begin{equation}
+    \label{eqn:DeltaT}
+    \symup{\Delta}T = \frac{2\pi}{\omega^2}\symup{\Delta}\omega
+\end{equation}
+
+$\symup{\Delta}\omega$:
+\begin{equation}
+    \label{eqn:DeltaOmega}
+    \symup{\Delta}\omega = \frac{2\pi}{T^2}\symup{\Delta}T
+\end{equation}
+
+$\symup{\Delta}\omega_+$:
+\begin{equation}
+    \label{eqn:DeltaOmegaPlus}
+    \symup{\Delta}\omega_+ = \frac{1}{2} \sqrt{\frac{1}{g \cdot l} \symup{\Delta}g^2 + \frac{g}{l^3}\symup{\Delta}l^2}
+\end{equation}
+
+$\symup{\Delta}\omega_-$:
+\begin{equation}
+    \label{eqn:DeltaOmegaMinus}
+    \symup{\Delta}\omega_- = \frac{1}{\sqrt{l} \cdot (g + 2K)} \cdot \sqrt{\left(\frac{1}{2}\symup{\Delta}g\right)^2 + \symup{\Delta}K^2 + \left(\frac{g+2K}{2l}\symup{\Delta}l\right)^2}
+\end{equation}
+
+$\symup{\Delta}T_{\text{S}}$:
+\begin{equation}
+    \label{eqn:DeltaT_s}
+    \symup{\Delta}T_{\text{S}} = \frac{1}{(T_+ - T_-)^2} \cdot \sqrt{T_-^4 \, \symup{\Delta}T_-^2 + T_+^4 \, \symup{\Delta}T_+^2}
+\end{equation}
+
+$\symup{\Delta}\omega_{\text{S}}$:
+\begin{equation}
+    \label{eqn:DeltaOmega_s}
+    \symup{\Delta}\omega_{\text{S}} = \sqrt{\symup{\Delta}\omega_+^2 + \symup{\Delta}\omega_-^2}
+\end{equation}
+
+$\symup{\Delta}K$:
+\begin{equation}
+    \label{eqn:DeltaK}
+    \symup{\Delta}K = \frac{4T_+T_-}{(T_+^2 + T_-^2)^2} \cdot \sqrt{T_-^2 \, \symup{\Delta}T_+^2 + T_+^2 \, \symup{\Delta}T_-^2}
+\end{equation}
+\end{document}
