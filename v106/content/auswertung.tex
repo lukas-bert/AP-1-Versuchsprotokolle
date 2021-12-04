@@ -1,7 +1,8 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 Im Folgenden werden alle zu untersuchenden Werte für beide Pendellängen bestimmt. In der ersten Messung wurde die Pendellänge auf $(28.4\pm 0.1)\unit{\centi\metre}$ eingestellt. 
-Für den zweiten Messdurchgang wurde die Länge auf $(78.4\pm 0.1)\unit{\centi\metre}$ geändert.
+Für den zweiten Messdurchgang wurde die Länge auf $(78.4\pm 0.1)\unit{\centi\metre}$ geändert. Den Tabellen \ref{tab:Mess1} und \ref{tab:Mess2} können sämtliche Messwerte für die
+Schwebungsdauern entnommen werden. Dabei ist darauf zu achten, dass bis zu fünf Periodendauern gemessen wurden, was bei der Mittelwertbildung berücksichtigt werden muss.
 
 \begin{table}
     \centering
@@ -9,7 +10,8 @@ Für den zweiten Messdurchgang wurde die Länge auf $(78.4\pm 0.1)\unit{\centi\m
     \label{tab:Mess1}
     \begin{tabular}{S S S S S S[table-format=1.2]}
         \toprule
-        $\unit{{5}T_{1}\per\second}$ & $\unit{{5}T_{2}\per\second}$ & $\unit{{5}T_+\per\second}$ & $\unit{{5}T_-\per\second}$ & $\unit{{3}T\per\second}$ & $\unit{T_s\per\second}$ \\
+        ${5}T_l \mathbin{/} \symup{s}$ & ${5}T_r \mathbin{/} \symup{s}$ & ${5}T_{+} \mathbin{/} \symup{s}$ & ${5}T_{-} \mathbin{/} \symup{s}$ & 
+        ${3}T \mathbin{/} \symup{s}$ & $T_s \mathbin{/} \symup{s}$ \\
         \midrule
         6.18 & 5.98 & 6.11 & 5.07 & 3.32 & 6.06 \\
         6.11 & 5.79 & 6.15 & 5.07 & 3.45 & 6.20 \\
@@ -31,7 +33,8 @@ Für den zweiten Messdurchgang wurde die Länge auf $(78.4\pm 0.1)\unit{\centi\m
     \label{tab:Mess2}
     \begin{tabular}{S S S S S[table-format=1.2] S[table-format=2.2]}
         \toprule
-        $\unit{{5}T_{1}\per\second}$ & $\unit{{5}T_{2}\per\second}$ & $\unit{{5}T_+\per\second}$ & $\unit{{5}T_-\per\second}$ & $\unit{{5}T\per\second}$ & $\unit{T_s\per\second}$ \\
+        ${5}T_l \mathbin{/} \symup{s}$ & ${5}T_r \mathbin{/} \symup{s}$ & ${5}T_{+} \mathbin{/} \symup{s}$ & ${5}T_{-} \mathbin{/} \symup{s}$ & 
+        ${5}T \mathbin{/} \symup{s}$ & $T_s \mathbin{/} \symup{s}$ \\
         \midrule
         8.89 & 8.81 & 8.93 & 8.09 & 8.22 & 20.20 \\
         8.79 & 8.75 & 8.98 & 8.20 & 8.33 & 20.10 \\
@@ -47,30 +50,109 @@ Für den zweiten Messdurchgang wurde die Länge auf $(78.4\pm 0.1)\unit{\centi\m
     \end{tabular}
 \end{table}
 
-\subsection{Einzelpendel und gleichsinnige Schwingung}
-\label{subsec:Einzelpendelugleichsinnig}
-Die Einzelpendel und die gleichsinnige Schwingung können zusammen betrachtet werden, da die Kopplungsfeder bei der gleichsinnigen Schwingung keinen Einfluss auf die Dynamik hat und sie
-somit auch als Einzelpendel behandelt werden kann. Die gemessenen Schwingungsdauern $T_1, T_2 \text{und} T_+$ können mit jeweiliger Pendellänge den Tabellen \autoref{Mess1} 
-und \autoref{Mess2} entnommen werden. Zu den Längen $L_1$ und $l_2$ lassen sich die theoretisch vorhergesagten Frequenzen der Pendel errechnen. Mit \autoref{eqn:omega} berechnet 
-ergeben sich die theoretischen Frequenzen $\omega_1 = (5.87\pm 0.01)\unit{\per\second}$ und $\omega_2 = (3.537\pm 0.002)\unit{\per\second}$. Aus den gemessenen Schwebungsdauern wird 
-zunächst der Mittelwert gebildet. Dieser bestimmt sich durch 
+Alle Mittelwerte für die Schwingungsdauern $T$ berechnen sich nach Division durch die Periodenanzahl zu 
 \begin{equation}
     \label{eqn:Mittelwert}
-    \overline{T} = \frac{1}{N}\sum_{k = 1}^N T_k
+    \overline{T} = \frac{1}{N}\sum_{k = 1}^N T_k \qquad ,
 \end{equation}
-zu $\overline{T} = XXX$. Der Mittelwertfehler lässt sich druch 
+wobei $N$ die Anzahl der Messungen beschreibt und in diesem Experiment immer gleich $10$ ist. Der Mittelwertfehler $\symup{\Delta}T$ lässt sich durch 
 \begin{equation}
     \label{eqn:MWFehler}
-    \symup{\Delta} T = \frac{\sigma}{\sqrt{N}} \qquad \sigma = \sqrt{\frac{1}{N-1}\sum_{i = 1}^N (\overline{T}-T_i)^2}
+    \symup{\Delta} \overline{T} = \frac{\sigma}{\sqrt{N}}, \qquad \sigma = \sqrt{\frac{1}{N-1}\sum_{i = 1}^N (\overline{T}-T_i)^2}
 \end{equation}
-berechnen. Daraus folgen die fehlerbehafteten Schwingungsdauern $\overline{T_1} = XXX$, $\overline{T_2} = YYY$ und $\overline{T_+} =ZZZ$. Diese kann man durch 
+berechnen.
+
+An einigen Stellen werden Schwingungsdauern in Kreisfrequenzen umgerechnet. Dies geschieht nach \autoref{eqn:omega} und führt zu einem Fehler
 \begin{equation}
     \label{eqn:DeltaOmega}
     \symup{\Delta}\omega = \frac{2\pi}{T^2}\symup{\Delta}T
 \end{equation}
-gemäß der Gaußschen Fehlerfortpflantung in fehlerbehaftete Frequenzen umrechnen. 
-\begin{align*}
-    \omega_1 &= XX \\
-    \omega_2 &= YY \\
-    \omega_+ &= ZZ \\
-\end{align*}
+der Kreisfrequenz, der sich aus der Gaußschen Fehlerfortpflantung ergibt.
+
+\subsection{Einzelpendel und gleichsinnige Schwingung}
+\label{subsec:Gleichsinnig}
+Die Schwingungsdauern der Einzelpendel und der gleichsinnigen Schwingung können zusammen betrachtet werden, da die Kopplungsfeder bei der gleichsinnigen Schwingung 
+keinen Einfluss auf die Dynamik hat. Gemessenen wurden die Schwingungsdauern $T_l, T_r$ und $T_+$ aus \autoref{tab:Mess1} und \autoref{tab:Mess2}.
+Der Index l beschreibt jeweils das linke Pendel, r bezeichnet das rechte Pendel. Zu den Längen $l_1$ und $l_2$ lassen sich die 
+theoretisch vorhergesagten Frequenzen der Pendel errechnen. Mit \autoref{eqn:omega} ergeben sich die theoretischen Frequenzen $\omega_{+1\text{, Theorie}} = (5.87\pm 0.01)\unit{\hertz}$ und 
+$\omega_{+2\text{, Theorie}} = (3.537\pm 0.002)\unit{\hertz}$. Aus den gemessenen Werten wird zunächst der Mittelwert gebildet. Die Fehler des Mittelwerts ergeben sich nach \autoref{eqn:MWFehler}.
+Daraus folgen die fehlerbehafteten Schwingungsdauern $\overline{T_l}$, $\overline{T_r}$ und $\overline{T_+}$ für beide Pendellängen. Diese kann man durch \autoref{eqn:omega} in 
+die zugehörigen Frequenzen überführen.
+\begin{table}
+    \centering
+    \caption{Mittelwerte der Messungen und daraus resultierende Frequenzen}
+    \sisetup{table-format=1.3}
+    \begin{tabular}{c S @{${}\pm{}$} S S @{${}\pm{}$} S}
+    \toprule
+    & \multicolumn{2}{c}{$l = 28.4\unit{\centi\metre}$} & \multicolumn{2}{c}{$l = 78.4\unit{\centi\metre}$} \\
+    \cmidrule(lr){2-3}\cmidrule(lr){4-5}
+    %\midrule
+    {$\overline{T}_l \mathbin{/} \symup{s}$}        & 1.201 & 0.007 & 1.774 & 0.005 \\
+    {$\overline{T}_r \mathbin{/} \symup{s}$}        & 1.200 & 0.007 & 1.776 & 0.005 \\
+    {$\overline{T}_+ \mathbin{/} \symup{s}$}        & 1.226 & 0.004 & 1.780 & 0.005 \\
+    %{$\omega_l \mathbin{/} \symup{Hz}$}  & x.xxx & x.xxx & x.xxx & x.xxx \\
+    %{$\omega_r \mathbin{/} \symup{Hz}$}  & x.xxx & x.xxx & x.xxx & x.xxx \\
+    {$\omega_+ \mathbin{/} \symup{Hz}$}  & 5.124 & 0.019 & 3.530 & 0.009 \\
+    \bottomrule
+    \end{tabular}
+\end{table}    
+
+\subsection{Gegensinnige Schwingung}
+\label{subsec:Gegensinnig}
+Die Theoriwerte der Frequenzen $\omega_-$ der gegensinnigen Schwingung lassen sich mittels \autoref{eqn:omega_Gegensinnig} berechnen. Dabei wurde für die Kopplungskonstante $K$ 
+der experimentell ermittelte Wert eingestzt. Es folgt mit der gaußschen Fehlerfortpflanzung
+\begin{equation}
+    \label{eqn:DeltaOmegaMinus}
+    \symup{\Delta}\omega_- = \frac{1}{\sqrt{l} \cdot (g + 2K)} \cdot \sqrt{\left(\frac{1}{2}\symup{\Delta}g\right)^2 + \symup{\Delta}K^2 + \left(\frac{g+2K}{2l}\symup{\Delta}l\right)^2}
+\end{equation}
+für die Unsicherheit dieser Größe. $\symup{\Delta}g$ wurde in der Rechnung als $0$ angenommen. Wie oben beschrieben lassen sich Mittelwerte aus den Messwerten bilden,
+woraus sich wiederum die Frequenzen berechnen lassen. 
+
+\begin{table}
+    \centering
+    \caption{Mittelwerte der Messungen für die gegensinnige Schwingung und daraus resultierende Frequenzen}
+    \sisetup{table-format=1.3}
+    \begin{tabular}{c S @{${}\pm{}$} S S @{${}\pm{}$} S}
+    \toprule
+    & \multicolumn{2}{c}{$l = 28.4\unit{\centi\metre}$} & \multicolumn{2}{c}{$l = 78.4\unit{\centi\metre}$} \\
+    \cmidrule(lr){2-3}\cmidrule(lr){4-5}
+    %\midrule
+    {$\overline{T}_- \mathbin{/} \symup{s}$}                & 1.022 & 0.002 & 1.639 & 0.004 \\
+    {$\omega_- \mathbin{/} \symup{Hz}$}                     & 6.147 & 0.011 & 3.835 & 0.010 \\
+    {$\omega_{{-}\text{, Theorie}} \mathbin{/} \symup{Hz}$} & 5.983 & 0.003 & 3.566 & 0.001 \\
+    \bottomrule
+    \end{tabular}
+\end{table}
+Die Federkonstante $K$ lässt sich nun mit den experimentell ermittelten Werten für $\omega_+$ und $\omega_-$ nach \autoref{eqn:Federkonstante} berechnen.
+Die Unsicherheit des Wertes ergibt sich zu
+\begin{equation}
+    \label{eqn:DeltaK}
+    \symup{\Delta}K = \frac{4T_+T_-}{(T_+^2 + T_-^2)^2} \cdot \sqrt{T_-^2 \, \symup{\Delta}T_+^2 + T_+^2 \, \symup{\Delta}T_-^2}.
+\end{equation}
+Damit folgen die beiden Werte für die Federkonstante aus den Messungen mit den Längen $l_1$ und $l_2$. $K_1 = 0.180 \pm 0.004$, $K_2 = 0.083 \pm 0.004$
+die bereits zur Berechnung der Theoriewerte für $\omega_-$ verwendet wurden.
+
+\subsection{Gekoppelte Schwingung / Schwebung}
+\label{subsec:Schwebung}
+Die Theoriewerte der Schwebungsfrequenzen ergeben sich mit \autoref{eqn:Schwebung}. Diese Werte haben einen Fehler von
+\begin{equation}
+    \label{eqn:DeltaOmega_s}
+    \symup{\Delta}\omega_{\text{S}} = \sqrt{\symup{\Delta}\omega_+^2 + \symup{\Delta}\omega_-^2}.
+\end{equation}
+Erneut lassen sich die experimentellen Werte durch Mittelung und umrechnen der Schwingungsdauern in Frequenzen feststellen.
+
+\begin{table}
+    \centering
+    \caption{Mittelwerte der Messungen für die Schwebung und daraus resultierende Frequenzen}
+    \sisetup{table-format=1.3}
+    \begin{tabular}{c S @{${}\pm{}$} S S[table-format=2.3] @{${}\pm{}$} S[table-format=1.3]}
+    \toprule
+    & \multicolumn{2}{c}{$l = 28.4\unit{\centi\metre}$} & \multicolumn{2}{c}{$l = 78.4\unit{\centi\metre}$} \\
+    \cmidrule(lr){2-3}\cmidrule(lr){4-5}
+    %\midrule
+    {$\overline{T}_s \mathbin{/} \symup{s}$}                & 6.14  & 0.04  & 19.97 & 0.10 \\
+    {$\omega_s \mathbin{/} \symup{Hz}$}                     & 1.023 & 0.007 & 0.315 & 0.002 \\
+    {$\omega_{{s}\text{, Theorie}} \mathbin{/} \symup{Hz}$} & 0.107 & 0.011 & 0.030 & 0.002 \\
+    \bottomrule
+    \end{tabular}
+\end{table}
