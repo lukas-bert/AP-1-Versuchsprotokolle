@@ -70,7 +70,6 @@ uw_s = ufloat(w_s, dw_s)
 
 # Berechnen der Theoriewerte
 # Kopplungskonstante K
-
 K = (T_p**2 - T_m**2)/(T_p**2 + T_m**2)
 dK = (4*T_p*T_m)/(T_p**2 + T_m**2)**2 * np.sqrt(T_m**2 * dT_p**2 + T_p**2 * dT_m**2)
 uK = ufloat(K, dK)
@@ -89,9 +88,12 @@ uw_mt = ufloat(w_mt, dw_mt)
 # Schwebungsfrequenz 
 #T_st = funcT(w_pt)*funcT(w_mt)/(funcT(w_pt) - funcT(w_mt))
 #w_st = funcw(T_st)
-w_st = w_mt - w_pt          # Formel in Versuchsanleitung ist falsch
-dw_st = np.sqrt(dw_pt**2 + dw_mt**2)
-uw_st = ufloat(w_st, dw_st)
+w_stt = w_mt - w_pt          # Formel in Versuchsanleitung ist falsch
+dw_stt = np.sqrt(dw_pt**2 + dw_mt**2)
+uw_stt = ufloat(w_stt, dw_stt)
+w_st = w_m - w_p        # Formel in Versuchsanleitung ist falsch
+dw_st = np.sqrt(dw_p**2 + dw_m**2)
+uw_st = ufloat(w_s, dw_s)
 
 #print(uw_st)
 
@@ -109,6 +111,13 @@ print('-------------------------------------------------------------------------
 print()
 #######################################################################################################################################################
 #######################################################################################################################################################
+
+#Abweichung von Messwerten zur Theorie
+abw = abs(w_p-w_pt)/w_pt
+abw1 = abs(w_m-w_mt)/w_mt
+abw2 = abs(w_s-w_st)/w_st
+abw3 = abs(w_s-w_stt)/w_stt
+print(abw, abw1, abw2, abw3)
 
 # Messung 2 (Eigentlich genau das Selbe)
 
@@ -176,9 +185,12 @@ uw_mt = ufloat(w_mt, dw_mt)
 # Schwebungsfrequenz 
 #T_st = funcT(w_pt)*funcT(w_mt)/(funcT(w_pt) - funcT(w_mt))
 #w_st = funcw(T_st)
-w_st = w_mt - w_pt          # Formel in Versuchsanleitung ist falsch
-dw_st = np.sqrt(dw_pt**2 + dw_mt**2)
-uw_st = ufloat(w_st, dw_st)
+w_stt = w_mt - w_pt          # Formel in Versuchsanleitung ist falsch
+dw_stt = np.sqrt(dw_pt**2 + dw_mt**2)
+uw_stt = ufloat(w_stt, dw_stt)
+w_st = w_m - w_p        # Formel in Versuchsanleitung ist falsch
+dw_st = np.sqrt(dw_p**2 + dw_m**2)
+uw_st = ufloat(w_s, dw_s)
 
 #print(uw_st)
 
@@ -193,3 +205,10 @@ print("Messung 2 Theoretische Werte:    ", r'w_+: ', '{0:.4f}'.format(uw_pt), r'
 print("Messung 2 Kopplungskonstante:    ", "K =", uK)
 print('---------------------------------------------------------------------------------------------------')
 ##############################################################
+
+#Abweichung von Messwerten zur Theorie
+abw = abs(w_p-w_pt)/w_pt
+abw1 = abs(w_m-w_mt)/w_mt
+abw2 = abs(w_s-w_st)/w_st
+abw3 = abs(w_s-w_stt)/w_stt
+print(abw, abw1, abw2, abw3)
