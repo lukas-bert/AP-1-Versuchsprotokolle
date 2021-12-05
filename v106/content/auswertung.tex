@@ -2,7 +2,7 @@
 \label{sec:Auswertung}
 Im Folgenden werden alle zu untersuchenden Werte für beide Pendellängen bestimmt. In der ersten Messung wurde die Pendellänge auf $(28.4\pm 0.1)\unit{\centi\metre}$ eingestellt. 
 Für den zweiten Messdurchgang wurde die Länge auf $(78.4\pm 0.1)\unit{\centi\metre}$ geändert. Den Tabellen \ref{tab:Mess1} und \ref{tab:Mess2} können sämtliche Messwerte für die
-Schwebungsdauern entnommen werden. Dabei ist darauf zu achten, dass bis zu fünf Periodendauern gemessen wurden, was bei der Mittelwertbildung berücksichtigt werden muss.
+Schwingungs- und Schwebungsdauern entnommen werden. Dabei ist darauf zu achten, dass bis zu fünf Periodendauern gemessen wurden, was bei der Mittelwertbildung berücksichtigt werden muss.
 
 \begin{table}
     \centering
@@ -51,10 +51,10 @@ Schwebungsdauern entnommen werden. Dabei ist darauf zu achten, dass bis zu fünf
 \end{table}
 
 Alle Mittelwerte für die Schwingungsdauern $T$ berechnen sich nach Division durch die Periodenanzahl zu 
-\begin{equation}
+\begin{equation*}
     \label{eqn:Mittelwert}
     \overline{T} = \frac{1}{N}\sum_{k = 1}^N T_k \qquad ,
-\end{equation}
+\end{equation*}
 wobei $N$ die Anzahl der Messungen beschreibt und in diesem Experiment immer gleich $10$ ist. Der Mittelwertfehler $\symup{\Delta}T$ lässt sich durch 
 \begin{equation}
     \label{eqn:MWFehler}
@@ -100,10 +100,10 @@ die zugehörigen Frequenzen überführen.
 \label{subsec:Gegensinnig}
 Die Theoriwerte der Frequenzen $\omega_-$ der gegensinnigen Schwingung lassen sich mittels \autoref{eqn:omega_Gegensinnig} berechnen. Dabei wurde für die Kopplungskonstante $K$ 
 der experimentell ermittelte Wert eingestzt. Es folgt mit der gaußschen Fehlerfortpflanzung
-\begin{equation}
+\begin{equation*}
     \label{eqn:DeltaOmegaMinus}
     \symup{\Delta}\omega_- = \frac{1}{\sqrt{l} \cdot (g + 2K)} \cdot \sqrt{\left(\frac{1}{2}\symup{\Delta}g\right)^2 + \symup{\Delta}K^2 + \left(\frac{g+2K}{2l}\symup{\Delta}l\right)^2}
-\end{equation}
+\end{equation*}
 für die Unsicherheit dieser Größe. $\symup{\Delta}g$ wurde in der Rechnung als $0$ angenommen. Wie oben beschrieben lassen sich Mittelwerte aus den Messwerten bilden,
 woraus sich wiederum die Frequenzen berechnen lassen. 
 
@@ -124,21 +124,20 @@ woraus sich wiederum die Frequenzen berechnen lassen.
 \end{table}
 Die Federkonstante $K$ lässt sich nun mit den experimentell ermittelten Werten für $\omega_+$ und $\omega_-$ nach \autoref{eqn:Federkonstante} berechnen.
 Die Unsicherheit des Wertes ergibt sich zu
-\begin{equation}
+\begin{equation*}
     \label{eqn:DeltaK}
     \symup{\Delta}K = \frac{4T_+T_-}{(T_+^2 + T_-^2)^2} \cdot \sqrt{T_-^2 \, \symup{\Delta}T_+^2 + T_+^2 \, \symup{\Delta}T_-^2}.
-\end{equation}
-Damit folgen die beiden Werte für die Federkonstante aus den Messungen mit den Längen $l_1$ und $l_2$. $K_1 = 0.180 \pm 0.004$, $K_2 = 0.083 \pm 0.004$
-die bereits zur Berechnung der Theoriewerte für $\omega_-$ verwendet wurden.
+\end{equation*}
+Damit folgen die beiden Werte für die Federkonstanten $K_1 = 0.180 \pm 0.004$, $K_2 = 0.083 \pm 0.004$, die bereits zur Berechnung der Theoriewerte für $\omega_-$ verwendet wurden.
 
 \subsection{Gekoppelte Schwingung / Schwebung}
 \label{subsec:Schwebung}
 Die Theoriewerte der Schwebungsfrequenzen ergeben sich mit \autoref{eqn:Schwebung}. Diese Werte haben einen Fehler von
-\begin{equation}
+\begin{equation*}
     \label{eqn:DeltaOmega_s}
     \symup{\Delta}\omega_{\text{S}} = \sqrt{\symup{\Delta}\omega_+^2 + \symup{\Delta}\omega_-^2}.
-\end{equation}
-Erneut lassen sich die experimentellen Werte durch Mittelung und umrechnen der Schwingungsdauern in Frequenzen feststellen.
+\end{equation*}
+Erneut lassen sich die experimentellen Werte durch Mittelung und Umrechnen der Schwingungsdauern in Frequenzen feststellen.
 
 \begin{table}
     \centering
