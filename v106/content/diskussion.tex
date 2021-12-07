@@ -1,2 +1,46 @@
 \section{Diskussion}
 \label{sec:Diskussion}
+\begin{table}
+    \centering
+    \caption{Zusammenfassung der zu bestimmenden Werte und relative Abweichung zur Theorie.}
+    \sisetup{table-format=1.3}
+    \begin{tabular}{c S @{${}\pm{}$} S c S[table-format=2.3] @{${}\pm{}$} S[table-format=1.3] c}
+    \toprule
+    & \multicolumn{2}{c}{$l = 28.4\unit{\centi\metre}$} & \multicolumn{1}{c}{$\symup{\Delta}_\text{relativ}$} & \multicolumn{2}{c}{$l = 78.4\unit{\centi\metre}$} & \multicolumn{1}{c}{$\symup{\Delta}_\text{relativ}$}\\
+    \cmidrule(lr){2-3}\cmidrule(lr){4-4}\cmidrule(lr){5-6}\cmidrule(lr){7-7}
+    {$\omega_+ \mathbin{/} \unit{\hertz}$}                     & 5.124 & 0.019 &  & 3.530 & 0.009 & \\
+    {$\omega_{+,\text{Theorie}} \mathbin{/} \unit{\hertz}$}    & 5.876 & 0.01 & 12.8\% & 3.537 & 0.002 & 0.19\% \\
+    {$\omega_- \mathbin{/} \unit{\hertz}$}                     & 6.147 & 0.011 & & 3.834 & 0.010 & \\
+    {$\omega_{{-}\text{, Theorie}} \mathbin{/} \unit{\hertz}$} & 5.983 & 0.003 & 2.73\% & 3.566 & 0.001 & 7.52\% \\
+    {$\omega_s \mathbin{/} \unit{\hertz}$}                     & 1.023 & 0.007 & & 0.315 & 0.002 & \\
+    {$\omega_{{s}\text{, Theorie}} \mathbin{/} \unit{\hertz}$} & 0.107 & 0.011 & 857\% & 0.030 & 0.002 & 961\% \\
+    \bottomrule
+    \end{tabular}
+\end{table}
+
+
+Zunächst wird die gleichsinnige Schwingung diskutiert. Bei diesen Messungen ergibt sich für $l_1$ eine relative Abweichung 
+$\symup{\Delta}\omega_{+} = 12.8\%$ vom Theoriewert. Diese liegt nicht im Fehlerbereich des gemessenen Wertes und kann durch die Überlänge des Pendels entstehen, da die Masse sehr
+weit oben aufgehangen ist (siehe \autoref{fig:Aufbau2}).\\ Für die Massenlage $l_2$ ergibt sich lediglich eine prozentuale Abweichung $\symup{\Delta}\omega_{+} = 0.19\%$. Dieser Wert
+liegt im Rahmen des errechneten Fehlers und ist somit qualitativ gut, was zu erwarten war, da die Masse hier sehr weit unten aufgehangen wurde.
+
+
+Betrachtet man die Federkonstante fällt auf, dass diese für die unterschiedlichen Längen einen anderen Wert ergibt. Dies ergibt sich, da man die Federkonstante aus den experimentell
+bestimmten, fehlerbehafteten Werten errechnen soll. In Wahrheit sollte die Federkonstante bei beiden Messungen jedoch gleich sein, da jeweils die gleiche Feder 
+genutzt wurde. Dies führt dazu, dass die Theoriewerte, die mittels der Federkonstante bestimmt wurden, zweifelhaft sind.
+
+Zur gegensinnigen Schwingung der Länge $l_1$ lässt sich eine Abweichung von $\symup{\Delta}\omega_{-} = 2.73\%$ der Messung zum Theoriewert bestimmen. 
+Dies liegt zwar nicht im theoretischen Fehlerbereich, ist jedoch im Rahmen der Messgenauigkeit ein akzeptabler Wert.
+Bei der Länge $l_2$ liegt eine relative Abweichung von $\symup{\Delta}\omega_{-} = 7.53\%$ vor, obwohl bei dem längeren Pendel bessere Werte zu erwarten wären. 
+Mögliche Gründe für diese Abweichung sind am Ende des Abschnitts aufgelistet.
+
+Die Schwebungsfrequenz weicht für beide Längen um über 800\% ab. Dies hat den Grund, dass sich der Theoriewert der Schwebungsfrequenzen aus der Differenz 
+von $\omega_-$ und $\omega_+$ zusammensetzt, die beide bereits gröbere Abweichungen zu den jeweiligen Theoriewerten vorweisen. 
+Berechnet man hingegen aus den experimentell bestimmen Werten $\omega_-$ und $\omega_+$ die Schwebungsfrequenzen, 
+ergeben sich sehr geringe relative Abweichungen von $\symup{\Delta}\omega_{s} = 0.02\%$ für $l_1$ und $\symup{\Delta}\omega_{s} = 3.31\%$ für $l_2$. 
+
+Allgemein liegen in diesem Experiment einige potentielle Fehlerquellen vor. Durch händische Auslenkung ist es nicht möglich beide Pendel gleichmäßig auszulenken und sich
+genau im Bereich der Kleinwinkelnäherung aufzuhalten. Dazu wird die Schwingungsdauer mit einer Stoppuhr durch optisches Abpassen der maximalen Auslenkung bestimmt,
+was zu ebenfalls zu einem Fehler führen kann. Des Weiteren war der Stab eines der verwendeten Pendel leicht gekrümmt, weshalb die Schwingung mitunter nicht in einer
+Ebene stattfand, was ebenfalls eine mögliche Ungenauigkeit bewirken könnte.
+Unter Betrachtung dieser Fehlerquellen, lassen sich die Abweichungen der Messwerte --mit Ausnahme jener der Schwebungsfrequenz-- nachvollziehen.

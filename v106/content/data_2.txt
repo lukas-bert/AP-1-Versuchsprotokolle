@@ -1,5 +1,5 @@
-# Daten zur Länge l = 28.4cm
-# 5T_l / s, 5T_r / s, 5T_+ / s, 5T_- / s, 3T / s, T_s / s
+# Daten zur Länge l = 78.4cm
+# 5T_l / s, 5T_r / s, 5T_+ / s, 5T_- / s, 5T / s, T_s / s
 
 8.89 8.81 8.93 8.09 8.22 20.20
 8.79 8.75 8.98 8.20 8.33 20.10
