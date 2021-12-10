@@ -16,7 +16,7 @@ einfließen lassen. Typischer Weise wird dies durch mechanische Arbeit erbracht.
 
 Für eine solche Wärmepumpe wird die Güte
 \begin{equation}
-    \label{Güte_ideal}
+    \label{eqn:Güte_ideal}
     \nu_{\text{ideal}} = \frac{Q_1}{A} = \frac{T_1}{T_1 - T_2}
 \end{equation}
 als Eigenschaft der Wärmepumpe definiert. Hierbei beschreibt $Q_1$ die abgegebene Wärmemenge des "kalten" Reservoires und A die mechanische Arbeit die in das System gesteckt wird.
@@ -27,7 +27,7 @@ Aus dem zweiten Hauptsatz der Thermodynamik folgt für eine Wärmepumpe der zusa
 immer reversibel verlaufen muss. Dies ist allerdings nur eine theoretische Forderung, welche nicht realisiert werden kann da es immer gewisse Energieverluste gibt. Daher lässt sich
 lediglich die Aussage treffen 
 \begin{equation*}
-    \label{Güte_real}
+    \label{eqn:Güte_real}
     \nu_{\text{real}} \textless \nu_{\text{ideal}}
 \end{equation*}
 
@@ -57,7 +57,7 @@ folgenden der Massendurchsatz des Transportmediums $\frac{\text{d}m}{\text{d}t}$
 
 In \autoref{subsec:Prinzip} wurde bisher lediglich eine Formel für die theoretische Güte genannt. Die reale Güte $\nu_{\text{real}}$ kann durch 
 \begin{equation}
-    \label{Güte_Messung}
+    \label{eqn:Güte_Messung}
     \nu_{\text{real}} = \frac{\left(m_1 c_w + m_k c_k\right)}{N_{\text{mechanisch}}}\frac{\Delta T_1}{\Delta t}
 \end{equation}
 bestimmt werden. $\frac{\Delta T_1}{\Delta t}$ kann mit eine geeigneten Zeitintervall aus einer Messreihe, welche mit einer Wärmepumpe nach \autoref{fig:Aufbau_Skizze} aufgenommen wird,
@@ -67,7 +67,7 @@ liegen in den Reservoiren "geschlängelte" Leitungen. $m_kc_k$ beschreibt die W�
 
 Der Massendurchsatz kann ebenfalls aus der selben Messreihe mit $T_2$ bestimmt werden. 
 \begin{equation}
-    \label{Massendurchsatz}
+    \label{eqn:Massendurchsatz}
     \frac{\text{d}m}{\text{d}t} = \frac{\left(m_2 c_w + m_k c_k\right)}{L}\frac{\Delta T_2}{\Delta t}
 \end{equation}
 Die Formel ähnelt \autoref{Güte_Messung}. Lediglich beschreibt hier der Index 2 das Reservoir 2 und das $N_{\text{mechanisch}}$ hat sich in ein $L$ gewandelt, welches man die Kondensationswärme nennt.
@@ -76,7 +76,7 @@ Dieses wird aus einer Messreihe per Ausgleichsrechnung bestimmt um den Massendur
 
 Die mechanische Kompressorleistung $N_{\text{mechanisch}}$ erhält man durch
 \begin{equation}
-    \label{Massendurchsatz}
+    \label{eqn:Leistung}
     N_{\text{mechanisch}} = \frac{1}{\kappa - 1}\left(p_b \sqrt[\kappa]{\frac{p_a}{p_b}} - p_a \right) \frac{1}{\rho} \frac{\text{d}m}{\text{d}t}
 \end{equation}
 $p_a, p_b$ sind dir Drücke aus \autoref{fig:Aufbau_Skizze}. $\kappa$ ist das Verhältnis der Molwärmen $C_p$ und $C_v$ und $\rho$ beschreibt die Dichte des Transportmediums im gasförmigen

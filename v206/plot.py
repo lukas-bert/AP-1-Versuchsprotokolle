@@ -34,7 +34,7 @@ params1, pcov1 = op.curve_fit(f1, t, T_1)
 
 # Fehler der Parameter A, B und C
 params2_err = np.sqrt(np.diag(pcov2))
-params1_err = np.sqrt(np.diag(pcov2))
+params1_err = np.sqrt(np.diag(pcov1))
 
 A2 = ufloat(params2[0], params2_err[0])
 B2 = ufloat(params2[1], params2_err[1])
@@ -42,6 +42,11 @@ C2 = ufloat(params2[2], params2_err[2])
 A1 = ufloat(params1[0], params1_err[0])
 B1 = ufloat(params1[1], params1_err[1])
 C1 = ufloat(params1[2], params1_err[2])
+
+print("-------------------------------------------------------------------------")
+print("Parameter des Fits: (kalt)      ", '{0:.8f}'.format(A2), '{0:.5f}'.format(B2), '{0:.2f}'.format(C2))
+print("Parameter des Fits: (warm)      ", '{0:.8f}'.format(A1), '{0:.5f}'.format(B1), '{0:.2f}'.format(C1))
+print("-------------------------------------------------------------------------")
 
 # Plot 1
 x = np.linspace(0, 1300, 1000)
@@ -80,8 +85,11 @@ dT14 = u_f1dt(18*60, A1, B1)
 
 dT2 = unp.uarray([noms(dT21), noms(dT22), noms(dT23), noms(dT24)], [devs(dT21), devs(dT22), devs(dT23), devs(dT24)])
 dT1 = unp.uarray([noms(dT11), noms(dT12), noms(dT13), noms(dT14)], [devs(dT11), devs(dT12), devs(dT13), devs(dT14)])
-#print("dT2 mit Fehler:      ", dT2)
 
+print("-------------------------------------------------------------------------")
+print("dT2:          ", dT2)
+print("dT1:          ", dT1)
+print("-------------------------------------------------------------------------")
 # c_wasser = 4.1818 kJ/(kg*K)
 c_w = 4181.8
 
@@ -102,6 +110,7 @@ v2t = T_1[7]/(T_1[7]-T_2[7])
 v3t = T_1[12]/(T_1[12]-T_2[12])
 v4t = T_1[17]/(T_1[17]-T_2[17])
 
+print("Güteziffern:")
 print("Experiment:              ", v1, v2, v3, v4)
 print("Theorie                  ", v1t, v2t, v3t, v4t)
 
@@ -115,7 +124,7 @@ params, pcov = op.curve_fit(fl, 1/T_1, np.log(p_b/100000))
 params_err = np.sqrt(np.diag(pcov))
 A = ufloat(params[0], params_err[0])
 B = ufloat(params[1], params_err[1])
-print("Parameter des Fits:      ", A, B)
+print("Parameter des linearen Fits:      ", '{0:.2f}'.format(A), '{0:.3f}'.format(B))
 
 # Plot 2
 px = np.linspace(3.1*10**-3, 3.4*10**-3, 1000)
@@ -133,6 +142,10 @@ plt.close()
 
 # Berechnen der Verdampfungswärme
 L = - A * const.R                   # R: Allgemeine Gaskonstante
+M = 0.12091                          # Molare Masse (g/mol) von Dichlordifluormethan 
+L = L/M
+
+print("Allgemeine Gaskonstante, Verdampfungswärme:      ", const.R, '{0:.2f}'.format(L))
 
 # Berechnen des Massendruchsatzes 
 dm = dQ2/L 
