@@ -1,7 +1,7 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 In \autoref{tab:Mess1} sind die Messwerte zu den Temperaturen des kalten- und warmen Reservoirs in °C, der Druck in den jeweiligen Leitungen in Bar, sowie die Leistungsaufnahme 
-des Kompressors in Watt in Abhängigkeit zur Zeit dargestellt. Zu den Drücken $p_\text{warm}$ ($p_b$) und $p_\text{kalt}$ ($p_a$) wurde bereits der Atmosphärendruck von 
+des Kompressors in Watt, in Abhängigkeit zur Zeit dargestellt. Zu den Drücken $p_\text{warm}$ ($p_b$) und $p_\text{kalt}$ ($p_a$) wurde bereits der Atmosphärendruck von 
 $1 \unit{\bar}$ addiert.
 
 Die Ausgleichs- und Fehlerrechnungen zu den Auswertungsaufgaben wurden mittels Python (Version 3.9.7) unter Verwendung der Pakete \textit{scipy} \cite{scipy}, \textit{numpy}
@@ -49,12 +49,11 @@ approximiert werden. Als Ansatz wurde ein Polynom zweiten Grades gewählt
   T(t) = At^2 + Bt + C
 \end{equation*}
 mit den reellen Koeffizienten $A$, $B$ und $C$, die sich aus der Regression ergeben. \autoref{fig:Plot1} zeigt die Temperaturverläufe und die jeweiligen Ausgleichsfunktionen.
-
 \begin{figure}
-  \centering
-  \label{fig:Plot1}
-  \includegraphics[width=0.8\textwidth]{build/plot1.pdf}
   \caption{Temperaturverläufe in Abhängigkeit zur Zeit und quadratischer Fit zu den Werten. (Erstellt mit dem Paket \textit{matplotlib} \cite{matplotlib})}
+  \label{fig:Plot1}
+  \centering
+  \includegraphics[width=0.8\textwidth]{build/plot1.pdf}
 \end{figure}
 
 Für die gesuchten Parameter ergeben sich die Werte
@@ -98,7 +97,7 @@ $t_4 = 18 \symup{min} (1080 \unit{\second})$. Die Werte können \autoref{tab:dT}
 
 \subsection{Vergleich der realen- und idealen Güteziffer}
 \label{subsec:Güteziffer}
-Aus den Werten des Differentialquotienten kann man mit \autoref{eqn:Güte_real} die reale Güteziffer bestimmen. $m_k c_k$ ist die Wärmekapazität der Gefäße und der Leitungen und
+Aus den Werten des Differentialquotienten kann man mit \autoref{eqn:Güte_Messung} die reale Güteziffer bestimmen. $m_k c_k$ ist die Wärmekapazität der Gefäße und der Leitungen und
 hat den Wert $m_k c_k = 750 \, \unit{\joule\per\kelvin}$. $m_1 c_w$ ist die Wärmekapazität des Wassers im warmen Reservoir. Sie berechnet sich mit der Masse $m_1 = 3\unit{\kilogram}$
 und der spezifischen Wärme von Wasser $c_w \approx 4181.8 \, \unit{\joule\per\kilogram\kelvin}$ \cite{Ingenieurwissen}. Da der Differentialquotient fehlerbelastet ist, hat die
 daraus berechnete Güteziffer einen Fehler, der sich auch nach \autoref{eqn:Güte_real} durch einsetzen des Fehlers von $\symup{d}T\mathbin{/}\symup{d}t$ berechnen lässt.
@@ -132,9 +131,9 @@ zum Atmosphärendruck $p_0$.
 
 \begin{figure}
   \centering
+  \caption{Dampfdruckkurve con Dichlordifluormethan. Messwerte und linearer Fit in halblogarithmischer Darstellung. (Erstellt mit \textit{matplotlib}\cite{matplotlib})}
   \label{fig:Plot2}
   \includegraphics[width=0.8\textwidth]{build/plot2.pdf}
-  \caption{Dampfdruckkurve con Dichlordifluormethan. Messwerte und linearer Fit in halblogarithmischer Darstellung. (Erstellt mit \textit{matplotlib}\cite{matplotlib})}
 \end{figure}
 
 In dem Diagramm sind die Wertepaare des warmen Reservoirs eingetragen, aus denen sich mittels linearer Regression die Parameter $m$ und $b$ der Geraden
@@ -153,5 +152,56 @@ Aus den Messwerten konnten die Parameter $m = (-2186 \pm 37) \unit{\kelvin}$ und
 allgemeinene Gaskonstante $R \approx 8.314$ \cite{scipy} der Wert der Verdampfungswärme $L = (18.2 \pm 0.3) \unit{\kilo\joule\per\mol}$. Die molare Masse von Dichlordifluormethan
 beträgt $M = 120.91 \unit{\gram\per\mol}$ \cite{Dichlordifluormethan}, daraus folgt $L = (150 \pm 2.5) \unit{\kilo\joule\per\kilogram}$.
 
-% Hier muss jetzt ne Tabelle mit den Werten für dm/dt aus plot.py hin    & die dazugehörige Fehlerrechnung (Fehler von dm/dt wenn dT/dt und L fehlerbehaftet sind)
-% Einheiten technisch sollte es jetzt auch in der Plot.py passen, aber ka die Ergebnisse für die mechanische Leistung sind halt iwie sehr dubios
+
+Nun kann der Massendurchsatz für die verschiedenen Temperaturen gemäß \autoref{eqn:Massendurchsatz} berechnet werden. Diese werden zusammen mit dem jeweiligen Fehler in \autoref{tab:Massendurchsatz}
+dargestellt.
+\begin{table}
+  \centering
+  \caption{Massendurchsatz zu den Zeitpunkten $t_i$}
+  \label{tab:Massendurchsatz}
+  \begin{tabular}{c S[table-format = 1.2] @{${}\pm{}$} S[table-format = 1.2]}
+    \toprule
+    {$t_i\unit{\second}$} &  \multicolumn{2}{c}{$\frac{\text{d}m}{\text{d}t}(t)\cdot {10^{-3}}\unit{\kilogram\per\second}$} \\
+    \midrule
+    180  & 2.71 & 0.20 \\ 
+    480  & 2.16 & 0.23 \\
+    780  & 1.61 & 0.29 \\
+    1080 & 1.06 & 0.36 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+Die Fehler des Massendurchsatzes ergeben sich gemäß der gaußschen Fehlerfortpflanzung durch die folgende Formel.
+\begin{equation*}
+  \label{eqn:Fehlerformeldm}
+  \Delta\frac{\text{d}m}{\text{d}t} = \sqrt{\left(-\frac{m_2c_w + m_kc_k}{L^2}\frac{\Delta T_2}{\Delta t}\Delta L\right)^2+\left(\frac{m_2c_w + m_kc_k}{L}\Delta\frac{\Delta T_2}{\Delta t}\right)^2}
+\end{equation*}
+\subsection{mechanische Leistung des Kompressors}
+\label{subsec:Leistung}
+Zulest wird nun die mechanische Leistung des Kompressors ausgewertet, welche dieser abgibt um mit den Drücken $p_a$ und $p_b$ zu arbeiten. Diese Leistung lässt sich gemäß \autoref{eqn:Leistung}
+berechnen. Die in \autoref{subsec:Kenngrößen} bereits diskutierten notwendigen Materialkonstanten sind für Dichlordifluormethan bekannt. 
+\begin{align}
+  \rho_0 = 5.51 \unit{\gram\per\liter} \,\,\text{,} \,\,p_0 = 1 \unit{\Bar}\,\, \text{,}\,\, \kappa = 1,14
+\end{align}
+$p_0$ entspricht hier dem Atmosphärendruck und die Angabe von $\rho_0$ bezieht sich auf T$= 0 \unit{\degreeCelsius}$.
+Die damit errechneten Werte können nun \autoref{tab:Leistung} entnommen werden.
+\begin{table}
+  \centering
+  \caption{Leistungsabgabe zu den Zeitpunkten $t_i$}
+  \label{tab:Leistung}
+  \begin{tabular}{c S[table-format = 4.1] @{${}\pm{}$} S[table-format = 1.1]}
+    \toprule
+    {$t_i\unit{\second}$} & \multicolumn{2}{c}{$N_{\text{mech}}\mathrm{/}\unit{\watt}$} \\
+    \midrule
+    180  & -20.8 & 1.5 \\ 
+    480  & -16.2 & 1.8 \\
+    780  & -11.6 & 2.1 \\
+    1080 & -7.4 & 2.5 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Auch hier werden die Fehler gemäß der gaußschen Fehlerfortpflanzung bestimmt. 
+\begin{equation*}
+  \Delta N_{\text{mech}} = \frac{1}{\kappa -1}\left(p_b\sqrt[\kappa]{\frac{p_a}{p_b}}-p_a\right)\frac{1}{\rho}\Delta\frac{\text{d}m}{\text{d}t}
+\end{equation*}
+Der Fehler des Massendurchsatzes ist bereits bekannt wird aber nicht eingesetzt da sich keine Erkenntnis daraus ziehen lässt.

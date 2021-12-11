@@ -148,7 +148,7 @@ L = L/M
 print("Allgemeine Gaskonstante, Verdampfungswärme:      ", const.R, '{0:.2f}'.format(L))
 
 # Berechnen des Massendruchsatzes 
-dm = dQ2/L 
+dm = dQ2/L
 print("-------------------------------------------------------------------------")
 print("Massendurchsatz:         ", dm)
 print("-------------------------------------------------------------------------")
