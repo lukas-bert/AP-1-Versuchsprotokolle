@@ -48,7 +48,8 @@ approximiert werden. Als Ansatz wurde ein Polynom zweiten Grades gewählt
 \begin{equation*}
   T(t) = At^2 + Bt + C
 \end{equation*}
-mit den reellen Koeffizienten $A$, $B$ und $C$, die sich aus der Regression ergeben. \autoref{fig:Plot1} zeigt die Temperaturverläufe und die jeweiligen Ausgleichsfunktionen.
+mit den reellen Koeffizienten $A$, $B$ und $C$, die sich aus der Regression ergeben. \autoref{fig:Plot1} zeigt die Temperaturverläufe der beiden Reservoire
+und die jeweiligen Ausgleichsfunktionen.
 \begin{figure}
   \caption{Temperaturverläufe in Abhängigkeit zur Zeit und quadratischer Fit zu den Werten. (Erstellt mit dem Paket \textit{matplotlib} \cite{matplotlib})}
   \label{fig:Plot1}
@@ -74,11 +75,11 @@ Die Ableitung der Funktion ist durch
 \end{equation*}
 gegeben. Der Fehler des Differentialquotienten beträgt dann nach der gaußschen Fehlerfortpflanzung 
 \begin{equation*}
-  \symup{\Delta} \frac{\symup{d}T}{\symup{d}t} = \sqrt{(2t\symup{\Delta}A)^2 + \symup{\Delta}B^2}
+  \symup{\Delta} \frac{\symup{d}T}{\symup{d}t} = \sqrt{(2t\symup{\Delta}A)^2 + \symup{\Delta}B^2}.
 \end{equation*}
 Der Differentialquotient beider Temperaturkurven sollte für je 4 verschiedene Temperaturen ermittelt werden. Ausgewählt wurden die Temperaturen zu den Zeitpunkten
-$t_1 = 3 \symup{min} (180 \unit{\second})$, $t_2 = 8 \symup{min} (480 \unit{\second})$, $t_3 = 13 \symup{min} (780 \unit{\second})$ und 
-$t_4 = 18 \symup{min} (1080 \unit{\second})$. Die Werte können \autoref{tab:dT} entnommen werden.
+$t_1 = 3 \symup{min}$ $(180 \unit{\second})$, $t_2 = 8 \symup{min}$ $(480 \unit{\second})$, $t_3 = 13 \symup{min}$ $(780 \unit{\second})$ und 
+$t_4 = 18 \symup{min}$ $(1080 \unit{\second})$. Die Werte können \autoref{tab:dT} entnommen werden.
 
 \begin{table}
   \centering
@@ -122,16 +123,16 @@ Die Theoriewerte ergeben sich mit \autoref{eqn:Güte_ideal}.
 \subsection{Bestimmung der Verdampfungswärme und des Massendurchsatzes}
 \label{subsec:Massendurchsatz}
 Nun soll der Massendurchsatz des Transportgases Dichlordifluormethan ($\text{Cl}_2\text{F}_2\text{C}$) berechnet werden. Dies lässt sich mit \autoref{eqn:Massendurchsatz} bewerkstelligen. 
-$\sfrac{\symup{d}T_2}{\symup{d}t}$ wurde bereits in \autoref{subsec:Temperaturverlauf} bestimmt und $m_2 c_w$ ist gleich dem Wert von $m_1 c_w$ aus \autoref{subsec:Güteziffer}.
+$\symup{d}T_2/\symup{d}t$ wurde bereits in \autoref{subsec:Temperaturverlauf} bestimmt und $m_2 c_w$ ist gleich dem Wert von $m_1 c_w$ aus \autoref{subsec:Güteziffer}.
 Die Verdampfungswärme $L$ ist stoffspezifisch und ist nicht gegeben, daher muss sie aus den Messwerten bestimmt werden. Dazu wird die Dampfdruckkurve von Dichlordifluormethan
 betrachtet. Sie ergibt sich durch Auftragen des Druckverhätnisses in einem System gegen die Temperatur. Näheres wird in Versuch 203 \cite{v203} beschrieben. 
-Da es einfacher ist eine lineare Ausgleichsrechnung druchzuführen, wird in \autoref{fig:Plot2} der Logarithmus des Druckverhätnisses, also
+Da es einfacher ist eine lineare Ausgleichsrechnung durchzuführen, wird in \autoref{fig:Plot2} der Logarithmus des Druckverhätnisses, also
 $\symup{log}(\frac{p_{\text{b}}}{p_0})$, an der $y$-Achse aufgetragen. $p_b$ ist gleich zu setzen mit $p_\text{warm}$ und $\frac{p_{\text{b}}}{p_0}$ beschreibt das Druckverhätnis
 zum Atmosphärendruck $p_0$.
 
 \begin{figure}
   \centering
-  \caption{Dampfdruckkurve con Dichlordifluormethan. Messwerte und linearer Fit in halblogarithmischer Darstellung. (Erstellt mit \textit{matplotlib}\cite{matplotlib})}
+  \caption{Dampfdruckkurve von Dichlordifluormethan. Messwerte und linearer Fit in halblogarithmischer Darstellung. (Erstellt mit \textit{matplotlib}\cite{matplotlib})}
   \label{fig:Plot2}
   \includegraphics[width=0.8\textwidth]{build/plot2.pdf}
 \end{figure}
@@ -161,7 +162,7 @@ dargestellt.
   \label{tab:Massendurchsatz}
   \begin{tabular}{c S[table-format = 1.2] @{${}\pm{}$} S[table-format = 1.2]}
     \toprule
-    {$t_i\unit{\second}$} &  \multicolumn{2}{c}{$\frac{\text{d}m}{\text{d}t}(t)\cdot {10^{-3}}\unit{\kilogram\per\second}$} \\
+    {$t_i \mathbin{/} \unit{\second}$} &  \multicolumn{2}{c}{$\frac{\text{d}m}{\text{d}t}(t)\cdot {10^{-3}}\unit{\kilogram\per\second}$} \\
     \midrule
     180  & 2.71 & 0.20 \\ 
     480  & 2.16 & 0.23 \\
@@ -177,31 +178,35 @@ Die Fehler des Massendurchsatzes ergeben sich gemäß der gaußschen Fehlerfortp
 \end{equation*}
 \subsection{mechanische Leistung des Kompressors}
 \label{subsec:Leistung}
-Zulest wird nun die mechanische Leistung des Kompressors ausgewertet, welche dieser abgibt um mit den Drücken $p_a$ und $p_b$ zu arbeiten. Diese Leistung lässt sich gemäß \autoref{eqn:Leistung}
+Zuletzt wird nun die mechanische Leistung des Kompressors ausgewertet, welche dieser abgibt, um mit den Drücken $p_a$ und $p_b$ zu arbeiten. Diese Leistung lässt sich gemäß \autoref{eqn:Leistung}
 berechnen. Die in \autoref{subsec:Kenngrößen} bereits diskutierten notwendigen Materialkonstanten sind für Dichlordifluormethan bekannt. 
 \begin{align}
   \rho_0 = 5.51 \unit{\gram\per\liter} \,\,\text{,} \,\,p_0 = 1 \unit{\Bar}\,\, \text{,}\,\, \kappa = 1,14
 \end{align}
 $p_0$ entspricht hier dem Atmosphärendruck und die Angabe von $\rho_0$ bezieht sich auf T$= 0 \unit{\degreeCelsius}$.
-Die damit errechneten Werte können nun \autoref{tab:Leistung} entnommen werden.
+Die Dichte von Dichlordifluormethan zu den verschiedenen Temperaturen ergibt sich durch die Gleichung
+\begin{equation*}
+  \rho(T) = \frac{\rho_0 T_0 \cdot p_b}{p_0 T_2}, 
+\end{equation*}
+welche aus der idealen Gasgleichung folgt. 
+Die damit errechneten Werte für die Leistung können nun \autoref{tab:Leistung} entnommen werden.
 \begin{table}
   \centering
   \caption{Leistungsabgabe zu den Zeitpunkten $t_i$}
   \label{tab:Leistung}
   \begin{tabular}{c S[table-format = 4.1] @{${}\pm{}$} S[table-format = 1.1]}
     \toprule
-    {$t_i\unit{\second}$} & \multicolumn{2}{c}{$N_{\text{mech}}\mathrm{/}\unit{\watt}$} \\
+    {$t_i \mathbin{/} \unit{\second}$} & \multicolumn{2}{c}{$N_{\text{mech}}\mathrm{/}\unit{\watt}$} \\
     \midrule
-    180  & -20.8 & 1.5 \\ 
-    480  & -16.2 & 1.8 \\
-    780  & -11.6 & 2.1 \\
-    1080 & -7.4 & 2.5 \\
+    180  & -18.0 & 1.3 \\ 
+    480  & -14.1 & 1.5 \\
+    780  & -10.1 & 1.8 \\
+    1080 &  -6.4 & 2.2 \\
     \bottomrule
   \end{tabular}
 \end{table}
 
 Auch hier werden die Fehler gemäß der gaußschen Fehlerfortpflanzung bestimmt. 
 \begin{equation*}
-  \Delta N_{\text{mech}} = \frac{1}{\kappa -1}\left(p_b\sqrt[\kappa]{\frac{p_a}{p_b}}-p_a\right)\frac{1}{\rho}\Delta\frac{\text{d}m}{\text{d}t}
+  \Delta N_{\text{mech}} = \frac{1}{\kappa -1}\left(p_b\sqrt[\kappa]{\frac{p_a}{p_b}}-p_a\right)\frac{1}{\rho}\Delta\frac{\text{d}m}{\text{d}t}.
 \end{equation*}
-Der Fehler des Massendurchsatzes ist bereits bekannt wird aber nicht eingesetzt da sich keine Erkenntnis daraus ziehen lässt.

@@ -153,20 +153,20 @@ print("-------------------------------------------------------------------------
 print("Massendurchsatz:         ", dm)
 print("-------------------------------------------------------------------------")
 
-roh_0 = 5.51 
+rho_0 = 5.51 
 k = 1.14
 
 # Berechnen der Dichten das gases zu verschiedenen Temperaturen
-roh1 = roh_0*237.15*p_b[2]/(100000*T_2[2])
-roh2 = roh_0*237.15*p_b[7]/(100000*T_2[7])
-roh3 = roh_0*237.15*p_b[12]/(100000*T_2[12])
-roh4 = roh_0*237.15*p_b[17]/(100000*T_2[17])
-print("roh:                      ", roh1, roh2, roh3, roh4)
+rho1 = rho_0*273.15*p_b[2]/(100000*T_2[2])
+rho2 = rho_0*273.15*p_b[7]/(100000*T_2[7])
+rho3 = rho_0*273.15*p_b[12]/(100000*T_2[12])
+rho4 = rho_0*273.15*p_b[17]/(100000*T_2[17])
+print("rho:                      ", rho1, rho2, rho3, rho4)
 
 # Berechnen der mechanischen Leistung aus Messwerten
-N1 = 1/(k-1) * (p_b[2]*(p_a[2]/p_b[2])**(1/k)-p_a[2]) * 1/roh1 *dm[0]
-N2 = 1/(k-1) * (p_b[7]*(p_a[7]/p_b[7])**(1/k)-p_a[7]) * 1/roh2 *dm[1] 
-N3 = 1/(k-1) * (p_b[12]*(p_a[12]/p_b[12])**(1/k)-p_a[12]) * 1/roh3 *dm[2] 
-N4 = 1/(k-1) * (p_b[17]*(p_a[17]/p_b[17])**(1/k)-p_a[17]) * 1/roh4 *dm[3] 
+N1 = 1/(k-1) * (p_b[2]*(p_a[2]/p_b[2])**(1/k)-p_a[2]) * 1/rho1 *dm[0]
+N2 = 1/(k-1) * (p_b[7]*(p_a[7]/p_b[7])**(1/k)-p_a[7]) * 1/rho2 *dm[1] 
+N3 = 1/(k-1) * (p_b[12]*(p_a[12]/p_b[12])**(1/k)-p_a[12]) * 1/rho3 *dm[2] 
+N4 = 1/(k-1) * (p_b[17]*(p_a[17]/p_b[17])**(1/k)-p_a[17]) * 1/rho4 *dm[3] 
 
 print("Mechanische Leistung:    ", N1, N2, N3, N4)
