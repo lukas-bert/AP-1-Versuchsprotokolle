@@ -1,13 +1,13 @@
 \section{Ziel}
-\label{sec:Ziel}
-In diesem Versuch wird eine Wärmepumpe untersucht. Hierzu werden die wichtgien Eigenschaften einer Wärmepumpe mittels Ausgleichsrechnungen bestimmt. Diese kann man dann mit einer 
-theoretischen, idealen Wärmepumpe vergleichen und somit Effizienz und Weiteres diskutieren.
+\label{sec:Zielsetzung}
+In diesem Versuch wird eine Wärmepumpe untersucht. Es sollen die reale Güteziffer dieser und die mechanische Leistung, die erbracht wird, berechnet werden. 
+Diese kann man dann mit der Güteziffer einer theoretischen, idealen Wärmepumpe und den Messwerten der Leistung vergleichen und somit die Effizienz der realen Wärmepumpe diskutieren.
 \section{Theorie}
 \label{sec:Theorie}
 Typischer Weise gleichen sich die Temperaturen zweier Reservoire immer an. Meist aber ist es von größerem Interesse sehr kalte oder sehr warme Stoffe zu betrachten, um neue Erkenntnisse
 zu erlangen. Daher benötigt man eine Methode dies zu realisieren. Eine Methode ist die Nutzung einer Wärmepumpe. Denn durch eine Wärmepumpe ist es möglich die (Wärme-)Energie aus 
 einem niederenergetischen Reservoir in ein höherenergetisches Reservoir zu "pumpen". Betrachtet man beispielsweise zwei Behälter einer Flüssigkeit, ermöglicht es eine Wärmepumpe 
-eines der Reservoire immer kälter zu machen und gleichzeitig das andere Reservoir immer wärmer zu machen.
+die Temperatur eines der Reservoire zu senken und gleichzeitig die des Anderen zu erhöhen. 
 \subsection{Das Prinzip einer Wärmepumpe}
 \label{subsec:Prinzip}
 Wie bereits erwähnt ermöglicht es eine Wärmepumpe die natürliche Flussrichtung der Wärmeenergie umzukehren. Um dies zu realisieren muss man allerdings zusätzlich Energie in das System
@@ -23,7 +23,7 @@ als Eigenschaft der Wärmepumpe definiert. Hierbei beschreibt $Q_1$ die abgegebe
 Somit beschreibt die Güte das Verhältnis zwischen transportierter Wärme und aufgebrachter mechanischer Arbeit. 
 
 
-Aus dem zweiten Hauptsatz der Thermodynamik folgt für eine Wärmepumpe der zusammenhang $\frac{Q_1}{T_1} - \frac{Q_2}{T_2} = 0$. Daraus kann gefolgert werden, dass die Wärmeübertragung 
+Aus dem zweiten Hauptsatz der Thermodynamik folgt für eine Wärmepumpe der Zusammenhang $\frac{Q_1}{T_1} - \frac{Q_2}{T_2} = 0$. Daraus kann gefolgert werden, dass die Wärmeübertragung 
 immer reversibel verlaufen muss. Dies ist allerdings nur eine theoretische Forderung, welche nicht realisiert werden kann, da es immer gewisse Energieverluste gibt. Daher lässt sich
 lediglich die Aussage treffen 
 \begin{equation*}
@@ -44,7 +44,7 @@ lediglich die Aussage treffen
 In der Wärmepumpe wird ein reales Gas als Wärmetransportmedium verwendet. Dieses nimmt beim Verdampfen Energie auf und gibt diese beim Kondensieren wieder ab. Zur Realisierung der 
 Wärmepumpe werden meist Gase mit hoher Verdampfungswärme genutzt. In \autoref{fig:Aufbau_Theorie} ist der grundlegende Aufbau einer Wärmepumpe skizziert. Der Kompressor K sorgt für eine Zirkulation 
 des Gases durch die Reservoire. Durch das Drosselventil D wird dort ein lokaler Druckunterschied aufgebaut. Dieser Druckunterschied ist so gewählt, das bei beiden Drücken das Gas
-einen unterschiedlichen Aggregatzustand annimmt. Beim Verdampfen nach Druchlaufen von D nimmt das Gas die Verdampfungswärme $L$ pro Gramm auf, wodurch also das Reservoir an Energie 
+einen unterschiedlichen Aggregatzustand annimmt. Beim Verdampfen nach Durchlaufen von D nimmt das Gas die Verdampfungswärme $L$ pro Gramm auf, wodurch also das Reservoir an Energie 
 beziehungsweise Wärme verliert. Diese Energie wird dann durch Kondensation im anderen Reservoir abgegeben. Dies geschieht, da der Kompressor K das Gas komprimiert also den Druck erhöht.
 Eine Wärmepumpe kann noch durch viele Apperatschaften erweitert und verbessert werden, allerdings wird hier nicht weiter darauf eingegangen. 
 
@@ -60,12 +60,12 @@ In \autoref{subsec:Prinzip} wurde bisher lediglich eine Formel für die theoreti
     \label{eqn:Güte_Messung}
     \nu_{\text{real}} = \frac{\left(m_1 c_w + m_k c_k\right)}{N_{\text{mechanisch}}}\frac{\Delta T_1}{\Delta t}
 \end{equation}
-bestimmt werden. $\frac{\Delta T_1}{\Delta t}$ kann mit eine geeigneten Zeitintervall aus einer Messreihe, welche mit einer Wärmepumpe nach \autoref{fig:Aufbau_Skizze} aufgenommen wird,
-errechnet werden. $N_{\text{mechanisch}}$ ist die mittlere Leistung im gewählten Intervall $\Delta t$. $m_1c_w$ beschreibt die Wärmekapazität des Mediums im Reservoir 1 in \autoref{fig:Aufbau_Skizze}. In dieser Abbildung 
-liegen in den Reservoiren "geschlängelte"\: Rohrleitungen. $m_kc_k$ beschreibt die Wärmekapazität dieser Leitungen im Reservoir. 
+bestimmt werden. $\frac{\Delta T_1}{\Delta t}$ kann zu einem geeigneten Zeitintervall aus einer Messreihe, welche mit einer Wärmepumpe nach \autoref{fig:Aufbau_Skizze} aufgenommen wird,
+errechnet werden. $N_{\text{mechanisch}}$ ist die mittlere Leistung im gewählten Intervall $\Delta t$. $m_1c_w$ beschreibt die Wärmekapazität des Mediums im Reservoir 1 in \autoref{fig:Aufbau_Skizze}. 
+$m_kc_k$ beschreibt die Wärmekapazität der Rohrleitungen im Reservoir, welche ebenfalls in \autoref{fig:Aufbau_Skizze} zu sehen sind.
 
 
-Der Massendurchsatz kann ebenfalls aus der selben Messreihe mit $T_2$ bestimmt werden. 
+Der Massendurchsatz kann aus der selben Messreihe mit $T_2$ bestimmt werden. 
 \begin{equation}
     \label{eqn:Massendurchsatz}
     \frac{\text{d}m}{\text{d}t} = \frac{\left(m_2 c_w + m_k c_k\right)}{L}\frac{\Delta T_2}{\Delta t}

@@ -124,7 +124,7 @@ Die Theoriewerte ergeben sich mit \autoref{eqn:Güte_ideal}.
 \label{subsec:Massendurchsatz}
 Nun soll der Massendurchsatz des Transportgases Dichlordifluormethan ($\text{Cl}_2\text{F}_2\text{C}$) berechnet werden. Dies lässt sich mit \autoref{eqn:Massendurchsatz} bewerkstelligen. 
 $\symup{d}T_2/\symup{d}t$ wurde bereits in \autoref{subsec:Temperaturverlauf} bestimmt und $m_2 c_w$ ist gleich dem Wert von $m_1 c_w$ aus \autoref{subsec:Güteziffer}.
-Die Verdampfungswärme $L$ ist stoffspezifisch und ist nicht gegeben, daher muss sie aus den Messwerten bestimmt werden. Dazu wird die Dampfdruckkurve von Dichlordifluormethan
+Die Verdampfungswärme $L$ ist stoffspezifisch und nicht gegeben. Daher muss sie aus den Messwerten bestimmt werden. Dazu wird die Dampfdruckkurve von Dichlordifluormethan
 betrachtet. Sie ergibt sich durch Auftragen des Druckverhätnisses in einem System gegen die Temperatur. Näheres wird in Versuch 203 \cite{v203} beschrieben. 
 Da es einfacher ist eine lineare Ausgleichsrechnung durchzuführen, wird in \autoref{fig:Plot2} der Logarithmus des Druckverhätnisses, also
 $\symup{log}(\frac{p_{\text{b}}}{p_0})$, an der $y$-Achse aufgetragen. $p_b$ ist gleich zu setzen mit $p_\text{warm}$ und $\frac{p_{\text{b}}}{p_0}$ beschreibt das Druckverhätnis
@@ -147,7 +147,7 @@ die Verdampfungswärme, auch dies wird in Versuch 203 \cite{v203} ersichtlich. D
   m &= \frac{\overline{xy}-\overline{x} \cdot \overline{y}}{\overline{x^2}-\overline{x}^2} & %  
   b = \frac{\overline{y} \cdot \overline{x^2}-\overline{xy} \cdot \overline{x}}{\overline{x^2}-\overline{x}^2}
 \end{align*}
-bestimmen, wurden jedoch in diesem Fall mit \textit{scipy} \cite{scipy} berechnet. Der Fehler dieser Größen ergibt sich mit der gaußschen Fehlerfortpflanzung.
+bestimmen, wurden jedoch mit dem Paket \textit{scipy} \cite{scipy} berechnet. Der Fehler dieser Größen ergibt sich mit der gaußschen Fehlerfortpflanzung.
 
 Aus den Messwerten konnten die Parameter $m = (-2186 \pm 37) \unit{\kelvin}$ und $b = 9.4 \pm 0.1$ ermittelt werden. Daraus folgt für $L = -m/R$ mit der
 allgemeinene Gaskonstante $R \approx 8.314$ \cite{scipy} der Wert der Verdampfungswärme $L = (18.2 \pm 0.3) \unit{\kilo\joule\per\mol}$. Die molare Masse von Dichlordifluormethan
@@ -171,10 +171,10 @@ dargestellt.
     \bottomrule
   \end{tabular}
 \end{table}
-Die Fehler des Massendurchsatzes ergeben sich gemäß der gaußschen Fehlerfortpflanzung durch die folgende Formel.
+Die Fehler des Massendurchsatzes ergeben sich gemäß der gaußschen Fehlerfortpflanzung durch die Gleichung
 \begin{equation*}
   \label{eqn:Fehlerformeldm}
-  \Delta\frac{\text{d}m}{\text{d}t} = \sqrt{\left(-\frac{m_2c_w + m_kc_k}{L^2}\frac{\Delta T_2}{\Delta t}\Delta L\right)^2+\left(\frac{m_2c_w + m_kc_k}{L}\Delta\frac{\Delta T_2}{\Delta t}\right)^2}
+  \Delta\frac{\text{d}m}{\text{d}t} = \sqrt{\left(-\frac{m_2c_w + m_kc_k}{L^2}\frac{\Delta T_2}{\Delta t}\Delta L\right)^2+\left(\frac{m_2c_w + m_kc_k}{L}\Delta\frac{\Delta T_2}{\Delta t}\right)^2}.
 \end{equation*}
 \subsection{mechanische Leistung des Kompressors}
 \label{subsec:Leistung}
