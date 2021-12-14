@@ -1,12 +1,212 @@
 \section{Auswertung}
 \label{sec:Auswertung}
+In \autoref{tab:Mess1} sind die Messwerte zu den Temperaturen des kalten- und warmen Reservoirs in °C, der Druck in den jeweiligen Leitungen in Bar, sowie die Leistungsaufnahme 
+des Kompressors in Watt, in Abhängigkeit zur Zeit dargestellt. Zu den Drücken $p_\text{warm}$ ($p_b$) und $p_\text{kalt}$ ($p_a$) wurde bereits der Atmosphärendruck von 
+$1 \unit{\bar}$ addiert.
+
+Die Ausgleichs- und Fehlerrechnungen zu den Auswertungsaufgaben wurden mittels Python (Version 3.9.7) unter Verwendung der Pakete \textit{scipy} \cite{scipy}, \textit{numpy}
+\cite{numpy} und \textit{uncertainties} \cite{uncertainties} durchgeführt. Die Fehlerformeln finden sich gleichwohl an den entsprechenden Stellen.
+
+\begin{table}
+  \centering
+  \caption{Gemessene Werte für Temperatur, Druck und Leistung.}
+  \label{tab:Mess1}
+  \begin{tabular}{S[table-format=2] S[table-format=2.1] S S[table-format=1.1] S S[table-format=3]}
+      \toprule
+      {$t \mathbin{/} \text{min}$} & {$T_{\text{kalt}} \mathbin{/} \unit{\degreeCelsius}$} &%
+      {$T_{\text{warm}} \mathbin{/} \unit{\degreeCelsius}$} & {$p_{\text{kalt}} \mathbin{/} \unit{\bar}$} &%
+      {$p_{\text{warm}} \mathbin{/} \unit{\bar}$} & {$P \mathbin{/} \unit{\watt}$} \\
+      \midrule
+       1 & 21.7 & 23.0 & 2.6 &  7.0 & 170 \\
+       2 & 21.4 & 23.7 & 2.8 &  7.5 & 175 \\
+       3 & 20.3 & 25.0 & 3.0 &  7.7 & 190 \\
+       4 & 18.9 & 26.4 & 3.1 &  8.0 & 195 \\
+       5 & 17.1 & 28.2 & 3.2 &  8.5 & 200 \\
+       6 & 15.4 & 29.9 & 3.2 &  8.9 & 205 \\
+       7 & 13.6 & 31.7 & 3.2 &  9.2 & 200 \\
+       8 & 12.0 & 33.5 & 3.2 &  9.5 & 200 \\
+       9 & 10.4 & 35.0 & 3.2 & 10.0 & 205 \\
+      10 &  8.8 & 36.8 & 3.2 & 10.3 & 210 \\
+      11 &  7.0 & 38.4 & 3.2 & 10.6 & 210 \\
+      12 &  5.7 & 40.1 & 3.2 & 11.0 & 210 \\
+      13 &  4.3 & 41.6 & 3.2 & 11.4 & 210 \\
+      14 &  3.2 & 43.0 & 3.2 & 11.7 & 215 \\
+      15 &  2.5 & 44.3 & 3.2 & 12.0 & 210 \\
+      16 &  1.8 & 45.7 & 3.2 & 12.4 & 210 \\
+      17 &  1.2 & 46.9 & 3.2 & 12.7 & 210 \\
+      18 &  0.7 & 48.1 & 3.2 & 13.0 & 210 \\
+      19 &  0.4 & 49.2 & 3.2 & 13.4 & 205 \\
+      20 &  0.1 & 50.2 & 3.2 & 13.6 & 205 \\
+      \bottomrule
+      \end{tabular}
+  \end{table}
+
+\subsection{Auswertung der Temperaturverläufe mittels Ausgleichsrechnung}
+\label{subsec:Temperaturverlauf}
+Zuerst sollten die Temperaturverläufe der Messreihe graphisch dargestellt werden. Anhand der Messdaten kann anschließend durch eine nicht-lineare Regression der Kurvenverlauf 
+approximiert werden. Als Ansatz wurde ein Polynom zweiten Grades gewählt
+\begin{equation*}
+  T(t) = At^2 + Bt + C
+\end{equation*}
+mit den reellen Koeffizienten $A$, $B$ und $C$, die sich aus der Regression ergeben. \autoref{fig:Plot1} zeigt die Temperaturverläufe der beiden Reservoire
+und die jeweiligen Ausgleichsfunktionen.
+\begin{figure}
+  \caption{Temperaturverläufe in Abhängigkeit zur Zeit und quadratischer Fit zu den Werten. (Erstellt mit dem Paket \textit{matplotlib} \cite{matplotlib})}
+  \label{fig:Plot1}
+  \centering
+  \includegraphics[width=0.8\textwidth]{build/plot1.pdf}
+\end{figure}
+
+Für die gesuchten Parameter ergeben sich die Werte
+\begin{align*}
+  A &= (1.035 \pm 0.162)\cdot 10^{-5} \unit{\kelvin\per\second\squared} & B &= (-0.034 \pm 0.002) \unit{\kelvin\per\second} & C &= (298.79 \pm 0.58) \unit{\kelvin} \\
+\end{align*}
+für das kalte Gefäß und 
+\begin{align*}
+  A &= (0.373 \pm 0.094)\cdot 10^{-5} \unit{\kelvin\per\second\squared} & B &= (-0.03 \pm 0.001) \unit{\kelvin\per\second} & C &= (293.19 \pm 0.33) \unit{\kelvin} \\
+\end{align*}
+für das warme Gefäß.
+
+Mit diesen Parametern lassen sich nun die Differentialquotienten $\symup{d}T_1/\symup{d}t$ und $\symup{d}T_2/\symup{d}t$ der Temperaturverläufe punktweise über
+die Ableitung der quadratischen Ausgleichsfunktionen bestimmen.
+Die Ableitung der Funktion ist durch
+\begin{equation*}
+  \frac{\symup{d}T}{\symup{d}t} (t) = 2 At + B
+\end{equation*}
+gegeben. Der Fehler des Differentialquotienten beträgt dann nach der gaußschen Fehlerfortpflanzung 
+\begin{equation*}
+  \symup{\Delta} \frac{\symup{d}T}{\symup{d}t} = \sqrt{(2t\symup{\Delta}A)^2 + \symup{\Delta}B^2}.
+\end{equation*}
+Der Differentialquotient beider Temperaturkurven sollte für je 4 verschiedene Temperaturen ermittelt werden. Ausgewählt wurden die Temperaturen zu den Zeitpunkten
+$t_1 = 3 \symup{min}$ $(180 \unit{\second})$, $t_2 = 8 \symup{min}$ $(480 \unit{\second})$, $t_3 = 13 \symup{min}$ $(780 \unit{\second})$ und 
+$t_4 = 18 \symup{min}$ $(1080 \unit{\second})$. Die Werte können \autoref{tab:dT} entnommen werden.
+
+\begin{table}
+  \centering
+  \caption{Berechnete Werte der Differentialquotienten zu den ausgewählten Zeitpunkten}
+  \label{tab:dT}
+  \begin{tabular}{c c @{${}\pm{}$} c c @{${}\pm{}$} c c @{${}\pm{}$} c c @{${}\pm{}$} c}
+    \toprule
+    & \multicolumn{2}{c}{$\frac{\symup{d}T}{\symup{d}t}(t_1) \mathbin{/} \frac{\symup{K}}{\symup{s}}$} & \multicolumn{2}{c}{$\frac{\symup{d}T}{\symup{d}t}(t_2) \mathbin{/} \frac{\symup{K}}{\symup{s}}$} &%
+    \multicolumn{2}{c}{$\frac{\symup{d}T}{\symup{d}t}(t_3) \mathbin{/} \frac{\symup{K}}{\symup{s}}$} & \multicolumn{2}{c}{$\frac{\symup{d}T}{\symup{d}t}(t_4) \mathbin{/} \frac{\symup{K}}{\symup{s}}$}\\
+    \midrule
+    {kaltes Reservoir} & -0.031 & 0.002 & -0.024 & 0.003 & -0.018 & 0.003 & -0.012 & 0.004\\
+    {warmes Reservoir} & 0.029 & 0.001 & 0.026 & 0.002 & 0.024 & 0.002 & 0.022 & 0.002\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{Vergleich der realen- und idealen Güteziffer}
+\label{subsec:Güteziffer}
+Aus den Werten des Differentialquotienten kann man mit \autoref{eqn:Güte_Messung} die reale Güteziffer bestimmen. $m_k c_k$ ist die Wärmekapazität der Gefäße und der Leitungen und
+hat den Wert $m_k c_k = 750 \, \unit{\joule\per\kelvin}$. $m_1 c_w$ ist die Wärmekapazität des Wassers im warmen Reservoir. Sie berechnet sich mit der Masse $m_1 = 3\unit{\kilogram}$
+und der spezifischen Wärme von Wasser $c_w \approx 4181.8 \, \unit{\joule\per\kilogram\kelvin}$ \cite{Ingenieurwissen}. Da der Differentialquotient fehlerbelastet ist, hat die
+daraus berechnete Güteziffer einen Fehler, der sich auch nach \autoref{eqn:Güte_real} durch einsetzen des Fehlers von $\symup{d}T\mathbin{/}\symup{d}t$ berechnen lässt.
+Die Theoriewerte ergeben sich mit \autoref{eqn:Güte_ideal}. 
+
+\begin{table}
+  \centering
+  \caption{Vergleich der realen- und idealen Güteziffern an den Zeitpunkten $t_i$}
+  \label{tab:Güteziffer}
+  \begin{tabular}{c S[table-format = 2.2] S[table-format = 1.2] @{${}\pm{}$} S}
+    \toprule
+    {$t \mathbin{/} \symup{s}$} & {$\nu_{\text{ideal}}$} & \multicolumn{2}{c}{$\nu_{\text{real}}$} \\
+    \midrule
+    180  & 63.44 & 2.01 & 0.09 \\ 
+    480  & 14.26 & 1.76 & 0.10 \\
+    780  &  8.44 & 1.53 & 0.12 \\
+    1080 &  6.78 & 1.39 & 0.15 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{Bestimmung der Verdampfungswärme und des Massendurchsatzes}
+\label{subsec:Massendurchsatz}
+Nun soll der Massendurchsatz des Transportgases Dichlordifluormethan ($\text{Cl}_2\text{F}_2\text{C}$) berechnet werden. Dies lässt sich mit \autoref{eqn:Massendurchsatz} bewerkstelligen. 
+$\symup{d}T_2/\symup{d}t$ wurde bereits in \autoref{subsec:Temperaturverlauf} bestimmt und $m_2 c_w$ ist gleich dem Wert von $m_1 c_w$ aus \autoref{subsec:Güteziffer}.
+Die Verdampfungswärme $L$ ist stoffspezifisch und nicht gegeben. Daher muss sie aus den Messwerten bestimmt werden. Dazu wird die Dampfdruckkurve von Dichlordifluormethan
+betrachtet. Sie ergibt sich durch Auftragen des Druckverhätnisses in einem System gegen die Temperatur. Näheres wird in Versuch 203 \cite{v203} beschrieben. 
+Da es einfacher ist eine lineare Ausgleichsrechnung durchzuführen, wird in \autoref{fig:Plot2} der Logarithmus des Druckverhätnisses, also
+$\symup{log}(\frac{p_{\text{b}}}{p_0})$, an der $y$-Achse aufgetragen. $p_b$ ist gleich zu setzen mit $p_\text{warm}$ und $\frac{p_{\text{b}}}{p_0}$ beschreibt das Druckverhätnis
+zum Atmosphärendruck $p_0$.
 
 \begin{figure}
   \centering
-  \includegraphics{plot.pdf}
-  \caption{Plot.}
-  \label{fig:plot}
+  \caption{Dampfdruckkurve von Dichlordifluormethan. Messwerte und linearer Fit in halblogarithmischer Darstellung. (Erstellt mit \textit{matplotlib}\cite{matplotlib})}
+  \label{fig:Plot2}
+  \includegraphics[width=0.8\textwidth]{build/plot2.pdf}
 \end{figure}
 
+In dem Diagramm sind die Wertepaare des warmen Reservoirs eingetragen, aus denen sich mittels linearer Regression die Parameter $m$ und $b$ der Geraden
+\begin{equation*}
+  f(x) = mx + b
+\end{equation*}
+bestimmen lassen. $x$ ist in diesem Fall Der Kehrwert der Temperatur und $y = f(x)$ der oben beschriebene Logarithmus. Es gilt der Zusammenhang $m = - \frac{L}{R}$ für 
+die Verdampfungswärme, auch dies wird in Versuch 203 \cite{v203} ersichtlich. Die Parameter lassen sich rechnerisch als
+\begin{align*}
+  m &= \frac{\overline{xy}-\overline{x} \cdot \overline{y}}{\overline{x^2}-\overline{x}^2} & %  
+  b = \frac{\overline{y} \cdot \overline{x^2}-\overline{xy} \cdot \overline{x}}{\overline{x^2}-\overline{x}^2}
+\end{align*}
+bestimmen, wurden jedoch mit dem Paket \textit{scipy} \cite{scipy} berechnet. Der Fehler dieser Größen ergibt sich mit der gaußschen Fehlerfortpflanzung.
 
-Siehe \autoref{fig:plot}!
+Aus den Messwerten konnten die Parameter $m = (-2186 \pm 37) \unit{\kelvin}$ und $b = 9.4 \pm 0.1$ ermittelt werden. Daraus folgt für $L = -m/R$ mit der
+allgemeinene Gaskonstante $R \approx 8.314$ \cite{scipy} der Wert der Verdampfungswärme $L = (18.2 \pm 0.3) \unit{\kilo\joule\per\mol}$. Die molare Masse von Dichlordifluormethan
+beträgt $M = 120.91 \unit{\gram\per\mol}$ \cite{Dichlordifluormethan}, daraus folgt $L = (150 \pm 2.5) \unit{\kilo\joule\per\kilogram}$.
+
+
+Nun kann der Massendurchsatz für die verschiedenen Temperaturen gemäß \autoref{eqn:Massendurchsatz} berechnet werden. Diese werden zusammen mit dem jeweiligen Fehler in \autoref{tab:Massendurchsatz}
+dargestellt.
+\begin{table}
+  \centering
+  \caption{Massendurchsatz zu den Zeitpunkten $t_i$}
+  \label{tab:Massendurchsatz}
+  \begin{tabular}{c S[table-format = 1.2] @{${}\pm{}$} S[table-format = 1.2]}
+    \toprule
+    {$t_i \mathbin{/} \unit{\second}$} &  \multicolumn{2}{c}{$\frac{\text{d}m}{\text{d}t}(t)\cdot {10^{-3}}\unit{\kilogram\per\second}$} \\
+    \midrule
+    180  & 2.71 & 0.20 \\ 
+    480  & 2.16 & 0.23 \\
+    780  & 1.61 & 0.29 \\
+    1080 & 1.06 & 0.36 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+Die Fehler des Massendurchsatzes ergeben sich gemäß der gaußschen Fehlerfortpflanzung durch die Gleichung
+\begin{equation*}
+  \label{eqn:Fehlerformeldm}
+  \Delta\frac{\text{d}m}{\text{d}t} = \sqrt{\left(-\frac{m_2c_w + m_kc_k}{L^2}\frac{\Delta T_2}{\Delta t}\Delta L\right)^2+\left(\frac{m_2c_w + m_kc_k}{L}\Delta\frac{\Delta T_2}{\Delta t}\right)^2}.
+\end{equation*}
+\subsection{mechanische Leistung des Kompressors}
+\label{subsec:Leistung}
+Zuletzt wird nun die mechanische Leistung des Kompressors ausgewertet, welche dieser abgibt, um mit den Drücken $p_a$ und $p_b$ zu arbeiten. Diese Leistung lässt sich gemäß \autoref{eqn:Leistung}
+berechnen. Die in \autoref{subsec:Kenngrößen} bereits diskutierten notwendigen Materialkonstanten sind für Dichlordifluormethan bekannt. 
+\begin{align}
+  \rho_0 = 5.51 \unit{\gram\per\liter} \,\,\text{,} \,\,p_0 = 1 \unit{\Bar}\,\, \text{,}\,\, \kappa = 1,14
+\end{align}
+$p_0$ entspricht hier dem Atmosphärendruck und die Angabe von $\rho_0$ bezieht sich auf T$= 0 \unit{\degreeCelsius}$.
+Die Dichte von Dichlordifluormethan zu den verschiedenen Temperaturen ergibt sich durch die Gleichung
+\begin{equation*}
+  \rho(T) = \frac{\rho_0 T_0 \cdot p_b}{p_0 T_2}, 
+\end{equation*}
+welche aus der idealen Gasgleichung folgt. 
+Die damit errechneten Werte für die Leistung können nun \autoref{tab:Leistung} entnommen werden.
+\begin{table}
+  \centering
+  \caption{Leistungsabgabe zu den Zeitpunkten $t_i$}
+  \label{tab:Leistung}
+  \begin{tabular}{c S[table-format = 4.1] @{${}\pm{}$} S[table-format = 1.1]}
+    \toprule
+    {$t_i \mathbin{/} \unit{\second}$} & \multicolumn{2}{c}{$N_{\text{mech}}\mathrm{/}\unit{\watt}$} \\
+    \midrule
+    180  & -18.0 & 1.3 \\ 
+    480  & -14.1 & 1.5 \\
+    780  & -10.1 & 1.8 \\
+    1080 &  -6.4 & 2.2 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Auch hier werden die Fehler gemäß der gaußschen Fehlerfortpflanzung bestimmt. 
+\begin{equation*}
+  \Delta N_{\text{mech}} = \frac{1}{\kappa -1}\left(p_b\sqrt[\kappa]{\frac{p_a}{p_b}}-p_a\right)\frac{1}{\rho}\Delta\frac{\text{d}m}{\text{d}t}.
+\end{equation*}
