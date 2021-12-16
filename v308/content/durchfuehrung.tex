@@ -4,14 +4,14 @@ In diesem Versuch werden, wie in \autoref{sec:Ziel} bereits beschrieben, für ve
 allerdings vorbereitend noch ein paar wichtige Informationen gegeben.
 \subsection{Vorbereitungsaufgaben}
 \label{subsec:VBA}
-Zunächst wird nochmals die Berechnungsformel für das Magnetfeld im Zentrum eines Helmholtzspulenpaares besprochen. Diese kann !!!!!!!!!autoref{eqn:HIERKOMMTHELOMHOLTZFORMEL REIN AUS THEORIE DU ARSCH}
-entnommen werden. Sie wird durch die Geometrie eines Helmholtzspulenpaares mit dem Biot-Savart-Gesetzt(!!!!!!!eqnref{bitsavartkackereferenzmachen}) hergeleitet. Nun wird die !!!!!!!!!!!autoref{HELMSCHMOLTZREFERENZ}
-anhand eines Beispiels angewendet. Dafür wird ein Helmholtzspulenpaar dessen Durchmesser $d = 125\unit{\milli\metre}$ beträgt und es gilt $\frac{d}{2} = R = x$. Das Spulenpaar 
-wird von $1\unit{\ampere}$ durchflossen und die magnetische Feldkonstante $\mu_0 = 1.2566\cdot 10^{-6} \unit{\newton\per\ampere\squared}$. Setzt man diese Werte in die Gleichung ein
+Zunächst wird nochmals die Berechnungsformel für das Magnetfeld im Zentrum eines Helmholtzspulenpaares besprochen. Diese kann \autoref{eqn:Helmholtz}
+entnommen werden. Sie wird durch die Geometrie eines Helmholtzspulenpaares mit dem Biot-Savart-Gesetzt\eqref{eqn:BiotSavart} hergeleitet. Nun wird \autoref{eqn:Helmholtz}
+anhand eines Beispiels angewendet. Dafür wird ein Helmholtzspulenpaar verwendet dessen Durchmesser $d = 125\unit{\milli\metre}$ beträgt und $\frac{d}{2} = R = x$ gilt. Das Spulenpaar 
+wird von einem Strom mit $1\unit{\ampere}$ durchflossen und die magnetische Feldkonstante ist gegeben durch $\mu_0 = 1.2566\cdot 10^{-6} \unit{\newton\per\ampere\squared}$\cite{scipy}. Setzt man diese Werte in die Gleichung ein
 ergibt sich $B(0) = 0.71\unit{\milli\tesla}$ für das Magnetfeld. 
 
 
-Weiter werden noch kompakt unterschiedliche Arten des Magnetismus erklärt. 
+Im folgenden werden noch kompakt unterschiedliche Arten des Magnetismus erklärt. 
 \subsubsection{Diamagnetismus}
 \label{subsubsec:DIA}
 Diamagnetische Stoffe sind durch eine Permeabilität $\mu_{\text{r}} < 1$ ausgezeichnet. Sie bilden unter äußerem anliegenden Magnetfeld ein inneres Gegenfeld aus. Ohne äußeres Magnetfeld sind 
@@ -31,21 +31,40 @@ durch ein äußeres Magnetfeld statt und bewirkt, dass ein ferromagnetischer Sto
 geben die Magnetisierung gegen eine gewissen Größe an. In diesem Fall wird sie gegen den Strom angegeben.
 \subsection{Messung des Magnetfeldes einer langen Spule}
 \label{subsec:D_Lange_Spule}
+Zur Messung des Magnetfeldes einer langen Spule benötigt man die Spule selbst, eine logitudinale Hall-Sonde und einen Stromgenerator. Zunächst wird die Spule an den Generator angeschlossen.
+Der Generator wird dann so eingestellt, dass die Spule von circa $1 \unit{\ampere}$ durchflossen wird. Dann befestigt man die Hall-Sonde in einem Gestell, sodass immer möglichst auf der
+gleichen Achse gemessen wird. Man wählt einem Messnullpunkt und schiebt die Hallsonde dann langsam in die Spule ein. Dabei wird die relative Auslenkung zum Messnullpunkt und die Magnetfeldstärke 
+an diesen Stellen gemessen. Aus Symetriegründen reicht es aus bis zur Mitte der Spule zu messen.
 \begin{figure}
     \centering
-    \caption{Bild der verwendeten langen Spule}
+    \caption{In diesem Bild ist die verwendete lange Spule abgebildet.}
     \label{fig:Aufbau_lange_Spule}
     \includegraphics[width=0.55\textwidth,angle=90]{content/LangeSpule.jpg}
 \end{figure}
-Zur Messung des Magnetfeldes einer langen Spule benötigt man die Spule selbst, eine logitudinale Hall-Sonde und ein Stromgenerator. Zunächst wird die Spule an den Generator angeschlossen.
-Der Generator wird dann so eingestellt, dass die Spule von circa $1 \unit{\ampere}$ durchflossen wird. Dann befestigt man die Hall-Sonde in einem Gestell, sodass immer möglichst auf der
-gleichen Achse gemessen wird. Man wählt einem Messnullpunkt und schiebt die Hallsonde dann langsam in die Spule ein. Dabei wird die relative Auslenkung zum Messnullpunkt und die Magnetfeldstärke 
-an diesen Stellen gemessen. Aus Symetriegründen reicht es aus bis zur Mitte der Spule zu messen. 
 \subsection{Messung des Magnetfelds eines Spulenpaares}
-\label{D_Spulenpaar}
+\label{subsec:D_Spulenpaar}
+Für diese Messung benötigt man ein Helmholtzspulepaar, dessen Abstand man variieren kann. Außerdem benötigt man eine transversale Hall-Sonde zur Messung des Magnetfeldes. Zunächst
+werden die beiden Spulen in Reihe an einen Generator angschlossen, sodass beide Spulen gleichsinnig vom Strom durchflossen werden. Nun muss zunächst ein Abstand zwischen den Spulen 
+festgelegt werden. Die Hall-Sonde wird, wie in \autoref{fig:Aufbau_Spulenpaar} dargestellt ist, oben in die Führung eingesetzt. Dadurch ist garantiert, dass man entlang einer Achse misst.
+Dann werden in sinnvollen Abständen Messungen durchgeführt. Dabei wird sowohl der Bereich zwischen den Spulen als auch der Bereich außerhalb der Spulen gemessen. Dies wird für 3 unterschiedliche 
+Längen wiederholt.
 \begin{figure}
     \centering
-    \caption{Bild des verwendeten Spulenpaares}
+    \caption{In diesem Bild ist der Versuchsaufbau zum Helmholtzspulenpaar dargestellt.\cite{v308}}
     \label{fig:Aufbau_Spulenpaar}
-    \includegraphics[width=\textwidth]{content/HelmholtzSpule.jpg}
+    \includegraphics[width=\textwidth]{content/HelmHoltzAufbau.PNG}
+\end{figure}
+\subsection{Messung des Magnetfeldes einer Toroid-Spule zur Bestimmung der Hysteresekurve}
+\label{subsec:D_Hysterese}
+Für diese Messung wird eine Toroidspule und eine transversale Hall-Sonde benötigt. Die Hall-Sonde wird über eine Vorrichtung in den Luftspalt der Toroidspule gehalten. Die Toroidspule
+wir an einen Generator angeschlossen. Bevor dieser eingeschaltet wird, muss die Spule möglichst gut entmagnetisiert werden. Dann wird der Generator eingeschaltet. Nun wird der Strom
+der Spule langsam hochgeregelt, wobei immer die dazugehörigen Feldstärken notiert werden. In dieser Messung können $1\unit{\ampere}$-Schritte gemacht werden. Es wird gemessen bis die 
+gesamte Hysteresekurve abgemessen wurde. Das bedeuetet nach Beginn der Messung wird der Generator zunächst bis zu $10\unit{\ampere}$ hochfahren und auch wieder bis zur $0$ runtergeregelt.
+Um dann in den negativen Bereich zu gelangen wird die Verkabelung umgedreht. Dann wird der gleiche Messprozess nochmal durchgeführt. Danach wird nochmals umgepolt und lediglich ein mal 
+bis $10\unit{\ampere}$ hochgemessen. Nun wurde die gesamte Hysteresekurve abgemessen.
+\begin{figure}
+    \centering
+    \caption{Dies ist ein des Versuchaufbaus zur Toroidspule.\cite{v308}}
+    \label{fig:Aufbau_Toroid}
+    \includegraphics[width=\textwidth]{content/RingSpuleAufbau.PNG}
 \end{figure}
