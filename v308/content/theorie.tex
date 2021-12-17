@@ -53,7 +53,12 @@ Zentrum eines Spulenpaars mit je einer Windung kann in diesem Fall durch Überla
     B(0) = B_1(x) + B_1(-x) = \frac{\mu_0 I R^2}{(R^2 + x^2)^{3/2}}
 \end{equation}
 bestimmt werden. Um die Flussdichte für $N$ Windungen pro Spule zu erhalten, kann \autoref{eqn:Helmholtz} mit $N$ multipliziert werden. Die räumliche Ausdehnung
-der Spulen wird so nicht berücksichtigt, was jedoch in der Praxis vernachlässigt werden kann.
+der Spulen wird so nicht berücksichtigt, was jedoch in der Praxis vernachlässigt werden kann. Der Wert der Flussdichte entlang der Symmetrieachse außerhalb des Mittelpunkts lässt sich als
+\begin{equation}
+    \label{eqn:Helmholtz_theo}
+    B(x) = \frac{\mu_0}{2}I R^2 \left(\frac{1}{\left(\left(\frac{d}{2}+x\right)^2 + R^2\right)^{3/2}} + \frac{1}{\left(\left(\frac{d}{2} - x\right)^2 + R^2\right)^{3/2}} \right)
+\end{equation}
+berechnen \cite{finke92}. Die Variable $x$ beschreibt dabei die Auslenkung vom Mittelpunkt und $d$ den Abstand der Spulen.
 Auch der Feldgradient $\frac{\symup{d}B}{\symup{d}x}$ ist im Idealfall in einem relativ großen Bereich vernachlässigbar gering.
 
 \subsection{Magnetisierung ferromagnetischer Stoffe}

@@ -32,22 +32,29 @@ plt.close()
 def B_H(x, d, I, R, N):
     return const.mu_0*I*R**2*N/2 * (((x-d/2)**2+R**2)**(-3/2) + ((x+d/2)**2+R**2)**(-3/2))
 
+def B_H_theo(x, I, R, N):
+    return const.mu_0*I*R**2*N/(R**2 + x**2)**(3/2)   
+
 xl = np.linspace(-15, 25, 1000)
 
-R = 0.0625          # Radius der Spulen in cm
+R = 0.0625          # Radius der Spulen in m
 N = 100             # Windungen der Spulen
 I = 4               # Eingestellte Stromstärke
 d1 = 0.1
 d2 = 0.15
 d3 = 0.2            # Abstände der Spulen
 
+print("Theoriewerte:        ", B_H_theo(d1/2, I, R, N)*10**3, B_H_theo(d2/2, I, R, N)*10**3, B_H_theo(d3/2, I, R, N)*10**3)  
+
 # Helmholtzspule Länge = 10cm
 
 x1, B1 = np.genfromtxt("content/dataHelmholtz1.txt", unpack = True)
 
-plt.plot(xl + d1/2*10**2 - 2.3, B_H(xl*10**(-2), d1, I, R, N)*10**3, "b--", label = "Theoriewerte")
+plt.plot(xl + d1/2*10**2 - 2.3, B_H(xl*10**(-2), d1, I, R, N)*10**3, "b--", label = "Theoriekurve*")
 
 plt.plot(x1, B1, 'rx', label = 'Messwerte')
+plt.plot(d1/2*10**2 -2.3, B_H_theo(d1/2, I, R, N)*10**3, 'g+', marker = 6, color = 'deepskyblue', markersize = 7, label = "Theoriewert im Mittelpunkt")               # d1/2 --> Mittelpunkt,  "-2.3" , da Skalen nicht identisch an der Messsaparatur
+
 plt.grid()
 plt.xlabel(r'$x \mathbin{/} \unit{\centi\metre}$')
 plt.ylabel(r'$B \mathbin{/} \unit{\milli\tesla}$')
@@ -59,9 +66,11 @@ plt.close()
 # Helmholtzspule Länge = 15cm
 x2, B2 = np.genfromtxt("content/dataHelmholtz2.txt", unpack = True)
 
-plt.plot(xl + d2/2*10**2 - 2.3, B_H(xl*10**(-2), d2, I, R, N)*10**3, "b--", label = "Theoriewerte")
+plt.plot(xl + d2/2*10**2 - 2.3, B_H(xl*10**(-2), d2, I, R, N)*10**3, "b--", label = "Theoriekurve*") 
 
 plt.plot(x2, B2, 'rx', label = 'Messwerte')
+plt.plot(d2/2*10**2 -2.3, B_H_theo(d2/2, I, R, N)*10**3, 'g+', marker = 6, color = 'deepskyblue', markersize = 7, label = "Theoriewert im Mittelpunkt")       
+
 plt.grid()
 plt.xlabel(r'$x \mathbin{/} \unit{\centi\metre}$')
 plt.ylabel(r'$B \mathbin{/} \unit{\milli\tesla}$')
@@ -75,9 +84,11 @@ plt.close()
 # Helmholtzspule Länge = 20cm
 x3, B3 = np.genfromtxt("content/dataHelmholtz3.txt", unpack = True)
 
-plt.plot(xl + d3/2*10**2 - 2.3, B_H(xl*10**(-2), d3, I, R, N)*10**3, "b--", label = "Theoriewerte")
+plt.plot(xl + d3/2*10**2 - 2.3, B_H(xl*10**(-2), d3, I, R, N)*10**3, "b--", label = "Theoriekurve*")
 
 plt.plot(x3, B3, 'rx', label = 'Messwerte')
+plt.plot(d3/2*10**2 -2.3, B_H_theo(d3/2, I, R, N)*10**3, 'g+', marker = 6, color = 'deepskyblue', markersize = 7, label = "Theoriewert im Mittelpunkt")
+
 plt.grid()
 plt.xlabel(r'$x \mathbin{/} \unit{\centi\metre}$')
 plt.ylabel(r'$B \mathbin{/} \unit{\milli\tesla}$')
@@ -109,7 +120,7 @@ plt.grid()
 plt.xlabel(r'$x \mathbin{/} \unit{\centi\metre}$')
 plt.ylabel(r'$B \mathbin{/} \unit{\milli\tesla}$')
 
-plt.hlines(y = B_theorie*10**3, xmin = 0, xmax = 6, color='b', linestyle='--', lw = 0.8, label = "Theoriewert")
+plt.hlines(y = B_theorie*10**3, xmin = 0, xmax = 6, color='b', linestyle='--', label = "Theoriewert")
 plt.xlim(-6.5, 6)
 
 plt.legend(loc='best')
