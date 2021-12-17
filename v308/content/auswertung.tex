@@ -1,37 +1,50 @@
 \section{Auswertung}
 \label{sec:Auswertung}
-
+Die Material- und Gerätekonstanten befinden sich im Anhang. Ebenso werden alle Messtabellen nur im Anhang aufgeführt, da die Daten auch den Plots entnommen werden können.
+\subsection{Magnetfeld einer langen Spule}
+\label{subsec:A_langeSpule}
+Die Messwerte dieser Spule sind in \autoref{fig:PlotLangeSpule} graphisch dargestellt. Der Spuleneingang lag bei circa $0\:\unit{\centi\metre}$ und der letzt Messwert liegt genau in der Mitte der Spule.
+Es ist gut zu erkennen, dass das Magnetfeld innerhalb der Spule konstant verläuft, da die Messwerte dort ziemlich gut auf der Theoriegeraden liegen. Für die negativen Längen, also der Verlauf
+des Magnetfeldes außerhalb der Spule, ist der Abfall des Magnetfeldes deutlich zu erkennen. Da der letzte Messwert in der Mitte der Spule liegt sollte dieser auch den besten experimentellen Wert
+für das homogene Magnetfeld innerhalb der Spule liefern. Daher lautet $B_{\text{experimentell}} = 2.335\:\unit{\milli\tesla}$. Der Theoriewert für dieses Magentfeld liegt bei $B_{\text{Theorie}} = 2.299\:\unit{\milli\tesla}$
 \begin{figure}
     \centering
-    \caption{Die Messwerte der Langenspule. Erstellt mit \textit{matplotlib} \cite{matplotlib}}
+    \caption{Die Messwerte der langen Spule. Erstellt mit \textit{matplotlib} \cite{matplotlib}}
     \label{fig:PlotLangeSpule}
     \includegraphics[width=\textwidth]{build/plotLangeSpule.pdf}
 \end{figure}
-
-\begin{figure}
+\subsection{Magnetfeld des Helmholtzspulenpaares}
+\label{subsec:A_Helmholtz}
+Die gemessenen Magnetfelder des Helmholtzspulenpaares sind zusammen mit ihrem theoretischen Verlauf, für die drei verwendeten Abstände, in den Abbildungen \ref{fig:PlotHH1}, \ref{fig:PlotHH2} und \ref{fig:PlotHH3} 
+graphisch dargestellt. Die experimentellen Werte des Magnetfeldes in der Mitte des Spulenpaares lassen sich der autoref{TABBELEZU HELMSCHMOLZ MACHENAM ENDE MACHEN} entnehmen. Da aber die Skala um $2.3\:\unit{\centi\metre}$ verschoben ist muss der Wert
+genommen werden, welcher am nächsten bei $\frac{d}{2} - 2.3\:\unit{\centi\metre}$ liegt. Daher ist für den Abstand von $10\:\unit{\centi\metre}$ das Magnetfeld $B_{\text{experimentell,1}} = 3.840\:\unit{\milli\tesla}$.
+Der Theoriewert dazu berechnet sich gemäß Formel \eqref{eqn:Helmholtz} zu $B_{\text{Theorie,1}} = 3.829\:\unit{\milli\tesla}$.
+\begin{figure}[H]
     \centering
     \caption{Die Messwerte des Helmholtzspulenpaars zum Abstand d = 10cm. Erstellt mit \textit{matplotlib} \cite{matplotlib}}
     \label{fig:PlotHH1}
     \includegraphics[width=\textwidth]{build/plotHelmHoltz1.pdf}
 \end{figure}
-
-\begin{figure}
+Für den Abstand von $15\:\unit{\centi\metre}$ folgt $B_{\text{experimentell,2}} = 2.222\:\unit{\milli\tesla}$. Der dazugehörige Theoriewert lautet $B_{\text{Theorie,2}} = 2.110\:\unit{\milli\tesla}$.
+\begin{figure}[H]
     \centering
     \caption{Die Messwerte des Helmholtzspulenpaars zum Abstand d = 15cm. Erstellt mit \textit{matplotlib} \cite{matplotlib}}
     \label{fig:PlotHH2}
     \includegraphics[width=\textwidth]{build/plotHelmHoltz2.pdf}
 \end{figure}
-
-\begin{figure}
+Zuletzt wird der für den Abstand von $20\:\unit{\centi\metre}$ angegeben. Dieser lautet $B_{\text{experimentell,3}} = 1.273\:\unit{\milli\tesla}$. Der Theoriewert beträgt $B_{\text{Theorie,3}} = 1.197\:\unit{\milli\tesla}$
+\begin{figure}[H]
     \centering
     \caption{Die Messwerte des Helmholtzspulenpaars zum Abstand d = 10cm. Erstellt mit \textit{matplotlib} \cite{matplotlib}}
     \label{fig:PlotHH3}
     \includegraphics[width=\textwidth]{build/plotHelmHoltz3.pdf}
 \end{figure}
+\subsection{Bestimmung der Hysteresekurve}
+\label{A_Hysterese}
 
 \begin{figure}
     \centering
-    \caption{Hysterese Kurve des Materials in der Ringspule. Erstellt mit \textit{matplotlib} \cite{matplotlib}}
+    \caption{Hysteresekurve des Materials in der Ringspule. Erstellt mit \textit{matplotlib} \cite{matplotlib}}
     \label{fig:PlotHysterese}
     \includegraphics[width=\textwidth]{build/plotHysterese.pdf}
 \end{figure}
