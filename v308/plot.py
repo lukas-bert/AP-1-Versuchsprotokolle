@@ -98,12 +98,20 @@ L = 0.3
 
 # Lange Spule
 x4, B4 = np.genfromtxt("content/dataLangeSpule.txt", unpack = True)
+x4 = np.flip(x4) - 17
+
+l = 0.164
+B_theorie = const.mu_0 * 300/l
 
 #plt.plot(xs, B_lang(xs*10**(-2), N, I, R, L)*10**(3))      # klappt nicht amk
 plt.plot(x4, B4, 'rx', label = 'Messwerte')
 plt.grid()
 plt.xlabel(r'$x \mathbin{/} \unit{\centi\metre}$')
 plt.ylabel(r'$B \mathbin{/} \unit{\milli\tesla}$')
+
+plt.hlines(y = B_theorie*10**3, xmin = 0, xmax = 6, color='b', linestyle='--', lw = 0.8, label = "Theoriewert")
+plt.xlim(-6.5, 6)
+
 plt.legend(loc='best')
 plt.savefig('build/plotLangeSpule.pdf')
 plt.close()
