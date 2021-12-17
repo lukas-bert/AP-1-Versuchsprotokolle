@@ -117,7 +117,11 @@ abw = abs(w_p-w_pt)/w_pt
 abw1 = abs(w_m-w_mt)/w_mt
 abw2 = abs(w_s-w_st)/w_st
 abw3 = abs(w_s-w_stt)/w_stt
-print(abw, abw1, abw2, abw3)
+
+#prozentuale Abweichung von Tl und Tr
+abw4 = abs(T_r-T_l)/T_l
+
+print(abw, abw1, abw2, abw3,abw4)
 
 # Messung 2 (Eigentlich genau das Selbe)
 
@@ -211,4 +215,10 @@ abw = abs(w_p-w_pt)/w_pt
 abw1 = abs(w_m-w_mt)/w_mt
 abw2 = abs(w_s-w_st)/w_st
 abw3 = abs(w_s-w_stt)/w_stt
-print(abw, abw1, abw2, abw3)
+
+#prozentuale Abweichung von Tl und Tr
+abw4 = abs(T_r-T_l)/T_l
+
+print(abw, abw1, abw2, abw3,abw4)
+
+
