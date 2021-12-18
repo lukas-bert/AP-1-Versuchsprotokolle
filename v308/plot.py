@@ -21,6 +21,11 @@ plt.text(-1.2, 124.5, r"$B_r$")
 plt.hlines(y = 696.8, xmin = 0, xmax = 10, color='b', linestyle='--', lw = 0.8)
 plt.vlines(x = 10, ymin = 0, ymax = 696.8, color='b', linestyle='--', lw = 0.8)
 plt.text(-1.2, 696.8, r"$B_s$")
+#Koerzitivkraft
+plt.plot(-0.638, 0, 'k|', markersize = 7)
+plt.text(-1.7, 30, r"$H_c$")
+plt.plot(0.651, 0, 'k|', markersize = 7)
+plt.text(0.8, -80, r"$H_c$")
 # Achseneinstellungen
 plt.xlabel(r'$I \mathbin{/} \unit{\ampere}$')
 plt.ylabel(r'$B \mathbin{/} \unit{\milli\tesla}$')
@@ -47,6 +52,12 @@ plt.plot(I[11:], B[11:], 'rx', label = 'Messwerte')
 # Plot des Fits
 plt.plot(Ix1, p1(Ix1, params0[0], params0[1]), linestyle = "-", color = "forestgreen", label = "Ausgleichsgeraden")
 plt.plot(Ix1, p1(Ix1, params01[0], params01[1]), linestyle = "-", color = "forestgreen")
+
+#Koerzitivkraft
+plt.plot(-0.638, 0, 'k|', markersize = 7)
+plt.text(-0.6, -50, r"$H_c$")
+plt.plot(0.651, 0, 'k|', markersize = 7)
+plt.text(0.7, -50, r"$H_c$")
 
 # Achseneinstellungen
 plt.grid()
