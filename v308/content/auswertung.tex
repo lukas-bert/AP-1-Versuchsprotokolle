@@ -17,7 +17,7 @@ für das homogene Magnetfeld innerhalb der Spule liefern. Daher lautet $B_{\text
 \label{subsec:A_Helmholtz}
 Die gemessenen Magnetfelder des Helmholtzspulenpaares sind zusammen mit ihrem theoretischen Verlauf, für die drei verwendeten Abstände, in den Abbildungen \ref{fig:PlotHH1}, \ref{fig:PlotHH2} und \ref{fig:PlotHH3} 
 graphisch dargestellt. Die experimentellen Werte des Magnetfeldes in der Mitte des Spulenpaares lassen sich der autoref{TABBELEZU HELMSCHMOLZ MACHENAM ENDE MACHEN} entnehmen. Da aber die Skala um $2.3\:\unit{\centi\metre}$ verschoben ist muss der Wert
-genommen werden, welcher am nächsten bei $\frac{d}{2} - 2.3\:\unit{\centi\metre}$ liegt. Daher ist für den Abstand von $10\:\unit{\centi\metre}$ das Magnetfeld $B_{\text{experimentell,1}} = 3.840\:\unit{\milli\tesla}$.
+genommen werden, welcher am nächsten bei $\frac{d}{2} - 2.3\:\unit{\centi\metre}$ liegt. Daher ist für den Abstand von $d = 10\:\unit{\centi\metre}$ das Magnetfeld $B_{\text{experimentell,1}} = 3.840\:\unit{\milli\tesla}$.
 Der Theoriewert dazu berechnet sich gemäß Formel \eqref{eqn:Helmholtz} zu $B_{\text{Theorie,1}} = 3.829\:\unit{\milli\tesla}$.
 \begin{figure}[H]
     \centering
@@ -25,22 +25,38 @@ Der Theoriewert dazu berechnet sich gemäß Formel \eqref{eqn:Helmholtz} zu $B_{
     \label{fig:PlotHH1}
     \includegraphics[width=\textwidth]{build/plotHelmHoltz1.pdf}
 \end{figure}
-Für den Abstand von $15\:\unit{\centi\metre}$ folgt $B_{\text{experimentell,2}} = 2.222\:\unit{\milli\tesla}$. Der dazugehörige Theoriewert lautet $B_{\text{Theorie,2}} = 2.110\:\unit{\milli\tesla}$.
+Für den Abstand von $d = 15\:\unit{\centi\metre}$ folgt $B_{\text{experimentell,2}} = 2.222\:\unit{\milli\tesla}$, wie in \autoref{fig:PlotHH2} zu sehen ist. Der dazugehörige Theoriewert lautet $B_{\text{Theorie,2}} = 2.110\:\unit{\milli\tesla}$.
 \begin{figure}[H]
     \centering
     \caption{Die Messwerte des Helmholtzspulenpaars zum Abstand d = 15cm. Erstellt mit \textit{matplotlib} \cite{matplotlib}}
     \label{fig:PlotHH2}
     \includegraphics[width=\textwidth]{build/plotHelmHoltz2.pdf}
 \end{figure}
-Zuletzt wird der für den Abstand von $20\:\unit{\centi\metre}$ angegeben. Dieser lautet $B_{\text{experimentell,3}} = 1.273\:\unit{\milli\tesla}$. Der Theoriewert beträgt $B_{\text{Theorie,3}} = 1.197\:\unit{\milli\tesla}$
+Zuletzt wird das Magnetfeld für den Abstand von $d = 20\:\unit{\centi\metre}$ angegeben. Dieser lautet, gemäß \autoref{fig:PlotHH3} oder den oben genannten Tabellen, $B_{\text{experimentell,3}} = 1.273\:\unit{\milli\tesla}$. Der Theoriewert beträgt $B_{\text{Theorie,3}} = 1.197\:\unit{\milli\tesla}$
 \begin{figure}[H]
     \centering
-    \caption{Die Messwerte des Helmholtzspulenpaars zum Abstand d = 10cm. Erstellt mit \textit{matplotlib} \cite{matplotlib}}
+    \caption{Die Messwerte des Helmholtzspulenpaars zum Abstand d = 20cm. Erstellt mit \textit{matplotlib} \cite{matplotlib}}
     \label{fig:PlotHH3}
     \includegraphics[width=\textwidth]{build/plotHelmHoltz3.pdf}
 \end{figure}
 \subsection{Bestimmung der Hysteresekurve}
 \label{A_Hysterese}
+Zunächst wird das gemessene Magnetfeld gegen den Strom aufgetragen, wie in \autoref{fig:PlotHysterese} zu sehen ist. Diese graphische Darstellung nennt sich Hysteresekurve. Für den experimentell bestimmten
+Sättigungswert $B_s$ wird der letzte Messpunkt der Neukurve verwendet. Dieser kann autoref{tab:SCHMABELLE MACHEN MIT DEN GANZEN WERTEN UND SO MEIN GOTT} entnommen werden und lautet bei $I = 10\:\unit{\ampere}$ $B_s = 696.8\:\unit{\milli\tesla}$.
+Nun soll die Remenanz $B_r$ bestimmt werden. Wie in \autoref{fig:PlotHysterese} zu sehen ist beschreibt der Punkt $B_r$ genau den $y$-Achsenabschnitt der Hysteresekurve. Da kein Messwert genau 
+durch die Achse geht wird eine Regression mit einem Polynom dritten Grades durchgeführt. Mit der fit-Funktion,
+\begin{equation}
+    \label{Fit}
+    f(x) = ax^3+bx^2+cx+d \mid a,b,c,d \in \mathbb{R}
+\end{equation}
+ergeben sich die Parameter $a = ,b = ,c = ,d = $\cite{scipy}.
+%Hier nochma vllt plot der regression einfuggen aber muss man noch makenn den kaka
+Die Remenanz kann nun aus dieser Regression abgelesen werden und ergibt dann $B_r = HIER MUSS NOCH DER AKCK WERT EINGEFÜGT WERDEN \text{oder} B_r = -HIER NEGATIVWEERT REIN$.
+Danach soll die Stromstärke bestimmt werden, bei welcher die Koerzitivkraft $H_c$ auftritt. 
+Der eingezeichnete Punkt $H_c$ aus \autoref{fig:PlotHysterese} ist genau die Nullstelle der Hysteresekurve. Diese kann durch die selbe Regression \ref{Fit} abgelesen werden.
+Daher ergibt sich $H_c = HIER WIEDER WERT HIN DU YOK$.  
+Zuletzt soll noch die differentielle relative Permeabilität $\mu_{\text{diff}}$ bestimmt werden.
+
 
 \begin{figure}
     \centering
