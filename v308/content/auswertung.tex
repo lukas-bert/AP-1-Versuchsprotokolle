@@ -6,61 +6,68 @@ Die Material- und Gerätekonstanten befinden sich im Anhang. Ebenso werden alle 
 Die Messwerte dieser Spule sind in \autoref{fig:PlotLangeSpule} graphisch dargestellt. Der Spuleneingang lag bei circa $0\:\unit{\centi\metre}$ und der letzt Messwert liegt genau in der Mitte der Spule.
 Es ist gut zu erkennen, dass das Magnetfeld innerhalb der Spule konstant verläuft, da die Messwerte dort ziemlich gut auf der Theoriegeraden liegen. Für die negativen Längen, also der Verlauf
 des Magnetfeldes außerhalb der Spule, ist der Abfall des Magnetfeldes deutlich zu erkennen. Da der letzte Messwert in der Mitte der Spule liegt sollte dieser auch den besten experimentellen Wert
-für das homogene Magnetfeld innerhalb der Spule liefern. Daher lautet $B_{\text{experimentell}} = 2.335\:\unit{\milli\tesla}$. Der Theoriewert für dieses Magentfeld liegt bei $B_{\text{Theorie}} = 2.299\:\unit{\milli\tesla}$
+für das homogene Magnetfeld innerhalb der Spule liefern. Daher lautet $B_{\text{exp}} = 2.335\:\unit{\milli\tesla}$. Der Theoriewert für dieses Magentfeld liegt bei $B_{\text{Theorie}} = 2.299\:\unit{\milli\tesla}$
 \begin{figure}
     \centering
     \caption{Die Messwerte der langen Spule. Erstellt mit \textit{matplotlib} \cite{matplotlib}}
     \label{fig:PlotLangeSpule}
-    \includegraphics[width=\textwidth]{build/plotLangeSpule.pdf}
+    \includegraphics[width=0.85\textwidth]{build/plotLangeSpule.pdf}
 \end{figure}
 \subsection{Magnetfeld des Helmholtzspulenpaares}
 \label{subsec:A_Helmholtz}
 Die gemessenen Magnetfelder des Helmholtzspulenpaares sind zusammen mit ihrem theoretischen Verlauf, für die drei verwendeten Abstände, in den Abbildungen \ref{fig:PlotHH1}, \ref{fig:PlotHH2} und \ref{fig:PlotHH3} 
 graphisch dargestellt. Die experimentellen Werte des Magnetfeldes in der Mitte des Spulenpaares lassen sich der autoref{TABBELEZU HELMSCHMOLZ MACHENAM ENDE MACHEN} entnehmen. Da aber die Skala um $2.3\:\unit{\centi\metre}$ verschoben ist muss der Wert
-genommen werden, welcher am nächsten bei $\frac{d}{2} - 2.3\:\unit{\centi\metre}$ liegt. Daher ist für den Abstand von $d = 10\:\unit{\centi\metre}$ das Magnetfeld $B_{\text{experimentell,1}} = 3.840\:\unit{\milli\tesla}$.
+genommen werden, welcher am nächsten bei $\frac{d}{2} - 2.3\:\unit{\centi\metre}$ liegt. Daher ist für den Abstand von $d = 10\:\unit{\centi\metre}$ das Magnetfeld $B_{\text{exp,1}} = 3.840\:\unit{\milli\tesla}$.
 Der Theoriewert dazu berechnet sich gemäß Formel \eqref{eqn:Helmholtz} zu $B_{\text{Theorie,1}} = 3.829\:\unit{\milli\tesla}$.
 \begin{figure}[H]
     \centering
     \caption{Die Messwerte des Helmholtzspulenpaars zum Abstand d = 10cm. Erstellt mit \textit{matplotlib} \cite{matplotlib}}
     \label{fig:PlotHH1}
-    \includegraphics[width=\textwidth]{build/plotHelmHoltz1.pdf}
+    \includegraphics[width=0.85\textwidth]{build/plotHelmHoltz1.pdf}
 \end{figure}
-Für den Abstand von $d = 15\:\unit{\centi\metre}$ folgt $B_{\text{experimentell,2}} = 2.222\:\unit{\milli\tesla}$, wie in \autoref{fig:PlotHH2} zu sehen ist. Der dazugehörige Theoriewert lautet $B_{\text{Theorie,2}} = 2.110\:\unit{\milli\tesla}$.
+Für den Abstand von $d = 15\:\unit{\centi\metre}$ folgt $B_{\text{exp,2}} = 2.222\:\unit{\milli\tesla}$, wie in \autoref{fig:PlotHH2} zu sehen ist. Der dazugehörige Theoriewert lautet $B_{\text{Theorie,2}} = 2.110\:\unit{\milli\tesla}$.
 \begin{figure}[H]
     \centering
     \caption{Die Messwerte des Helmholtzspulenpaars zum Abstand d = 15cm. Erstellt mit \textit{matplotlib} \cite{matplotlib}}
     \label{fig:PlotHH2}
-    \includegraphics[width=\textwidth]{build/plotHelmHoltz2.pdf}
+    \includegraphics[width=0.85\textwidth]{build/plotHelmHoltz2.pdf}
 \end{figure}
-Zuletzt wird das Magnetfeld für den Abstand von $d = 20\:\unit{\centi\metre}$ angegeben. Dieser lautet, gemäß \autoref{fig:PlotHH3} oder den oben genannten Tabellen, $B_{\text{experimentell,3}} = 1.273\:\unit{\milli\tesla}$. Der Theoriewert beträgt $B_{\text{Theorie,3}} = 1.197\:\unit{\milli\tesla}$
+Zuletzt wird das Magnetfeld für den Abstand von $d = 20\:\unit{\centi\metre}$ angegeben. Dieser lautet, gemäß \autoref{fig:PlotHH3} oder den oben genannten Tabellen, $B_{\text{exp,3}} = 1.273\:\unit{\milli\tesla}$. Der Theoriewert beträgt $B_{\text{Theorie,3}} = 1.197\:\unit{\milli\tesla}$
 \begin{figure}[H]
     \centering
     \caption{Die Messwerte des Helmholtzspulenpaars zum Abstand d = 20cm. Erstellt mit \textit{matplotlib} \cite{matplotlib}}
     \label{fig:PlotHH3}
-    \includegraphics[width=\textwidth]{build/plotHelmHoltz3.pdf}
+    \includegraphics[width=0.85\textwidth]{build/plotHelmHoltz3.pdf}
 \end{figure}
 \subsection{Bestimmung der Hysteresekurve}
 \label{A_Hysterese}
-Zunächst wird das gemessene Magnetfeld gegen den Strom aufgetragen, wie in \autoref{fig:PlotHysterese} zu sehen ist. Diese graphische Darstellung nennt sich Hysteresekurve. Für den experimentell bestimmten
-Sättigungswert $B_s$ wird der letzte Messpunkt der Neukurve verwendet. Dieser kann autoref{tab:SCHMABELLE MACHEN MIT DEN GANZEN WERTEN UND SO MEIN GOTT} entnommen werden und lautet bei $I = 10\:\unit{\ampere}$ $B_s = 696.8\:\unit{\milli\tesla}$.
-Nun soll die Remenanz $B_r$ bestimmt werden. Wie in \autoref{fig:PlotHysterese} zu sehen ist beschreibt der Punkt $B_r$ genau den $y$-Achsenabschnitt der Hysteresekurve. Da kein Messwert genau 
-durch die Achse geht wird eine Regression mit einem Polynom dritten Grades durchgeführt. Mit der fit-Funktion,
-\begin{equation}
-    \label{Fit}
-    f(x) = ax^3+bx^2+cx+d \mid a,b,c,d \in \mathbb{R}
-\end{equation}
-ergeben sich die Parameter $a = ,b = ,c = ,d = $\cite{scipy}.
-%Hier nochma vllt plot der regression einfuggen aber muss man noch makenn den kaka
-Die Remenanz kann nun aus dieser Regression abgelesen werden und ergibt dann $B_r = HIER MUSS NOCH DER AKCK WERT EINGEFÜGT WERDEN \text{oder} B_r = -HIER NEGATIVWEERT REIN$.
-Danach soll die Stromstärke bestimmt werden, bei welcher die Koerzitivkraft $H_c$ auftritt. 
-Der eingezeichnete Punkt $H_c$ aus \autoref{fig:PlotHysterese} ist genau die Nullstelle der Hysteresekurve. Diese kann durch die selbe Regression \ref{Fit} abgelesen werden.
-Daher ergibt sich $H_c = HIER WIEDER WERT HIN DU YOK$.  
-Zuletzt soll noch die differentielle relative Permeabilität $\mu_{\text{diff}}$ bestimmt werden.
-
 
 \begin{figure}
     \centering
     \caption{Hysteresekurve des Materials in der Ringspule. Erstellt mit \textit{matplotlib} \cite{matplotlib}}
     \label{fig:PlotHysterese}
-    \includegraphics[width=\textwidth]{build/plotHysterese.pdf}
+    \includegraphics[width=0.85\textwidth]{build/plotHysterese.pdf}
 \end{figure}
+
+Zunächst wird das gemessene Magnetfeld gegen den Strom $I$ aufgetragen, wie in \autoref{fig:PlotHysterese} zu sehen ist. Für den experimentell bestimmten
+Sättigungswert $B_S$ wird der letzte Messpunkt der Neukurve verwendet. Dieser kann autoref{tab:SCHMABELLE MACHEN MIT DEN GANZEN WERTEN UND SO MEIN GOTT} entnommen werden und
+liegt im Punkt $I = 10\:\unit{\ampere}$ $B_s = 696.8\:\unit{\milli\tesla}$.
+Die Remenanz $B_r$ enspricht dem $y$-Achsenabschnitt und lautet so $ B_r = 124.5 \:\unit{\milli\tesla}$.
+\begin{figure}
+    \centering
+    \caption{Lineare Regression zur Bestimmung der Koerzitivkraft. Erstellt mit \textit{matplotlib} \cite{matplotlib}}
+    \label{fig:PlotHystereseFit}
+    \includegraphics[width=0.85\textwidth]{build/plotHystereseFit.pdf}
+\end{figure}
+Die Koerzitivkraft $H_c$ kann nicht direkt aus den Messwerten entnommen werden. Da die Hysteresekurve allerdings einen relativ linearen Verlauf um die Stelle des Nulldurchgangs 
+aufweist, lässt sich eine lineare Regression der Form
+\begin{equation*}
+    f(x) = ax + b
+\end{equation*}
+durchführen. Unter Verwendung der Messwerte zwischen $I = -1 \unit{\ampere}$ und $I = 1 \unit{\ampere}$ ergeben sich die Parameter
+\begin{align*}
+    a_1 &= 184.8 \: \unit{\milli\tesla\per\ampere}    &   a_2 &= 203.35\: \unit{\milli\tesla}   \\  
+    b_1 &= 117.97\: \unit{\milli\tesla\per\ampere}    &   b_2 &= -132.3\: \unit{\milli\tesla}
+\end{align*}
+für die beiden Geraden an der linken- und rechten Flanke der Hysteresekurve. Daraus lassen sich die Nulldurchgänge der Geraden bestimmen, die der Koerzitivkraft entsprechen. 
+Die Stromstärken bei denen diese auftritt lauten $I_1 = -0.638 \: \unit{\ampere}$ und $I_2 = 0.651 \: \unit{\ampere}$.

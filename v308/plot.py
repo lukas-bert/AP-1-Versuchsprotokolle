@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import scipy.constants as const
+import scipy.optimize as op
 
 #----------------------------------------------------------------------------------------
 # Hysterse Kurve
@@ -27,6 +28,39 @@ plt.legend(loc='lower right')
 plt.savefig('build/plotHysterese.pdf')
 plt.close()
 
+# Bestimmung der Koerzitivkraft
+
+# Geradengleichung
+def p1(x, a, b):
+    return a*x + b   
+
+# Bestimmung der Parameter     
+params0, pcov0 = op.curve_fit(p1, I[19:22], B[19:22])
+params01, pcov01 = op.curve_fit(p1, I[39:42], B[39:42])     
+
+Ix1 = np.linspace(-2, 2, 100)
+
+# Plot der Messwerte
+plt.plot(I[:11], B[:11], 'bx', label = 'Messwerte Neukurve')
+plt.plot(I[11:], B[11:], 'rx', label = 'Messwerte')
+
+# Plot des Fits
+plt.plot(Ix1, p1(Ix1, params0[0], params0[1]), linestyle = "-", color = "forestgreen", label = "Ausgleichsgeraden")
+plt.plot(Ix1, p1(Ix1, params01[0], params01[1]), linestyle = "-", color = "forestgreen")
+
+# Achseneinstellungen
+plt.grid()
+plt.xlim(-1.5, 1.5)
+plt.ylim(-400, 400)
+plt.xlabel(r'$I \mathbin{/} \unit{\ampere}$')
+plt.ylabel(r'$B \mathbin{/} \unit{\milli\tesla}$')
+plt.axhline(y = 0, color= 'k', linestyle= '--', lw = 1.2)
+plt.axvline(x = 0, color= 'k', linestyle= '--', lw = 1.2)
+plt.legend(loc = 'best')
+
+plt.savefig('build/plotHystereseFit.pdf')
+plt.close()
+
 #----------------------------------------------------------------------------------------
 
 def B_H(x, d, I, R, N):
@@ -50,7 +84,7 @@ print("Theoriewerte:        ", B_H_theo(d1/2, I, R, N)*10**3, B_H_theo(d2/2, I, 
 
 x1, B1 = np.genfromtxt("content/dataHelmholtz1.txt", unpack = True)
 
-plt.plot(xl + d1/2*10**2 - 2.3, B_H(xl*10**(-2), d1, I, R, N)*10**3, "b--", label = "Theoriekurve*")
+plt.plot(xl + d1/2*10**2 - 2.3, B_H(xl*10**(-2), d1, I, R, N)*10**3, "b--", label = "Theoriekurve")
 
 plt.plot(x1, B1, 'rx', label = 'Messwerte')
 plt.plot(d1/2*10**2 -2.3, B_H_theo(d1/2, I, R, N)*10**3, 'g+', marker = 6, color = 'deepskyblue', markersize = 7, label = "Theoriewert im Mittelpunkt")               # d1/2 --> Mittelpunkt,  "-2.3" , da Skalen nicht identisch an der Messsaparatur
@@ -66,7 +100,7 @@ plt.close()
 # Helmholtzspule Länge = 15cm
 x2, B2 = np.genfromtxt("content/dataHelmholtz2.txt", unpack = True)
 
-plt.plot(xl + d2/2*10**2 - 2.3, B_H(xl*10**(-2), d2, I, R, N)*10**3, "b--", label = "Theoriekurve*") 
+plt.plot(xl + d2/2*10**2 - 2.3, B_H(xl*10**(-2), d2, I, R, N)*10**3, "b--", label = "Theoriekurve") 
 
 plt.plot(x2, B2, 'rx', label = 'Messwerte')
 plt.plot(d2/2*10**2 -2.3, B_H_theo(d2/2, I, R, N)*10**3, 'g+', marker = 6, color = 'deepskyblue', markersize = 7, label = "Theoriewert im Mittelpunkt")       
@@ -84,7 +118,7 @@ plt.close()
 # Helmholtzspule Länge = 20cm
 x3, B3 = np.genfromtxt("content/dataHelmholtz3.txt", unpack = True)
 
-plt.plot(xl + d3/2*10**2 - 2.3, B_H(xl*10**(-2), d3, I, R, N)*10**3, "b--", label = "Theoriekurve*")
+plt.plot(xl + d3/2*10**2 - 2.3, B_H(xl*10**(-2), d3, I, R, N)*10**3, "b--", label = "Theoriekurve")
 
 plt.plot(x3, B3, 'rx', label = 'Messwerte')
 plt.plot(d3/2*10**2 -2.3, B_H_theo(d3/2, I, R, N)*10**3, 'g+', marker = 6, color = 'deepskyblue', markersize = 7, label = "Theoriewert im Mittelpunkt")
