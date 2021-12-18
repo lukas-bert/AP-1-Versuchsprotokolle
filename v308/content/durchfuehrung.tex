@@ -1,30 +1,27 @@
 \section{Durchführung}
 \label{sec:Durchführung}
-In diesem Versuch werden, wie in \autoref{sec:Ziel} bereits beschrieben, für verschiedene Spulenkonstellationen die Magnetfelder gemessen. Um diesen Versuch durchzuführen werden
-allerdings vorbereitend noch ein paar wichtige Informationen gegeben.
+In diesem Versuch werden, wie in \autoref{sec:Ziel} bereits beschrieben, die Magnetfelder verschiedener Spulenkonstellationen gemessen. Die Messmethoden dazu werden im folgenden 
+Kapitel erläutert. Zuerst werden jedoch die Vorbereitungsaufgaben diskutiert.
 \subsection{Vorbereitungsaufgaben}
 \label{subsec:VBA}
-Zunächst wird nochmals die Berechnungsformel für das Magnetfeld im Zentrum eines Helmholtzspulenpaares besprochen. Diese kann \autoref{eqn:Helmholtz}
-entnommen werden. Sie wird durch die Geometrie eines Helmholtzspulenpaares mit dem Biot-Savart-Gesetzt\eqref{eqn:BiotSavart} hergeleitet. Nun wird \autoref{eqn:Helmholtz}
-anhand eines Beispiels angewendet. Dafür wird ein Helmholtzspulenpaar verwendet dessen Durchmesser $d = 125\unit{\milli\metre}$ beträgt und $\frac{d}{2} = R = x$ gilt. Das Spulenpaar 
-wird von einem Strom mit $1\unit{\ampere}$ durchflossen und die magnetische Feldkonstante ist gegeben durch $\mu_0 = 1.2566\cdot 10^{-6} \unit{\newton\per\ampere\squared}$\cite{scipy}. Setzt man diese Werte in die Gleichung ein
-ergibt sich $B(0) = 0.71\unit{\milli\tesla}$ für das Magnetfeld. 
+In der ersten Vorbereitungsaufgabe sollte die magnetische Flussdichte im Zentrum eines Helmholtzspulenpaares berechnet werden. Dies geschieht nach \autoref{eqn:Helmholtz}.
+Die Spulen des Helmholtzspulenpaares haben einen Durchmesser $d = 125\unit{\milli\metre}$, der Abstand der Spulen beträgt $x = \sfrac{d}{2}$ gilt. Das Spulenpaar 
+wird von einem Strom mit $1 \: \unit{\ampere}$ durchflossen. Mit diesen Werten und der magnetischen Feldkonstante 
+$\mu_0 = 1.2566\cdot 10^{-6} \unit{\newton\per\ampere\squared}$\cite{scipy} ergibt sich $B(0) = 0.71\unit{\milli\tesla}$ für das Magnetfeld. 
 
-
-Im folgenden werden noch kompakt unterschiedliche Arten des Magnetismus erklärt. 
+Im zweiten Teil der Vorbereitung sollten die Begriffe Dia- Para- und Ferromagnetismus erklärt werden. 
 \subsubsection{Diamagnetismus}
 \label{subsubsec:DIA}
-Diamagnetische Stoffe sind durch eine Permeabilität $\mu_{\text{r}} < 1$ ausgezeichnet. Sie bilden unter äußerem anliegenden Magnetfeld ein inneres Gegenfeld aus. Ohne äußeres Magnetfeld sind 
-diamagnetische Stoffe nicht magnetisch. 
+Diamagnetische Stoffe sind durch eine Permeabilität $\mu_{\text{r}} < 1$ ausgezeichnet. Liegt ein äußeres Magnetfeld an, bilden sie ein Gegenfeld, welches das anliegende Magnetfeld
+abschwächt. Ohne äußeres Magnetfeld sind diamagnetische Stoffe nicht magnetisch. 
 \subsubsection{Paramagnetismus}
 \label{subsubsec:PARA}
-Paramagnetische Stoffe sind gewisser weise die Gegenstücke zu diamagnetischen. Sie sind ohne äußeres Magnetfeld zwar ebenfalls nicht magnetisch, aber unter Einfluss eines äußeren 
-Magnetfeldes bauen paramagnetische Stoffe eine paralleles Feld zum Äußeren auf. Durch das gültige Superpositionsprinzip, welches aussagt dass in diesem Falle verschiedene Magnetfelder
-überlagert werden können, ist das Feld im Inneren des Stoffes stärker. Dadurch werden sie meist in Magnetfelder hineingezogen. Paramagnetische Stoffen zeichnen sich durch eine 
+Paramagnetische Stoffe verhalten sich gegenteilig. Sie sind ebenfalls ohne äußeres Magnetfeld nicht magnetisch, aber erzeugen in einem äußeren Magnetfeld ein paralleles Feld.
+Die Felder überlagern sich, was zur Folge hat, dass das Gesamtfeld im Inneren des paramagnetischen Materials verstärkt wird. Paramagnetische Stoffen zeichnen sich durch eine 
 Permeabilität $\mu_{\text{r}} > 1$ aus. 
 \subsubsection{Ferromagnetismus}
 \label{subsubsec:FERRO}
-Ferromagnetische Stoffe können, ohne ein äußeres Magnetfeld, eigene permanente Mangetfelder besitzen. Diese bilden sich, da die einzelnen Atome jeweils magnetische Momente besitzen, welche 
+Ferromagnetische Stoffe können ohne ein äußeres Magnetfeld eigene permanente Mangetfelder besitzen. Diese bilden sich, da die einzelnen Atome jeweils magnetische Momente besitzen, welche 
 dazu neigen sich parallel zueinander auszurichten. Die ferromagnetischen Stoffe, die kein Magnetfeld besitzen, werden meist sehr stark von einem äußeren Pol angezogen. Solche Stoffe 
 sind durch eine Permeabilität $\mu_{\text{r}} >> 1$ gekennzeichnet. Eine weitere wichtige Eigenschaft solcher Stoffe ist, dass sie sich magnetisieren lassen. Diese Magnetisierung findet
 durch ein äußeres Magnetfeld statt und bewirkt, dass ein ferromagnetischer Stoff sein eigenes Magnetfeld aufbaut oder verändert. Hysteresekurven, wie zum Beispiel die in \autoref{fig:PlotHysterese},

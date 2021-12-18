@@ -1,7 +1,7 @@
 \section{Ziel}
 \label{sec:Ziel}
-Ziel des Versuchs ist die Vermessung und anschließende Analyse der Magnetfelder verschiedener Spulen. Betrachet werden eine "lange" \: Spule, ein Helmholtzspulenpaar und eine 
-Toroidspule. Eine Spule wird als lange Spule bezeichnet, wenn die Länge im Vergleich zum Spulendurchmesser groß ist.
+Ziel des Versuches ist die Vermessung und anschließende Analyse der Magnetfelder verschiedener Spulen. Betrachtet werden eine "lange" \: Spule, ein Helmholtzspulenpaar und eine 
+Toroidspule. Eine Spule wird als lange Spule bezeichnet, wenn die Länge der Spule groß gegenüber dem Spulendurchmesser ist.
 Es sollen der Verlauf der Magnetfeldstärke der ersten beiden Spulen und die Hysteresekurve des Kernmaterials der Toroidspule untersucht werden.
 
 \section{Theorie}
@@ -12,20 +12,20 @@ $I$ des Leiters ist. Die Stärke dieses Magnetfeldes wird mit $\vec{H}$ bezeichn
     \label{eqn:Flussdichte}
     \vec{B} = \mu_0 \mu_r \vec{H}
 \end{equation} 
-berechnen. Die Konstante $\mu_0$ wird als \textit{magnetische Feldkonstante} bzw. \textit{Vakuum-Permabilität} bezeichnet. Der zweite Faktor $\mu_r$ ist die relative Permabilität,
-welche von dem Material abhängt, in dem sich das Magnetfeld befindet. 
+berechnen. Die Konstante $\mu_0$ wird als \textit{magnetische Feldkonstante} bzw. \textit{Vakuum-Permabilität} bezeichnet. Der zweite Faktor $\mu_r$ ist die 
+\textit{relative Permabilität}, welche von dem Material abhängt, in dem sich das Magnetfeld befindet. 
 
 \subsection{Magnetfelder von Spulen}
 \label{subsec:Spulen}
-Die Flussdichte $\vec{B}$ an der Stelle $\vec{r}$ lässt sich dann im Vakuum mit dem \textit{Biot-Savartschen Gesetz}
+Die Flussdichte $\vec{B}$ an der Stelle $\vec{r}$ lässt sich im Vakuum mit dem \textit{Biot-Savartschen Gesetz}
 \begin{equation}
     \label{eqn:BiotSavart}
     \symup{d} \vec{B} = \frac{\mu_0 I}{4 \pi}\frac{\symup{d}\vec{s} \times \vec{r}}{r^3}
 \end{equation}
-durch Integration über den Leiter berechnen, wobei $r$ den Abstand vom Leiter beschreibt. Für eine runde, geschlossene Leiterschleife ergibt sich so das Magnetfeld
+durch Integration über den Leiterverlauf berechnen, wobei $r$ den Abstand vom Leiter beschreibt. Für eine runde, geschlossene Leiterschleife ergibt sich so das Magnetfeld
 entlang der Symmetrieachse $X$
 \begin{equation*}
-    \vec{B}(x) = \frac{\mu_0 I}{2} \frac{R^2}{(R^2+x^2)^{3/2}} \cdot {\vec{e}_x}.
+    \vec{B}(x) = \frac{\mu_0 I}{2} \frac{R^2}{(R^2+x^2)^{3/2}} \cdot {\vec{e}_x}
 \end{equation*}
 mit dem Radius $R$ der Leiterschleife.
 Bei einer langgestreckten, stromdurchflossenen Spule der Länge $l$ ergibt sich durch Überlagerung der Flussdichte von $N$ Leiterschleifen (Windungen) ein homogenes Magnetfeld mit 
@@ -45,7 +45,7 @@ Ein weiterer Aufbau, mit dem ein homogenes Magnetfeld erzeugt werden kann, ist d
     \label{fig:HelmholtzSkizze}
     \includegraphics[width=3.5cm]{content/HelmholtzSkizze.jpg}
 \end{figure}
-Die Spulen sind parallel angeordnet und werden gleichsinnig vom Strom druchflossen. Der Abstand der Spulen sollte dem Spulenradius $R$ entsprechen. Bei einer solchen Anordnung 
+Die Spulen sind parallel angeordnet und werden gleichsinnig vom Strom durchflossen. Der Abstand der Spulen sollte dem Spulenradius $R$ entsprechen. Bei einer solchen Anordnung 
 ist das Magnetfeld entlang der Symmetrieachse homogen. Falls sich der Abstand $d = 2x$ vom Spulenradius unterscheidet, gilt diese Homogenität nicht mehr. Das Magnetfeld im 
 Zentrum eines Spulenpaars mit je einer Windung kann in diesem Fall durch Überlagerung der Felder $B_1$ der einzelnen Spulen als
 \begin{equation}
@@ -53,7 +53,7 @@ Zentrum eines Spulenpaars mit je einer Windung kann in diesem Fall durch Überla
     B(0) = B_1(x) + B_1(-x) = \frac{\mu_0 I R^2}{(R^2 + x^2)^{3/2}}
 \end{equation}
 bestimmt werden. Um die Flussdichte für $N$ Windungen pro Spule zu erhalten, kann \autoref{eqn:Helmholtz} mit $N$ multipliziert werden. Die räumliche Ausdehnung
-der Spulen wird so nicht berücksichtigt, was jedoch in der Praxis vernachlässigt werden kann. Der Wert der Flussdichte entlang der Symmetrieachse außerhalb des Mittelpunkts lässt sich als
+der Spulen wird so nicht berücksichtigt, was jedoch in der Praxis vernachlässigt werden kann. Der Wert der Flussdichte entlang der Symmetrieachse außerhalb des Mittelpunkts lässt sich über
 \begin{equation}
     \label{eqn:Helmholtz_theo}
     B(x) = \frac{\mu_0}{2}I R^2 \left(\frac{1}{\left(\left(\frac{d}{2}+x\right)^2 + R^2\right)^{3/2}} + \frac{1}{\left(\left(\frac{d}{2} - x\right)^2 + R^2\right)^{3/2}} \right)
@@ -71,14 +71,14 @@ komplexerer Zusammenhang deutlich, der sich durch Auftragen der Feldstärke $H$ 
 
 \begin{figure}
     \centering
-    \caption{Verlauf einer Hysteresekurve mit allen belangreichen Stellen. \cite{v308}}
+    \caption{Schematischer Verlauf einer Hysteresekurve. \cite{v308}}
     \label{fig:Hysterese}
     \includegraphics[width=8cm]{content/Hysteresekurve.jpg}
 \end{figure}
 
 Wird ein ferromagnetischer Stoff, wie zum Beispiel Eisen, zum ersten Mal einem Magnetfeld ausgesetzt, nimmt die Magnetisierung zuerst zu, bis ein Sättigungswert $B_S$ erreicht wird.
 Dieser Kurvenverlauf unterscheidet sich von dem eines bereits magnetisierten Werkstoffes und wird \textit{Neukurve} genannt. In \autoref{fig:Hysterese} ist Diese grün dargestellt. 
-Auch nach Abschalten des externen Magnetfeldes bleibt eine Restmagnetisierung zurück, die mit der Remenanz $B_r \neq 0$ bezeichnet wird. Durch ein Gegenfeld kann die
+Nach Abschalten des externen Magnetfeldes bleibt eine Restmagnetisierung zurück, die mit der Remenanz $B_r \neq 0$ bezeichnet wird. Durch ein Gegenfeld kann die
 Magnetisierung des Materials wieder auf 0 eingestellt werden. Die dazu notwendige Feldstärke wird \textit{Koerzitivkraft} $H_c$ genannt. Bei weiterem Erhöhen des externen 
 Gegenfeldes wird der negative Wert $-B_S$ des Sättigungswertes erreicht. Wird nun wieder das Gegenfeld verringert und das ursprüngliche Feld erhöht, schließt sich die Kurve 
 im Punkt des Sättigungswertes $B_S$. So entsteht ein zum Ursprung symmetrischer Kurvenverlauf.
