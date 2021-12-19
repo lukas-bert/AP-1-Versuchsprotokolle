@@ -3,10 +3,11 @@
 Die Material- und Gerätekonstanten befinden sich im Anhang. Ebenso werden alle Messtabellen nur im Anhang aufgeführt, da die Daten auch den Plots entnommen werden können.
 \subsection{Magnetfeld einer langen Spule}
 \label{subsec:A_langeSpule}
-Die Messwerte dieser Spule sind in \autoref{fig:PlotLangeSpule} graphisch dargestellt. Der Spuleneingang lag bei circa $0\:\unit{\centi\metre}$ und der letzt Messwert liegt genau in der Mitte der Spule.
-Es ist gut zu erkennen, dass das Magnetfeld innerhalb der Spule konstant verläuft, da die Messwerte dort ziemlich gut auf der Theoriegeraden liegen. Für die negativen Längen, also der Verlauf
-des Magnetfeldes außerhalb der Spule, ist der Abfall des Magnetfeldes deutlich zu erkennen. Da der letzte Messwert in der Mitte der Spule liegt sollte dieser auch den besten experimentellen Wert
-für das homogene Magnetfeld innerhalb der Spule liefern. Daher lautet $B_{\text{exp}} = 2.335\:\unit{\milli\tesla}$. Der Theoriewert für dieses Magentfeld liegt bei $B_{\text{Theorie}} = 2.299\:\unit{\milli\tesla}$
+Die Messwerte dieser Spule sind in \autoref{fig:PlotLangeSpule} grafisch dargestellt. Der Spuleneingang befindet sich in der Grafik bei ca. $0 \: \unit{\centi\metre}$.
+Innerhalb der Spule scheinen die Messwerte ein Plateau konstanter Feldstärke zu erreichen, was an der eingezeichneten Theoriegeraden deutlich wird. 
+Für den Verlauf des Magnetfeldes außerhalb der Spule, ist ein Abfallen der Feldstärke zu erkennen. Da der letzte Messwert in der Mitte der Spule liegt, sollte dieser auch den geeignetsten experimentellen Wert
+für das homogene Magnetfeld innerhalb der Spule liefern. Daher lautet $B_{\text{exp}} = 2.335\:\unit{\milli\tesla}$. 
+Für den Theoriewert des Magentfeldes folgt mit \autoref{eqn:LangeSpule} $B_{\text{Theorie}} = 2.299\:\unit{\milli\tesla}$
 \begin{figure}
     \centering
     \caption{Die Messwerte der langen Spule. Erstellt mit \textit{matplotlib} \cite{matplotlib}}
@@ -15,10 +16,12 @@ für das homogene Magnetfeld innerhalb der Spule liefern. Daher lautet $B_{\text
 \end{figure}
 \subsection{Magnetfeld des Helmholtzspulenpaares}
 \label{subsec:A_Helmholtz}
-Die gemessenen Magnetfelder des Helmholtzspulenpaares sind zusammen mit ihrem theoretischen Verlauf, für die drei verwendeten Abstände, in den Abbildungen \ref{fig:PlotHH1}, \ref{fig:PlotHH2} und \ref{fig:PlotHH3} 
-graphisch dargestellt. Die experimentellen Werte des Magnetfeldes in der Mitte des Spulenpaares lassen sich den Abbildungen \ref{fig:PlotHH1}, \ref{fig:PlotHH2} und \ref{fig:PlotHH3} entnehmen. Da aber die Skala um $2.3\:\unit{\centi\metre}$ verschoben ist muss der Wert
-genommen werden, welcher am nächsten bei $\frac{d}{2} - 2.3\:\unit{\centi\metre}$ liegt. Daher ist für den Abstand von $d = 10\:\unit{\centi\metre}$ das Magnetfeld $B_{\text{exp,1}} = 3.840\:\unit{\milli\tesla}$.
-Der Theoriewert dazu berechnet sich gemäß Formel \eqref{eqn:Helmholtz} zu $B_{\text{Theorie,1}} = 3.829\:\unit{\milli\tesla}$.
+Die gemessenen Magnetfelder des Helmholtzspulenpaares sind neben den theoretisch zu erwartenden Kurven, für die drei verwendeten Abstände in den Abbildungen \ref{fig:PlotHH1}, \ref{fig:PlotHH2} und \ref{fig:PlotHH3} 
+grafisch dargestellt. Die experimentellen Werte des Magnetfeldes in der Mitte des Spulenpaares lassen sich den Abbildungen entnehmen. Da die Skalen am Helmholtzspulenpaar um
+$2.3\:\unit{\centi\metre}$ zueinander versetzt sind, muss der Wert
+genommen werden, welcher am nächsten bei $\frac{d}{2} - 2.3\:\unit{\centi\metre}$ liegt. Für den Abstand von $d = 10\:\unit{\centi\metre}$ beträgt der experimentelle Wert
+$B_{\text{exp,1}} = 3.840\:\unit{\milli\tesla}$.
+Der Theoriewert berechnet sich gemäß Formel \eqref{eqn:Helmholtz} zu $B_{\text{Theorie,1}} = 3.829\:\unit{\milli\tesla}$.
 \begin{figure}[H]
     \centering
     \caption{Die Messwerte des Helmholtzspulenpaars zum Abstand d = 10cm. Erstellt mit \textit{matplotlib} \cite{matplotlib}}
@@ -32,7 +35,7 @@ Für den Abstand von $d = 15\:\unit{\centi\metre}$ folgt $B_{\text{exp,2}} = 2.2
     \label{fig:PlotHH2}
     \includegraphics[width=0.85\textwidth]{build/plotHelmHoltz2.pdf}
 \end{figure}
-Zuletzt wird das Magnetfeld für den Abstand von $d = 20\:\unit{\centi\metre}$ angegeben. Dieser lautet, gemäß \autoref{fig:PlotHH3} oder den oben genannten Tabellen, $B_{\text{exp,3}} = 1.273\:\unit{\milli\tesla}$. Der Theoriewert beträgt $B_{\text{Theorie,3}} = 1.197\:\unit{\milli\tesla}$
+Zu $d = 20\:\unit{\centi\metre}$ ergeben sich die Werte $B_{\text{exp,3}} = 1.273\:\unit{\milli\tesla}$ und $B_{\text{Theorie,3}} = 1.197\:\unit{\milli\tesla}$.
 \begin{figure}[H]
     \centering
     \caption{Die Messwerte des Helmholtzspulenpaars zum Abstand d = 20cm. Erstellt mit \textit{matplotlib} \cite{matplotlib}}
@@ -51,15 +54,16 @@ Zuletzt wird das Magnetfeld für den Abstand von $d = 20\:\unit{\centi\metre}$ a
 
 Zunächst wird das gemessene Magnetfeld gegen den Strom $I$ aufgetragen, wie in \autoref{fig:PlotHysterese} zu sehen ist. Für den experimentell bestimmten
 Sättigungswert $B_S$ wird der letzte Messpunkt der Neukurve verwendet. Dieser kann \autoref{fig:PlotHysterese} entnommen werden und
-liegt im Punkt $I = 10\:\unit{\ampere}$ $B_s = 696.8\:\unit{\milli\tesla}$.
-Die Remenanz $B_r$ enspricht dem $y$-Achsenabschnitt und lautet so $ B_r = 124.5 \:\unit{\milli\tesla}$.
+liegt im Punkt ($I = 10\:\unit{\ampere}$, $B_s = 696.8\:\unit{\milli\tesla}$).
+Die Remenanz $B_r$ enspricht dem $y$-Achsenabschnitt und lautet $ B_r = 124.5 \:\unit{\milli\tesla}$. Auch dies kann der Gafik \ref{fig:PlotHysterese},
+beziehungsweise den Messwerten entnommen werden.
 \begin{figure}
     \centering
     \caption{Lineare Regression zur Bestimmung der Koerzitivkraft. Erstellt mit \textit{matplotlib} \cite{matplotlib}}
     \label{fig:PlotHystereseFit}
     \includegraphics[width=0.85\textwidth]{build/plotHystereseFit.pdf}
 \end{figure}
-Die Koerzitivkraft $H_c$ kann nicht direkt aus den Messwerten entnommen werden. Da die Hysteresekurve allerdings einen relativ linearen Verlauf um die Stelle des Nulldurchgangs 
+Die Koerzitivkraft $H_c$ kann nicht direkt aus den Messwerten entnommen werden. Da die Hysteresekurve einen relativ linearen Verlauf um die Stelle des Nulldurchgangs 
 aufweist, lässt sich eine lineare Regression der Form
 \begin{equation*}
     f(x) = ax + b
