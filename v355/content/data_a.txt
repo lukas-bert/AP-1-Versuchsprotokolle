@@ -1,0 +1,9 @@
+# C_k / nF, Anzahl der Amplituden pro Periode der Schwebung     @381 Hz,    Fehler C_k = 0.3%
+9.99 28
+8.00 24
+6.47 21
+5.02 17
+4.00 14
+3.00 12
+2.03  9
+1.01  6

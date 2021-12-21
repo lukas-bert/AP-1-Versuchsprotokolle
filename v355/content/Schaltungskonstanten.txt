@@ -1,0 +1,3 @@
+# Schaltung 1
+L = 32.351 mH,  C = 0.8015nF,   C_sp = 0.037nF
+Resonanzfrequenz: f = 30.7 kHz
