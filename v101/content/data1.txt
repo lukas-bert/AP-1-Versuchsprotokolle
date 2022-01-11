@@ -1,0 +1,13 @@
+# Zur Bestimmung der Winkelrichtgröße
+# Abstand d = 20cm
+# phi / Grad, F / N
+ 20 0.025
+ 30 0.045
+ 40 0.067
+ 50 0.1
+ 60 0.124
+ 70 0.145
+ 80 0.17
+ 90 0.25
+100 0.27
+110 0.3

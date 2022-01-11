@@ -1,0 +1,14 @@
+# Bestimmung der Trägheitsmomente von Kugel & Zylinder
+# Zylinder: m = 367.7g, d = 9.83cm, h = 10.09cm
+# Kugel: m = 1170.3g, d = 14.72cm
+# 5T (Zylinder) / s, 5T (Kugel) / s
+3.81 9.29
+3.76 9.20
+3.77 9.43
+3.78 9.37
+3.74 9.24
+3.85 9.40
+3.82 9.32
+3.84 9.21
+3.86 9.28
+3.77 9.30

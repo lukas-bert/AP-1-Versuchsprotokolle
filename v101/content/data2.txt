@@ -1,0 +1,15 @@
+# Bestimmung des Eigenträgheitsmoments
+# Auslenkung 90°, je 3 Perioden (3T)
+# m = 261.2g, h = 2cm, d = 4.5cm
+# Abstand a / cm, 3T / s
+30   25.34
+27.5 23.50
+25   21.34
+22.5 19.34
+20   17.52
+17.5 15.71 
+15   13.91
+12.5 12.21
+10   10.67
+ 5    8.30
+ 
