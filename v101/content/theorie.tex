@@ -1,4 +1,44 @@
+\section{Ziel}
+\label{sec:Ziel}
+In diesem Versuch sollen die Trägheitsmomente zweier Körper und einer Modellpuppe experimentell ermittelt werden. Die experimentell Bestimmten Trägheitsmomente lassen sich
+anschließend mit den theoretisch berechneten Werten vergleichen um den \textit{Steiner'schen Satz} zu verifizieren. 
+
 \section{Theorie}
 \label{sec:Theorie}
+Analog zur Masse eines Körpers bei einer Translation gibt es ein Trägheitsmoment $I$, welches die Trägheit des Körpers gegenüber Rotationen beschreibt. Für eine punktförmige
+Masse $m$ mit senkrechtem Abstand $r$ zur Drehachse berechnet sich das Drehmoment zu $I = mr^2$. Bei einer kontinuierlichen Massenverteilung ergibt sich mit der 
+Dichte $\rho(r)$
+\begin{equation}
+    \label{eqn:Trägheitsmoment}
+    I = \int r^2 \symup{d}m = \int_V \rho(r) r^2 \symup{d}V
+\end{equation}
+für das Trägheitsmoment bezüglich einer Achse durch den Körperschwerpunkt. Verläuft die Drehachse nicht durch den Schwerpunkt des Körpers, lässt sich das Trägheitsmoment 
+bezüglich dieser Achse mithilfe des Steiner'schen Satzes berechnen. Dieser liefert für eine Drehchse, welche parallel zu einer Achse durch den Schwerpunkt liegt und den Abstand
+$a$ zu dieser hat, das Trägheitsmoment 
+\begin{equation}
+    \label{eqn:Steiner}
+    I = I_\text{S} + ma^2,
+\end{equation}    
+wobei $I_\text{S}$ das Trägheitsmoment bezüglich der Schwerpunktsachse ist.
+Für einfache Geometrien ergeben sich bei konstanter Dichte $\rho$ grundlegende Trägheitsmomente, die \autoref{fig:Trägheitsmomente} zu entnehmen sind.
+\begin{figure}
+    \centering
+    \caption{Trägheitsmomente einfacher Körper mit homogener Dichte \cite{v101}.}
+    \label{fig:Trägheitsmomente}
+    \includegraphics[width = 0.85\textwidth]{content/Trägheitsmomente.jpg}
+\end{figure}
 
-\cite{sample}
+In diesem Versuch wird ein System betrachtet, bei welchem eine Drehachse über das rücktreibende Drehmoment einer Feder in Schwingung versetzt werden kann, wenn die Drehachse
+um einen Winkel $\phi$ ausgelenkt wird. Ein Drehmoment $\vec{M}$ wird durch eine Kraftwirkung $\vec{F}$ entlang eines Hebels $\vec{r}$ senkrecht zur Drehachse bewirkt und 
+lässt sich über den Zusammenhang $\vec{M} = \vec{F} \times \vec{r}$ berechnen.
+Das beschriebene System ist ein Beispiel eines harmonischen Oszillators, dessen Differentialgleichung durch eine Schwingung mit der Schwingungsdauer 
+\begin{equation}
+    \label{eqn:Schwingungsdauer}
+    T = 2\pi \sqrt{\frac{I}{D}}
+\end{equation}
+gelöst wird. $D$ ist dabei die Winkelrichtgröße (Direktionsmoment), welche der Federkonstante bei einer Translation entspricht. Die Winkelrichtgröße beschreibt den Zusammenhang 
+\begin{equation}
+    \label{eqn:Winkelrichtgröße}
+    M = D \cdot \phi
+\end{equation}
+zwischen Auslenkung $\phi$ und dem Betrag $M$ des wirkenden Drehmoments.
