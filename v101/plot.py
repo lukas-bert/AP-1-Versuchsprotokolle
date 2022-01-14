@@ -9,7 +9,7 @@ phi, F = np.genfromtxt("content/data1.txt", unpack = True)
 phi = phi * np.pi / 360     # Umrechnung in Bogenmaß
 a = 0.2                     # Länge des Kraftarms in m
 
-D_ = a* F/phi
+D_ = a* F/phi       
 D = D_.mean()               # Mittelwert
 std_D = D_.std(ddof = 1)    # Mittelwertfehler
 D = ufloat(D, std_D)
@@ -30,8 +30,8 @@ x = np.linspace(0, 0.1, 100)
 
 plt.plot(a**2, T**2, 'rx', label = "Messdaten")
 plt.plot(x, linear(x, params[0], params[1]), label = "Lineare Regression")
-plt.xlabel(r'$a^2 \mathbin{/} \symup{m^2}$')
-plt.ylabel(r'$T^2 \mathbin{/} \symup{s^2}$')
+#plt.xlabel(r'$a^2 \mathbin{/} \symup{m^2}$')
+#plt.ylabel(r'$T^2 \mathbin{/} \symup{s^2}$')
 plt.xlim(0, 0.1)
 plt.ylim(0, 80)
 plt.legend()

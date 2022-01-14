@@ -1,12 +1,62 @@
 \section{Auswertung}
 \label{sec:Auswertung}
+Die Messunsicherheiten des folgenden Kapitels wurden mit \textit{Python} unter Verwendung des Paketes \textit{scipy} \cite{scipy} bestimmt. Sie folgen aus der gaußschen
+Fehlerfortpflanzung
+\begin{equation}
+  \label{eqn:Gauss}
+  \Delta F = \sqrt{\sum_i\left(\frac{\symup{d}F}{\symup{d}y_i}\Delta y_i \right)^2}.
+\end{equation} 
 
+\subsection{Bestimmung der Winkelrichtgröße und des Eigenträgheitsmoments der Drehachse}
+\label{subsec:A_Apparatenkonstanten}
+Bevor mit dem eigentlichen Versuch begonnnen werden kann, müssen die Winkelrichtgröße $D$ der Feder und das Eigenträgheitsmoments $I_D$ der Drehachse ermittelt werden. 
+Erstere kann mithilfe der Messwerte aus \autoref{tab:Winkelricht} durch \autoref{eqn:Winkelrichtgröße} bestimmt werden. Neben den Messwerten finden sich die jeweiligen 
+Werte der Winkelrichtgröße in der genannten Tabelle.
+\begin{table}
+  \centering
+  \caption{Messdaten zur Bestimmung der Winkelrichtgröße zum festen Abstand a = \qty{20}{\centi\metre}}
+  \label{tab:Winkelricht}
+  \begin{tabular}{S[table-format = 3.0] S[table-format = 1.3] S}
+    \toprule
+    {$\phi \mathbin{/} °$} & {$F \mathbin{/} \unit{\newton}$} & {$D \mathbin{/} \unit{\newton\metre\per\radian}$} \\
+    \midrule
+     20 & 0.025 & 0.029 \\
+     30 & 0.045 & 0.034 \\
+     40 & 0.067 & 0.038 \\
+     50 & 0.1   & 0.046 \\
+     60 & 0.124 & 0.047 \\
+     70 & 0.145 & 0.047 \\
+     80 & 0.17  & 0.049 \\
+     90 & 0.25  & 0.064 \\
+    100 & 0.27  & 0.062 \\
+    110 & 0.3   & 0.063 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+Durch Mittelung der experimentellen Werte für die Winkelrichtgröße ergibt sich der Mittelwert $D = \qty{0.048 +- 0.012}{\newton\metre\per\radian}$.
+
+Zur Bestimmung des Eigendrehmoments der Drehachse wird \autoref{eqn:Schwingungsdauer} betrachtet. Für das Quadrat der Schwingungsdauer $T$ ergibt sich
+durch einsetzen des Gesamtträgheitsmoments $I = I_D + I_\text{Zylinder}$ unter Verwendung des Satzes von Steiner \eqref{eqn:Steiner}
+\begin{equation}
+  \label{eqn:I_D}
+  T^2 = \frac{4\pi^2}{D}\left(I_D + 2I_\text{Z,h} + 2 m a^2) \right)
+\end{equation}
+mit der Masse $m = \qty{261.2}{\gram}$, dem Trägheitsmoment $I_\text{Z,h}$ eines zylinderförmigen Gewichtes und dem Abstand $a$ der Zylinder zur Drehachse. $I_\text{Z,h}$
+berechnet sich dabei nach der Gleichung für einen horizontalen Zylinder aus \autoref{fig:Trägheitsmomente}.
+Dies stellt eine Geradengleichung der Form $f(x) = mx^2 +b$ mit $f(x) = T^2(a^2)$ dar. In \autoref{fig:plot} sind die 
+Quadrate der Messwerte für die Schwingungsdauer $T$ zum Abstand $a$ zur Drehachse aufgeführt. 
 \begin{figure}
   \centering
-  \includegraphics{plot.pdf}
-  \caption{Plot.}
+  \includegraphics[width=0.8\textwidth]{plot.pdf}
+  \caption{Graph der Quadrate der Messwerte und Ausgleichsgerade der linearen Regression. \cite{matplotlib}}
   \label{fig:plot}
 \end{figure}
-
-
-Siehe \autoref{fig:plot}!
+Eine lineare Regression mittels \textit{scipy} \cite{scipy} ergibt die Geradenparameter $m = \qty{732 +- 5}{\second\squared\per\metre\squared}$ und 
+$b = \qty{5.62 +- 0.27}{\second\squared}$. Ein Koeffizientenvergleich von \autoref{eqn:I_D} und der Geradengleichung ergibt 
+\begin{equation}
+  b = \frac{4\pi^2}{D}(I_D + 2I_\text{Z,h}),
+\end{equation}
+woraus sich das Eigenträgheitsmoment $I_D$ bestimmen lässt. Mit dem Durchmesser $d = \qty{4.5}{\centi\metre}$ und der Höhe $h = \qty{2}{\centi\metre}$ der zylinderförmigen
+Gewichte folgt $I_D = \qty{6.2 +- 1.6}{\gram\square\metre}$. Dieser Wert liegt eine Größenordnung über den im Folgenden zu bestimmenden Trägheitsmomenten, was nicht der 
+Wahrheit entsprechen kann, da das Trägheitsmoment der Drehachse selbst sehr viel kleiner ist. Näheres hierzu findet sich in \autoref{sec:Diskussion}. Der wahre Wert von
+$I_D$ wird für weitere Rechnungen als vernachlässigbar gering angenommen.
