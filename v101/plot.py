@@ -90,6 +90,10 @@ T_k = T_k_5/5
 T_z = ufloat(T_z.mean(), T_z.std(ddof = 1))
 T_k = ufloat(T_k.mean(), T_k.std(ddof = 1))
 
+print("------------------------------------------------------------------------------")
+print("Mittelwerte der Periodendauern einfacher Körper:")
+print("Zylinder: ", T_z, "Kugel: ", T_k)
+
 # Trägheitsmomente
 I_ke = T_k**2/(4*np.pi**2)*D
 I_ka = unp.nominal_values(np.abs(I_kt-I_ke)/I_kt)
@@ -137,11 +141,16 @@ V_rumpf = V_z(r_rumpf, h_rumpf)
 V_bein = V_z(r_bein, h_bein)      
 V_ges = V_kopf + 2*V_arm + V_rumpf + 2*V_bein
 
+print("------------------------------------------------------------------------------")
+print("Volumen:")
+print("Kopf: ", V_kopf,"Arm: ", V_arm, "Rumpf: ", V_rumpf, "Bein: ", V_bein, "Gesamt: ", V_ges)
+
 m_kopf = m*V_kopf/V_ges
 m_arm = m*V_arm/V_ges
 m_rumpf = m*V_rumpf/V_ges
 m_bein = m*V_bein/V_ges
 
+print("------------------------------------------------------------------------------")
 print("Einzelmassen:")
 print("Kopf: ", m_kopf,"Arm: ", m_arm, "Rumpf: ", m_rumpf, "Bein: ", m_bein)
 
@@ -178,6 +187,9 @@ T_Tpose, T_Ballerina = np.genfromtxt("content/data5.txt", unpack = True)/5      
 # Mittelwerte
 T_Tpose = ufloat(T_Tpose.mean(), T_Tpose.std(ddof = 1))
 T_Ballerina = ufloat(T_Ballerina.mean(), T_Ballerina.std(ddof = 1))
+print("------------------------------------------------------------------------------")
+print("Mittelwerte der Periodendauern komplexer Körper:")
+print("Stellung 2: ", T_Tpose, "Stellung 1: ", T_Ballerina)
 
 I_Tpose_e = T_Tpose**2/(4*np.pi**2)*D
 I_Ballerina_e = T_Ballerina**2/(4*np.pi**2)*D
