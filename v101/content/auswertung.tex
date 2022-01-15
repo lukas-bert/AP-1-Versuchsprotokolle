@@ -14,7 +14,7 @@ Erstere kann mithilfe der Messwerte aus \autoref{tab:Winkelricht} durch \autoref
 Werte der Winkelrichtgröße in der genannten Tabelle.
 \begin{table}
   \centering
-  \caption{Messdaten zur Bestimmung der Winkelrichtgröße zum festen Abstand a = \qty{20}{\centi\metre}}
+  \caption{Messdaten zur Bestimmung der Winkelrichtgröße zum festen Abstand $a = \qty{20}{\centi\metre}$}
   \label{tab:Winkelricht}
   \begin{tabular}{S[table-format = 3.0] S[table-format = 1.3] S}
     \toprule
@@ -53,9 +53,9 @@ Quadrate der Messwerte für die Schwingungsdauer $T$ zum Abstand $a$ zur Drehach
 \end{figure}
 Eine lineare Regression mittels \textit{scipy} \cite{scipy} ergibt die Geradenparameter $m = \qty{732 +- 5}{\second\squared\per\metre\squared}$ und 
 $b = \qty{5.62 +- 0.27}{\second\squared}$. Ein Koeffizientenvergleich von \autoref{eqn:I_D} und der Geradengleichung ergibt 
-\begin{equation}
+\begin{equation*}
   b = \frac{4\pi^2}{D}(I_D + 2I_\text{Z,h}),
-\end{equation}
+\end{equation*}
 woraus sich das Eigenträgheitsmoment $I_D$ bestimmen lässt. Mit dem Durchmesser $d = \qty{4.5}{\centi\metre}$ und der Höhe $h = \qty{2}{\centi\metre}$ der zylinderförmigen
 Gewichte folgt $I_D = \qty{6.2 +- 1.6}{\gram\square\metre}$. Dieser Wert liegt eine Größenordnung über den im Folgenden zu bestimmenden Trägheitsmomenten, was nicht der 
 Wahrheit entsprechen kann, da das Trägheitsmoment der Drehachse selbst sehr viel kleiner ist. Näheres hierzu findet sich in \autoref{sec:Diskussion}. Der wahre Wert von
@@ -97,7 +97,7 @@ können \autoref{tab:einfacheKörper} entnommen werden. Wie schon in \autoref{su
 verwendet. Die mittlere Periodendauer der Kugel liegt bei $\overline{T}_k = \qty{1.861+-0.016}{\second}$. Das experimentelle Trägheitsmoment $I_{k,\text{exp}}$ der Kugel 
 lässt sich gemäß \autoref{eqn:I_K} berechnen. Dadurch ergibt sich $I_{k,\text{exp}} = \qty{4.2+-1.1}{\gram\metre\squared}$. Den Theoriewert zum Trägheitsmoment einer Kugel
 kann man mit der Formel $I_{k,\text{theo}} = \frac{2}{5}m_k\left(\sfrac{d_k}{2}\right)^2$ berechnet werden, welche \autoref{fig:Trägheitsmomente} zu entnehmen ist.
-Mit den gemessenen Größen ergibt $I_{z,\text{theo}} = \qty{2.53}{\gram\metre\squared}$. 
+Mit den gemessenen Größen ergibt $I_{k,\text{theo}} = \qty{2.53}{\gram\metre\squared}$. 
 \subsection{Bestimmung des Trägheitsmomentes einer Holzpuppe}
 \label{subsec:A_holzpuppe}
 Das Trägheitsmoment einer Holzpuppe wird im folgendem für zwei unterschiedliche Stellungen der Puppe berechnet. Zuvor werden noch die Maaße der Puppe ausgewertet.
