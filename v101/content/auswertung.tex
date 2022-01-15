@@ -130,7 +130,7 @@ $l_b = \qty{12.42}{\centi\metre}$, dem Radius $r_k = \qty{0.0082+-0.0010}{\centi
 Die Massen wurden bestimmt indem zunächst die Volumina der einzelnen Körperteile berechnet wurden. Da alle Körperteile als Zylinder genähert wurden können dieser Volumina mit $V = \pi r^2h$ berechnet werden.
 Daraus kann dann das Gessamtvolumen berechnet werden. Die einzelnen Massen wurden dann bestimmt indem der prozentuale Anteil des Volumens mit der Gesamtmasse multipliziert wurde.
 
-\subsubsection{Trägheitsmoment der ersten Stellung (Ballerina)}
+\subsubsection{Trägheitsmoment der ersten Stellung}
 \label{subsubsec:A_ballet}
 Die Stellung der Figur ist in \autoref{fig:D_Holzpuppe1} dargestellt. Zunächst werden die gemessenen Schwingungsdauern, welche dem Anhang entnommen werden können, der Figur in Stellung 1 gemittlet.
 Dieser lautet $\overline{T}_1 = \qty{0.751+-0.028}{\second}$. 
@@ -139,23 +139,23 @@ Körpers muss mit dem Satz von Steiner berechnet werden. Dazu werden zunächst d
 Die Einzelträgheitsmomente können \autoref{tab:einzelträgheitsmomente} entnommen werden.
 \begin{table}
   \centering
-  \caption{Einzelträgheitsmomente der Holzpuppe. Der Index k beschreibt den Kopf, a den Arm, r den Rumpf und b das Bein der Puppe.} 
+  \caption{Einzelträgheitsmomente der Holzpuppe.} 
   \label{tab:einzelträgheitsmomente}
-  \begin{tabular}{S r c l r c l}
+  \begin{tabular}{l c @{${}\pm{}$} l c @{${}\pm{}$} l}
       \toprule
-      & \multicolumn{3}{c}{Stellung 1} & \multicolumn{3}{c}{Stellung 2} \\
-      \cmidrule(lr){2-4}\cmidrule(lr){5-7}
-      $\text{Index}$ &  & $\unit{I_{1,\text{theo}}\per\micro\gram\metre\squared}$ &  &   & $\unit{I_{2,\text{theo}}\per\micro\gram\metre\squared}$ & \\
+      & \multicolumn{2}{c}{Stellung 1} & \multicolumn{2}{c}{Stellung 2} \\
+      \cmidrule(lr){2-3}\cmidrule(lr){4-5}
+       & \multicolumn{2}{c}{$\unit{I_{1,\text{theo}}\per\micro\gram\metre\squared}$} & \multicolumn{2}{c}{$\unit{I_{2,\text{theo}}\per\micro\gram\metre\squared}$} \\
       \midrule
-      k & 1.6 & \pm & 0.6 & 1.6 & \pm & 0.6 \\
-      a & 8.9 & \pm & 1.9 & 113 & \pm & 19 \\
-      r & 14 & \pm & 4 & 14 & \pm & 4 \\
-      b & 106 & \pm & 22 & 2.8 & \pm & 0.6 \\
+      {Kopf} & 1.6 & 0.6 & 1.6 & 0.6 \\
+      {Arme} & 8.9 & 1.9 & 113 & 19 \\
+      {Rumpf} & 14 & 4 & 14 & 4 \\
+      {Beine} & 106 & 22 & 2.8 & 0.6 \\
       \bottomrule 
   \end{tabular}
 \end{table}
 Nun werden alle Einzelträgheitsmomente der Stellung 1 addiert. Das theoretische Gesamtträgheitsmoment in der Stellung 1 beträgt dann $I_{1,\text{Ges},\text{theo}} = \qty{0.246+-0.040}{\gram\metre\squared}$.
-\subsubsection{Trägheitsmoment der zweiten Stellung (T-Pose)}
+\subsubsection{Trägheitsmoment der zweiten Stellung}
 \label{subsubsec:A_tpose}
 Wie zuvor wird ebenfalls als erstes der Mittelwert der Periodendauer in Stellung 2 gebildet. Dieser beträgt $\overline{T}_2 = \qty{0.637+-0.012}{\second}$. Mit diesem Wert kann erneut mittels \autoref{eqn:I_K}
 das experimentelle Trägheitsmoment errechnet werden. Daher ergibt sich $I_{2,\text{exp}} = \qty{0.493+-0.125}{\gram\metre\squared}$. Für den Theoriewert werden nun die Einzelträgheitsmomente addiert, 
