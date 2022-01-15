@@ -26,22 +26,28 @@ def linear(x, m, b):
 
 params, pcov = op.curve_fit(linear, a**2, T**2)     # Lineare Regression
 err = np.sqrt(np.diag(pcov))                       # Fehler aus Kovarianz-Matrix
-x = np.linspace(0, 0.1, 100)
+x = np.linspace(-0.1, 0.1, 100)
 
-plt.plot(a**2, T**2, 'rx', label = "Messdaten")
-plt.plot(x, linear(x, params[0], params[1]), label = "Lineare Regression")
-#plt.xlabel(r'$a^2 \mathbin{/} \symup{m^2}$')
-#plt.ylabel(r'$T^2 \mathbin{/} \symup{s^2}$')
+plt.plot(x, linear(x, params[0], params[1]), label = "Lineare Regression", color = "cornflowerblue")
+plt.plot(a**2, T**2, 'rx', label = "Messdaten", color = "firebrick")
+plt.plot(0, 5.16544443, 'k.', markersize = 7.5, color = "mediumvioletred", label = "Achsenabschnitt b")
+plt.xlabel(r'$a^2 \mathbin{/} \symup{m^2}$')
+plt.ylabel(r'$T^2 \mathbin{/} \symup{s^2}$')
 plt.xlim(0, 0.1)
 plt.ylim(0, 80)
 plt.legend()
+plt.grid()
 
 # Kleiner Plot im Plot
 plt.axes([0.6, 0.25, 0.3, 0.25])
-plt.plot(a**2, T**2, 'rx', label = "Messdaten")
-plt.plot(x, linear(x, params[0], params[1]), label = "Lineare Regression")
-plt.xlim(0, 0.02)
-plt.ylim(0, 20)
+plt.plot(x, linear(x, params[0], params[1]), label = "Lineare Regression", color = "cornflowerblue")
+plt.plot(a**2, T**2, 'rx', label = "Messdaten", color = "firebrick")
+plt.xlim(-0.01, 0.01)
+plt.ylim(0, 10)
+plt.axvline(x = 0, color='dimgray', linestyle='-', lw = 0.5)
+plt.plot(0, 5.16544443, 'k.', markersize = 7.5, color = "mediumvioletred", label = "Achsenabschnitt b")
+plt.grid()
+
 
 plt.tight_layout()
 plt.savefig('build/plot.pdf')
