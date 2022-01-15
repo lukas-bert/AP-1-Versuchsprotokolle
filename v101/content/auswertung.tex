@@ -10,7 +10,7 @@ Fehlerfortpflanzung
 \subsection{Bestimmung der Winkelrichtgröße und des Eigenträgheitsmoments der Drehachse}
 \label{subsec:A_Apparatenkonstanten}
 Bevor mit dem eigentlichen Versuch begonnnen werden kann, müssen die Winkelrichtgröße $D$ der Feder und das Eigenträgheitsmoments $I_D$ der Drehachse ermittelt werden. 
-Erstere kann mithilfe der Messwerte aus \autoref{tab:Winkelricht} durch \autoref{eqn:Winkelrichtgröße} bestimmt werden. Neben den Messwerten finden sich die jeweiligen 
+Erstere kann mithilfe der Messwerte aus \autoref{tab:Winkelricht} durch Anwendung von \autoref{eqn:Winkelrichtgröße} bestimmt werden. Neben den Messwerten finden sich die jeweiligen 
 Werte der Winkelrichtgröße in der genannten Tabelle.
 \begin{table}
   \centering
@@ -43,7 +43,7 @@ durch einsetzen des Gesamtträgheitsmoments $I = I_D + I_\text{Zylinder}$ unter 
 \end{equation}
 mit der Masse $m = \qty{261.2}{\gram}$, dem Trägheitsmoment $I_\text{Z,h}$ eines zylinderförmigen Gewichtes und dem Abstand $a$ der Zylinder zur Drehachse. $I_\text{Z,h}$
 berechnet sich dabei nach der Gleichung für einen horizontalen Zylinder aus \autoref{fig:Trägheitsmomente}.
-Dies stellt eine Geradengleichung der Form $f(x) = mx^2 +b$ mit $f(x) = T^2(a^2)$ dar. In \autoref{fig:plot} sind die 
+Die Gleichung stellt eine Geradengleichung der Form $f(x) = mx +b$ mit $f(x) = T^2(a^2)$ dar. In \autoref{fig:plot} sind die 
 Quadrate der Messwerte für die Schwingungsdauer $T$ zum Abstand $a$ zur Drehachse aufgeführt. 
 \begin{figure}
   \centering
@@ -60,18 +60,19 @@ woraus sich das Eigenträgheitsmoment $I_D$ bestimmen lässt. Mit dem Durchmesse
 Gewichte folgt $I_D = \qty{6.2 +- 1.6}{\gram\square\metre}$. Dieser Wert liegt eine Größenordnung über den im Folgenden zu bestimmenden Trägheitsmomenten, was nicht der 
 Wahrheit entsprechen kann, da das Trägheitsmoment der Drehachse selbst sehr viel kleiner ist. Näheres hierzu findet sich in \autoref{sec:Diskussion}. Der wahre Wert von
 $I_D$ wird für weitere Rechnungen als vernachlässigbar gering angenommen.
-\subsection{Bestimmung des Trägheitsmomentes eines Zylinders}
+
+\subsection{Bestimmung des Trägheitsmoments des Zylinders}
 \label{subsec:A_zylinder}
-Der untersuchte Zylinder hatte eine Höhe von $h = \qty{10.09}{\centi\metre}$ und einen Durchmesser $d = \qty{9.83}{\centi\metre}$. Die Masse des Zylinder beträgt $m = \qty{367.7}{\gram}$.
-Die Periodendauer wurde zehn mal gemessen mit jeweils fünffacher Periodendauer. Diese können \autoref{tab:einfacheKörper} entnommen werden. Zur Berechnung des Trägheitsmomentes werden die Einzelmessungen zunächst über 
-fünf Perioden gemittelt und danach wird ein Mittelwert aus den zehn Werten genommen.
+Der verwendete Zylinder hat eine Höhe $h = \qty{10.09}{\centi\metre}$ und einen Durchmesser $d = \qty{9.83}{\centi\metre}$. Die Masse des Zylinder beträgt $m = \qty{367.7}{\gram}$.
+Die Schwingungsdauer wurde zehn Mal gemessen mit jeweils fünffacher Periodendauer. Die Messwerte können \autoref{tab:einfacheKörper} entnommen werden. 
+Zur Berechnung des Trägheitsmoments werden die Einzelmessungen zunächst auf eine Schwingungsperiode gemittelt. Anschließend wird der Mittelwert aller Messwerte gebildet.
 \begin{table}
     \centering
-    \caption{Messung der Periodendauern von einfach Körpern. $T_z$ beschreibt die Periodendauer des Zylinders und $T_k$ die der Kugel.} 
+    \caption{Messwerte der Schwingungsdauern von Zylinder und Kugel.} 
     \label{tab:einfacheKörper}
     \begin{tabular}{c c}
         \toprule
-        $\unit{{5}T_{z}\per\second}$ & $\unit{{5}T_k\per\second}$ \\
+        ${5}T_{z} \mathbin{/} \unit{\second}$ & ${5}T_k \mathbin{/} \unit{\second}$ \\
         \midrule
         3.81 & 9.29 \\
         3.76 & 9.20 \\
@@ -86,21 +87,24 @@ fünf Perioden gemittelt und danach wird ein Mittelwert aus den zehn Werten geno
         \bottomrule 
     \end{tabular}
 \end{table}
-Die mittlere Periodendauer des Zylinders beträgt somit $\overline{T}_z = \qty{0.760+-0.008}{\second}$.
+Die mittlere Periodendauer des Zylinders beträgt $\overline{T}_z = \qty{0.760+-0.008}{\second}$.
 Mittels \autoref{eqn:I_K} kann das experimentelle Trägheitsmoment des Zylinders $I_{z,\text{exp}}$ berechnet werden. Durch einsetzen der Werte ergibt sich $I_{z,\text{exp}} = \qty{0.70+-0.18}{\gram\metre\squared}$.
-Der Theoriewert $I_{z,\text{theo}}$ des Trägheitsmomentes eines Zylinders lässt sich nach der Formel für $I_z$ berechnen, welche \autoref{fig:Trägheitsmomente} entnommen werden kann.
-Durch Einsetzen der Abmessungen des Zylinders kann $I_{z,\text{theo}} = \qty{0.444}{\gram\metre\squared}$ berechnet werden.
-\subsection{Bestimmung des Trägheitsmomentes einer Kugel}
+Der Theoriewert $I_{z,\text{theo}}$ des Trägheitsmoments eines Zylinders lässt sich nach der Formel für $I_z$ berechnen, welche \autoref{fig:Trägheitsmomente} entnommen werden kann.
+Durch Einsetzen der Abmessungen des Zylinders ergibt sich $I_{z,\text{theo}} = \qty{0.444}{\gram\metre\squared}$.
+
+\subsection{Bestimmung des Trägheitsmoments der Kugel}
 \label{subsec:A_kugel}
-Die untersuchte Kugel hat einen Durchmesser von $d_k = \qty{14.72}{\centi\metre}$ und eine Masse von $m_k = \qty{1170.3}{\gram}$. Die Messwerte zur Periodendauer der Kugel
-können \autoref{tab:einfacheKörper} entnommen werden. Wie schon in \autoref{subsec:A_zylinder} wird auch hier ein Mittelwert für die Berechnung vom Trägheitsmoment
-verwendet. Die mittlere Periodendauer der Kugel liegt bei $\overline{T}_k = \qty{1.861+-0.016}{\second}$. Das experimentelle Trägheitsmoment $I_{k,\text{exp}}$ der Kugel 
-lässt sich gemäß \autoref{eqn:I_K} berechnen. Dadurch ergibt sich $I_{k,\text{exp}} = \qty{4.2+-1.1}{\gram\metre\squared}$. Den Theoriewert zum Trägheitsmoment einer Kugel
-kann man mit der Formel $I_{k,\text{theo}} = \frac{2}{5}m_k\left(\sfrac{d_k}{2}\right)^2$ berechnet werden, welche \autoref{fig:Trägheitsmomente} zu entnehmen ist.
-Mit den gemessenen Größen ergibt $I_{k,\text{theo}} = \qty{2.53}{\gram\metre\squared}$. 
-\subsection{Bestimmung des Trägheitsmomentes einer Holzpuppe}
+Die verwendete Kugel hat einen Durchmesser von $d_k = \qty{14.72}{\centi\metre}$ und eine Masse von $m_k = \qty{1170.3}{\gram}$. Die Messwerte zur Periodendauer der Kugel
+können \autoref{tab:einfacheKörper} entnommen werden. Wie schon in \autoref{subsec:A_zylinder} wird auch hier der Mittelwert zur Berechnung des Trägheitsmoments
+verwendet. Die mittlere Periodendauer der Kugel ist $\overline{T}_k = \qty{1.861+-0.016}{\second}$. Das experimentelle Trägheitsmoment $I_{k,\text{exp}}$ der Kugel 
+lässt sich gemäß \autoref{eqn:I_K} berechnen. Dadurch ergibt sich $I_{k,\text{exp}} = \qty{4.2+-1.1}{\gram\metre\squared}$. Der Theoriewert des Trägheitsmoments einer Kugel
+kann durch die Gleichung $I_{k,\text{theo}} = \frac{2}{5}mr^2$ berechnet werden, welche \autoref{fig:Trägheitsmomente} zu entnehmen ist.
+Mit den gemessenen Größen ergibt sich $I_{k,\text{theo}} = \qty{2.53}{\gram\metre\squared}$. 
+
+\subsection{Bestimmung des Trägheitsmoments der Holzpuppe}
 \label{subsec:A_holzpuppe}
-Das Trägheitsmoment einer Holzpuppe wird im folgendem für zwei unterschiedliche Stellungen der Puppe berechnet. Zuvor werden noch die Maaße der Puppe ausgewertet.
+Das Trägheitsmoment der Holzpuppe wird im Folgendem für zwei unterschiedliche Stellungen der Puppe bestimmt. Zuvor werden die Maße der einzelnen Gliedmaßen der Modellpuppe ausgewertet.
+Alle Gliedmaßen werden als Zylinder genähert.
 \begin{table}
   \centering
   \caption{Messdaten zur Bestimmung der Körpermodellierung. $d_k$ beschreibt den Durchmesser des Kopfes. Weiter beschreibt der Index a den Arm, r den Rumpf und b das Bein der Puppe.} 
@@ -122,23 +126,36 @@ Das Trägheitsmoment einer Holzpuppe wird im folgendem für zwei unterschiedlich
       \bottomrule 
   \end{tabular}
 \end{table}
-Aus diesen Durchmessern wird der Mittelwert gebildet, damit die einzelnen Körperteile als Zylinder genähert werden können.
-Damit ergeben sich die Abmessungen vom Kopf mit der Länge $l_k = \qty{4.14}{\centi\metre}$, dem Radius $r_k = \qty{0.0134+-0.0013}{\centi\metre}$ und der Masse $m_k = \qty{0.018+-0.004}{\kilo\gram}$,
-Die Arme mit $l_a = \qty{12.91}{\centi\metre}$, dem Radius $r_k = \qty{0.0066+-0.0006}{\centi\metre}$ und der Masse $m_k = \qty{0.0136+-0.0025}{\kilo\gram}$,
-der Rumpf mit $l_r = \qty{9.84}{\centi\metre}$, dem Radius $r_k = \qty{0.0185+-0.0018}{\centi\metre}$ und der Masse $m_k = \qty{0.082+-0.010}{\kilo\gram}$ und das Bein mit
-$l_b = \qty{12.42}{\centi\metre}$, dem Radius $r_k = \qty{0.0082+-0.0010}{\centi\metre}$ und der Masse $m_k = \qty{0.020+-0.004}{\kilo\gram}$. 
-Die Massen wurden bestimmt indem zunächst die Volumina der einzelnen Körperteile berechnet wurden. Da alle Körperteile als Zylinder genähert wurden können dieser Volumina mit $V = \pi r^2h$ berechnet werden.
-Daraus kann dann das Gessamtvolumen berechnet werden. Die einzelnen Massen wurden dann bestimmt indem der prozentuale Anteil des Volumens mit der Gesamtmasse multipliziert wurde.
+\autoref{tab:holzpuppe} zeigt die Messwerte der Durchmesser der einzelnen Körperteile. Aus diesen wird jeweils ein Mittelwert gebildet.
+Die Maße und Massen der einzelnen Gliedmaßen sind \autoref{tab:Maße_Puppe} zu entnehmen.
+\begin{table}
+  \centering
+  \caption{Maße und errechnetes Gewicht der als Zylinder genäherten Gliedmaßen der Holzpuppe.} 
+  \label{tab:Maße_Puppe}
+  \begin{tabular}{l S[table-format = 2.2] S[table-format = 1.2]@{${}\pm{}$} S[table-format = 1.2] S[table-format = 2.1] @{${}\pm{}$} S[table-format = 2.1]}
+      \toprule  
+       & {Höhe $h \mathbin{/} \unit{\centi\metre}$} &\multicolumn{2}{c}{Radius $r \mathbin{/} \unit{\centi\metre}$} & 
+       \multicolumn{2}{c}{Masse $m \mathbin{/} \unit{\gram}$} \\
+      \midrule
+      {Kopf}  &  4.14 & 1.34 & 0.13 & 18   & 4   \\
+      {Arm}   & 12.91 & 0.66 & 0.06 & 13.6 & 2.5 \\
+      {Rumpf} &  9.84 & 1.85 & 0.18 & 82   & 1   \\
+      {Bein}  & 12.42 & 0.82 & 0.10 & 20   & 4   \\
+      \bottomrule 
+  \end{tabular}
+\end{table}
+Die einzelnen Massen können bestimmt werden, indem der prozentuale Anteil des genäherten Volumens der Gliedmaßen mit der Gesamtmasse $m = \qty{167.2}{\gram}$ multipliziert wird.
+Das Volumen der Zylinder berechnet sich dabei nach $V = \pi r^2h$.
 
 \begin{figure}
   \centering
-  \caption{Abbildung zur experimentellen Bestimmung der Trägheitsmomente komplexer Körper:In dieser Abbildung ist eine Stellung der verwendete Holzpuppe auf der Drill-Achse zu sehen.}
+  \caption{Verschiedene Stellungen der Holzpuppe, welche auf der Drillachse montiert ist.}
   \label{fig:D_subfig}
-  \begin{subfigure}{0.48\textwidth}
+  \begin{subfigure}{0.4\textwidth}
       \centering
       \caption{Stellung 1}
       \label{fig:D_Holzpuppe1}
-      \includegraphics[width=0.6\textwidth]{content/Ballet3.jpg}
+      \includegraphics[width=0.65\textwidth]{content/Ballet3.jpg}
   \end{subfigure}
   \hfill
   \begin{subfigure}{0.48\textwidth}
@@ -151,10 +168,33 @@ Daraus kann dann das Gessamtvolumen berechnet werden. Die einzelnen Massen wurde
 
 \subsubsection{Trägheitsmoment der ersten Stellung}
 \label{subsubsec:A_ballet}
-Die Stellung der Figur ist in \autoref{fig:D_Holzpuppe1} dargestellt. Zunächst werden die gemessenen Schwingungsdauern, welche dem Anhang entnommen werden können, der Figur in Stellung 1 gemittlet.
-Dieser lautet $\overline{T}_1 = \qty{0.751+-0.028}{\second}$. 
-Dann wird mit \autoref{eqn:I_K} das experimentelle Trägheitsmoment bestimmt. Dadurch ergibt sich $I_{1,\text{exp}} = \qty{0.684+-0.180}{\gram\metre\squared}$. Der Theoriewert eine komplexen
-Körpers muss mit dem Satz von Steiner berechnet werden. Dazu werden zunächst die theoretischen Trägheitsmomente der einzelnen Körperteile berechnet, welche dann abschließend addiert werden.
+Die erste Stellung der Figur ist in \autoref{fig:D_Holzpuppe1} zu sehen. Zunächst werden die gemessenen Schwingungsdauern, welche \autoref{tab:T_Holzpuppe} 
+entnommen werden können, gemittelt. 
+\begin{table}
+  \centering
+  \caption{Messwerte der Schwingungsdauern der Holzpuppe.}
+  \label{tab:T_Holzpuppe}
+  \begin{tabular}{S[table-format = 1.2] S}
+    \toprule
+    ${5}T_{1} \mathbin{/} \unit{\second}$ & ${5}T_{2} \mathbin{/} \unit{\second}$ \\
+    \midrule
+    3.81 & 3.13 \\
+    3.86 & 3.17 \\
+    3.91 & 3.12 \\
+    3.92 & 3.14 \\
+    3.74 & 3.15 \\
+    3.77 & 3.31 \\
+    3.70 & 3.21 \\
+    3.80 & 3.20 \\
+    3.52 & 3.20 \\
+    3.53 & 3.24 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+Der Mittelwert einer Schwingungsperiode ergibt sich zu $\overline{T}_1 = \qty{0.751+-0.028}{\second}$.
+Mit diesem Wert ergibt sich nach \autoref{eqn:I_K} $I_{1\text{,exp}} = \qty{0.684+-0.180}{\gram\metre\squared}$ für das experimentell bestimmte Trägheitsmoment der Puppe in Stellung 1. 
+Der Theoriewert des Trägheitsmomentes ergibt sich durch die Gleichungen aus \autoref{fig:Trägheitsmomente} und den Satz von Steiner \eqref{eqn:Steiner}. 
+Dazu werden zunächst die Trägheitsmomente der einzelnen Körperteile berechnet, welche anschließend addiert werden.
 Die Einzelträgheitsmomente können \autoref{tab:einzelträgheitsmomente} entnommen werden.
 \begin{table}
   \centering
@@ -173,9 +213,9 @@ Die Einzelträgheitsmomente können \autoref{tab:einzelträgheitsmomente} entnom
       \bottomrule 
   \end{tabular}
 \end{table}
-Nun werden alle Einzelträgheitsmomente der Stellung 1 addiert. Das theoretische Gesamtträgheitsmoment in der Stellung 1 beträgt dann $I_{1,\text{Ges},\text{theo}} = \qty{0.246+-0.040}{\gram\metre\squared}$.
+Das theoretische Gesamtträgheitsmoment der Modellpuppe in der Stellung 1 beträgt $I_{1\text{,theo}} = \qty{0.246+-0.040}{\gram\metre\squared}$.
 \subsubsection{Trägheitsmoment der zweiten Stellung}
 \label{subsubsec:A_tpose}
-Wie zuvor wird ebenfalls als erstes der Mittelwert der Periodendauer in Stellung 2 gebildet. Dieser beträgt $\overline{T}_2 = \qty{0.637+-0.012}{\second}$. Mit diesem Wert kann erneut mittels \autoref{eqn:I_K}
-das experimentelle Trägheitsmoment errechnet werden. Daher ergibt sich $I_{2,\text{exp}} = \qty{0.493+-0.125}{\gram\metre\squared}$. Für den Theoriewert werden nun die Einzelträgheitsmomente addiert, 
-welche \autoref{tab:einzelträgheitsmomente} entnommen werden können. Der Theoriewert zu zweiten Stellung lautet dann $I_{2,\text{theo}} = \qty{0.247+-0.037}{\gram\metre\squared}$.
+Wie zuvor wird ebenfalls der Mittelwert der Periodendauer in Stellung 2 gebildet. Dieser beträgt $\overline{T}_2 = \qty{0.637+-0.012}{\second}$. Mit diesem Wert kann erneut mittels \autoref{eqn:I_K}
+das experimentelle Trägheitsmoment errechnet werden. Es ergibt sich $I_{2\text{,exp}} = \qty{0.493+-0.125}{\gram\metre\squared}$. Für den Theoriewert werden wieder die Einzelträgheitsmomente aus 
+\autoref{tab:einzelträgheitsmomente} addiert. Der Theoriewert zur zweiten Stellung lautet dann $I_{2\text{,theo}} = \qty{0.247+-0.037}{\gram\metre\squared}$.
