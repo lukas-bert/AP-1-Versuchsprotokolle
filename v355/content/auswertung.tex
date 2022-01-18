@@ -11,7 +11,7 @@ die in \autoref{fig:Schaltung} gezeigte Schaltung mit den Werten
 \label{subsec:A_Resonanz}
 Wie in \autoref{subsec:Justierung} beschrieben, muss vor der eigentlichen Durchführung des Versuches die Resonanzfrequenz der Schwingkreise ermittelt und aufeinander abgestimmt 
 werden. Für die Resonanzfrequenz des Schwingkreises ergibt sich der Wert $\nu^+ = 30.7 \, \unit{\kilo\hertz}$. Die theoretische Frequenz berechnet sich nach \autoref{eqn:T_nup}
-durch Einsetzen von $C + C_\text{Sp}$ für die Gesamtkapazität zu $\nu^+_\text{Theorie} = 30.558 \, \unit{\kilo\hertz}$. Dies führt zu einer relativen Abweichung von 
+durch Einsetzen von $C$ und $C_\text{Sp}$ für die Gesamtkapazität zu $\nu^+_\text{Theorie} = 30.558 \, \unit{\kilo\hertz}$. Dies führt zu einer relativen Abweichung von 
 $\symup{\Delta_\text{relativ}}(\nu^+) = 0.46 \, \%$. Die relative Abweichung eines Messwertes $x$ zu einem Theoriewert $x^*$ lässt sich dabei über den Zusammenhang
 \begin{equation}
     \label{eqn:rel_Abw}
@@ -27,14 +27,14 @@ Fälschlicherweise wurden die Amplituden von je zwei Perioden gezählt, weshalb 
 \dq halbe\dq \; Amplitude beinhalten.
 \begin{figure}
     \centering 
+    \includegraphics[width = 0.6\textwidth]{content/Amplituden.jpg}
     \caption{Anzeige des Oszilloskops unter Verwendung des $9.99 \, \unit{\nano\farad}$ Kondensators.}
     \label{fig:Amplituden}
-    \includegraphics[width = 0.6\textwidth]{content/Amplituden.jpg}
 \end{figure}
 
 Zur Berechnung der Theoriewerte wird zunächst der Theoriewert der Frequenz $\nu^-$ unter Verwendung der \autoref{eqn:T_Schwebung} zu den jeweiligen Kondensatoren mit den Kapazitäten $C_\text{K}$ bestimmt. Auch hier muss 
 die zusätzliche Kapazität der Spule $C_\text{Sp}$ berücksichtigt werden. Diese wird wie zuvor zusätzlich zur Gesamtkapazität addiert. Mittels der Werte von $\nu^+$ und $\nu^-$ 
-lässt sich nach \autoref{T_Schwebung} die Frequenz der Schwebung berechenen, woraus wiederum das Verhältnis $n$ der 
+lässt sich nach \autoref{eqn:T_Schwebung} die Frequenz der Schwebung berechenen, woraus wiederum das Verhältnis $n$ der 
 Schwingungsperioden pro Schwebungsperiode nach \autoref{eqn:T_n} bestimmt werden kann. Die jeweiligen Werte können \autoref{tab:Werte_a} entnommen werden.
 \begin{table}
     \centering
@@ -83,10 +83,7 @@ $\nu^+_\text{Theorie} = 30.558 \, \unit{\kilo\hertz}$.
     \end{tabular}
 \end{table}
 
-Betrachet man die Messwerte der Frequenz $\nu^+$ fällt auf, dass diese stetig ansteigen, obwohl sie theoretisch konstant sein sollten. Ein Grund dafür könnte ein systematischer
-Fehler sein, da die eigentliche Frequenz von $\nu^+$ auf $30.7 \, \unit{\kilo\hertz}$ eingestellt wurde und sich bei ungefähr diesem Wert auch eine Gerade der Lissajous-Figuren 
-ergab. Die Werte, an denen diese Gerade auftritt wurden bedauerlicherweise nicht notiert, jedoch lagen diese nahe bei der eingestellten Resonanzfrequenz. Die Ursache für das
-Auftreten der Geraden zwischen der Resonanzfrequenz und der Frequenz $\nu^-$ ist unklar.
+Betrachet man die Messwerte der Frequenz $\nu^+$ fällt auf, dass diese stetig ansteigen, obwohl sie theoretisch konstant sein sollten. Näheres hierzu wird in \autoref{sec:Diskussion} diskutiert.
 
 \subsection{Bestimmung der Fundamentalfrequenzen mittels der \textit{Sweep}-Funktion}
 \label{subsec:A_Messung_c}
@@ -121,3 +118,30 @@ Die Messwerte zu der Frequenz $\nu^-$ sind \autoref{tab:Werte_c} zu entnehmen.
 \end{table}
 Zu dem Kopplungskondensator mit Kapazität $C_\text{K} = 1.01 \, \unit{\nano\farad}$ konnten keine experimentellen Werte bestimmt werden, da auf Grund der Auflösung des Oszilloskops
 kein genaues Ablesen der Messwerte möglich war.
+\subsection{Berechnung der Ströme in den Schwingkreisen}
+\label{subsec:A_Strom}
+Die Ströme im Schwingkreis lassen sich durch \autoref{eqn:STROM} berechnen. Dabei werden für $|U|$ die gemessenen Spannungsamplituden verwendet. Außerdem muss bei $C_\text{K}$ die Eigenkapazität
+$C_\text{Sp}$ der Spule berücksichtigt werden. Die Spannungen und die daraus berechneten Ströme sind in \autoref{tab:Ströme} dargestellt.
+
+\begin{table}
+    \centering
+    \caption{In dieser Tabelle werden die Spannungs- und Stromamplituden dargestellt.} 
+    \label{tab:Ströme}
+    \begin{tabular}{S[table-format=1.2] S[table-format=2.0] S[table-format=1.2] S[table-format=3.0] S[table-format=1.2]}
+        \toprule
+        {$C_\text{K} \mathbin{/} \unit{\nano\farad}$} & {$U^+_\text{exp} \mathbin{/} \unit{\milli\volt}$} &%
+        {$I^+_\text{exp} \mathbin{/} \unit{\milli\ampere}$} & {$U^-_\text{exp} \mathbin{/} \unit{\milli\volt}$} &%
+        {$I^-_\text{exp} \mathbin{/} \unit{\milli\ampere}$} \\
+        \midrule
+        9.99 & 80 & 0.33 & 150 & 1.26\\
+        8.00 & 75 & 0.30 & 155 & 0.26\\
+        6.47 & 70 & 0.27 & 140 & 0.32\\
+        5.02 & 70 & 0.27 & 145 & 1.45\\
+        4.00 & 70 & 0.26 & 140 & 0.37\\
+        3.00 & 70 & 0.26 & 140 & 1.41\\
+        2.03 & 70 & 0.26 & 135 & 0.47\\
+        \bottomrule 
+    \end{tabular}
+\end{table}
+
+Die Theoriewerte zu $I^+$ und $I^-$ können beide durch $I_\text{theo} \approx \frac{1\unit{\volt}}{2R} = 10.42\unit{\milli\ampere}$ approximiert werden.

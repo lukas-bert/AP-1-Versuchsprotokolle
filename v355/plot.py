@@ -85,3 +85,32 @@ print("Relative Abweichungen:")
 print("nu+:     ", unp.nominal_values(n_pabw))
 print("nu-:     ", unp.nominal_values(n_mabw))
 print("-------------------------------------------------------------")
+
+# Berechnung des Stroms
+C_k, t_p, U_p, t_m, U_m = np.genfromtxt("content/data_c.txt", unpack = True) 
+R = 48
+C_k = C_k*10**(-9)
+def Z(w,L,C,C_k):
+    return w*L - (1/w)*(1/C + 1/C_k)
+
+def I(U,w,C_k,Z,R):
+    return U*(1/np.sqrt(4*w**2*C_k**2*R**2*Z**2 + (1/(w*C_k) - w*C_k*Z**2 + w*R**2*C_k)**2))
+
+w_p = 2*np.pi*n_p
+w_m = 2*np.pi*n_m
+I_p = I(U_p, w_p, (C_k+C_sp), Z(w_p, L, C, (C_k+C_sp)), R)
+I_m = I(U_m, w_m, (C_k+C_sp), Z(w_m, L, C, (C_k+C_sp)), R)
+print("")
+print("Ströme experimentell:")
+print("I+:     ", I_p)
+print("I-:     ", I_m )
+print("-------------------------------------------------------------")
+
+# Theoriewerte der Ströme
+I_pt = 1/(R*np.sqrt(4 + R**2*C_k**2/(L*C)))
+I_mt = 1/(R*np.sqrt(4 + R**2*C_k**2/(L*C)*(1 + C/C_k)))
+print("")
+print("Ströme Theorie:")
+print("I+:     ", I_pt*10**(3))
+print("I-:     ", I_mt*10**(3))
+print("-------------------------------------------------------------")
