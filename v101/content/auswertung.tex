@@ -42,7 +42,7 @@ durch einsetzen des Gesamtträgheitsmoments $I = I_D + I_\text{Zylinder}$ unter 
   T^2 = \frac{4\pi^2}{D}\left(I_D + 2I_\text{Z,h} + 2 m a^2) \right)
 \end{equation}
 mit der Masse $m = \qty{261.2}{\gram}$, dem Trägheitsmoment $I_\text{Z,h}$ eines zylinderförmigen Gewichtes und dem Abstand $a$ der Zylinder zur Drehachse. $I_\text{Z,h}$
-berechnet sich dabei nach der Gleichung für einen horizontalen Zylinder aus \autoref{fig:Trägheitsmomente}.
+berechnet sich dabei nach \autoref{eqn:I_Zh}.
 Die Gleichung stellt eine Geradengleichung der Form $f(x) = mx +b$ mit $f(x) = T^2(a^2)$ dar. In \autoref{fig:plot} sind die 
 Quadrate der Messwerte für die Schwingungsdauer $T$ zum Abstand $a$ zur Drehachse aufgeführt. 
 \begin{figure}
@@ -89,7 +89,7 @@ Zur Berechnung des Trägheitsmoments werden die Einzelmessungen zunächst auf ei
 \end{table}
 Die mittlere Periodendauer des Zylinders beträgt $\overline{T}_z = \qty{0.760+-0.008}{\second}$.
 Mittels \autoref{eqn:I_K} kann das experimentelle Trägheitsmoment des Zylinders $I_{z,\text{exp}}$ berechnet werden. Durch einsetzen der Werte ergibt sich $I_{z,\text{exp}} = \qty{0.70+-0.18}{\gram\metre\squared}$.
-Der Theoriewert $I_{z,\text{theo}}$ des Trägheitsmoments eines Zylinders lässt sich nach der Formel für $I_z$ berechnen, welche \autoref{fig:Trägheitsmomente} entnommen werden kann.
+Der Theoriewert $I_{z,\text{theo}}$ des Trägheitsmoments eines Zylinders lässt sich nach \autoref{eqn:I_Zp} berechnen.
 Durch Einsetzen der Abmessungen des Zylinders ergibt sich $I_{z,\text{theo}} = \qty{0.444}{\gram\metre\squared}$.
 
 \subsection{Bestimmung des Trägheitsmoments der Kugel}
@@ -98,7 +98,7 @@ Die verwendete Kugel hat einen Durchmesser von $d_k = \qty{14.72}{\centi\metre}$
 können \autoref{tab:einfacheKörper} entnommen werden. Wie schon in \autoref{subsec:A_zylinder} wird auch hier der Mittelwert zur Berechnung des Trägheitsmoments
 verwendet. Die mittlere Periodendauer der Kugel ist $\overline{T}_k = \qty{1.861+-0.016}{\second}$. Das experimentelle Trägheitsmoment $I_{k,\text{exp}}$ der Kugel 
 lässt sich gemäß \autoref{eqn:I_K} berechnen. Dadurch ergibt sich $I_{k,\text{exp}} = \qty{4.2+-1.1}{\gram\metre\squared}$. Der Theoriewert des Trägheitsmoments einer Kugel
-kann durch die Gleichung $I_{k,\text{theo}} = \frac{2}{5}mr^2$ berechnet werden, welche \autoref{fig:Trägheitsmomente} zu entnehmen ist.
+kann durch \autoref{eqn:I_Kugel} berechnen.
 Mit den gemessenen Größen ergibt sich $I_{k,\text{theo}} = \qty{2.53}{\gram\metre\squared}$. 
 
 \subsection{Bestimmung des Trägheitsmoments der Holzpuppe}
@@ -147,25 +147,6 @@ Die Maße und Massen der einzelnen Gliedmaßen sind \autoref{tab:Maße_Puppe} zu
 Die einzelnen Massen können bestimmt werden, indem der prozentuale Anteil des genäherten Volumens der Gliedmaßen mit der Gesamtmasse $m = \qty{167.2}{\gram}$ multipliziert wird.
 Das Volumen der Zylinder berechnet sich dabei nach $V = \pi r^2h$.
 
-\begin{figure}
-  \centering
-  \caption{Verschiedene Stellungen der Holzpuppe, welche auf der Drillachse montiert ist.}
-  \label{fig:D_subfig}
-  \begin{subfigure}{0.4\textwidth}
-      \centering
-      \caption{Stellung 1}
-      \label{fig:D_Holzpuppe1}
-      \includegraphics[width=0.65\textwidth]{content/Ballet3.jpg}
-  \end{subfigure}
-  \hfill
-  \begin{subfigure}{0.48\textwidth}
-      \centering
-      \caption{Stellung 2}
-      \label{fig:D_Holzpuppe2}
-      \includegraphics[width=0.8\textwidth]{content/T_Pose3.jpg}
-  \end{subfigure}    
-\end{figure}
-
 \subsubsection{Trägheitsmoment der ersten Stellung}
 \label{subsubsec:A_ballet}
 Die erste Stellung der Figur ist in \autoref{fig:D_Holzpuppe1} zu sehen. Zunächst werden die gemessenen Schwingungsdauern, welche \autoref{tab:T_Holzpuppe} 
@@ -193,7 +174,7 @@ entnommen werden können, gemittelt.
 \end{table}
 Der Mittelwert einer Schwingungsperiode ergibt sich zu $\overline{T}_1 = \qty{0.751+-0.028}{\second}$.
 Mit diesem Wert ergibt sich nach \autoref{eqn:I_K} $I_{1\text{,exp}} = \qty{0.684+-0.180}{\gram\metre\squared}$ für das experimentell bestimmte Trägheitsmoment der Puppe in Stellung 1. 
-Der Theoriewert des Trägheitsmomentes ergibt sich durch die Gleichungen aus \autoref{fig:Trägheitsmomente} und den Satz von Steiner \eqref{eqn:Steiner}. 
+Der Theoriewert des Trägheitsmomentes ergibt sich durch die Gleichungen \eqref{eqn:I_Zp}, \eqref{eqn:I_Zh} und den Satz von Steiner \eqref{eqn:Steiner}. 
 Dazu werden zunächst die Trägheitsmomente der einzelnen Körperteile berechnet, welche anschließend addiert werden.
 Die Einzelträgheitsmomente können \autoref{tab:einzelträgheitsmomente} entnommen werden.
 \begin{table}

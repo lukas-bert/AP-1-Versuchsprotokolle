@@ -20,13 +20,22 @@ $a$ zu dieser hat, das Trägheitsmoment
     I = I_\text{S} + ma^2,
 \end{equation}    
 wobei $I_\text{S}$ das Trägheitsmoment bezüglich der Schwerpunktsachse ist.
-Für einfache Geometrien ergeben sich bei konstanter Dichte $\rho$ grundlegende Trägheitsmomente, die \autoref{fig:Trägheitsmomente} zu entnehmen sind.
-\begin{figure}
-    \centering
-    \caption{Trägheitsmomente einfacher Körper mit homogener Dichte \cite{v101}.}
-    \label{fig:Trägheitsmomente}
-    \includegraphics[width = 0.85\textwidth]{content/Trägheitsmomente.jpg}
-\end{figure}
+Für einfache Geometrien ergeben sich bei konstanter Dichte $\rho$ grundlegende Trägheitsmomente. Das Trägheitsmoment einer Kugel ist durch
+\begin{equation}
+    \label{eqn:I_Kugel}
+    I_\text{K} = \frac{2}{5}mR^2
+\end{equation}
+gegeben. Aufgrund der Symetrie wird das Trägheitsmoment des Zylinders für zwei Beziehungen zur Achse unterschiedlich berechnet. Liegt der Zylinder parallel zur Achse ist sein Trägheitsmoment durch
+\begin{equation}
+    \label{eqn:I_Zp}
+    I_\text{Z} = \frac{1}{2}mR^2
+\end{equation}
+gegeben. Bei einer orthogonalen Lage wird es durch 
+\begin{equation}
+    \label{eqn:I_Zh}
+    I_\text{zh} = m\left(\frac{R^2}{4}+\frac{h^2}{12}\right)
+\end{equation}
+berechnet.
 
 In diesem Versuch wird ein System betrachtet, bei welchem eine Drehachse über das rücktreibende Drehmoment einer Feder in Schwingung versetzt werden kann, wenn die Drehachse
 um einen Winkel $\phi$ ausgelenkt wird. Ein Drehmoment $\vec{M}$ wird durch eine Kraftwirkung $\vec{F}$ entlang eines Kraftarms $\vec{r}$ senkrecht zur Drehachse bewirkt und 
