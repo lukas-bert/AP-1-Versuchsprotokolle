@@ -21,7 +21,6 @@ build/v106.pdf: FORCE | build
 	  --interaction=nonstopmode \
 	  --halt-on-error \
 	v106.tex
-	cp build/v106.pdf .
 
 build:
 	mkdir -p build
