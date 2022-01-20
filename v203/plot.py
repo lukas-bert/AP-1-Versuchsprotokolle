@@ -47,8 +47,8 @@ print("L_i:      ", '{0:.4f}'.format(L_i), " eV")
 
 x = np.linspace(0.0025, 0.0035, 1000)
 
-plt.plot(x, f(x, *params), label = "Ausgleichsgerade", color = "cornflowerblue")
-plt.plot(1/np.abs(T_1), np.log(p_1/p_0), linestyle = "none", marker = "1", label='Messdaten', color = "firebrick", markersize = "4.5")
+plt.plot(x, f(x, *params), label = "Ausgleichsgerade", color = "cornflowerblue", linewidth = "2")
+plt.plot(1/np.abs(T_1), np.log(p_1/p_0), linestyle = "none", marker = "1", label='Messdaten', color = "firebrick", markersize = "5.5")
 plt.xlabel(r'$\frac{1}{\symup{T}} \mathbin{/} \unit{\per\kelvin}$')
 plt.ylabel(r'ln$(p/p_0)$')
 plt.legend(loc='best')
@@ -73,14 +73,14 @@ print(params, err)
 # Plot des Fits
 
 #x = np.linspace(108.5+273.15,196.5+273.15,10000)
-x = np.linspace(380, 470, 1000)
+x = np.linspace(380, 480, 1000)
 
 plt.plot(x, f3(x, *params), label = "Fit", color = "cornflowerblue")
 plt.plot(T_2, p_2, linestyle = "none", marker = "x", color = "firebrick", label = "Messwerte")
 plt.ylabel(r'$p \mathbin{/} \unit{\pascal}$')
 plt.xlabel(r'$T \mathbin{/} \unit{\kelvin}$')
 plt.grid()
-plt.xlim(380, 470)
+plt.xlim(380, 480)
 plt.ylim(0, 16*10**5)
 plt.legend(loc='best')
 plt.savefig('build/plot2.pdf')
@@ -101,7 +101,7 @@ def L_p(T,a,b,c,d):
 # L_+
 
 plt.plot(x, L_p(x, *params), label=r'$L_+(T)$', color = "chocolate")
-plt.ylabel(r'$L_+ \mathbin{/} \unit{\joule\mol^-1}$')
+plt.ylabel(r'$L_+ \mathbin{/} \unit{\joule\mol^{-1}}$')
 plt.xlabel(r'$T \mathbin{/} \unit{\kelvin}$')
 plt.grid()
 plt.legend(loc='best')
@@ -113,7 +113,7 @@ plt.close()
 # Plot von L_-
 
 plt.plot(x, L_m(x, *params), label=r'$L_-(T)$', color = "chocolate")
-plt.ylabel(r'$L_- \mathbin{/} \unit{\joule\mol^-1}$')
+plt.ylabel(r'$L_- \mathbin{/} \unit{\joule\mol^{-1}}$')
 plt.xlabel(r'$T \mathbin{/} \unit{\kelvin}$')
 plt.grid()
 plt.legend(loc='best')
