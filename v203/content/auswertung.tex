@@ -1,2 +1,92 @@
 \section{Auswertung}
 \label{sec:Auswertung}
+Die Fehler- und Ausgleichsrechnung des folgenden Kapitels wird in \textit{Python} unter Verwendung der Pakete \textit{scipy} \cite{scipy} und \textit{uncertainties}
+\cite{uncertainties} durchgeführt. Sie genügen der gaußschen Fehlerfortpflanzung und dem Standardfehler des Mittelwerts.  
+Vor Beginn der Messung wird der Atmosphärendruck zu $p_0 = \qty{1010}{\milli\bar} = \qty{101}{\kilo\pascal}$ und die Außentemperatur zu 
+$T_0 = \qty{19.5}{\degreeCelsius}$ bestimmt.
+
+\subsection{Bestimmung der Verdampfungswärme zur ersten Messung}
+\label{subsec:A_L_Bestimmung}
+Unter der Annahme, dass die Verdampfungswärme in dem hier untersuchten Druckbereich keine Temperatur- und Druckabhängigkeit aufweist, lässt sich nach *autoref{KommtNochSooOOOOsS}*
+feststellen, dass der Logarithmus des Relativdruckes in Abhängigkeit zur reziproken Temperatur eine Geradengleichung der Form $f(x) = mx + b$ beschreibt. 
+Der Parameter $m$ der Geradengleichung entspricht dabei dem Faktor $-\sfrac{L}{R}$, woraus sich der Mittelwert der Verdampfungswärme $L$ im betrachteten Druckbereich bestimmen lässt.
+
+\begin{figure}
+    \centering
+    \includegraphics[width = \textwidth]{build/plot1.pdf}
+    \caption{Messdaten zur Bestimmung der Verdampfungswärme im Druckbereich $\qty{25}{\milli\bar} \leq p \leq p_0$ und zugehörige Ausgleichsgerade \cite{matplotlib}.}
+    \label{fig:plot1}
+\end{figure}
+
+In \autoref{fig:plot1} ist der beschriebene Zusammenhang des Logarithmus des Druckes zum Kehrwert der Temperatur zu sehen. Eine lineare Regression mittels \textit{scipy} 
+\cite{scipy} ergibt die Parameter
+\begin{align*}
+    m &= \qty{-4868 +- 13}{\kelvin} & b &= \num{14.67 +- 0.04}
+\end{align*}
+der Ausgleichsgeraden. Damit folgt für $L = -mR$ mit der allgemeinen Gaskonstante $R = \qty{8.314}{\joule\per\mol\kelvin}$ \cite{scipy} der Wert 
+$L = \qty{40474 +- 122}{\joule\per\mol}$. Die äußere Verdampfungswärme $L_\text{a}$ lässt sich mithilfe autoref{AllgemeineGasgleichung} abschätzen. Für die Temperatur
+$T = \qty{373}{\kelvin}$ folgt $L_\text{a} = \qty{3101}{\joule\per\mol}$. Mit der Relation autoref{ZusammenhangDerL's} ergibt sich für die innere Verdampfungswärme
+\begin{equation*}
+    L_\text{i} = L - L_\text{a} = \qty{37372+-122}{\joule\per\mol}.
+\end{equation*}
+Durch Division durch die Avoagdro-Konstante $N_\text{A} = 6.022 \cdot 10^23 \unit{\per\mol}$ \cite{scipy} kann der Wert dieser Größe pro Molekül bestimmt werden.
+In $\unit{\electronvolt}$ ergibt sich
+\begin{equation*}
+    L_\text{i, Molekül} = \qty{0.3873+- 0.0013}{\electronvolt}.
+\end{equation*}
+
+\subsection{Temperaturabhängigkeit der Verdampfungswärme über Atmosphärendruck}
+\label{subsec:A_Temperaturabhäng}
+Für einen Druckbereich $p_0 \geq \qty{1}{\bar}$ kann $L$ nicht mehr als konstant angenommen werden. Mit der Clausius-Clapeyronschen Gleichung autoref{IstKlarOder}
+lässt sich der Zusammenhang 
+\begin{equation}
+    \label{eqn:L_Clausius}
+    L = (V_\text{D} - V_\text{F}) \frac{\symup{d}p}{\symup{d}T} \cdot T
+\end{equation}
+für $L(T)$ aufstellen. Hierzu wird jedoch das Volumen $V_\text{D}$ des Dampfes benötigt. Das Volumen $V_\text{F}$ wird als vernachlässigbar
+klein gegenüber $V_\text{D}$ angenommen. Da die allgemeine Gasgleichung in diesem Bereich nicht mehr gilt, wird die Näherung 
+\begin{align*}
+    \left(p + \frac{a}{V^2}\right)V &= RT & a &= \qty{0.9}{\joule\cubic\metre\per\mol\squared}
+\end{align*}
+verwendet. Mit dieser Näherung ergeben sich die Lösungen $V_+$ und $V_-$ des Volumens zu 
+\begin{equation*}
+    V_\pm = \frac{RT}{2p} \pm \sqrt{\left(\frac{RT}{2p}\right)^2-\frac{a}{p}}.
+\end{equation*}
+Durch Einsetzen der Lösungen für das Dampfvolumen $V_\text{D}$ in \autoref{eqn:L_Clausius} ergibt sich
+\begin{equation}
+    L_\pm(p, T) = \frac{1}{p}\left(\frac{RT}{2} \pm \sqrt{\frac{R^2T^2}{4}- ap} \right) \frac{\symup{d}p}{\symup{d}T}T
+\end{equation} 
+
+Anhand der Daten der zweiten Messreihe lässt sich eine Ausgleichsfunktion ermitteln, mit der die Temperaturabhängigkeit des Druckes $p$ modelliert werden kann.
+Als Funktion wird ein Polynom dritten Grades der Form $p(x) = ax^3 + bx^2 + cx + d$ gewählt. Die entsprechenden Messdaten und die Ausgleichsfunktion sind
+in \autoref{fig:plot3} abgebildet. 
+
+\begin{figure}
+    \centering
+    \includegraphics[width = \textwidth]{build/plot2.pdf}
+    \caption{Messwerte im Druckbereich $p_0 \leq p \leq \qty{15}{\bar}$ und Ausgleichspolynom dritten Grades \cite{scipy} \cite{matplotlib}.}
+    \label{fig:plot2}
+\end{figure}
+
+Die Regression mittels \textit{scipy} \cite{scipy} ergibt die Parameter
+\begin{align*}
+    a &= \qty{0.65 +- 0.11}{\per\cubic\kelvin} & b &= \qty{-669 +- 142}{\per\kelvin\squared} \\
+    c &= (2.29 \pm 0.6) \cdot 10^5 \unit{\per\kelvin}     & d &= (-2.62 \pm 0.86) \cdot 10^7. \\ 
+\end{align*}
+Diese Parameter liefern Gleichungen für den Druck $p(T) = aT^3 + bT^2 + cT + d$ und dessen Ableitung $\frac{\symup{d}p}{\symup{d}T}(T) = 3aT^2 + 2bT + c$, mit denen 
+sich die beiden Lösungen $L_+$ und $L_-$ in Abhängigkeit zur Temperatur darstellen lassen. Die so entstehenden Funktionen können den Abbildungen \ref{fig:plot3} und 
+\ref{fig:plot4} entnommen werden.
+
+\begin{figure}
+    \centering
+    \includegraphics[width = \textwidth]{build/plot3.pdf}
+    \caption{Ergebnis $L_+$ der Bestimmung der Temperaturabhängigkeit der Verdampfungswärme im Bereich $p \geq \qty{1}{\bar}$ \cite{matplotlib}.}
+    \label{fig:plot3}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width = \textwidth]{build/plot4.pdf}
+    \caption{Ergebnis $L_-$ der Bestimmung der Temperaturabhängigkeit der Verdampfungswärme im Bereich $p \geq \qty{1}{\bar}$ \cite{matplotlib}.}
+    \label{fig:plot4}
+\end{figure}
