@@ -120,28 +120,29 @@ Zu dem Kopplungskondensator mit Kapazität $C_\text{K} = 1.01 \, \unit{\nano\far
 kein genaues Ablesen der Messwerte möglich war.
 \subsection{Berechnung der Ströme in den Schwingkreisen}
 \label{subsec:A_Strom}
-Die Ströme im Schwingkreis lassen sich durch \autoref{eqn:STROM} berechnen. Dabei werden für $|U|$ die gemessenen Spannungsamplituden verwendet. Außerdem muss bei $C_\text{K}$ die Eigenkapazität
+Die Ströme im Schwingkreis lassen sich durch das Ohmsche Gestz $U = R \cdot I$ berechnen. Dabei werden für $U$ die gemessenen Spannungsamplituden und für 
+$R$ der Widerstand $\qty{48}{\ohm}$ verwendet. Die Theoriewerte ergeben sich durch Einsetzen der gemessenen Spannungen $U$ und der theoretischen Frequenzen 
+$\omega_+ = 2 \pi \nu_+$ und $\omega_- = 2 \pi \nu_-$ in \autoref{eqn:Ip_theo} beziehungsweise \autoref{eqn:Im_theo}. Dabei muss die Eigenkapazität
 $C_\text{Sp}$ der Spule berücksichtigt werden. Die Spannungen und die daraus berechneten Ströme sind in \autoref{tab:Ströme} dargestellt.
 
 \begin{table}
     \centering
     \caption{In dieser Tabelle werden die Spannungs- und Stromamplituden dargestellt.} 
     \label{tab:Ströme}
-    \begin{tabular}{S[table-format=1.2] S[table-format=2.0] S[table-format=1.2] S[table-format=3.0] S[table-format=1.2]}
+    \begin{tabular}{S[table-format=1.2] S[table-format=2.0] S[table-format=1.2] S S[table-format=3.0] S[table-format=1.2] S}
         \toprule
         {$C_\text{K} \mathbin{/} \unit{\nano\farad}$} & {$U^+_\text{exp} \mathbin{/} \unit{\milli\volt}$} &%
-        {$I^+_\text{exp} \mathbin{/} \unit{\milli\ampere}$} & {$U^-_\text{exp} \mathbin{/} \unit{\milli\volt}$} &%
-        {$I^-_\text{exp} \mathbin{/} \unit{\milli\ampere}$} \\
+        {$I^+_\text{exp} \mathbin{/} \unit{\milli\ampere}$} & {$I^+_\text{theo} \mathbin{/} \unit{\milli\ampere}$} &%
+        {$U^-_\text{exp} \mathbin{/} \unit{\milli\volt}$} & {$I^-_\text{exp} \mathbin{/} \unit{\milli\ampere}$} &%
+        {$I^-_\text{theo} \mathbin{/} \unit{\milli\ampere}$} \\
         \midrule
-        9.99 & 80 & 0.33 & 150 & 1.26\\
-        8.00 & 75 & 0.30 & 155 & 0.26\\
-        6.47 & 70 & 0.27 & 140 & 0.32\\
-        5.02 & 70 & 0.27 & 145 & 1.45\\
-        4.00 & 70 & 0.26 & 140 & 0.37\\
-        3.00 & 70 & 0.26 & 140 & 1.41\\
-        2.03 & 70 & 0.26 & 135 & 0.47\\
+        9.99 & 80 & 1.67 & 0.83 & 150 & 3.13 & 1.56 \\
+        8.00 & 75 & 1.56 & 0.78 & 155 & 3.23 & 1.61 \\
+        6.47 & 70 & 1.46 & 0.73 & 140 & 2.92 & 1.46 \\
+        5.02 & 70 & 1.46 & 0.73 & 145 & 3.02 & 1.51 \\
+        4.00 & 70 & 1.46 & 0.73 & 140 & 2.92 & 1.46 \\
+        3.00 & 70 & 1.46 & 0.73 & 140 & 2.92 & 1.46 \\
+        2.03 & 70 & 1.46 & 0.73 & 135 & 2,81 & 1.41 \\
         \bottomrule 
     \end{tabular}
 \end{table}
-
-Die Theoriewerte zu $I^+$ und $I^-$ können beide durch $I_\text{theo} \approx \frac{1\unit{\volt}}{2R} = 10.42\unit{\milli\ampere}$ approximiert werden.

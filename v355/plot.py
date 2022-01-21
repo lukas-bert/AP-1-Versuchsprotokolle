@@ -87,30 +87,40 @@ print("nu-:     ", unp.nominal_values(n_mabw))
 print("-------------------------------------------------------------")
 
 # Berechnung des Stroms
-C_k, t_p, U_p, t_m, U_m = np.genfromtxt("content/data_c.txt", unpack = True) 
+C_kx, t_p, U_p, t_m, U_m = np.genfromtxt("content/data_c.txt", unpack = True) 
 R = 48
-C_k = C_k*10**(-9)
-def Z(w,L,C,C_k):
-    return w*L - (1/w)*(1/C + 1/C_k)
+C_k = C_k[:-1]
 
-def I(U,w,C_k,Z,R):
-    return U*(1/np.sqrt(4*w**2*C_k**2*R**2*Z**2 + (1/(w*C_k) - w*C_k*Z**2 + w*R**2*C_k)**2))
+#def Z(w,L,C,C_k):
+#    return w*L - (1/w)*(1/C + 1/C_k)
+#
+#def I(U,w,C_k,Z,R):
+#    return U*(1/np.sqrt(4*w**2*C_k**2*R**2*Z**2 + (1/(w*C_k) - w*C_k*Z**2 + w*R**2*C_k)**2))
 
-w_p = 2*np.pi*n_p
-w_m = 2*np.pi*n_m
-I_p = I(U_p, w_p, (C_k+C_sp), Z(w_p, L, C, (C_k+C_sp)), R)
-I_m = I(U_m, w_m, (C_k+C_sp), Z(w_m, L, C, (C_k+C_sp)), R)
+# Experimentelle Werte
+
+I_pe = U_p/R
+I_me = U_m/R
+
+#w_p = 2*np.pi*n_p
+#w_m = 2*np.pi*n_m
+#I_p = I(U_p, w_p, (C_k+C_sp), Z(w_p, L, C, (C_k+C_sp)), R)
+#I_m = I(U_m, w_m, (C_k+C_sp), Z(w_m, L, C, (C_k+C_sp)), R)
 print("")
 print("Ströme experimentell:")
-print("I+:     ", I_p)
-print("I-:     ", I_m )
+print("I+:     ", I_pe)
+print("I-:     ", I_me)
 print("-------------------------------------------------------------")
 
 # Theoriewerte der Ströme
-I_pt = 1/(R*np.sqrt(4 + R**2*C_k**2/(L*C)))
-I_mt = 1/(R*np.sqrt(4 + R**2*C_k**2/(L*C)*(1 + C/C_k)))
+I_pt = U_p/(R*unp.sqrt(4 + R**2*C_k**2/(L*C)))
+I_mt = U_m/(R*unp.sqrt(4 + R**2*C_k**2/(L*C)*(1 + C/C_k)))
 print("")
 print("Ströme Theorie:")
-print("I+:     ", I_pt*10**(3))
-print("I-:     ", I_mt*10**(3))
+print("I+:     ", I_pt)
+print("I-:     ", I_mt)
 print("-------------------------------------------------------------")
+
+I_pabw = np.abs(I_pe - unp.nominal_values(I_pt))/ unp.nominal_values(I_pt)
+I_mabw = np.abs(I_me - unp.nominal_values(I_mt))/ unp.nominal_values(I_mt)
+print(I_pabw, I_mabw)
