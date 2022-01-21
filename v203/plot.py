@@ -24,8 +24,12 @@ print(params, err)
 
 # Berechnung der Verdampfungswärme in b
 L = -m*const.R
+L_lit = 40660
+# Abweichung
+L_abw = np.abs(L_lit-L)/L_lit
 print("-------------------------------------------------------------------------")
 print("Verdampfungswärme:      ", '{0:.2f}'.format(unp.nominal_values(L)), "+-",'{0:.2f}'.format(unp.std_devs(L)), " J*mol^-1")
+print("Abweichung:      ", L_abw)
 print("-------------------------------------------------------------------------")
 
 # Berechnung der äußeren Verdampfungswärme L_a in c
