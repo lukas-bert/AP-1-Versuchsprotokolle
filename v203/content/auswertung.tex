@@ -7,7 +7,7 @@ $T_0 = \qty{19.5}{\degreeCelsius}$ bestimmt.
 
 \subsection{Bestimmung der Verdampfungswärme zur ersten Messung}
 \label{subsec:A_L_Bestimmung}
-Unter der Annahme, dass die Verdampfungswärme in dem hier untersuchten Druckbereich keine Temperatur- und Druckabhängigkeit aufweist, lässt sich nach *autoref{KommtNochSooOOOOsS}*
+Unter der Annahme, dass die Verdampfungswärme in dem hier untersuchten Druckbereich keine Temperatur- und Druckabhängigkeit aufweist, lässt sich nach \autoref{eqn:gerade}
 feststellen, dass der Logarithmus des Relativdruckes in Abhängigkeit zur reziproken Temperatur eine Geradengleichung der Form $f(x) = mx + b$ beschreibt. 
 Der Parameter $m$ der Geradengleichung entspricht dabei dem Faktor $-\sfrac{L}{R}$, woraus sich der Mittelwert der Verdampfungswärme $L$ im betrachteten Druckbereich bestimmen lässt.
 
@@ -24,8 +24,8 @@ In \autoref{fig:plot1} ist der beschriebene Zusammenhang des Logarithmus des Dru
     m &= \qty{-4868 +- 13}{\kelvin} & b &= \num{14.67 +- 0.04}
 \end{align*}
 der Ausgleichsgeraden. Damit folgt für $L = -mR$ mit der allgemeinen Gaskonstante $R = \qty{8.314}{\joule\per\mol\kelvin}$ \cite{scipy} der Wert 
-$L = \qty{40474 +- 122}{\joule\per\mol}$. Die äußere Verdampfungswärme $L_\text{a}$ lässt sich mithilfe autoref{AllgemeineGasgleichung} abschätzen. Für die Temperatur
-$T = \qty{373}{\kelvin}$ folgt $L_\text{a} = \qty{3101}{\joule\per\mol}$. Mit der Relation autoref{ZusammenhangDerL's} ergibt sich für die innere Verdampfungswärme
+$L = \qty{40474 +- 122}{\joule\per\mol}$. Die äußere Verdampfungswärme $L_\text{a}$ lässt sich mithilfe der idealen Gasgleichung \eqref{eqn:V_D} abschätzen. Für die Temperatur
+$T = \qty{373}{\kelvin}$ folgt $L_\text{a} = \qty{3101}{\joule\per\mol}$. Mit der Relation \autoref{eqn:LI} ergibt sich für die innere Verdampfungswärme
 \begin{equation*}
     L_\text{i} = L - L_\text{a} = \qty{37372+-122}{\joule\per\mol}.
 \end{equation*}
@@ -37,7 +37,7 @@ In $\unit{\electronvolt}$ ergibt sich
 
 \subsection{Temperaturabhängigkeit der Verdampfungswärme über Atmosphärendruck}
 \label{subsec:A_Temperaturabhäng}
-Für einen Druckbereich $p_0 \geq \qty{1}{\bar}$ kann $L$ nicht mehr als konstant angenommen werden. Mit der Clausius-Clapeyronschen Gleichung autoref{IstKlarOder}
+Für einen Druckbereich $p_0 \geq \qty{1}{\bar}$ kann $L$ nicht mehr als konstant angenommen werden. Mit der Clausius-Clapeyronschen Gleichung \autoref{eqn:DGL1}
 lässt sich der Zusammenhang 
 \begin{equation}
     \label{eqn:L_Clausius}
