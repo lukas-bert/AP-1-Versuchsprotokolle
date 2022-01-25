@@ -1,9 +1,11 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 Die Fehler- und Ausgleichsrechnung des folgenden Kapitels wird in \textit{Python} unter Verwendung der Pakete \textit{scipy} \cite{scipy} und \textit{uncertainties}
-\cite{uncertainties} durchgeführt. Sie genügen der gaußschen Fehlerfortpflanzung und dem Standardfehler des Mittelwerts.  
+\cite{uncertainties} durchgeführt. Sie genügen der gaußschen Fehlerfortpflanzung und dem Standardfehler des Mittelwerts. 
+Die verwendeten Grafiken werden mit \textit{matplotlib} \cite{matplotlib} erstellt.
 Vor Beginn der Messung wird der Atmosphärendruck zu $p_0 = \qty{1010}{\milli\bar} = \qty{101}{\kilo\pascal}$ und die Außentemperatur zu 
 $T_0 = \qty{19.5}{\degreeCelsius}$ bestimmt.
+Die Messwerte können den Tabellen \ref{tab:Mess1} und \ref{tab:Mess2} oder dem Anhang entnommen werden.
 
 \subsection{Bestimmung der Verdampfungswärme zur ersten Messung}
 \label{subsec:A_L_Bestimmung}
@@ -14,8 +16,7 @@ Der Parameter $m$ der Geradengleichung entspricht dabei dem Faktor $-\sfrac{L}{R
 \begin{figure}
     \centering
     \includegraphics[width = \textwidth]{build/plot1.pdf}
-    \caption{Messdaten zur Bestimmung der Verdampfungswärme im Druckbereich $\qty{25}{\milli\bar} \leq p \leq p_0$ und zugehörige Ausgleichsgerade. Erstellt mit 
-    \textit{matplotlib} \cite{matplotlib} und \textit{scipy} \cite{scipy}.}
+    \caption{Messdaten zur Bestimmung der Verdampfungswärme im Druckbereich $\qty{25}{\milli\bar} \leq p \leq p_0$ und zugehörige Ausgleichsgerade.}
     \label{fig:plot1}
 \end{figure}
 
@@ -65,8 +66,7 @@ in \autoref{fig:plot3} abgebildet.
 \begin{figure}
     \centering
     \includegraphics[width = \textwidth]{build/plot2.pdf}
-    \caption{Messwerte im Druckbereich $p_0 \leq p \leq \qty{15}{\bar}$ und Ausgleichspolynom dritten Grades. Erstellt mit 
-    \textit{matplotlib} \cite{matplotlib} und \textit{scipy} \cite{scipy}.}
+    \caption{Messwerte im Druckbereich $p_0 \leq p \leq \qty{15}{\bar}$ und Ausgleichspolynom dritten Grades.}
     \label{fig:plot2}
 \end{figure}
 
@@ -82,13 +82,93 @@ sich die beiden Lösungen $L_+$ und $L_-$ in Abhängigkeit zur Temperatur darste
 \begin{figure}
     \centering
     \includegraphics[width = \textwidth]{build/plot3.pdf}
-    \caption{Ergebnis $L_+$ der Bestimmung der Temperaturabhängigkeit der Verdampfungswärme im Bereich $p \geq \qty{1}{\bar}$. Erstellt mit \textit{matplotlib} \cite{matplotlib}.}
+    \caption{Ergebnis $L_+$ der Bestimmung der Temperaturabhängigkeit der Verdampfungswärme im Bereich $p \geq \qty{1}{\bar}$.}
     \label{fig:plot3}
 \end{figure}
 
 \begin{figure}
     \centering
     \includegraphics[width = \textwidth]{build/plot4.pdf}
-    \caption{Ergebnis $L_-$ der Bestimmung der Temperaturabhängigkeit der Verdampfungswärme im Bereich $p \geq \qty{1}{\bar}$. Erstellt mit \textit{matplotlib} \cite{matplotlib}.}
+    \caption{Ergebnis $L_-$ der Bestimmung der Temperaturabhängigkeit der Verdampfungswärme im Bereich $p \geq \qty{1}{\bar}$.}
     \label{fig:plot4}
 \end{figure}
+
+\begin{table}
+    \centering
+    \caption{Messdaten für $p \leq p_0$.}
+    \label{tab:Mess1}
+    \begin{tabular}{S[table-format = 3.0] S[table-format = 4.0] | S[table-format = 3.0] S[table-format = 4.0]}
+        \toprule
+        {$T \mathbin{/} \unit{\degreeCelsius}$} & {$p \mathbin{/} \unit{\milli\bar}$} &{$T \mathbin{/} \unit{\degreeCelsius}$} & {$p \mathbin{/} \unit{\milli\bar}$} \\
+        \midrule
+        20  &   29 &  61  &  220 \\
+        21  &   33 &  62  &  229 \\
+        22  &   35 &  63  &  240 \\
+        23  &   36 &  64  &  252 \\
+        24  &   38 &  65  &  262 \\
+        25  &   40 &  66  &  276 \\
+        26  &   42 &  67  &  286 \\
+        27  &   44 &  68  &  297 \\
+        28  &   46 &  69  &  311 \\
+        29  &   48 &  70  &  327 \\
+        30  &   51 &  71  &  339 \\
+        31  &   53 &  72  &  353 \\
+        32  &   55 &  73  &  368 \\
+        33  &   58 &  74  &  384 \\
+        34  &   60 &  75  &  402 \\
+        35  &   63 &  76  &  420 \\
+        36  &   65 &  77  &  435 \\
+        37  &   68 &  78  &  451 \\
+        38  &   71 &  79  &  471 \\
+        39  &   74 &  80  &  490 \\
+        40  &   78 &  81  &  508 \\
+        41  &   82 &  82  &  529 \\
+        42  &   87 &  83  &  549 \\
+        43  &   92 &  84  &  568 \\
+        44  &   97 &  85  &  588 \\
+        45  &  103 &  86  &  614 \\
+        46  &  108 &  87  &  637 \\
+        47  &  114 &  88  &  658 \\
+        48  &  121 &  89  &  682 \\
+        49  &  126 &  90  &  708 \\
+        50  &  133 &  91  &  735 \\
+        51  &  138 &  92  &  764 \\
+        52  &  145 &  93  &  794 \\
+        53  &  152 &  94  &  822 \\
+        54  &  160 &  95  &  857 \\
+        55  &  167 &  96  &  884 \\
+        56  &  176 &  97  &  920 \\
+        57  &  183 &  98  &  950 \\
+        58  &  192 &  99  &  987 \\
+        59  &  201 &  100 & 1016 \\
+        60  &  209 &  000 & 0000 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{table}
+    \centering
+    \caption{Messdaten für $p \geq p_0$.}
+    \label{tab:Mess2}
+    \begin{tabular}{S[table-format = 2.0] S[table-format = 3.1]}
+        \toprule
+        {$p \mathbin{/} \unit{\milli\bar}$} & {$T \mathbin{/} \unit{\degreeCelsius}$} \\
+        \midrule
+        1 & 108.5 \\
+        2 & 126.5 \\
+        3 & 138.5 \\
+        4 & 147   \\
+        5 & 154   \\
+        6 & 160   \\
+        7 & 166   \\
+        8 & 170.5 \\
+        9 & 175   \\
+       10 & 179.5 \\
+       11 & 183.5 \\
+       12 & 187   \\
+       13 & 190   \\
+       14 & 194   \\
+       15 & 196.5 \\
+       \bottomrule
+    \end{tabular}   
+\end{table}

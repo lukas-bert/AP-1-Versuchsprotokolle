@@ -53,7 +53,7 @@ x = np.linspace(0.0025, 0.0035, 1000)
 
 plt.plot(x, f(x, *params), label = "Ausgleichsgerade", color = "cornflowerblue", linewidth = "2")
 plt.plot(1/np.abs(T_1), np.log(p_1/p_0), linestyle = "none", marker = "1", label='Messdaten', color = "firebrick", markersize = "5.5")
-plt.xlabel(r'$\frac{1}{\symup{T}} \mathbin{/} \unit{\per\kelvin}$')
+plt.xlabel(r'$\frac{1}{T} \mathbin{/} \unit{\per\kelvin}$')
 plt.ylabel(r'ln$(p/p_0)$')
 plt.legend(loc='best')
 plt.xlim(0.00267, 0.00342)
