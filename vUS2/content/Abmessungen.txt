@@ -1,0 +1,17 @@
+# Abmessungen des Acrylquaders un der Bohrungen in mm
+# Höhe 80.55mm, Breite 150.4mm, Tiefe 40.25mm
+
+# Bohrungen in Nummerierungsreihenfolge (1-11)
+
+# Durchmesser in mm, vertikale Position in mm
+5.9  13.35
+5.0  21.8
+4.0  39.6
+2.9  38.8
+2.9  46.75
+2.9  54.8
+2.9  62.8
+2.9  71.0
+9.8  16.1
+1.45 59.4
+1.45 61.2

@@ -1,0 +1,13 @@
+# Messung der Laufzeiten des Signals in mikro Sekunden (Löcher 1-11)
+# von oben, von unten
+10.7 45.6
+16.6 40.2
+23.0 34.7
+29.2 29.2
+35.0 23.6 
+40.8 17.8
+46.6 12.0
+999   6.1
+11.9 41.3
+44.4 15.1
+45.6 14.0
