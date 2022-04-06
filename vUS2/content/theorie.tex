@@ -5,6 +5,65 @@ Schallwellen sind Druckschwankungen in einem Medium, welche sich gemäß der Wel
     \label{eqn:Schallwelle}
     p(x,t) = p_0 + v_0 Z \cos \left(\omega t - kx\right)
 \end{equation*}
-ausbreiten.
+ausbreiten. $Z = c \cdot \rho$ beschreibt dabei die materialabhängige akustische Impedanz, $p_0$ den Normaldruck des Mediums.
 Der Frequenzbereich des Schalls von $\qty{20}{\mega\hertz}$ bis $\qty{1}{\giga\hertz}$ befindet sich über dem Hörbaren und wird als \textit{Ultraschall} bezeichnet.
-Schall dieses Frequenzbereich kann zur zerstörungsfreien Werkstoffprüfung genutzt werden und findet so unter anderem Anwendung in der Medizin.
+Schall dieses Frequenzbereiches kann zur zerstörungsfreien Werkstoffprüfung genutzt werden und findet so unter anderem Anwendung in der Medizin. \\
+
+\subsection{Erzeugung von Ultraschall}
+\label{subsec:Erzeugung}
+Um Ultraschall zu erzeugen, kann der \textit{piezo-elektrische Effekt} genutzt werden: Ein piezo-elektrischer Kristall wird in ein elektrisches Wechselfeld gesetzt,
+welches bei paralleler Anordnung einer polaren Achse des Kristalls zu den elektrischen Feldlinien diesen in Schwingung versetzt, wodurch Ultraschallwellen abgestrahlt werden. 
+Passt die Anregungsfrequenz zur Eigenfrequenz des Kristalls (Resonanzfall), können große Schwingungsamplituden (Schallenergiedichten) erzeugt werden. 
+Umgekehrt kann ein solcher Kristall als Empfänger genutzt werden, da er bei Anregung durch Schallwellen ebenfalls in Schwingung versetzt wird. \\
+
+\subsection{Physikalische Grundlagen der Scanverfahren}
+Bei Scanverfahren mit Ultraschall wird das Wellenverhalten des Schalls ausgenutzt. Anhand der Medium-abhängigen Schallgeschwindigkeit $c$ können mithilfe der
+Laufzeit $t$ eines Impulssignals und dem Weg-Zeit-Gesetz
+\begin{equation}
+    \label{eqn:WegZeit}
+    s = v \cdot t
+\end{equation} 
+Abstände bestimmt werden.
+In Flüssigkeiten kann die Schallgeschwindigkeit mit der Kompressibilität $\kappa$ über $c_\text{Fl} = \sqrt{\sfrac{1}{\kappa \rho}}$ bestimmt werden, in Feststoffen
+lautet die Gleichung $c_\text{Fe} = \sqrt{\sfrac{E}{\rho}}$, mit dem Elastizitätsmodul $E$. Über die Schallgeschwindigkeit $c$ und die Frequenz $f$ der Schallwelle 
+kann die Wellenlänge
+\begin{equation}
+    \label{eqn:lambda}
+    \lambda = \frac{c}{f}
+\end{equation}
+der Schallwelle berechnet werden.
+Die Intensität $I$ des Signals nimmt exponentiell mit der Strecke $x$ ab
+\begin{equation*}
+    I(x) = I_0 \cdot e^{\alpha x},
+\end{equation*}
+wobei $\alpha$ ein materialabhängiger Absorptionskoeffizient ist. Da die Absorption in Luft sehr stark ist, wird in der Regel ein Kontaktmittel (z.B. Wasser) zwischen
+Sender und Material verwendet.
+An Grenzflächen verschiedener Stoffe wird ein Teil der Schallwelle reflektiert. Der reflektierte Anteil $R$ kann mit den akustischen Impedanzen $Z = \rho \cdot c$ der 
+angrenzenden Materialien über
+\begin{equation*}
+    \label{eqn:Reflektion}
+    R = \left(\frac{Z_1 - Z_2}{Z_1 + Z_2}\right)^2
+\end{equation*}
+bestimmt werden. $T = 1 - R$ ist der transmittierte Anteil.
+
+\subsection{Scanverfahren}
+\label{subsec:Scanverfahren}
+Grundlegend können zwei verschiedene Verfahren angewendet werden. 
+
+Bei dem \textit{Durchschallungsverfahren} wird ein Schallimpuls an einer Seite des zu analysierenden Stückes ausgesendet und an der Anderen von einem Empfänger 
+aufgenommen. Das Vorhandensein von Störstellen im Material lässt sich über abweichende Intensitäten des Empfangsimpulses feststellen, über die Größe dieser Störstelle
+kann keine Aussage getroffen werden.
+
+Bei dem \textit{Impuls-Echo-Verfahren} wird die Reflektion der Schallwelle an Grenzflächen ausgenutzt, indem der Sender gleichzeitig als Empfänger dient und den 
+reflektierten Teil des Signals an Grenzflächen von Stoffen detektiert. Bei bekannter Schallgeschwindigkeit lässt sich so eine Aussage über die Tiefe der Störstelle 
+mit dem Weg-Zeit-Gesetz \eqref{eqn:WegZeit} und der Signallaufzeit treffen.
+
+Aufgenommene Messdaten der Signallaufzeit können in einem \textit{A-Scan}, \textit{B-Scan} oder \textit{TM-Scan} dargestellt werden.
+\begin{itemize}
+    \item{Beim \textbf{A}mplituden-Scan werden lediglich die empfangenen Echoamplituden als Funktion der Laufzeit (oder als Funktion der Tiefe, unter Angabe von $c$)
+    in einem Diagramm dargestellt.}
+    \item{Beim \textbf{B}rightness-Scan kann der Sender entlang einer Linie bewegt werden, wobei ein zweidimensionales Bild des Querschnitts des untersuchten Materials
+    erstellt wird. Die gemessenen Amplituden werden zu jeder Tiefe (Laufzeit) in Helligkeitsstufen (oder wahlweise Farbstufen) dargestellt.}
+    \item{Beim \textbf{T}ime-\textbf{M}otion-Scan wird durch Aussenden mehrerer Signale eine Bildfolge aufgenommen. Dies macht es möglich Bewegungen, wie beispielsweise 
+    die eines Organs, in dem untersuchten Objekt/Körper sichtbar zu machen.}
+\end{itemize}
