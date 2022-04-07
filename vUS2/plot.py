@@ -20,15 +20,22 @@ time_utn = np.array([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
 time_odiffn = np.array([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
 time_udiffn = np.array([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
 for n in range(11):
-    time_otn[n] = 2*((t[n]*10**(-3))/c_acryl)*10**6 #microsekunden
-    time_utn[n] = 2*((t_u[n]*10**(-3))/c_acryl)*10**6 #microsekunden
+    time_otn[n] = 2*(t[n]/c_acryl)*10**3 #microsekunden
+    time_utn[n] = 2*(t_u[n]/c_acryl)*10**3 #microsekunden
     time_odiffn[n] = np.abs(time_otn[n] - time_o[n])
     time_udiffn[n] = np.abs(time_utn[n] - time_u[n])
-timediffo_mean = np.mean(time_odiffn)
+#timediffo_mean = np.mean(time_odiffn)
 timediffu_mean = np.mean(time_udiffn)
-timediffo_std = np.std(time_odiffn)
-timediffu_std = np.std(time_udiffn)
+#timediffo_std = np.std(time_odiffn) #muss man ma schauen wie man das macht
+timediffu_std = np.std(time_udiffn) 
 
+#testeroni:
+timediffo_mean = 0
+for s in range(7):
+    timediffo_mean = timediffo_mean + time_odiffn[s]
+for s in range(3):
+    timediffo_mean = timediffo_mean + time_odiffn[s+8]
+timediffo_mean = timediffo_mean/10
 #Berechnung der Dicke der Anpassungsschicht:
 bo_destwasser = c_destwasser*timediffo_mean*10**-3 #in mm
 bu_destwasser = c_destwasser*timediffu_mean*10**-3 #in mm
