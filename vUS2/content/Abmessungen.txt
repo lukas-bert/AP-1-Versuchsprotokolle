@@ -6,7 +6,7 @@
 # Durchmesser in mm, vertikale Position in mm
 5.9  13.35
 5.0  21.8
-4.0  39.6
+4.0  30.6
 2.9  38.8
 2.9  46.75
 2.9  54.8
