@@ -70,6 +70,8 @@ plt.show()
 #plt.savefig('build/plot.pdf')
 plt.close()
 
+print(time_diff_mean, time_diff_err)
+
 ##Differenz der Signallaufzeit zwischen Theorie- und Messwert(o=oben,u=unten,t=theorie,n=nummer_der_störstelle):
 #time_otn = np.array([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
 #time_utn = np.array([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])

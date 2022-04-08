@@ -1,12 +1,112 @@
 \section{Auswertung}
 \label{sec:Auswertung}
+Im folgendem wird die Schallgeschwindigkeit in Acryl als $c_{\text{Acryl}} = \qty{2730}{\metre\per\second}$ und die von destilliertem Wasser als 
+$c_{\text{dest.Wasser}} = \qty{1483}{\metre\per\second}$ angenommen. Der verwendete Acrylblock hat eine Gesamthöhe $h_{\text{ges}} = \qty{80.55}{\milli\metre}$. 
+Die Fehler wurden gemäß des Standardfehlers des Mittelwertes durch 
+\begin{equation}
+  \label{eqn:Fehler}
+  \sigma_{\overline{\text{x}}} = \frac{\sigma}{\sqrt{n}}
+\end{equation}
+berechnet.
+Alle anderen Fehler wurden gemäß der gaußschen Fehlerfortpflanzung berechnet:
+\begin{equation}
+  \label{eqn:Gauss}
+  \Delta F = \sqrt{\sum_i\left(\frac{\symup{d}F}{\symup{d}y_i}\Delta y_i \right)^2}
+\end{equation}
+
+\subsection{Händische Abmessung des Acdrylblocks}
+\label{subsec:schieblehre}
+In \autoref{tab:handmessung} werden die Positionen und Durchmesser der Fehlestellen im Acrylblock aufgefürt. Dabei ist oben und unten aus \autoref{fig:acrylskizze} zu entnehmen.
+
+\begin{table}
+  \centering
+  \caption{In dieser Tabelle sind die durch einen Messschieber gemessenen Daten der Fehlstellen aufgeführt. $N$ beschreibt die Lochnummer. $o$ beschreibt die Tiefe der Fehlstelle von oben. $u$ beschreibt die Tiefe der Fehlstelle von unten. $d$ beschreibt den Durchmesser.} 
+  \label{tab:handmessung}
+  \begin{tabular}{S[table-format = 2.0] S[table-format = 2.2] S[table-format = 2.2] S[table-format = 2.2]}
+      \toprule
+      {$N$} & {$o(N)$} & {$u(N)$} & {$d$}\\
+      \midrule
+      1 & 13.35 & 61.30 & 5.90 \\
+      2 & 21.80 & 53.75 & 5.00 \\
+      3 & 30.60 & 45.95 & 4.00 \\
+      4 & 38.80 & 38.85 & 2.90 \\
+      5 & 46.75 & 30.90 & 2.90 \\
+      6 & 54.80 & 22.85 & 2.90 \\
+      7 & 62.80 & 14.85 & 2.90 \\
+      8 & 71.00 &  6.65 & 2.90 \\
+      9 & 16.10 & 54.65 & 9.80 \\
+     10 & 59.40 & 19.70 & 1.45 \\
+     11 & 61.20 & 17.90 & 1.45 \\
+     \bottomrule
+  \end{tabular}   
+\end{table}
+
+\subsection{A-Scan zur Bestimmung der Dicke der Kontaktmittelschicht}
+\label{subsec:ascankontakt}
+Aus diesen Werten kann nun die theoretische Laufzeit des Ultraschallsignals durch den Acrylblock bestimmt werden. Diese wird gemäß der Formel \eqref{eqn:theorielaufzeit} bestimmt.
+\begin{equation}
+  \label{eqn:theorielaufzeit}
+  t_{\text{Theorie}} = 2 \cdot c_{\text{Acryl}} \cdot o(N)
+\end{equation}
+
+Die gemessenen Werte der Laufzeit, welche in \autoref{tab:Messwerte} unterscheiden sich aufgrund der Kontaktmittelschicht von der Theorie. Um diesen Fehler auszubessern wird mittels einer Ausgleichsrechnung die Dicke
+der Anpassungsschicht bestimmt. Dazu wird zunächst der Betrag der Differenz zwischen den Theoriewerten und denn Messwerten gebildet. Diese werden dann gemittelt, sodass man einen Mittelwert
+und einen Mittelwertfehler\eqref{eqn:Fehler} bestimmen kann. Der Mittelwert der Differenzen mit Fehler ergibt sich zu $\overline{t_{\text{diff}}} = \qty{1.60+-0.07}{\micro\second}$.
+Aus diesem Mittelwert kann man nun über das Weg-Zeit-Gesetz \eqref{eqn:WegZeit} und der Gaußschen Fehlerfortpflanzung\eqref{eqn:Gauss} die Dicke der Anpassungsschicht $b_{\text{Anpassungsschicht}}$ bestimmen.
+Diese beträgt $b_{\text{Anpassungsschicht}} = \qty{1.19+-0.05}{\milli\metre}$.
+\subsection{A-Scan zur Bestimmung der genauen Positionen der Fehlstellen}
+\label{subsec:ascanpos}
+Nun werden die Laufzeiten für alle Störstellen gemessen. Dabei wird der Acrylblock von beiden Seiten untersucht. Die Messwerte werden in \autoref{tab:Messwerte} dargestellt.
+Beim Durchmesser wurde die Laufzeitkorrektur bereits vorgenommen.
+\begin{table}
+  \centering
+  \caption{In dieser Tabelle sind die durch einen A-Scan gemessenen Daten der Fehlstellen aufgeführt. $N$ beschreibt die Lochnummer. $o$ beschreibt die Tiefe der Fehlstelle von oben. $u$ beschreibt die Tiefe der Fehlstelle von unten. $d$ beschreibt den Durchmesser.} 
+  \label{tab:Messwerte}
+  \begin{tabular}{S[table-format = 2.0] S[table-format = 2.2] S[table-format = 2.2] S[table-format = 2.2]}
+      \toprule
+      {$N$} & {$o(N)$} & {$u(N)$} & {$d$}\\
+      \midrule
+      1 & 14.8 & 62.3 &  5.83 \\
+      2 & 22.9 & 54.9 &  5.13 \\
+      3 & 31.6 & 47.3 &  4.03 \\
+      4 & 40.1 & 40.1 &  2.73 \\
+      5 & 48.0 & 32.1 &  2.83 \\
+      6 & 55.9 & 24.2 &  2.83 \\
+      7 & 63.8 & 16.3 &  2.83 \\
+      8 &      &  8.4 &       \\
+      9 & 16.3 & 56.4 & 10.23 \\
+     10 & 60.5 & 20.6 &  1.83 \\
+     11 & 62.1 & 19.2 &  1.63 \\
+     \bottomrule
+  \end{tabular}   
+\end{table}
+
+Nun wird noch die Laufzeitkorrektur für die einzelnen Messwerte unternommen. Dazu wird von den gemessenen Laufzeiten $2\cdot \frac{c_{\text{dest.Wasser}}}{b_{\text{Anpassungsschicht}}}$ abgezogen.
+Die korregierten Laufzeiten werden nun zusammen mit den theoretischen Laufzeiten mittels des Weg-Zeit-Gesetzes \eqref{eqn:WegZeit} in Tiefen umgerechnet und dann in \autoref{fig:grafik} 
+gemeinsam dargestellt.
 
 \begin{figure}
   \centering
-  \includegraphics{plot.pdf}
-  \caption{Plot.}
-  \label{fig:plot}
+\includegraphics[width=\textwidth]{build/plot.pdf}
+  \caption{In dieser Grafik sind die experimentell bestimmten Abmessungen der Fehlstellen dargestellt.}
+  \label{fig:grafik}
 \end{figure}
 
-
-Siehe \autoref{fig:plot}!
+\subsection{Untersuchung des Auflösungsvermögens}
+\label{subsec:auflösung}
+Um das Auflösungsvermögen zu Untersuchen werden der Fehlerstellen zehn und elf mit Ultraschallsonden unterschiedlicher Frequenzen untersucht.
+Wie man in \autoref{fig:einMHz} erkennt, zeigt diese Sonde nur einen Peak für beide Fehlstellen an. Daher kann nicht eindeutig die Tiefe einer der beiden Fehlstellen bestimmt werden.
+Mit der 2MHz-Sonde, wie in \autoref{fig:zweiMHz} zu sehen ist, lässt sich der Peak in zwei nah beieinander liegende Peaks trennen. Anhand dieser Frequenz ist es also möglich 
+die einzelnen Tiefen der Fehlstellen zu bestimmen.
+\begin{figure}
+  \centering
+\includegraphics[width=0.5\textwidth]{content/einMHz.pdf}
+  \caption{In dieser Grafik wird mit einer 1MHz-Sonde ein A-Scan der Fehlstellen 11 und 12 dargestellt.}
+  \label{fig:einMHz}
+\end{figure}
+\begin{figure}
+  \centering
+\includegraphics[width=0.5\textwidth]{content/2MHz (unten).pdf}
+  \caption{In dieser Grafik wird mit einer 2MHz-Sonde ein A-Scan der Fehlstellen 11 und 12 dargestellt.}
+  \label{fig:zweiMHz}
+\end{figure}
