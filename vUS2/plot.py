@@ -50,7 +50,7 @@ print(d_mess)
 o = height - o
 
 for i in range(11):     # for Schleife für variable Marker Größe
-    plt.plot(pos[i], real_o[i] - 1/2*d[i], "o", markersize = 4*d[i], color = "cornflowerblue")
+    plt.plot(pos[i], real_o[i] - 1/2*d[i], "o", markersize = 2.4*d[i], color = "cornflowerblue")
     plt.plot(pos[i], real_o[i], "_", markersize = 15, color = "mediumblue")
     plt.plot(pos[i], real_o[i] - d[i], "_", markersize = 15, color = "mediumblue")
 
@@ -58,16 +58,18 @@ plt.plot(pos[10], real_o[10], "_", markersize = 15, color = "mediumblue", label 
 
 # US-Scan Plot                    (Mit Bereinigung der Abweichungen durch Kontaktmittelschicht)
 
-plt.plot(pos, o, "_", markersize = 15 ,color = "firebrick", label = "Aus US berechnete Positionen")
-plt.plot(pos, u, "_", markersize = 15 ,color = "firebrick")
+plt.plot(pos[:7], o[:7], "_", markersize = 10 ,color = "firebrick", label = "Aus US berechnete Positionen")         # Fehlender Messwert wird ausgelassen
+plt.plot(pos[8:], o[8:], "_", markersize = 10 ,color = "firebrick")
+plt.plot(pos, u, "_", markersize = 10 ,color = "firebrick")
 
-for i in range(11):     # for Schleife für variable Marker Größe (US-Daten)
-    plt.plot(pos[i], o[i] - 1/2*d_mess[i], "o", markersize = 4*d[i], color = "firebrick", alpha=0.3)
+for i in [0, 1, 2, 3, 4, 5, 6, 8, 9, 10]:     # for Schleife für variable Marker Größe (US-Daten)
+    plt.plot(pos[i], o[i] - 1/2*d_mess[i], "o", markersize = 2.4*d[i], color = "firebrick", alpha=0.3)
 
 plt.legend()
-
-plt.show()
-#plt.savefig('build/plot.pdf')
+plt.xticks([],[])
+plt.ylim(0, 80)
+plt.ylabel(r'Höhe in $\unit{\micro\metre}$')
+plt.savefig('build/plot.pdf')
 plt.close()
 
 print(time_diff_mean, time_diff_err)
@@ -107,7 +109,7 @@ o = height - time_o*c_acryl/2 * 10**(-3) #- noms(kontakt)
 u =  time_u*c_acryl/2 * 10**(-3) #- noms(kontakt)
 
 for i in range(11):     # for Schleife für variable Marker Größe
-    plt.plot(pos[i], real_o[i] - 1/2*d[i], "o", markersize = 4*d[i], color = "cornflowerblue")
+    plt.plot(pos[i], real_o[i] - 1/2*d[i], "o", markersize = 2.4*d[i], color = "cornflowerblue")
     plt.plot(pos[i], real_o[i], "_", markersize = 15, color = "mediumblue")
     plt.plot(pos[i], real_o[i] - d[i], "_", markersize = 15, color = "mediumblue")
 
