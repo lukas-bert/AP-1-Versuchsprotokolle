@@ -74,6 +74,17 @@ plt.close()
 
 print(time_diff_mean, time_diff_err)
 
+#   relative Abweichung des Ascans
+
+#d_rel = np.abs(d - d_mess)/d
+#d_relmean = 0
+#for n in range(6):
+#    d_relmean = d_relmean + d_rel[n] 
+#for n in range(3):
+#    d_relmean = d_relmean + d_rel[n+8] 
+#d_relmean = d_relmean/10
+#print(d_rel,d_relmean)
+
 ##Differenz der Signallaufzeit zwischen Theorie- und Messwert(o=oben,u=unten,t=theorie,n=nummer_der_störstelle):
 #time_otn = np.array([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
 #time_utn = np.array([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
