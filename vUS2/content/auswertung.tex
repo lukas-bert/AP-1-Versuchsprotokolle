@@ -1,30 +1,32 @@
 \section{Auswertung}
 \label{sec:Auswertung}
-Im folgendem wird die Schallgeschwindigkeit in Acryl als $c_{\text{Acryl}} = \qty{2730}{\metre\per\second}$ und die von destilliertem Wasser als 
+Im Folgenden wird die Schallgeschwindigkeit in Acryl als $c_{\text{Acryl}} = \qty{2730}{\metre\per\second}$ und die von destilliertem Wasser als 
 $c_{\text{dest.Wasser}} = \qty{1483}{\metre\per\second}$ angenommen. Der verwendete Acrylblock hat eine Gesamthöhe $h_{\text{ges}} = \qty{80.55}{\milli\metre}$. 
-Die Fehler wurden gemäß des Standardfehlers des Mittelwertes durch 
+Die Fehler zur Bestimmung der Dicke der Kontaktmittelschicht wurden gemäß des Standardfehlers des Mittelwertes durch 
 \begin{equation}
   \label{eqn:Fehler}
   \sigma_{\overline{\text{x}}} = \frac{\sigma}{\sqrt{n}}
 \end{equation}
 berechnet.
-Alle anderen Fehler wurden gemäß der gaußschen Fehlerfortpflanzung berechnet:
+Alle anderen Fehler genügen der gaußschen Fehlerfortpflanzung
 \begin{equation}
   \label{eqn:Gauss}
-  \Delta F = \sqrt{\sum_i\left(\frac{\symup{d}F}{\symup{d}y_i}\Delta y_i \right)^2}
+  \Delta F = \sqrt{\sum_i\left(\frac{\symup{d}F}{\symup{d}y_i}\Delta y_i \right)^2}.
 \end{equation}
 
 \subsection{Abmessungen des Acrylblocks}
 \label{subsec:schieblehre}
-In \autoref{tab:handmessung} werden die Positionen und Durchmesser der Fehlestellen im Acrylblock aufgefürt. Dabei ist oben und unten aus \autoref{fig:acrylskizze} zu entnehmen.
+In \autoref{tab:handmessung} werden die Positionen und Durchmesser der Fehlestellen im Acrylblock aufgefürt. Die Nummerierung der Fehlstellen
+und die Bedeutung von \glqq oben\grqq{} und \glqq unten\grqq{} sind \autoref{fig:acrylskizze} zu entnehmen.
 
-\begin{table}
+\begin{table}[H]
   \centering
-  \caption{In dieser Tabelle sind die durch einen Messschieber gemessenen Daten der Fehlstellen aufgeführt. $N$ beschreibt die Lochnummer. $o$ beschreibt die Tiefe der Fehlstelle von oben. $u$ beschreibt die Tiefe der Fehlstelle von unten. $d$ beschreibt den Durchmesser.} 
+  \caption{Mit dem Messschieber bestimmte Realwerte der Abmessungen. $N$ beschreibt die Nummer der Fehlstelle, 
+  'o' die Tiefe der Fehlstelle von oben und 'u' die Tiefe der Fehlstelle von unten. $d$ beschreibt den Durchmesser.} 
   \label{tab:handmessung}
   \begin{tabular}{S[table-format = 2.0] S[table-format = 2.2] S[table-format = 2.2] S[table-format = 2.2]}
       \toprule
-      {$N$} & {$o(N)$} & {$u(N)$} & {$d$}\\
+      {$N$} & {$\symup{o}(N) / \unit{\milli\metre}$} & {$\symup{u}(N) / \unit{\milli\metre}$} & {$d / \unit{\milli\metre}$}\\
       \midrule
       1 & 13.35 & 61.30 & 5.90 \\
       2 & 21.80 & 53.75 & 5.00 \\
