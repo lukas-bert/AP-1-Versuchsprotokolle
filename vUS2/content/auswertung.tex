@@ -1,7 +1,7 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 Im Folgenden wird die Schallgeschwindigkeit in Acryl als $c_{\text{Acryl}} = \qty{2730}{\metre\per\second}$ und die von destilliertem Wasser als 
-$c_{\text{dest.Wasser}} = \qty{1483}{\metre\per\second}$ angenommen. Der verwendete Acrylblock hat eine Gesamthöhe $h_{\text{ges}} = \qty{80.55}{\milli\metre}$. 
+$c_{\text{H20}} = \qty{1483}{\metre\per\second}$ \cite{Ingenieurwissen} angenommen. Der verwendete Acrylblock hat eine Gesamthöhe $h_{\text{ges}} = \qty{80.55}{\milli\metre}$. 
 Die Fehler zur Bestimmung der Dicke der Kontaktmittelschicht wurden gemäß des Standardfehlers des Mittelwertes durch 
 \begin{equation}
   \label{eqn:Fehler}
@@ -45,21 +45,24 @@ und die Bedeutung von \glqq oben\grqq{} und \glqq unten\grqq{} sind \autoref{fig
 
 \subsection{A-Scan zur Bestimmung der Dicke der Kontaktmittelschicht}
 \label{subsec:ascankontakt}
-Aus diesen Werten kann nun die theoretische Laufzeit des Ultraschallsignals durch den Acrylblock bestimmt werden. Diese wird gemäß der Formel \eqref{eqn:theorielaufzeit} bestimmt.
+Aus diesen Werten kann nun die theoretische Laufzeit des Ultraschallsignals durch den Acrylblock bestimmt werden. 
+Unter Verwendung der Werte aus \autoref{tab:handmessung} kann die theoretische Laufzeit des Ultraschallsignals im Acrylblock bestimmt werden,
+welche sich gemäß der Formel \eqref{eqn:theorielaufzeit} bestimmt.
 \begin{equation}
   \label{eqn:theorielaufzeit}
-  t_{\text{Theorie}} = 2 \cdot c_{\text{Acryl}} \cdot o(N)
+  t_{\text{Theorie}} = 2 \cdot c_{\text{Acryl}} \cdot \symup{o}(N)
 \end{equation}
 
-Die gemessenen Werte der Laufzeit, welche in \autoref{tab:Messwerte} unterscheiden sich aufgrund der Kontaktmittelschicht von der Theorie. Um diesen Fehler auszubessern wird mittels einer Ausgleichsrechnung die Dicke
-der Anpassungsschicht bestimmt. Dazu wird zunächst der Betrag der Differenz zwischen den Theoriewerten und denn Messwerten gebildet. Diese werden dann gemittelt, sodass man einen Mittelwert
-und einen Mittelwertfehler\eqref{eqn:Fehler} bestimmen kann. Der Mittelwert der Differenzen mit Fehler ergibt sich zu $\overline{t_{\text{diff}}} = \qty{1.60+-0.07}{\micro\second}$.
-Aus diesem Mittelwert kann man nun über das Weg-Zeit-Gesetz \eqref{eqn:WegZeit} und der Gaußschen Fehlerfortpflanzung\eqref{eqn:Gauss} die Dicke der Anpassungsschicht $b_{\text{Anpassungsschicht}}$ bestimmen.
-Diese beträgt $b_{\text{Anpassungsschicht}} = \qty{1.19+-0.05}{\milli\metre}$.
+Die gemessenen Werte der Laufzeit, welche in \autoref{tab:Messwerte} zu sehen sind, 
+unterscheiden sich aufgrund der Kontaktmittelschicht von der Theorie. Um diesen systematischen Fehler zu eliminieren wird mittels einer Ausgleichsrechnung die Dicke
+der Anpassungsschicht bestimmt. Dazu wird zunächst der Betrag der Differenz zwischen den Theoriewerten und denn Messwerten gebildet. Diese werden dann gemittelt, sodass ein Mittelwert
+und einen Mittelwertfehler \eqref{eqn:Fehler} bestimmt werden können. Der Mittelwert der Differenzen mit Fehler ergibt sich zu $\overline{t_{\text{diff}}} = \qty{1.60+-0.07}{\micro\second}$.
+Aus diesem Mittelwert kann nun über das Weg-Zeit-Gesetz \eqref{eqn:WegZeit} die Dicke der Anpassungsschicht $b_{\text{A}}$ bestimmen.
+Diese beträgt $b_{\text{A}} = \qty{1.19+-0.05}{\milli\metre}$.
 \subsection{A-Scan zur Bestimmung der genauen Positionen der Fehlstellen}
 \label{subsec:ascanpos}
 Nun werden die Laufzeiten für alle Störstellen gemessen. Dabei wird der Acrylblock von beiden Seiten untersucht. Die Messwerte werden in \autoref{tab:Messwerte} dargestellt.
-Beim Durchmesser wurde die Laufzeitkorrektur bereits vorgenommen.
+Bei der Berechnung des Durchmessers wurde die Laufzeitkorrektur bereits vorgenommen.
 \begin{table}
   \centering
   \caption{In dieser Tabelle sind die durch einen A-Scan gemessenen Daten der Fehlstellen aufgeführt. $N$ beschreibt die Lochnummer, \dq o\dq \: die Tiefe der Fehlstelle von 
@@ -84,21 +87,22 @@ Beim Durchmesser wurde die Laufzeitkorrektur bereits vorgenommen.
   \end{tabular}   
 \end{table}
 
-Nun wird noch die Laufzeitkorrektur für die einzelnen Messwerte unternommen. Dazu wird von den gemessenen Laufzeiten $2\cdot \frac{c_{\text{dest.Wasser}}}{b_{\text{Anpassungsschicht}}}$ abgezogen.
-Die korregierten Laufzeiten werden nun zusammen mit den theoretischen Laufzeiten mittels des Weg-Zeit-Gesetzes \eqref{eqn:WegZeit} in Tiefen umgerechnet und dann in \autoref{fig:grafik} 
-gemeinsam dargestellt.
+Um die Laufzeitkorrektur der einzelnen Messwerte durchzuführen wird jeweils $t_\text{diff}$ subtrahiert.
+\autoref{fig:plot} zeigt eine grafische Gegenüberstellung der Messwerte aus dem Ultraschallverfahren (rot) gegenüber den Realwerten (blau). Die Laufzeiten wurden dabei mithilfe 
+des Weg-Zeit-Gesetzes \eqref{eqn:WegZeit} in Tiefen umgerechnet. 
 
 \begin{figure}
   \centering
 \includegraphics[width=\textwidth]{build/plot.pdf}
   \caption{In dieser Grafik sind die experimentell bestimmten Abmessungen der Fehlstellen dargestellt.}
-  \label{fig:grafik}
+  \label{fig:plot}
 \end{figure}
 
 \subsection{Untersuchung des Auflösungsvermögens}
 \label{subsec:auflösung}
-Um das Auflösungsvermögen zu Untersuchen werden der Fehlerstellen zehn und elf mit Ultraschallsonden unterschiedlicher Frequenzen untersucht.
-Wie man in \autoref{fig:einMHz} erkennt, zeigt diese Sonde nur einen Peak für beide Fehlstellen an. Daher kann nicht eindeutig die Tiefe einer der beiden Fehlstellen bestimmt werden.
+Um das Auflösungsvermögen zu untersuchen, werden die Fehlerstellen mit den Nummern $10$ und $11$ mit Ultraschallsonden unterschiedlicher Frequenzen untersucht.
+Wie man in \autoref{fig:einMHz} erkennt, zeigt die $\qty{1}{\mega\hertz}$ Sonde nur einen Peak für beide Fehlstellen an, weshalb die Positionen dieser nicht individuell 
+bestimmt werden kann.
 Mit der 2MHz-Sonde, wie in \autoref{fig:zweiMHz} zu sehen ist, lässt sich der Peak in zwei nah beieinander liegende Peaks trennen. Anhand dieser Frequenz ist es also möglich 
 die einzelnen Tiefen der Fehlstellen zu bestimmen.
 \begin{figure}
@@ -121,7 +125,7 @@ weiße Flächen auf der erzeugten Grafik. Anhand eines Maßstabes können anschl
 In den Abbildungen \ref{fig:B_Scan_oben} und \ref{fig:B_Scan_unten} sind die erstellten Aufnahmen zu sehen. Die weiße Linie im unteren viertel der Bilder entspricht
 der Unterseite des Blockes, an welcher ein Teil des Ultraschalles reflektiert wird. Anhand dieser Linie und der bekannten Höhe des Acrylwerkstückes lässt sich ein
 Maßstab finden, mit welchem die Abstände in Pixeln in metrische Distanzen umgerechnet werden können. Es ist zu beachten, dass zusätzlich zur Höhe des Acrylblockes
-die Dicke der Anpassungsschicht $b = \qty{1.19}{\milli\metre}$ addiert werden muss. diese ist als weiße Schicht an der oberen Kante der Bilder zu erkennen.
+die Dicke der Anpassungsschicht $b_\text{A} = \qty{1.19}{\milli\metre}$ addiert werden muss. diese ist als weiße Schicht an der oberen Kante der Bilder zu erkennen.
 
 \begin{figure}
   \centering
@@ -153,8 +157,8 @@ mit Theoriewert $\overline{x}$ und Messwert $x$.
   \label{tab:B_Scan}
   \begin{tabular}{c S[table-format = 2.2] S S S S S}
     \toprule
-    {Fehlstelle-Nr.} & {$\symup{o}_\text{real} / \unit{\micro\meter}$}  & {o $ / \unit{\micro\meter}$} & {$\symup{\Delta}_\text{rel}(\text{o}) / \%$} &%
-    {$\symup{u}_\text{real} / \unit{\micro\meter}$} & {u $/ \unit{\micro\meter}$} & {$\symup{\Delta}_\text{rel}(\text{u}) / \%$} \\
+    {Fehlstelle-Nr.} & {$\symup{o}_\text{real} / \unit{\milli\meter}$}  & {o $ / \unit{\milli\meter}$} & {$\symup{\Delta}_\text{rel}(\text{o}) / \%$} &%
+    {$\symup{u}_\text{real} / \unit{\milli\meter}$} & {u $/ \unit{\milli\meter}$} & {$\symup{\Delta}_\text{rel}(\text{u}) / \%$} \\
     \midrule
      1 & 13.35 & 10.95 & 17.98 & 61.3  & 61.72 &  0.69 \\
      2 & 21.8  & 20.16 &  7.52 & 53.75 & 53.71 &  0.07 \\
@@ -174,7 +178,10 @@ mit Theoriewert $\overline{x}$ und Messwert $x$.
 \subsection{Untersuchung des Brustmodells mit einem B-Scan}
 \label{subsec:Brustmodell}
 Im letzten Teil des Versuches wird ein B-Scan verwendet, um Tumore in einem Brustmodell ausfindig zu machen. Zuvor wird die ungefähre Position dieser
-ertastet, um anschließend einen B-Scan entlang einer Linie über den Tumor durchführen zu können. Beide Tumore sind etwa $1$ bis $\qty{1.5}{\centi\metre}$ groß.
+ertastet, um anschließend einen B-Scan entlang einer Linie über den Tumor durchführen zu können. 
+Anhand der Aufnahmen lässt sich die ungefähre Lage und Größe der Tumore bestimmen. Das Reflketionsverhalten könnte Aufschluss über die Art des Tumors geben.
+Es ergibt sich, dass die Tumore in einer Tiefe von $\qty{5.5}{\centi\metre}$ und $\qty{6.4}{\centi\metre}$ lokalisiert sind und 
+einen Durchmesser von $1$ bis $\qty{1.5}{\centi\metre}$ aufweisen.
 
 \begin{figure}
   \centering

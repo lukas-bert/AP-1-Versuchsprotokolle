@@ -69,6 +69,7 @@ plt.legend()
 plt.xticks([],[])
 plt.ylim(0, 80)
 plt.ylabel(r'Höhe in $\unit{\micro\metre}$')
+plt.grid()
 plt.savefig('build/plot.pdf')
 plt.close()
 
