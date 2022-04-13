@@ -1,4 +1,4 @@
-all: build/vXXX.pdf
+all: build/vUS3.pdf
 
 # hier Python-Skripte:
 build/plot.pdf: plot.py ../matplotlibrc ../header-matplotlib.tex | build
@@ -8,9 +8,9 @@ build/plot.pdf: plot.py ../matplotlibrc ../header-matplotlib.tex | build
 	TEXINPUTS=$$(pwd)/..: MATPLOTLIBRC=../matplotlibrc python plot.py
 
 # hier weitere Abhängigkeiten für build/vXXX.pdf deklarieren:
-build/vXXX.pdf: build/plot.pdf
+build/vUS3.pdf: build/plot.pdf
 
-build/vXXX.pdf: FORCE | build
+build/vUS3.pdf: FORCE | build
 	# to find header and bib files in the main directory
 	TEXINPUTS=..: \
 	BIBINPUTS=..: \
