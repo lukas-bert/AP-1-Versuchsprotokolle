@@ -1,0 +1,7 @@
+# Messwerte zum kleinen Rohr mit Innendurchmesser d_m = 7 mm
+# speed in rpm, v_diff 30° in Hz, v_diff 15° in Hz, v_diff 45° in Hz
+3280 125  69 185
+4030 195  98 264
+5010 313 178 427
+6000 430 279 705
+5510 418 289 599 

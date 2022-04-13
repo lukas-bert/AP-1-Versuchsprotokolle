@@ -1,0 +1,7 @@
+# Messwerte zum großen Rohr mit Innendurchmesser d_m = 16 mm
+# speed in rpm, v_diff 30° in Hz, v_diff 15° in Hz, v_diff 45° in Hz
+2930  19  0  34
+4030  33 32  52
+5000  65 42  94
+6000 105 53 150
+6600 126 73 178  

@@ -1,0 +1,7 @@
+# Messwerte zum mittleren Rohr mit Innendurchmesser d_m = 10 mm
+# speed in rpm, v_diff 30° in Hz, v_diff 15° in Hz, v_diff 45° in Hz
+2470  30   0  39
+3370  56  34  80
+4060  83  48 135
+5080 140  96 210
+6000 208 129 319
