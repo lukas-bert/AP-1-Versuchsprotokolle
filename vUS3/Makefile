@@ -20,7 +20,7 @@ build/vUS3.pdf: FORCE | build
 	  --output-directory=build \
 	  --interaction=nonstopmode \
 	  --halt-on-error \
-	vXXX.tex
+	vUS3.tex
 
 build:
 	mkdir -p build
