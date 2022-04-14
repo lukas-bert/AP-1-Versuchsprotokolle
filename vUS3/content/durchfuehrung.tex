@@ -11,7 +11,8 @@ $c_\text{L} = \qty{1800}{\metre\per\second}$ in der Dopplerphantomflüssigkeit i
 \begin{align*}
     \theta &= \qty{15}{\degree}: \qquad \alpha = \qty{80.04}{\degree} \\
     \theta &= \qty{30}{\degree}: \qquad \alpha = \qty{70.47}{\degree} \\
-    \theta &= \qty{60}{\degree}: \qquad \alpha = \qty{54.72}{\degree} \\
+    \theta &= \qty{45}{\degree}: \qquad \alpha = \qty{60.00}{\degree} \\
+    (\theta &= \qty{60}{\degree}: \qquad \alpha = \qty{54.72}{\degree}) \\
 \end{align*} 
 berechnet werden können.
 
@@ -22,6 +23,7 @@ Untersucht wird ein Rohrkreislauf, in welchem drei Rohre mit unterschiedlichen D
 Rohrduchmesser angepasst und verfügen über je drei Flächen mit verschiedenem Dopplerwinkel, wobei alle Flächen den gleichen Abstand zur Probe (Flüssigkeit) garantieren.  
 Der Aufbau der Prismen ist \autoref{fig:Prisma} zu entnehmen. Es wird eine aus Wasser, Glycerin und
 Glasperlen bestehende Dopplerphantomflüssigkeit verwendet, dessen Viskosität $\eta$ und akustischen Eigenschaften auf den Versuchsaufbau abgestimmt sind.
+Der Wasserkreislauf wird durch eine Zentrifugalpumpe angetrieben, die die Durchflussmengen von $0$ bis $\qty{10}{\liter}$ liefert.
 Die Signale des Echoskops werden an einen Rechner übertragen, an welchem sie mithilfe des Programms \textit{FlowView} ausgewertet werden können.
 
 \begin{figure}
@@ -33,4 +35,17 @@ Die Signale des Echoskops werden an einen Rechner übertragen, an welchem sie mi
 
 \subsection{Messaufgaben}
 \label{subsec:Messaufgaben}
-test
+Zuerst wird die Strömungsgeschwindigkeit in Abhängigkeit zum Dopplerwinkel untersucht. Dazu muss der Regler \textit{SAMPLE VOLUME} des Ultraschall-Echoskops auf \textit{LARGE}
+gestellt werden. An der Zentrifugalpumpe wird eine Drehzahl (Fließgeschwindigkeit) eingestellt. An den drei Flächen der Prismen werden Messwerte zur Bestimmung der 
+Frequenzverschiebung $\symup{\Delta}\nu$ genommen, welche sich aus der Differenz der Anzeigen $f_\text{mean}$ und $f_\text{max}$ berechnet. Dieses Vorgehen wird für alle 
+drei Rohrduchmesser mit je fünf Fließgeschwindigkeiten wiederholt. Aus den erhaltenen Werten lässt sich die Strömungsgeschwindigkeit zu den verschiedenen Dopplerwinkeln
+berechnen. Anschließend wird der Ausdruck $\symup{\Delta}\nu \mathbin{/} \symup{cos}(\alpha)$ als Funktion der Strömungsgeschwindigkeit in einem Diagramm aufgetragen.
+ 
+Im zweiten Teil des Versuches wird das Strömungsprofil der Dopplerflüssigkeit vermessen. Es wird lediglich der mittlere Schlauch mit einem Durchmesser von 
+$\qty{15}{\milli\metre}$ unter einem Einstrahlwinkel von $\theta = \qty{15}{\degree}$ verwendet. \textit{SAMPLE VOLUME} muss dabei auf \textit{SMALL} gestellt werden,
+um die Messtiefe regulieren zu können. Diese ist in $\unit{\micro\second}$ angegeben und kann unter \textit{DEPTH} eingestellt werden. In Acryl (Material des Prismas) 
+entsprechen $\qty{4}{\micro\second}$ $\qty{10}{\milli\metre}$, in der Dopplerflüssigkeit entspricht dies $\qty{6}{\milli\metre}$. Die Messung beginnt in einer Tiefe
+von $\qty{12}{\micro\second}$ und endet mit einer Schrittweite von $\qty{0.5}{\micro\second}$ bei $\qty{19.5}{\micro\second}$. Zu jedem Messpunkt werden die 
+Intensität $I$, die Frequenzverschiebung $\symup{\Delta}\nu$ und die momentane Geschwindigkeit $v$ notiert. 
+Dieses Messprogramm wird bei einer Pumpleistung von $\qty{45}{\percent}$ und $\qty{70}{\percent}$ durchgeführt.
+Aus den Messwerten lässt sich die Struktur des Strömungsprofils ermitteln, indem Intensität und Geschwindigkeit gegen die Messtiefe aufgetragen werden.
