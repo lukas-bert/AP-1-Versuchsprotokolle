@@ -1,14 +1,14 @@
 all: build/vUS3.pdf
 
 # hier Python-Skripte:
-build/plot.pdf: plot.py ../matplotlibrc ../header-matplotlib.tex | build
+build/plot1_1.pdf build/plot1_2.pdf build/plot1_3.pdf build/plot2_1.pdf build/plot2_2.pdf: plot.py ../matplotlibrc ../header-matplotlib.tex | build
 	# so that matplotlib can find the tex header when running
 	# LaTeX in the tmp directory
 	# and set the matplotlibrc
 	TEXINPUTS=$$(pwd)/..: MATPLOTLIBRC=../matplotlibrc python plot.py
 
 # hier weitere Abhängigkeiten für build/vXXX.pdf deklarieren:
-build/vUS3.pdf: build/plot.pdf
+build/vUS3.pdf: build/plot1_1.pdf build/plot1_2.pdf build/plot1_3.pdf build/plot2_1.pdf build/plot2_2.pdf
 
 build/vUS3.pdf: FORCE | build
 	# to find header and bib files in the main directory

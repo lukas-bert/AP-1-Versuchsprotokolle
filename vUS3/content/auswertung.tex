@@ -1,56 +1,59 @@
 \section{Auswertung}
 \label{sec:Auswertung}
-Für die Auswertung der Messungen wird im folgenden die Dopplerphantomflüssigkeit mit einer Dichte $\rho = 1.15 \unit{\gram\per\cubic\centi\metre}$, einer 
-Schallgeschwindigkeit $c_\text{L} = 1800 \unit{\metre\per\second}$ und einer Viskosität $\eta = 12 \unit{\milli\pascal\second}$ angenommen. Außerdem hat das Dopplerprisma
-eine Schallgeschwindigkeit $c_\text{P} = 2700 \unit{\metre\per\second}$ und eine Länge der Vorlaufsstrecke von $l = 30.7 \unit{\milli\metre}$. Die Senderfrequenz beträgt 
-$\nu_0 = 2\unit{\mega\hertz}$. Die Rohre, durch welche die Dopplerphantomflüssigkeit fließt, haben Innendurchmesser von $7 \unit{\milli\metre}$, $10 \unit{\milli\metre}$
-und $16 \unit{\milli\metre}$. Die Außendurchmesser betragen $10 \unit{\milli\metre}$, $15 \unit{\milli\metre}$ und $20 \unit{\milli\metre}$.
+Für die Auswertung der Messungen sind einige Materialkonstanten relevant. Die Dopplerphantomflüssigkeit hat eine Dichte $\rho = \qty{1.15}{\gram\per\cubic\centi\metre}$,
+eine Viskosität von $\eta = \qty{12}{\milli\pascal\second}$ und
+die Schallgeschwindigkeit in dieser beträgt $c_\text{L} = \qty{1800}{\metre\per\second}$. Die Geschwindigkeit des Schalls im Dopplerprisma
+beträgt $c_\text{P} = \qty{2700}{\metre\per\second}$. Die Länge der Vorlaufsstrecke im Prisma ist $l = \qty{30.7}{\milli\metre}$. Die Senderfrequenz beträgt 
+$\nu_0 = \qty{2}{\mega\hertz}$. Die Rohre, durch welche die Dopplerphantomflüssigkeit fließt, haben Innendurchmesser von $\qty{7}{\milli\metre}$, $\qty{10}{\milli\metre}$
+und $\qty{16}{\milli\metre}$. Die Außendurchmesser betragen $\qty{10}{\milli\metre}$, $\qty{15}{\milli\metre}$ und $\qty{20}{\milli\metre}$.
+
 \subsection{Bestimmung der Strömungsgeschwindigkeit}
-Die Strömungsgeschwindigkeit der Dopplerphantomflüssigkeit kann aus der Formel \eqref{eqn:frequenzverschiebung} berechnet werden. Dazu wird diese Formel auf $v$ umgestellt.
+Die Strömungsgeschwindigkeit der Dopplerphantomflüssigkeit kann aus \autoref{eqn:frequenzverschiebung} berechnet werden. Dazu wird diese Formel auf $v$ umgestellt.
 \begin{equation*}
   v_\text{Strömung} = \frac{\symup{\Delta}\nu\cdot c}{\nu_0\,\symup{cos}\,\alpha} 
 \end{equation*}
-Die frequenzverschiebung $\symup{\Delta}\nu$ wurde aus den gemessenen Werten $f_\text{max}$ und $f_\text{mean}$ gemäß $\symup{\Delta}\nu = f_\text{max} - f_\text{mean}$ berechnet.
+Die Frequenzverschiebung $\symup{\Delta}\nu$ wird aus den gemessenen Werten $f_\text{max}$ und $f_\text{mean}$ gemäß $\symup{\Delta}\nu = f_\text{max} - f_\text{mean}$ berechnet.
 Diese können dem Anhang entnommen werden.
-In den folgenden Abbildungen \ref{fig:plot1_1}, \ref{fig:plot1_2} und \ref{fig:plot1_3} werden die Frequenzverschiebung dividiert durch den $\symup{cos}\,\alpha$ in 
-Abhängigkeit von der berechneten Strömungsgeschwindigkeit dargestellt. Dies wird für die drei oberhalb erwähnten Rohrdurchmesser gemacht.
+In den folgenden Abbildungen \ref{fig:plot1_1}, \ref{fig:plot1_2} und \ref{fig:plot1_3} wird die Frequenzverschiebung dividiert durch $\symup{cos}\,\alpha$ in 
+Abhängigkeit zur berechneten Strömungsgeschwindigkeit für die verschiedenen Rohrduchmesser dargestellt.
 \begin{figure}
   \centering
   \includegraphics{plot1_1.pdf}
-  \caption{In dieser Abbildung wird die eben erwähnte Grafik für einen Innenrohrdurchmesser  von $d = 7 \unit{\milli\metre}$ dargestellt.}
+  \caption{Messwerte zu verschiedenen Einstrahlwinkeln gegen die berechnete Strömungsgeschwindigkeit zum (Innen-)Rohrduchmesser $d = \qty{7}{\milli\metre}$.}
   \label{fig:plot1_1}
 \end{figure}
 
 \begin{figure}
   \centering
   \includegraphics{plot1_2.pdf}
-  \caption{In dieser Abbildung wird die eben erwähnte Grafik für einen Innenrohrdurchmesser  von $d = 10 \unit{\milli\metre}$ dargestellt.}
+  \caption{Messwerte zu verschiedenen Einstrahlwinkeln gegen die berechnete Strömungsgeschwindigkeit zum (Innen-)Rohrduchmesser $d = \qty{10}{\milli\metre}$.}
   \label{fig:plot1_2}
 \end{figure}
 
 \begin{figure}
   \centering
   \includegraphics{plot1_3.pdf}
-  \caption{In dieser Abbildung wird die eben erwähnte Grafik für einen Innenrohrdurchmesser  von $d = 16 \unit{\milli\metre}$ dargestellt.}
+  \caption{Messwerte zu verschiedenen Einstrahlwinkeln gegen die berechnete Strömungsgeschwindigkeit zum (Innen-)Rohrduchmesser $d = \qty{16}{\milli\metre}$.}
   \label{fig:plot1_3}
 \end{figure}
+
 \subsection{Bestimmung des Strömungsprofils}
 \label{subsec:strömungsprofil}
-Das Strömungsprofil mit einer gleichen Messung aufgenommen werden. Die orginalen Messwerte können dem Anhang einnommen werden. Allerdings ist nun der  Winkel am Prisma
-$\theta = 15\unit{\degree}$ konstant und die Messtiefe wird variiert.
+Wie in \autoref{subsec:Messaufgaben} beschrieben werden Messwerte zur Frequenzverschiebung, zur Streuintensität und zur momentanen Strömungsgeschwindigkeit zu verschiedenen 
+Messtiefen genommen. Die originalen Messdaten können dem Anhang entnommen werden.
 In den Abbildungen \ref{fig:plot2_1} und \ref{fig:plot2_2} wird für zwei unterschiedliche Pumpleistungen die Streuintensität $I$ und die Momentangeschwindigkeit $v$ gegen die 
-Messtiefe dargestellt. Außerdem wurde mit den Messwerten ein quadratischer Fit erstellt. 
+Messtiefe dargestellt. Des Weiteren wurde ein Ausgleichspolynom zweiten Grades eingefügt.
 
 \begin{figure}
   \centering
   \includegraphics[width=.8\textwidth]{plot2_1.pdf}
-  \caption{In dieser Abbildung werden die Intensität und die Momentangeschwindigkeit in Abhängigkeit von der Messtiefe zu einer Pumpleistung von 45\% der maximalen Pumpleistung dargestellt.}
+  \caption{Intensität und Momentangeschwindigkeit der Flüssigkeit in Abhängigkeit zur Messtiefe mit einer Pumpleistung von $\qty{45}{\percent}$ der maximalen Leistung.}
   \label{fig:plot2_1}
 \end{figure}
 
 \begin{figure}
   \centering
   \includegraphics[width=.8\textwidth]{plot2_2.pdf}
-  \caption{In dieser Abbildung werden die Intensität und die Momentangeschwindigkeit in Abhängigkeit von der Messtiefe zu einer Pumpleistung von 70\% der maximalen Pumpleistung dargestellt.}
+  \caption{Intensität und Momentangeschwindigkeit der Flüssigkeit in Abhängigkeit zur Messtiefe mit einer Pumpleistung von $\qty{70}{\percent}$ der maximalen Leistung.}
   \label{fig:plot2_2}
 \end{figure}
