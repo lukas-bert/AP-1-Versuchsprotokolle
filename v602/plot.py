@@ -21,7 +21,7 @@ plt.grid()
 #plt.xlabel(r'$2\theta \mathbin{/} \unit{\degree}$')
 #plt.ylabel(r'$\symup{Imp}\mathbin{/}\symup{s} $')
 plt.legend()
-#plt.savefig('build/plotbragg.pdf')
+plt.savefig('build/plotbragg.pdf')
 #plt.show()
 plt.close()
 
@@ -215,7 +215,7 @@ print("E_abs für Zr: ", E_absorbzr)
 
 #Moseley
 
-EHS = [E_absorbzn*1000, E_absorbga*1000, E_absorbbr*1000,  E_absorbsr*1000,  E_absorbzr*1000]
+EHS = [np.sqrt(E_absorbzn*1000), np.sqrt(E_absorbga*1000), np.sqrt(E_absorbbr*1000),  np.sqrt(E_absorbsr*1000),  np.sqrt(E_absorbzr*1000)]
 ZETS = [30, 31, 35, 38, 40]
 
 #FIT
@@ -224,16 +224,16 @@ def linfit(x,m,b):
 
 params, pcov = op.curve_fit(linfit, ZETS, EHS)
 
-print("Rydbergkonstante nach dem Fit: ", params[0])
+print("Rydbergkonstante nach dem Fit: ", params[0]**2)
 x = np.linspace(29.5, 40.5, 1000)
 
-plt.plot(ZETS, np.sqrt(EHS),"x", color = "firebrick", label = "Mosley")
-plt.plot(x, np.sqrt(linfit(x, *params)), color = "cornflowerblue", label = "Fit")
+plt.plot(ZETS, EHS,"x", color = "firebrick", label = "Mosley")
+plt.plot(x, linfit(x, *params), color = "cornflowerblue", label = "Fit")
 plt.tight_layout()
 plt.grid()
 #plt.xlabel(r'$2\theta \mathbin{/} \unit{\degree}$')
 #plt.ylabel(r'$\symup{Imp}\mathbin{/}\symup{s} $')
 plt.legend()
 #plt.savefig('build/plotbragg.pdf')
-#plt.show()
+plt.show()
 plt.close()
