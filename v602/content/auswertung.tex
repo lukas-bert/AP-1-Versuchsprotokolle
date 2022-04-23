@@ -5,11 +5,18 @@ Im folgendem werden alle Fehler gemäß der gaußschen Fehlerfortpflanzung mitte
 \label{subsec:bragg}
 Um die Braggbedingung zu überprüfen wurden aus einer Kupferanode entstandene Röntgenstrahlen mittels der Drehwinkelmethode reflektiert und dann detektiert. Wie in 
 \autoref{fig:bragg} zu sehen ist, liegt der experimentell bestimmte Glanzwinkel bei $\theta_\text{Glanz, exp} = \qty{27.3}{\degree}$. Die Braggbedingung sagt einen 
-Glanzwinkel von $\theta_\text{Glanz, theo} = \qty{28}{\degree}$ voraus. Daher ergibt sich eine relative Abweichung von $\Delta \theta_\text{Glanz} = 2.5\%$.
+Glanzwinkel von $\theta_\text{Glanz, theo} = \qty{28}{\degree}$ voraus.
+Die relative Abweichung eines Messwertes $x$ zu einem Literaturwert $x^*$ lässt sich zu 
+\begin{equation}
+  \label{eqn:Delta_rel}
+  \symup{\Delta}_\text{rel}(x) = \frac{|x - x^*|}{x^*}
+\end{equation}
+bestimmen.
+Es ergibt sich eine relative Abweichung von $\Delta \theta_\text{Glanz} = 2.5\%$.
 \begin{figure}
     \centering
     \includegraphics{plotbragg.pdf}
-    \caption{Messwerte zur Überpüfung der Braggbedingung.}
+    \caption{Messwerte zur Überpüfung der Braggbedingung. Matplotlib bitte noch citen}
     \label{fig:bragg}
 \end{figure}
 
@@ -49,7 +56,7 @@ berechnet werden. Das Auflösungsvermögen der beiden Peaks wird ebenfalls in \a
         {$\beta$}  & 8.83 & 0.19 & 47.68 \\
       \bottomrule
     \end{tabular}
-  \end{table}
+\end{table}
 
 \begin{figure}
     \centering
@@ -59,10 +66,82 @@ berechnet werden. Das Auflösungsvermögen der beiden Peaks wird ebenfalls in \a
 \end{figure}
 
 In dieser Messung wurden die Energien der K-Linien genauer aufgenommen. Daher werden nun auch die Abschirmkonstanten für Kupfer bestimmt. Diese werden mit den Gleichungen 
-\eqref{eqn:Sigma_Kupfer} berechnet. Die Werte für $n$, $m$ und $l$ können \autoref{subsec:Abschirmkonstante} entnommen werden. Es wird $E_{K,\text{abs}} = \qty{8.988}{\kilo\electronvolt}$
+\eqref{eqn:Sigma_Kupfer}, \eqref{eqn:Sigma_Kupfer2} und \eqref{eqn:Sigma_Kupfer3} berechnet. Es wird $E_{K,\text{abs}} = \qty{8.988}{\kilo\electronvolt}$
 angenommen. Mit den Energien aus \autoref{tab:detailspektrum} ergeben sich die Abschirmkonstanten $\sigma_{1,exp} = 3.29$, $\sigma_{2,exp} = 11.75$ und 
 $\sigma_{3,exp} = 18.79$. Die Theoriewerte dazu lauten $\sigma_{1,theo} = 3.29$, $\sigma_{2,theo} = 11.95$ und 
 $\sigma_{3,theo} = 23.99$.
 
-\subsection{Absorptionsspektrum}
-\label{subsec:absorption}
+\subsection{Absorptionsspektren verschiedener Stoffe}
+\label{subsec:Absorption}
+Im letzen Teil dieses Versuchs werden die Absorptionsspektren verschiedener Stoffe betrachtet. Anhand der $K$-Kanten der Spektren lassen sich die Absorptionsenergien 
+der jeweiligen Stoffe grafisch ermitteln. Diese können wiederum genutzt werden um die Abschirmkonstanten $\sigma_K$ nach \autoref{eqn:Sigma_K} abzuschätzen.
+
+\subsubsection{Bestimmung der Absorptionsenergie und der Abschirmkonstante}
+Zur Bestimmung der Absorptionsenergie $E_\text{abs}$ der $K$-Kante wird ein Mittelwert aus den absoluten Maxima und Minima der Messwerte gebildet.
+Alternativ könnten auch alle Messwerte außerhalb der Kantenstruktur gemittelt werden, jedoch führt dies aufgrund der statistischen Fluktuation der Messwerte nicht
+unbedingt zu einem besseren Ergebnis. Durch Einzeichnen des Mittelwertes in die Grafik kann ein Schnittpunkt einer horizontalen Linie mit der Messwertkurve bestimmt werden.
+Da häufig kein Messwert in unmittelbarer Nähe des Mittelwertes zu finden ist, wird ein linearer Zusammenhang für die K-Kante zwischen den benachbarten Messwerten
+approximiert. Dieses Vorgehen ist in \autoref{fig:Zn30} zu sehen.
+
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.8\textwidth]{Zn30.pdf}
+  \caption{Absorptionsspektrum von Zink-30.}
+  \label{fig:Zn30}
+\end{figure}
+
+Für Zink ergibt sich nach Feststellen eines Winkels $\theta_K = \qty{18.76}{\degree}$ eine Absorptionsenergie von $E_\text{abs} = \qty{9.57}{\kilo\electronvolt}$.
+Diese folgt durch Anwenden der Braggbedingung (\autoref{eqn:Bragg}) und Umrechnen der Wellenlänge in eine Energie mittels \autoref{eqn:E_lambda}.
+Die Abschirmkonstante $\sigma_K$ kann anschließend über \autoref{eqn:Sigma_K} bestimmt werden. 
+Für Zink ergibt sich $\sigma_K = 3.68$
+
+Analog wird das Verfahren für vier weitere Stoffe durchgeführt, die jeweiligen Grafiken können den Abbildungen \ref{fig:Ga31} bis \ref{fig:Zr40} im Anhang 
+entnommen werden.  Die Ergebnissse der Auswertung dieser Grafiken sind in \autoref{tab:Absorption} den Theoriewerten gegenüber gestellt.
+Die relativen Abweichungen berechnen sich gemäß \autoref{eqn:Delta_rel}.
+
+!!!Wie berechnen sich die Theoriewerte!!! Bzw. Quellenangabe
+
+\begin{table}
+  \centering
+  \caption{Gegenüberstellung der Messergbenisse und Literaturwerte zur Bestimmung der Absorptionsenergien und Abschirmkonstanten.}
+  \label{tab:Absorption}
+  \begin{tabular}{l S[table-format = 2.2] S S[table-format = 1.2] S[table-format = 2.2] S[table-format = 1.2] S S[table-format = 2.2]}
+    \toprule
+     {} & {$\theta^\text{Lit}_K \mathbin{/} \unit{\degree}$} & {$E^\text{Lit}_\text{abs} \mathbin{/} \unit{\kilo\electronvolt}$} &% 
+     {$\sigma^\text{Lit}_K$} & {$E_\text{abs} \mathbin{/} \unit{\kilo\electronvolt}$} & {$\sigma_K$} & {$\symup{\Delta}_\text{rel}(E_\text{abs}) \mathbin{/} \%$} &%
+     {$\symup{\Delta}_\text{rel}(\sigma_K) \mathbin{/}$ \%}\\
+    \midrule
+      {Zink-30}      & 18.60 &  9.65 & 3.56 &  9.57 & 3.68 & 0.82 &  3.25 \\ 
+      {Gallium-31}   & 10.37 & 10.37 & 3.61 & 10.22 & 3.81 & 1.43 &  5.52 \\
+      {Brom-35}      & 13.23 & 13.47 & 3.85 & 13.19 & 4.19 & 2.11 &  8.71 \\
+      {Zirconium-40} &  9.86 & 17.99 & 4.00 & 15.63 & 4.51 & 2.93 & 12.87 \\
+      {Strontium-38} & 11.04 & 16.10 & 4.10 & 17.28 & 4.83 & 3.94 & 17.92 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{Bestimmung der Rydbergkonstante}
+\label{subsec:Rydberg}
+Nach \autoref{eqn:Bindungsenergie} ist die Bindungsenergie $E_n$ proportional zum Quadrat der effektiven Kernladungszahl $z_\text{eff}$. Mit $n = 1$ ist der 
+Proportionalitätsfaktor die Rydbergenergie $R_\infty = \qty{13.606}{\electronvolt}$. Aus den zuvor bestimmten Messergebnissen der Absorptionsenergien und 
+Abschirmkonstanten lässt sich ein experimenteller Wert der Konstante ermitteln. Dazu wird die Wurzel der Absorptionsenergie $E_\text{abs}$ gegen die effektive
+Kernladungszahl aufgetragen. Durch eine lineare Regression können die Parameter der Geraden $f(x) = ax + b$ bestimmt werden. Durch das Quadrat der Steigung $a$ 
+ist ein experimenteller Wert der Rydbergenergie gegeben.
+
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.8\textwidth]{Rydberg.pdf}
+  \caption{Bestimmung der Rydbergenergie mittels linearer Regression durch \textit{Scipy} \cite{scipy}.}
+  \label{fig:Rydberg}
+\end{figure}
+
+Die Parameter der linearen Regression ergeben sich zu 
+\begin{align*}
+  a &= \qty{3.80}{\sqrt{\unit{\electronvolt}}} & b &= \qty{-2.26}{\sqrt{\unit{\electronvolt}}}.
+\end{align*}
+In der Theorie sollte $b = 0$ gelten. 
+Durch quadrieren folgt die Rydbergenergie
+\begin{equation*}
+  R_\infty = \qty{14.45}{\electronvolt}
+\end{equation*}
+Dies stellt eine relative Abweichung gemäß \autoref{eqn:Delta_rel} von $\symup{\Delta}(R_\infty) = \qty{6.2}{\percent}$ dar.

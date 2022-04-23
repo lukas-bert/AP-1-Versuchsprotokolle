@@ -19,6 +19,12 @@ Bei vollständiger Abgabe der kinetischen Energie $E_\text{kin} = U_\text{B} \cd
     \lambda_\text{min} = \frac{h c}{e \cdot U_\text{B}}
 \end{equation}
 erreicht. Dabei ist $U_\text{B}$ die Beschleunigungsspannung der Apparatur und $e$ die Elementarladung. 
+Allgemein gilt der Zusammenhang 
+\begin{equation}
+    \label{eqn:E_lambda}
+    E_\text{Photon} = \frac{h \cdot c}{\lambda}
+\end{equation}
+zwischen Wellenlänge $\lambda$ und der Energie eines Photons.
 
 \subsection{Charakteristische Röntgenstrahlung} 
 \label{subsec:Bremsspektrum}
@@ -32,7 +38,7 @@ Die Frequenz des emittierten Photons lässt sich mittels der Energiedifferenz de
 Die Bindungsenergie eines Elektrons auf der $n$-ten Schale ergibt sich zu 
 \begin{equation}
     \label{eqn:Bindungsenergie}
-    E_n = -R_\infty z^2_\text{eff} \cdot \frac{1}{n}.
+    E_n = -R_\infty z^2_\text{eff} \cdot \frac{1}{n^2}.
 \end{equation}
 Die effektive Kernladungszahl $z_\text{eff} = z - \sigma$ beschreibt die Abschirmung der realen Kernladungszahl $z$ durch andere Elektronen mit der 
 Abschirmungskonstanten $\sigma$, welche für jedes Elektron des Atoms empirisch bestimmt werden kann. Die \textit{Rydbergenergie} beträgt 
@@ -66,7 +72,9 @@ Eine Abschätzung ergibt die Zusammenhänge
 \begin{align}
     \label{eqn:Sigma_Kupfer}
     E_{K \text{, abs}} &= R_\infty (z - \sigma_1)^2 \\
+    \label{eqn:Sigma_Kupfer2}
     E_{K \text{,} \alpha} &= R_\infty \frac{1}{n^2} (z - \sigma_1)^2 - R_\infty \frac{1}{m^2} (z - \sigma_2)^2 \\
+    \label{eqn:Sigma_Kupfer3}
     E_{K \text{,} \beta} &= R_\infty \frac{1}{n^2} (z - \sigma_1)^2 - R_\infty \frac{1}{l^2} (z - \sigma_3)^2, 
 \end{align}
 aus denen sich mit $n = 1$, $m = 2$ und $l = 3$ und dem Wert der Absorptionsenergie $E_{K\text{, abs}}$ die Abschirmkonstanten bestimmen lassen.
@@ -77,7 +85,7 @@ Für Elektronen der $K$-Schale lässt sich aus der Lage der $K$-Kante des Absorp
     \label{eqn:Sigma_K}
     \sigma_K = z - \sqrt{\frac{E_K}{R_\infty} - \frac{\alpha^2 z^4}{4}}
 \end{equation}
-bestimmen. $\alpha$ ist die Sommerfeldsche Feinstrukturkonstante.
+bestimmen, wobei $\alpha$ die Sommerfeldsche Feinstrukturkonstante ist.
 
 \subsection{Untersuchung der Spektren mithilfe der Braggreflexion}
 \label{subsec:Bragg}
