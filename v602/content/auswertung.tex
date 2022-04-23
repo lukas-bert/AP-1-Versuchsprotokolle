@@ -1,52 +1,53 @@
 \section{Auswertung}
 \label{sec:Auswertung}
-Im folgendem werden alle Fehler gemäß der gaußschen Fehlerfortpflanzung mittels \textit{Scipy}\cite{scipy} berechnet.
 \subsection{Überprüfung der Braggbedingung}
 \label{subsec:bragg}
-Um die Braggbedingung zu überprüfen wurden aus einer Kupferanode entstandene Röntgenstrahlen mittels der Drehwinkelmethode reflektiert und dann detektiert. Wie in 
-\autoref{fig:bragg} zu sehen ist, liegt der experimentell bestimmte Glanzwinkel bei $\theta_\text{Glanz, exp} = \qty{27.3}{\degree}$. Die Braggbedingung sagt einen 
-Glanzwinkel von $\theta_\text{Glanz, theo} = \qty{28}{\degree}$ voraus.
+Die erste Messreihe dient zur Überprüfung der Genauigkeit des Messgerätes über die Braggbedingung. Wie in 
+\autoref{fig:bragg} zu sehen ist, liegt der experimentell bestimmte Glanzwinkel bei $\theta_\text{Glanz, exp} = \qty{13.65}{\degree}$. Die Braggbedingung sagt einen 
+Glanzwinkel von $\theta_\text{Glanz, theo} = \qty{14}{\degree}$ voraus.
 Die relative Abweichung eines Messwertes $x$ zu einem Literaturwert $x^*$ lässt sich zu 
 \begin{equation}
   \label{eqn:Delta_rel}
   \symup{\Delta}_\text{rel}(x) = \frac{|x - x^*|}{x^*}
 \end{equation}
 bestimmen.
-Es ergibt sich eine relative Abweichung von $\Delta \theta_\text{Glanz} = 2.5\%$.
+Es ergibt sich eine relative Abweichung von $\symup{\Delta} \theta_\text{Glanz} = 2.5\%$.
 \begin{figure}
     \centering
     \includegraphics{plotbragg.pdf}
-    \caption{Messwerte zur Überpüfung der Braggbedingung. Matplotlib bitte noch citen}
+    \caption{Messwerte zur Überpüfung der Braggbedingung. Diese und alle weiteren Grafiken wurden mit \textit{matplotlib} \cite{matplotlib} erstellt.}
     \label{fig:bragg}
 \end{figure}
 
 \subsection{Emissionsspektrum einer Cu-Röntgenröhre}
 \label{subsec:emission}
-Zunächst wurde eine größere Messreihe zum Emissionsspektrum der Cu-Röntgenröhre aufgenommen. Diese ist in \autoref{fig:emission} dargestellt. In dieser Abbildung ist 
-sowohl der Bremsberg, als auch die $\text{K}_{\alpha}$ und $\text{K}_{\beta}$-Linie zu sehen. Es wurde erwartet, dass dieser Messreihe ein Grenzwinkel entnommen werden kann. Dieser ist 
-der Messreihe allerdings nicht zu entnehmen. Der Theoriewert für den Grenzwinkel einer Kupferanode liegt bei $\theta_{\text{Grenz}} = \qty{5.05}{\degree}$.
-Dazu gehört dann die minimale Wellenlänge von $\lambda_{\text{min}} = \qty{35.45}{\pico\metre}$. 
+Zunächst wurde eine umfangreiche Messreihe zum Emissionsspektrum der Cu-Röntgenröhre aufgenommen. Diese ist in \autoref{fig:emission} dargestellt. In dieser Abbildung sind
+sowohl der Bremsberg, als auch die $K_{\alpha}$ und $K_{\beta}$-Linie zu sehen. Es wurde erwartet, dass dieser Messreihe ein Grenzwinkel entnommen werden kann. 
+Dieser ist jedoch nicht eindeutig bestimmbar. Der Theoriewert für den Grenzwinkel der Kupferanode liegt bei $\theta_{\text{Grenz}} = \qty{5.05}{\degree}$.
+Dazu lässt sich die minimale Wellenlänge $\lambda_{\text{min}} = \qty{35.45}{\pico\metre}$ zuordnen. 
+
 \begin{figure}
     \centering
     \includegraphics{plotemission.pdf}
     \caption{Messwerte zum Emissionsspektrum eine Cu-Röntgenröhre.}
     \label{fig:emission}
-\end{figure}
-Damit das Emissionsspektrum besser ausgewertet werden kann, wird eine detailliertere Messung über die beiden K-Linien aufgenommen. Diese Messdaten werden in \autoref{fig:detail}
-dargestellt. Zu den K-Linien kann nun mittles des Detailspektrums die Halbwertsbreite der beiden Peaks bestimmt werden. Dazu wurde mittels einer konstanten Gerade, welche
-den Wert $\frac{\text{N}_{\text{max}}}{2}$ hat, graphisch ausgewertet an welchen Stellen sich der jeweilige Peak und die jeweilige Gerade sich schneiden. Diese sind 
-ebenfalls in \autoref{fig:detail} dargestellt. Daraus ergeben sich für jeden Peak 2 Winkel $2\theta$. Es zu jedem Winkel, durch die Braggbedingung \eqref{eqn:Bragg},
-eine Wellenlänge zugeordnet werden und zu jeder Wellenlänge auch eine Energie. Daher kann nun eine Energiedifferenz zwischen den beiden Winkeln eines Peaks errechnet werden.
-Diese sind in \autoref{tab:detailspektrum} dargestellt. Außerdem kann nun ein genauerer Energiewert $E$ für die beiden K-Linien gemessen werden. 
-Aus der gemessenen Energie an den Peaks und der Energiedifferenz der Halbwertsbreite kann das Auflösungsvermögen für die beiden K-Linien bestimmt werden.
-Das Auflösungsvermögen lässt sich nach 
+  \end{figure}
+
+Zur besseren Analyse der charakteristischen Strahlung wird eine detailliertere Messung über die beiden $K$-Linien aufgenommen. Diese Messdaten werden in \autoref{fig:detail}
+dargestellt. Zu den $K$-Linien kann nun die Halbwertsbreite der beiden Peaks bestimmt werden. Dazu wird mithilfe einer konstanten Gerade, welche
+den Wert $y = \frac{\text{N}_{\text{max}}}{2}$ hat, grafisch ausgewertet, an welchen Stellen sich der jeweilige Peak und die jeweilige Gerade schneiden. Diese sind 
+ebenfalls in \autoref{fig:detail} dargestellt. Daraus ergeben sich für jeden Peak 2 Winkel $\theta$. Es kann zu jedem Winkel, durch die Braggbedingung \eqref{eqn:Bragg},
+eine Wellenlänge zugeordnet werden und zu jeder Wellenlänge somit auch eine Energie. Daher kann nun eine Energiedifferenz zwischen den beiden Winkeln eines Peaks errechnet werden.
+Dies ist in \autoref{tab:detailspektrum} dargestellt. Des Weiteren kann nun ein genauerer Energiewert $E$ für die beiden $K$-Linien festgestellt werden. 
+Aus der gemessenen Energie an den Peaks und der Energiedifferenz der Halbwertsbreite kann das Auflösungsvermögen für die beiden $K$-Linien bestimmt werden.
+Das Auflösungsvermögen kann über den Zusammenhang 
 \begin{equation*}
     A = \frac{E}{\Delta E}
 \end{equation*}
-berechnet werden. Das Auflösungsvermögen der beiden Peaks wird ebenfalls in \autoref{tab:detailspektrum} dargestellt.
+berechnet werden. Dieses wird ebenfalls in \autoref{tab:detailspektrum} dargestellt.
 \begin{table}
     \centering
-    \caption{In dieser Tabelle werden die Energie $E$, die Energiedifferenz $\Delta E$ und das Auflösungsvermögen $A$ der K-Linien dargestellt.}
+    \caption{In dieser Tabelle werden die Energie $E$, die Energiedifferenz $\Delta E$ und das Auflösungsvermögen $A$ der $K$-Linien dargestellt.}
     \label{tab:detailspektrum}
     \begin{tabular}{c S[table-format = 1.2] S[table-format = 1.2] S[table-format = 2.2]}
       \toprule
@@ -58,17 +59,17 @@ berechnet werden. Das Auflösungsvermögen der beiden Peaks wird ebenfalls in \a
     \end{tabular}
 \end{table}
 
-\begin{figure}
+\begin{figure}  
     \centering
     \includegraphics{detailspektrum.pdf}
-    \caption{Detailmesswerte zum Emissionsspektrum eine Cu-Röntgenröhre.}
+    \caption{Detailspektrum der Kupferanode um die $K$-Linien.}
     \label{fig:detail}
 \end{figure}
 
-In dieser Messung wurden die Energien der K-Linien genauer aufgenommen. Daher werden nun auch die Abschirmkonstanten für Kupfer bestimmt. Diese werden mit den Gleichungen 
-\eqref{eqn:Sigma_Kupfer}, \eqref{eqn:Sigma_Kupfer2} und \eqref{eqn:Sigma_Kupfer3} berechnet. Es wird $E_{K,\text{abs}} = \qty{8.988}{\kilo\electronvolt}$
-angenommen. Mit den Energien aus \autoref{tab:detailspektrum} ergeben sich die Abschirmkonstanten $\sigma_{1,exp} = 3.29$, $\sigma_{2,exp} = 11.75$ und 
-$\sigma_{3,exp} = 18.79$. Die Theoriewerte dazu lauten $\sigma_{1,theo} = 3.29$, $\sigma_{2,theo} = 11.95$ und 
+Unter Verwendung dieser Messwerte können die Abschirmkonstanten für Kupfer bestimmt werden. Diese werden mit den Gleichungen 
+\eqref{eqn:Sigma_Kupfer}, \eqref{eqn:Sigma_Kupfer2} und \eqref{eqn:Sigma_Kupfer3} berechnet. Es wird $E_{K,\text{abs}} = \qty{8.988}{\kilo\electronvolt}$ \cite{NIST}
+verwendet. Mit den Energien aus \autoref{tab:detailspektrum} ergeben sich die Abschirmkonstanten $\sigma_{2,exp} = 11.75$ und 
+$\sigma_{3,exp} = 18.79$. Die zugehörigen Theoriewerte lauten $\sigma_{1,theo} = 3.29$, $\sigma_{2,theo} = 11.95$ und 
 $\sigma_{3,theo} = 23.99$.
 
 \subsection{Absorptionsspektren verschiedener Stoffe}

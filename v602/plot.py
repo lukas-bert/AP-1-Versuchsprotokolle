@@ -7,17 +7,17 @@ d_lif = 201.4*10**-12 # in m
 R = 13.6 # in eV
 alpha = 7.297*10**-3
 
-#überprüfung der braggbedingung
+# Überprüfung der braggbedingung
 theta2, imp = np.genfromtxt("content/data/braggbedingung.txt", unpack = True)
 
-#abweichung vom Theoriewinkel
+# Abweichung vom Theoriewinkel
 abw1 = np.abs(27.3 - 28)/28
 print("Abweichung des maximums der Braggbedingung: ", abw1)
 
-plt.plot(theta2, imp, color = "firebrick", label = "Messwerte", marker = "x", markersize = 5)
-plt.plot(27.3, 221.0, "o", markersize = 6 ,color = "cornflowerblue", label = "Maximum")
+plt.plot(theta2/2, imp, color = "firebrick", label = "Messwerte", marker = "x", markersize = 5)
+plt.plot(27.3/2, 221.0, "o", markersize = 6 ,color = "cornflowerblue", label = "Maximum")
 plt.grid()
-plt.xlabel(r'$2\theta \mathbin{/} \unit{\degree}$')
+plt.xlabel(r'$\theta \mathbin{/} \unit{\degree}$')
 plt.ylabel(r'$\symup{Imp}\mathbin{/}\symup{s} $')
 plt.legend()
 plt.tight_layout()
@@ -25,17 +25,17 @@ plt.savefig('build/plotbragg.pdf')
 #plt.show()
 plt.close()
 
-#Emissionsspektrum einer Cu-Röntgenröhre
+# Emissionsspektrum der Kupferanode
 
 theta2, imp = np.genfromtxt("content/data/emissionspektrum.txt", unpack = True)
 #lambda1 = 2*d_lif*np.sin(theta2/2*np.pi/180)
-plt.plot(theta2, imp, color = "firebrick", label = "Messwerte")
-plt.plot(40.8, 1544.0, "x", markersize = 7 ,color = "cornflowerblue", label = r"$K_\alpha\text{-Linie}$")
-plt.plot(45.5, 5129.0, "x", markersize = 7 ,color = "cornflowerblue", label = r"$K_\beta\text{-Linie}$")
-plt.plot(theta2[46],imp[46], "o", markersize = 6, color = "cornflowerblue", label = "Bremsberg")
+plt.plot(theta2/2, imp, color = "firebrick", label = "Messwerte")
+plt.plot(40.8/2, 1544.0, "v", markersize = 7 ,color = "chocolate", label = r"$K_\alpha\text{-Linie}$")
+plt.plot(45.5/2, 5129.0, "v", markersize = 7 ,color = "forestgreen", label = r"$K_\beta\text{-Linie}$")
+plt.plot(theta2[46]/2, imp[46], "o", markersize = 6, color = "cornflowerblue", label = "Bremsberg")
 #plt.plot(theta2[40:48],imp[40:48], "o", markersize = 6, color = "cornflowerblue", label = "Bremsberg")
 plt.grid()
-plt.xlabel(r'$2\theta \mathbin{/} \unit{\degree}$')
+plt.xlabel(r'$\theta \mathbin{/} \unit{\degree}$')
 plt.ylabel(r'$\symup{Imp}\mathbin{/}\symup{s} $')
 plt.legend()
 plt.tight_layout()
@@ -43,18 +43,16 @@ plt.savefig('build/plotemission.pdf')
 #plt.show()
 plt.close()
 
-#GRENZWINKEL NOCH ZU BESTIMMEN ABER KA WIE DAS GEHEN SOLL
-
-#Detailspektrum
+# Detailspektrum
 
 theta2, imp = np.genfromtxt("content/data/detailmessung.txt", unpack = True)
-plt.plot(theta2, imp, color = "firebrick", marker = "x", markersize = 5, label = "Messwerte")
-plt.xlabel(r'$2\theta \mathbin{/} \unit{\degree}$')
+plt.plot(theta2/2, imp, color = "firebrick", marker = "x", markersize = 5, label = "Messwerte")
+plt.xlabel(r'$\theta \mathbin{/} \unit{\degree}$')
 plt.ylabel(r'$\symup{Imp}\mathbin{/}\symup{s} $')
-kalpha = np.linspace(40.41154, 41.308, 1000)                                                        #Intervall der Halbwertsbreite zu K_alpha
-plt.plot(kalpha,760+kalpha*0, label = r"$\text{Halbwertsbreite des } K_{\beta}\text{-Peaks}$")
-kbeta = np.linspace(44.880769, 45.83878469, 1000)                                                   #Intervall der Halbwertsbreite zu K_beta
-plt.plot(kbeta,2641.5+kbeta*0, label = r"$\text{Halbwertsbreite des } K_{\alpha}\text{-Peaks}$")
+kalpha = np.linspace(40.41154/2, 41.308/2, 1000)                                                        #Intervall der Halbwertsbreite zu K_alpha
+plt.plot(kalpha, 760 + kalpha*0, label = r"$\text{Halbwertsbreite des } K_{\beta}\text{-Peaks}$", linestyle = "--", linewidth = 1.5)
+kbeta = np.linspace(44.880769/2, 45.83878469/2, 1000)                                                   #Intervall der Halbwertsbreite zu K_beta
+plt.plot(kbeta , 2641.5 + kbeta*0, label = r"$\text{Halbwertsbreite des } K_{\alpha}\text{-Peaks}$", linestyle = "--", linewidth = 1.5)
 plt.grid()
 plt.legend()
 plt.tight_layout()
@@ -62,9 +60,9 @@ plt.tight_layout()
 plt.savefig('build/detailspektrum.pdf')
 plt.close()
 
-##Berechnung des AUflösungsvermögens
+# Berechnung des Auflösungsvermögens
 
-#experimentell
+# experimentell
 E_Kbetaexp = const.h*const.c/(2*d_lif*np.sin(40.8*np.pi/(2*180))*const.e*1000)
 E_Kalphaexp = const.h*const.c/(2*d_lif*np.sin(45.4*np.pi/(2*180))*const.e*1000)
 
@@ -72,13 +70,13 @@ DeltaE_Kbetaexp = np.abs(const.h*const.c/(2*d_lif*np.sin(40.41154*np.pi/(2*180))
 DeltaE_Kalphaexp = np.abs(const.h*const.c/(2*d_lif*np.sin(44.880769*np.pi/(2*180))*const.e*1000) - const.h*const.c/(2*d_lif*np.sin(45.83878469*np.pi/(2*180))*const.e*1000))
 print(E_Kalphaexp, E_Kbetaexp, DeltaE_Kalphaexp,DeltaE_Kbetaexp)
 
-#Auflösungsvermögen
+# Auflösungsvermögen
 
 A_Kalpha = E_Kalphaexp/DeltaE_Kalphaexp
 A_Kbeta = E_Kbetaexp/DeltaE_Kbetaexp
 print(A_Kalpha, A_Kbeta)
 
-#Abschirmkonstanten
+# Abschirmkonstanten
 sigma1 = 29 - np.sqrt(8.988*1000/R)
 print("sigma_1 von Kupfer: ", sigma1)
 sigma2 = 29 - np.sqrt(4*(29 - sigma1)**2 - 4*(E_Kalphaexp*1000/R))
@@ -87,7 +85,7 @@ sigma3 = 29 - np.sqrt(9*(29 - sigma1)**2 - 9*(E_Kbetaexp*1000/R))
 print("sigma_3 von Kupfer: ", sigma3)
 
 
-#theorie
+# Theorie
 sigma1t = 29 - np.sqrt(8.988*1000/R)
 print("sigma_1t von Kupfer: ", sigma1t)
 sigma2t = 29 - np.sqrt(4*(29 - sigma1)**2 - 4*(8*1000/R))
@@ -95,20 +93,19 @@ print("sigma_2t von Kupfer: ", sigma2t)
 sigma3t = 29 - np.sqrt(9*(29 - sigma1)**2 - 9*(8.95*1000/R))
 print("sigma_3t von Kupfer: ", sigma3t)
 
-#Abweichungen
+# Abweichungen
 ds1 = np.abs(sigma1-sigma1t)/sigma1t
 ds2 = np.abs(sigma2-sigma2t)/sigma2t
 ds3 = np.abs(sigma3-sigma3t)/sigma3t
 print("Abweichungen zu sigma1,2,3: ", ds1, ds2, ds3)
-#Abschirmkonstanten
+# Abschirmkonstanten
 E_abs = 8.988
 sigma1 = 29 - np.sqrt(E_abs*1000/13.6 - (((7.297*10**-3)**2)*29**4)/4)
 sigma2 = 29 - np.sqrt(E_Kalphaexp*1000/13.6 - (((7.297*10**-3)**2)*29**4)/4)
 sigma3 = 29 - np.sqrt(E_Kbetaexp*1000/13.6 - (((7.297*10**-3)**2)*29**4)/4)
 #print(sigma1, sigma2, sigma3)
 
-
-#Absorptionsspektrum
+# Absorptionsspektrum
 
 h = const.h 
 e = const.e
@@ -334,12 +331,12 @@ print("sigma_k für Zr : ", sigma_kzr, dS)
 print("E_abs für Zr : ", E_absorbzr, dE)
 print("-----------------------------------------------------------")
 
-#Moseley
+# Moseley
 
 EHS = [np.sqrt(E_absorbzn*1000), np.sqrt(E_absorbga*1000), np.sqrt(E_absorbbr*1000),  np.sqrt(E_absorbsr*1000),  np.sqrt(E_absorbzr*1000)]
 ZETS = [30-sigma_kzn, 31-sigma_kga, 35- sigma_kbr, 38-sigma_ksr, 40-sigma_kzr]
 
-#FIT
+# Fit
 def linfit(x,m,b):
     return m*x+b
 
