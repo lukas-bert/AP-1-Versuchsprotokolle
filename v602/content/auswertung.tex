@@ -15,8 +15,54 @@ Glanzwinkel von $\theta_\text{Glanz, theo} = \qty{28}{\degree}$ voraus. Daher er
 
 \subsection{Emissionsspektrum einer Cu-Röntgenröhre}
 \label{subsec:emission}
+Zunächst wurde eine größere Messreihe zum Emissionsspektrum der Cu-Röntgenröhre aufgenommen. Diese ist in \autoref{fig:emission} dargestellt. In dieser Abbildung ist 
+sowohl der Bremsberg, als auch die $\text{K}_{\alpha}$ und $\text{K}_{\beta}$-Linie zu sehen. Es wurde erwartet, dass dieser Messreihe ein Grenzwinkel entnommen werden kann. Dieser ist 
+der Messreihe allerdings nicht zu entnehmen. Der Theoriewert für den Grenzwinkel einer Kupferanode liegt bei $\theta_{\text{Grenz}} = \qty{5.05}{\degree}$.
+Dazu gehört dann die minimale Wellenlänge von $\lambda_{\text{min}} = \qty{35.45}{\pico\metre}$. 
+\begin{figure}
+    \centering
+    \includegraphics{plotemission.pdf}
+    \caption{Messwerte zum Emissionsspektrum eine Cu-Röntgenröhre.}
+    \label{fig:emission}
+\end{figure}
+Damit das Emissionsspektrum besser ausgewertet werden kann, wird eine detailliertere Messung über die beiden K-Linien aufgenommen. Diese Messdaten werden in \autoref{fig:detail}
+dargestellt. Zu den K-Linien kann nun mittles des Detailspektrums die Halbwertsbreite der beiden Peaks bestimmt werden. Dazu wurde mittels einer konstanten Gerade, welche
+den Wert $\frac{\text{N}_{\text{max}}}{2}$ hat, graphisch ausgewertet an welchen Stellen sich der jeweilige Peak und die jeweilige Gerade sich schneiden. Diese sind 
+ebenfalls in \autoref{fig:detail} dargestellt. Daraus ergeben sich für jeden Peak 2 Winkel $2\theta$. Es zu jedem Winkel, durch die Braggbedingung \eqref{eqn:Bragg},
+eine Wellenlänge zugeordnet werden und zu jeder Wellenlänge auch eine Energie. Daher kann nun eine Energiedifferenz zwischen den beiden Winkeln eines Peaks errechnet werden.
+Diese sind in \autoref{tab:detailspektrum} dargestellt. Außerdem kann nun ein genauerer Energiewert $E$ für die beiden K-Linien gemessen werden. 
+Aus der gemessenen Energie an den Peaks und der Energiedifferenz der Halbwertsbreite kann das Auflösungsvermögen für die beiden K-Linien bestimmt werden.
+Das Auflösungsvermögen lässt sich nach 
+\begin{equation*}
+    A = \frac{E}{\Delta E}
+\end{equation*}
+berechnet werden. Das Auflösungsvermögen der beiden Peaks wird ebenfalls in \autoref{tab:detailspektrum} dargestellt.
+\begin{table}
+    \centering
+    \caption{In dieser Tabelle werden die Energie $E$, die Energiedifferenz $\Delta E$ und das Auflösungsvermögen $A$ der K-Linien dargestellt.}
+    \label{tab:detailspektrum}
+    \begin{tabular}{c S[table-format = 1.2] S[table-format = 1.2] S[table-format = 2.2]}
+      \toprule
+       {$\text{K-Linie}$} & {$E \mathbin{/} \unit{\electronvolt}$} & {$\Delta E \mathbin{/} \unit{\electronvolt}$} & {$A$}\\
+      \midrule
+        {$\alpha$} & 7.98 & 0.16 & 49.94 \\
+        {$\beta$}  & 8.83 & 0.19 & 47.68 \\
+      \bottomrule
+    \end{tabular}
+  \end{table}
 
+\begin{figure}
+    \centering
+    \includegraphics{detailspektrum.pdf}
+    \caption{Detailmesswerte zum Emissionsspektrum eine Cu-Röntgenröhre.}
+    \label{fig:detail}
+\end{figure}
 
+In dieser Messung wurden die Energien der K-Linien genauer aufgenommen. Daher werden nun auch die Abschirmkonstanten für Kupfer bestimmt. Diese werden mit den Gleichungen 
+\eqref{eqn:Sigma_Kupfer} berechnet. Die Werte für $n$, $m$ und $l$ können \autoref{subsec:Abschirmkonstante} entnommen werden. Es wird $E_{K,\text{abs}} = \qty{8.988}{\kilo\electronvolt}$
+angenommen. Mit den Energien aus \autoref{tab:detailspektrum} ergeben sich die Abschirmkonstanten $\sigma_{1,exp} = 3.29$, $\sigma_{2,exp} = 11.75$ und 
+$\sigma_{3,exp} = 18.79$. Die Theoriewerte dazu lauten $\sigma_{1,theo} = 3.29$, $\sigma_{2,theo} = 11.95$ und 
+$\sigma_{3,theo} = 23.99$.
 
 \subsection{Absorptionsspektrum}
 \label{subsec:absorption}
