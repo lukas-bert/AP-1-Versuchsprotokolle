@@ -88,21 +88,24 @@ print("sigma_3 von Kupfer: ", sigma3)
 
 
 #theorie
-sigma1 = 29 - np.sqrt(8.988*1000/R)
-print("sigma_1t von Kupfer: ", sigma1)
-sigma2 = 29 - np.sqrt(4*(29 - sigma1)**2 - 4*(8*1000/R))
-print("sigma_2t von Kupfer: ", sigma2)
-sigma3 = 29 - np.sqrt(9*(29 - sigma1)**2 - 9*(8.95*1000/R))
-print("sigma_3t von Kupfer: ", sigma3)
+sigma1t = 29 - np.sqrt(8.988*1000/R)
+print("sigma_1t von Kupfer: ", sigma1t)
+sigma2t = 29 - np.sqrt(4*(29 - sigma1)**2 - 4*(8*1000/R))
+print("sigma_2t von Kupfer: ", sigma2t)
+sigma3t = 29 - np.sqrt(9*(29 - sigma1)**2 - 9*(8.95*1000/R))
+print("sigma_3t von Kupfer: ", sigma3t)
 
-
-
+#Abweichungen
+ds1 = np.abs(sigma1-sigma1t)/sigma1t
+ds2 = np.abs(sigma2-sigma2t)/sigma2t
+ds3 = np.abs(sigma3-sigma3t)/sigma3t
+print("Abweichungen zu sigma1,2,3: ", ds1, ds2, ds3)
 #Abschirmkonstanten
 E_abs = 8.988
 sigma1 = 29 - np.sqrt(E_abs*1000/13.6 - (((7.297*10**-3)**2)*29**4)/4)
 sigma2 = 29 - np.sqrt(E_Kalphaexp*1000/13.6 - (((7.297*10**-3)**2)*29**4)/4)
 sigma3 = 29 - np.sqrt(E_Kbetaexp*1000/13.6 - (((7.297*10**-3)**2)*29**4)/4)
-print(sigma1, sigma2, sigma3)
+#print(sigma1, sigma2, sigma3)
 
 
 #Absorptionsspektrum
@@ -358,3 +361,12 @@ plt.legend()
 plt.savefig('build/Rydberg.pdf')
 #plt.show()
 plt.close()
+
+#Abweichungen
+
+dEa = np.abs(E_Kalphaexp-8)/8
+dEb = np.abs(E_Kbetaexp-8.95)/8.95
+print(dEa, dEb)
+
+dR = np.abs(params[0]**2-13.6)/13.6
+print("Abweichung der Rybergkonstante: ", dR)
