@@ -22,7 +22,7 @@ Es ergibt sich eine relative Abweichung von $\symup{\Delta} \theta_\text{Glanz} 
 \subsection{Emissionsspektrum einer Cu-Röntgenröhre}
 \label{subsec:emission}
 Zunächst wurde eine umfangreiche Messreihe zum Emissionsspektrum der Cu-Röntgenröhre aufgenommen. Diese ist in \autoref{fig:emission} dargestellt. In dieser Abbildung sind
-sowohl der Bremsberg, als auch die $K_{\alpha}$ und $K_{\beta}$-Linie zu sehen. Es wurde erwartet, dass dieser Messreihe ein Grenzwinkel entnommen werden kann. 
+sowohl der Bremsberg, als auch die $K_{\alpha}$- und $K_{\beta}$-Linie zu sehen. Es wurde erwartet, dass dieser Messreihe ein Grenzwinkel entnommen werden kann. 
 Dieser ist jedoch nicht eindeutig bestimmbar. Der Theoriewert für den Grenzwinkel der Kupferanode liegt bei $\theta_{\text{Grenz}} = \qty{5.05}{\degree}$.
 Dazu lässt sich die minimale Wellenlänge $\lambda_{\text{min}} = \qty{35.45}{\pico\metre}$ zuordnen. 
 
@@ -34,9 +34,9 @@ Dazu lässt sich die minimale Wellenlänge $\lambda_{\text{min}} = \qty{35.45}{\
   \end{figure}
 
 Zur besseren Analyse der charakteristischen Strahlung wird eine detailliertere Messung über die beiden $K$-Linien aufgenommen. Diese Messdaten werden in \autoref{fig:detail}
-dargestellt. Zu den $K$-Linien kann nun die Halbwertsbreite der beiden Peaks bestimmt werden. Dazu wird mithilfe einer konstanten Gerade, welche
-den Wert $y = \frac{\text{N}_{\text{max}}}{2}$ hat, grafisch ausgewertet, an welchen Stellen sich der jeweilige Peak und die jeweilige Gerade schneiden. Diese sind 
-ebenfalls in \autoref{fig:detail} dargestellt. Daraus ergeben sich für jeden Peak 2 Winkel $\theta$. Es kann zu jedem Winkel, durch die Braggbedingung \eqref{eqn:Bragg},
+dargestellt. Zu den $K$-Linien kann nun die Halbwertsbreite der beiden Peaks bestimmt werden. Dazu wird mithilfe einer konstanten Geraden, welche
+den Wert $y = \frac{\text{N}_{\text{max}}}{2}$ hat, grafisch ausgewertet, an welchen Stellen sich der jeweilige Peak und die jeweilige Gerade schneiden. Dies ist 
+ebenfalls in \autoref{fig:detail} dargestellt. Es ergeben sich für jeden Peak 2 Winkel $\theta$. Es kann zu jedem Winkel, durch die Braggbedingung \eqref{eqn:Bragg},
 eine Wellenlänge zugeordnet werden und zu jeder Wellenlänge somit auch eine Energie. Daher kann nun eine Energiedifferenz zwischen den beiden Winkeln eines Peaks errechnet werden.
 Dies ist in \autoref{tab:detailspektrum} dargestellt. Des Weiteren kann nun ein genauerer Energiewert $E$ für die beiden $K$-Linien festgestellt werden. 
 Aus der gemessenen Energie an den Peaks und der Energiedifferenz der Halbwertsbreite kann das Auflösungsvermögen für die beiden $K$-Linien bestimmt werden.
@@ -73,7 +73,7 @@ $\sigma_{3,exp} = 18.79$. Die zugehörigen Theoriewerte lauten $\sigma_{1,theo} 
 $\sigma_{3,theo} = 23.99$.
 
 \subsection{Absorptionsspektren verschiedener Stoffe}
-\label{subsec:Absorption}
+\label{subsec:A_Absorption}
 Im letzen Teil dieses Versuchs werden die Absorptionsspektren verschiedener Stoffe betrachtet. Anhand der $K$-Kanten der Spektren lassen sich die Absorptionsenergien 
 der jeweiligen Stoffe grafisch ermitteln. Diese können wiederum genutzt werden um die Abschirmkonstanten $\sigma_K$ nach \autoref{eqn:Sigma_K} abzuschätzen.
 
@@ -100,11 +100,9 @@ Analog wird das Verfahren für vier weitere Stoffe durchgeführt, die jeweiligen
 entnommen werden.  Die Ergebnissse der Auswertung dieser Grafiken sind in \autoref{tab:Absorption} den Theoriewerten gegenüber gestellt.
 Die relativen Abweichungen berechnen sich gemäß \autoref{eqn:Delta_rel}.
 
-!!!Wie berechnen sich die Theoriewerte!!! Bzw. Quellenangabe
-
 \begin{table}
   \centering
-  \caption{Gegenüberstellung der Messergbenisse und Literaturwerte zur Bestimmung der Absorptionsenergien und Abschirmkonstanten.}
+  \caption{Gegenüberstellung der Messergbenisse und Literaturwerte \cite{NIST} zur Bestimmung der Absorptionsenergien und Abschirmkonstanten.}
   \label{tab:Absorption}
   \begin{tabular}{l S[table-format = 2.2] S S[table-format = 1.2] S[table-format = 2.2] S[table-format = 1.2] S S[table-format = 2.2]}
     \toprule
@@ -112,11 +110,11 @@ Die relativen Abweichungen berechnen sich gemäß \autoref{eqn:Delta_rel}.
      {$\sigma^\text{Lit}_K$} & {$E_\text{abs} \mathbin{/} \unit{\kilo\electronvolt}$} & {$\sigma_K$} & {$\symup{\Delta}_\text{rel}(E_\text{abs}) \mathbin{/} \%$} &%
      {$\symup{\Delta}_\text{rel}(\sigma_K) \mathbin{/}$ \%}\\
     \midrule
-      {Zink-30}      & 18.60 &  9.65 & 3.56 &  9.57 & 3.68 & 0.82 &  3.25 \\ 
-      {Gallium-31}   & 10.37 & 10.37 & 3.61 & 10.22 & 3.81 & 1.43 &  5.52 \\
-      {Brom-35}      & 13.23 & 13.47 & 3.85 & 13.19 & 4.19 & 2.11 &  8.71 \\
-      {Zirconium-40} &  9.86 & 17.99 & 4.00 & 15.63 & 4.51 & 2.93 & 12.87 \\
-      {Strontium-38} & 11.04 & 16.10 & 4.10 & 17.28 & 4.83 & 3.94 & 17.92 \\
+      {Zn-30}      & 18.60 &  9.65 & 3.56 &  9.57 & 3.68 & 0.82 &  3.25 \\ 
+      {Ga-31}   & 10.37 & 10.37 & 3.61 & 10.22 & 3.81 & 1.43 &  5.52 \\
+      {Br-35}      & 13.23 & 13.47 & 3.85 & 13.19 & 4.19 & 2.11 &  8.71 \\
+      {Zr-40} &  9.86 & 17.99 & 4.00 & 15.63 & 4.51 & 2.93 & 12.87 \\
+      {Sr-38} & 11.04 & 16.10 & 4.10 & 17.28 & 4.83 & 3.94 & 17.92 \\
     \bottomrule
   \end{tabular}
 \end{table}
@@ -141,7 +139,7 @@ Die Parameter der linearen Regression ergeben sich zu
   a &= \qty{3.80}{\sqrt{\unit{\electronvolt}}} & b &= \qty{-2.26}{\sqrt{\unit{\electronvolt}}}.
 \end{align*}
 In der Theorie sollte $b = 0$ gelten. 
-Durch quadrieren folgt die Rydbergenergie
+Durch quadrieren von $a$ folgt die Rydbergenergie
 \begin{equation*}
   R_\infty = \qty{14.45}{\electronvolt}
 \end{equation*}
