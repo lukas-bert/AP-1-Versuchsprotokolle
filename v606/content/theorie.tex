@@ -1,4 +1,69 @@
+\section{Zielsetzung}
+\label{sec:ziel}
+In diesem Versuch wird die magnetische Suszeptibilität paramagnetischer Stoffe bestimmt. Dies geschieht für drei verschiedene seltene Erden. Die Messung der dafür nötigen
+Größen geschieht über eine Brückenschlatung.
+
 \section{Theorie}
 \label{sec:Theorie}
 
-\cite{sample}
+\subsection{Paramagnetismus}
+\label{subsec:paramagnetismus}
+Paramagnetismus ist eine eine Eigenschaft von Materie in einem Magnetfeld. Allerdings trifft diese Eigenschaft nicht auf jegliche Materie. Paramagnetische Stoffe haben ohne 
+äußeres Magnetfeld keine eigene magnetische Ordnung. Außerdem ist bei solchen Stoffen das äußere Magnetfeld stärke als das innere. Daher werden paramagnetische Stoffe in ein
+außen anliegendes Magentfeld hineingezogen. $\mu_{\text{r}}$ liegt bei paramagnetischen Stoffen $ < 1 $. Beispiele für paramagnetische Stoffe sind sogenannte 
+\textit{seltene Erden}. Diese Stoffe werden in diesem Versuch verwendet. 
+
+\subsection{Zusammenhang von Paramagnetismus und atomaren Drehimpuls}
+\label{subsec:drehimpuls}
+Damit Paramagnetismus auftreten kann, dürfen die Atome und Moleküle keine verschwindenden Drehimpulse haben. Wie in \autoref{subsec:paramagnetismus} bereits erwähnt, ist 
+Paramagnetismus temperaturabhängig. Diese Abhängigkeit entsteht, wenn sich die magnetischen Momente der Moleküle ausrichten. Die magnetischen Momente sind mit den Drehimpulsen 
+gekoppelt. Steigt nun die Temperatur eines paramagnetischen Stoffes, so steigt die kinetische Energie der Atome. Daher bewegen sich diese Stärker und stören so die Ausrichtung
+der Momente. 
+
+\subsection{Vom Drehimpuls zur Suszeptibilität}
+\label{subsec:drehsus}
+Es gibt drei Drehimpulse eines Teilchens die den Gesamtdrehimpuls festlegen. Der Banhdrehimpuls der Elektronenhülle, der Spin der Elektronen und Kerndrehimpuls. In schwachen 
+Magnetfeldern hat der Kerndrehimpuls einen vernachlässigbar kleinen Effekt auf den Paramagnetismus. Der Gesamtdrehimpuls ergibt sich daher durch 
+\begin{equation*}
+    \vec{J} = \vec{L} + \vec{S}.
+\end{equation*}
+Dabei beschreiben $\vec{L}$ und $\vec{S}$ die Summe aller einzelnen Drehmomente der jeweiligen Teilchen. Durch die Quantenmechanik kann den Drehmomenten $\vec{L}$ und $\vec{S}$
+ein magnetisches Moment zugeordnet werden. 
+Die potentielle Energie der Einrichtungen der magnetischen Momente kann mittels des \textit{Landé-Faktors} $g_{\text{J}}$ und der Orientierungsquantenzahl $m$ durch 
+\begin{equation}
+    E_{\text{m}} = \mu_{\text{B}} g_{\text{J}} m
+\end{equation} 
+berechnet werden. Dabei ist $\mu_{\text{B}}$ das \textit{Bohrsche Mageton}. Nach Aufspaltung der Enrgieniveaus tritt der \textit{Zeeman-Effekt} auf. Um nun die Magnetisierung
+berechnen zukönnen, muss die Häfugkeit bestimmter Orientierungen der magnetischen Moment herausgefunden werden. Diese verteilen sich gemäß der \textit{Boltzmann-Verteilung}
+auf die  Energieunterniveaus. Nach Summation über die Enrgieniveaus kann ein mittleres magnetisches Moment berechnet werden. Diese lässt sich gemäß der \textit{Brillouin-Funktion}
+berechnen. Diese Formel lässt sich allerdings im allgemeinen nicht analytisch lösen. Daher wird eine Näherung verwendet. Das Problem wird dabei in Raumtemperatur betrachtet und
+es werden lediglich schwache Felder betrachtet. In dieser Näherung kann dann die Magnetisierung bestimmt werden.
+\begin{equation*}
+    M = \frac{1}{3}\mu_0 N g^2_{\text{J}} \mu^2_{\text{B}} \frac{J(J+1)B}{kT}
+\end{equation*}
+Daraus lässt sich dann gemäß Formel \eqref{kommt noch} berechnen. 
+\begin{equation}
+    \label{eqn:chi1}
+    \chi = \frac{1}{3}\mu_0 N g^2_{\text{J}} \mu^2_{\text{B}} \frac{J(J+1)}{kT}
+\end{equation}   
+Daraus folgt eine $\frac{1}{T}$ abhängigkeit für $\chi$. Man nennt die Formel \eqref{eqn:chi1} \textit{Curiesches Gesetz}.
+
+
+\subsection{Suszeptibilität paramagnetischer Substanzen}
+\label{subsec:Berechnung}
+
+Zunächst wird der Zusammenhang zwischen der Magnetfeldstärke $\vec{H}$ und der Suszeptibilität $\chi$ untersucht. Dabei hängt die Magnetfeldstärke $\vec{H}$ über 
+\begin{equation*}
+    \vec{B} = \mu_0 \vec{H}
+\end{equation*}
+zusammen. Dies gilt allerdings nur für ein homogenes Magnetfeld. Befindet sich Materie in einem Magnetfeld ändert sich der Zusammenhang um einen Summanden $\vec{M}$, welcher 
+Magnetisierung gennant wird.
+\begin{equation*}
+    \vec{B} = \mu_0 \vec{H} + \vec{M}
+\end{equation*}
+Die Magnetisierung entsteht durch magnetische Momente der Atome in einer Substanz. Mittels der Suszeptibilität kann die Magnetisierung in Abhängigkeit von $\vec{H}$
+ausgedrückt werden. 
+\begin{equation*}
+    \vec{M} = \mu_0 \chi \vec{H}
+\end{equation*}
+Hierbei besteht kein lineare zusammenhang zwischen $\vec{M}$ und $\vec{H}$, da $\chi$ sowohl von der Temperatur der Probe, sowie von $\vec{H}$ selbst abhängt.
