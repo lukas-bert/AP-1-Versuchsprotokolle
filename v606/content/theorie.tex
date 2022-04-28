@@ -41,13 +41,12 @@ es werden lediglich schwache Felder betrachtet. In dieser Näherung kann dann di
 \begin{equation*}
     M = \frac{1}{3}\mu_0 N g^2_{\text{J}} \mu^2_{\text{B}} \frac{J(J+1)B}{kT}
 \end{equation*}
-Daraus lässt sich dann gemäß Formel \eqref{kommt noch} berechnen. 
+Daraus lässt sich dann gemäß Formel \eqref{eqn:Mchi} berechnen. 
 \begin{equation}
     \label{eqn:chi1}
     \chi = \frac{1}{3}\mu_0 N g^2_{\text{J}} \mu^2_{\text{B}} \frac{J(J+1)}{kT}
 \end{equation}   
-Daraus folgt eine $\frac{1}{T}$ abhängigkeit für $\chi$. Man nennt die Formel \eqref{eqn:chi1} \textit{Curiesches Gesetz}.
-
+Daraus folgt eine $\frac{1}{T}$-Abhängigkeit für $\chi$. Man nennt die Formel \eqref{eqn:chi1} \textit{Curiesches Gesetz}.
 
 \subsection{Suszeptibilität paramagnetischer Substanzen}
 \label{subsec:Berechnung}
@@ -58,12 +57,34 @@ Zunächst wird der Zusammenhang zwischen der Magnetfeldstärke $\vec{H}$ und der
 \end{equation*}
 zusammen. Dies gilt allerdings nur für ein homogenes Magnetfeld. Befindet sich Materie in einem Magnetfeld ändert sich der Zusammenhang um einen Summanden $\vec{M}$, welcher 
 Magnetisierung gennant wird.
-\begin{equation*}
+\begin{equation}
+    \label{eqn:magnetfeld}
     \vec{B} = \mu_0 \vec{H} + \vec{M}
-\end{equation*}
+\end{equation}
 Die Magnetisierung entsteht durch magnetische Momente der Atome in einer Substanz. Mittels der Suszeptibilität kann die Magnetisierung in Abhängigkeit von $\vec{H}$
 ausgedrückt werden. 
-\begin{equation*}
+\begin{equation}
+    \label{eqn:Mchi}
     \vec{M} = \mu_0 \chi \vec{H}
-\end{equation*}
+\end{equation}
 Hierbei besteht kein lineare zusammenhang zwischen $\vec{M}$ und $\vec{H}$, da $\chi$ sowohl von der Temperatur der Probe, sowie von $\vec{H}$ selbst abhängt.
+
+\subsection{Suszeptibilität Selterner-Erd-Verbindungen}
+\label{subsec:suzepseltenererden}
+Ionen seltener Erden weisen einen starken Paramagnetismus auf. Wie in \autoref{subsec:drehimpuls} erklärt, folgt aus dieser Eigenschaft, dass die Elektronenhüllen dieser Stoffe
+große Drehimpulse haben. Diese entstehen durch die 4f-Elektronen in der Elektronenhülle. 4f-Elektronen treten erst ab Ordnungszahlen $\geq 58$. Die 4f-Elektronen liegen weit
+innerhalb der 6s-Schale, wodurch auch die Paramagnetische Eigenschaft seltener Erden erklärt werden kann. Mit den Hundschen Regeln kann der Gesamtdrehimpuls der 4f-Schale
+bestimmt werden. Ist die Schale weniger als zur Hälfte gefüllt lässt sich der Gesamtdrehimpuls gemäß $\vec{J} = \vec{L} - \vec{S}$ berechnet werden. Ist die Schale dahingegen 
+mehr als zur Hälfte gefüllt berechnet sich der Gesamtdrehimpuls nach $\vec{J} = \vec{L} - \vec{S}$. Dabei gilt Jeweils $\vec{L} = \sum \vec{s}_i$ und $\vec{S} = \sum \vec{l}_i$. 
+
+\subsection{Beschreibung einer Messapparatur der Suszeptibilität}
+\label{subsec:Messapparatur}
+Für eine Messapparatur der Suszeptibilität ist es nötig ein Magnetfeld zu erzeugen. Dies geschieht häufig über eine Lange Spule, da das Magnetfeld im inneren der Spule sehr 
+homogen ist. Um mit einer solchen Spule zu rechnen ist die Induktivität eine relevante Größe.
+Für eine Spule in einem Vakuum gilt für die Induktivität die Formel $L = \mu_0 \frac{n^2}{l}F$. Dabei beschreibt $l$ die Länge der Spule und $F$ den Querschnitt der Spule.
+Um die Suszeptibilität eines Materials zu bestimmen wird ein Stoff nun in das Magnetfeld der Spule eingeführt. Geschieht dies, so ändert sich die Induktivität der Spule. 
+Da in der Realität eine Spule nicht vollständig mit einer Probe gefüllt wird, kann man die Formel der Induktivität anpassen.
+\begin{equation}
+    \label{eqn:L_M}
+    L_{\text{M}} = \mu_0 \frac{n^2 Q}{l} + \chi \mu_0 \frac{n^2 Q}{l}
+\end{equation} 
