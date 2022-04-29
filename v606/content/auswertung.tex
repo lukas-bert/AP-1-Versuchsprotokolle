@@ -1,12 +1,42 @@
 \section{Auswertung}
 \label{sec:Auswertung}
+Die in diesem Kapitel erwähnten Fehler genügen der Gaußschen Fehlerfortpflanzung beziehungsweise dem Standardfehler des Mittelwertes und wurden mit \textit{uncertainties}
+\cite{uncertainties} in \textit{Python} berechnet. Die relative Abweichung eines Messwertes $x$ zu einem Theoriewert $x^*$ wird nach 
+\begin{equation}
+  \label{eqn:Delta_rel}
+  \symup{\Delta}_\text{rel}(x) = \frac{|x^* - x|}{x^*}
+\end{equation}
+berechnet.
+
+\subsection{Filterkurve des Selektivverstärkers}
+\label{subsec:A_Filterkurve}
+Im ersten Teil des Versuches wird die Filterkurve des Selektivverstärkers analysiert. Die Messwertepaare der Frequenz und Spannung werden in einem Diegramm gegeneinander
+aufgetragen, wodurch sich eine Glockenkurve bildet, was in \autoref{fig:plot} zu sehen ist. Um die markanten Punkte der Glockenkurve zu verdeutlichen ist die Spannung 
+relativ zur maximalen Spannung (Eingangsspannung) $U_\text{max} = \qty{8.5}{\volt}$ dargestellt. 
+Die Glockenkurve hat die Gestalt
+\begin{equation*}
+  \label{eqn:Gaussglocke}
+  f(x) = \symup{exp}\left(-\alpha(x-b)^2\right).
+\end{equation*}
+Der Parameter $b$ dient dabei zur Verschiebung der Glockenkurve entlang der $x$-Achse und entspricht dem Wert $\nu_0$ des Maximums. 
+Durch eine Regression mittels \textit{scipy} \cite{scipy} ergeben sich die Parameter
+\begin{align}
+  \label{eqn:Parameter}
+  \alpha &= \qty{2.28 +- 0.3}{\per\kilo\hertz\squared} & b &= \qty{21.75 +- 0.04}{\kilo\hertz}.
+\end{align}
+Es folgt sofort $\nu_0 = b = \qty{21.75 +- 0.04}{\kilo\hertz}$, die Frequenzen $\nu_-$ und $\nu_+$ können als Schnittpunkte der Funktion mit der Geraden $y = 1/\sqrt{2}$
+grafisch ermittel werden. Dieses Vorgehen kann ebenfalls \autoref{fig:plot} entnommen werden. 
+Es ergibt sich $\nu_- = \qty{21.36}{\kilo\hertz}$ und $\nu_+ = \qty{22.14}{\kilo\hertz}$. 
+Durch Einsetzen in \autoref{eqn:Guete} kann der Wert der Güte berechnet werden.
+Unter Beachtung der Gaußschen Fehlerfortpflanzung folgt
+\begin{align*}
+  Q &= \qty{27.89 +- 0.06}{} & \symup{\Delta}(Q) = \qty{39.45}{\percent}.
+\end{align*}
+Die relative Abweichung berechnet sich nach \autoref{eqn:Delta_rel}. Als Theoriewert der Güte wird der am Sinusgenerator einstellbare Wert $Q_\text{real} = 20$ verwendet.
 
 \begin{figure}
   \centering
   \includegraphics{plot.pdf}
-  \caption{Plot.}
+  \caption{Filterkurve des Selektivverstärkers. Erstellt mit \textit{matplotlib} \cite{matplotlib} unter Verwendung von \textit{scipy} \cite{scipy}.}
   \label{fig:plot}
 \end{figure}
-
-
-Siehe \autoref{fig:plot}!

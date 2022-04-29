@@ -1,6 +1,8 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import scipy.optimize as op
+from uncertainties import ufloat
+import uncertainties.unumpy as unp
 
 # Bestimmung der Filterkurve
 
@@ -8,10 +10,17 @@ f, U = np.genfromtxt("content/data/Filterkurve.txt", unpack=True)
 
 U = U/8.5
 
-def Gauss(x, a, b):
-    return np.exp(-(x-a)**2*b)
+def Gauss(x, b, a):
+    return np.exp(-(x-b)**2*a)
 
 params, pcov = op.curve_fit(Gauss, f, U, p0 = [21.6, 1])            # p0, da Gaussglocke ukm 21.6 nach rechts verschoben
+err = np.sqrt(np.diag(pcov))
+
+b = ufloat(params[0], err[0])
+a = ufloat(params[1], err[1])
+
+print("Parameter des Fits: ", a, "\t", b)
+
 
 #plt.axvline(21.6, ymin=0, ymax=0.8333, color="forestgreen", linestyle="dotted")
 plt.axhline(1/np.sqrt(2), color="gray", linestyle="dotted", label = r"$1 / \sqrt{2}$")
@@ -19,7 +28,7 @@ plt.plot(21.6, 1, marker="o", markeredgecolor="firebrick", markersize=8, linewid
 
 x = np.linspace(15, 31, 10000)
 
-plt.plot(x, Gauss(x, *params), color = "cornflowerblue")
+plt.plot(x, Gauss(x, *params), color = "cornflowerblue", label = "Fit")
 plt.plot(21.3641, 1/np.sqrt(2), marker = "*", markersize = 8, color = "hotpink", markeredgecolor = "k", markeredgewidth = 0.65, linewidth=0, label = r"$\nu_{-} \mathbin{/} \nu_{+}$")
 plt.plot(22.1435, 1/np.sqrt(2), marker = "*", markersize = 8, color = "hotpink", markeredgecolor = "k", markeredgewidth = 0.65, linewidth=0)
 plt.plot(f, U, color="firebrick", marker="x", label="Messwerte", linewidth=0)
@@ -37,10 +46,10 @@ plt.savefig("build/plot.pdf")
 #plt.show()
 plt.close()
 
-G = params[0]/(22.14-21.36)
+G = b/(22.14-21.36)
 print("------------------------------------------------")
 print("nu_-: ", 21.36)
-print("nu_0: ", params[0])
+print("nu_0: ", b)
 print("nu_+: ", 22.14)
 print("Güte der Glockenkurve: ", G)
 print("------------------------------------------------")
