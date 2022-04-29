@@ -20,8 +20,8 @@ plt.plot(21.6, 1, marker="o", markeredgecolor="firebrick", markersize=8, linewid
 x = np.linspace(15, 31, 10000)
 
 plt.plot(x, Gauss(x, *params), color = "cornflowerblue")
-plt.plot(21.3641, 1/np.sqrt(2), marker = "*", markersize = 7, color = "lawngreen", linewidth=0, label = r"$\nu_{-} \mathbin{/} \nu_{+}$")
-plt.plot(22.1435, 1/np.sqrt(2), marker = "*", markersize = 7, color = "lawngreen", linewidth=0)
+plt.plot(21.3641, 1/np.sqrt(2), marker = "*", markersize = 8, color = "hotpink", markeredgecolor = "k", markeredgewidth = 0.65, linewidth=0, label = r"$\nu_{-} \mathbin{/} \nu_{+}$")
+plt.plot(22.1435, 1/np.sqrt(2), marker = "*", markersize = 8, color = "hotpink", markeredgecolor = "k", markeredgewidth = 0.65, linewidth=0)
 plt.plot(f, U, color="firebrick", marker="x", label="Messwerte", linewidth=0)
 
 #plt.text(22, 8.5, r"$\qty{8.5}{\volt}$")
