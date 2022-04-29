@@ -88,3 +88,58 @@ Da in der Realität eine Spule nicht vollständig mit einer Probe gefüllt wird,
     \label{eqn:L_M}
     L_{\text{M}} = \mu_0 \frac{n^2 Q}{l} + \chi \mu_0 \frac{n^2 Q}{l}
 \end{equation} 
+Da der Unterschied zwischen der gefüllten Spule und einer im Vakuum nur sehr gering ist, wir eine sehr hohe Auflösung für die Messung von $L$ benötigt,
+um die Suszeptibilität zu bestimmen. Um die nötige Auflösung zu erreichen, können zwei möglichst identische Spulen verwendet werden. Dabei wird eine der beiden Spule nicht 
+gefüllt und in die andere wird die Messprobe eingeführt. Die beiden Spulen werden über eine Brückenschaltung zusammengeschlossen. Mit einer solchen Schaltung, wie sie in
+\autoref{fig:schaltplan} dargestellt ist, kann die Suszeptibilität nun über zwei Methoden bestimmt werden.
+\begin{figure}
+    \centering
+    \includegraphics[width = .7\textwidth]{content/Schaltung1.PNG}
+    \caption{Schaltplan einer Brückenschaltung zweier identischer Spulen. \cite{v606}}
+    \label{fig:schaltplan}
+\end{figure} 
+Für die erste Methode müssen zunächst beide Spulen ohne Probe aufeinander abgestimmt werden. Dann wird die Brückenspannung gemessen, welche bei einführung der Probe in eine der 
+Spulen entsteht. Aus der entstandenen Brückenspannung kann dann die Suszeptibilität berechnet werden.
+
+Bei der zweiten Methode werden erneut beide Spulen aufeinander abgestimmt. Dann wird die Probe eingeführt und die beiden Brücken werden erneut aufeinander abgestimmt. Aus der
+Änderung der Abgleichelemente kann nun die Suszeptibilität bestimmt werden.
+
+Die Brückenspannung der ersten Methode kann aus Knoten- und Maschenregeln, sowie der Annahme, dass $\Delta L << L$, bestimmt werden. 
+\begin{equation*}
+    U_{\text{Br}} = \frac{\omega\mu_0\chi n^2Q}{4l}\frac{1}{\sqrt{R^2 + \omega^2\left(\mu_0\frac{n^2}{l}F\right)^2}}U_{\text{Sp}}
+\end{equation*}
+Um $\chi$ zu berechnen kann diese Formel nach $\chi$ umgestellt werden.
+\begin{equation}
+    \label{eqn:chi_theo}
+    \chi = \frac{U_{\text{Br}}}{U_{\text{Sp}}}\frac{4l}{\omega\mu_0n^2Q}\sqrt{R^2 + \omega^2\left(\mu_0\frac{n^2}{l}F\right)^2}
+\end{equation}
+Dabei kann für hinreichend große Messfrequenzen $\chi$ angenähert werden.
+\begin{equation}
+    \label{eqn:chi:näherung}
+    \chi = 4 \frac{F}{Q}\frac{U_{\text{Br}}}{U_{\text{Sp}}}
+\end{equation}
+
+
+Für die Bestimmung von $\chi$ über die zweite Methode wird die Abgleichbedingung $r_1R_4 = r_2R_3$ unter kleiner Abweichung $\Delta R$ betrachtet. Diese Abweichung entsteht
+durch das Einführen der Probe in eine der Spulen. Die Abweichung $\Delta R$ lässt sich aus der Abgleichbedingung und der Näherung $\Delta L << L$ bestimmt.
+\begin{equation*}
+    \Delta R = \chi\frac{R_3}{2}\frac{Q}{F}
+\end{equation*}
+Damit folgt dann wieder eine Gleichung für $\chi$.
+\begin{equation}
+    \label{eqn:chimethode2}
+    \chi = 2\frac{\Delta R}{R_3}\frac{F}{Q}
+\end{equation}
+
+\subsection{Unterdrückung von Störspannungen}
+\label{subsec:unterdrückung}
+Bei einer Schaltung, wie einer in \autoref{fig:schaltplan}, tritt das experimentelle Problem auf, dass Störspannungen an den Ausgangsklemmen die zu messende Brückenspannung
+verdecken. Eine Lösung dieses Problem liegt in der Eigenschaft von monofrequenten Signalspannungen. Die Brückenspannung ist ebenfalls ein monofrequentes Signal. Daher kann man
+durch einen \textit{Selektivverstärker}. Die Filterkurve eines Selektivverstärkers hat die Form eine gaußschen Glockenkurve. Ein Beispiel einer Filterkurve ist in \autoref{fig:Filterkurve}
+zu sehen. Eine Filterkurve beschreibt die Abhängigkeit von
+$\frac{U_{\text{A}}}{U_{\text{E}}}$ zur Frequenz $\nu$. Die Breite der Filterkurve ist ein Maß für die Spannungsunterdrückung. Damit im Zusammenhang steht die Güte $Q$. Die
+Güte eines Selektivverstärkers kann gemäß
+\begin{equation}
+    Q = \frac{\nu_0}{\nu_+ - \nu_-}
+\end{equation}
+berechnet werden. Dabei beschreibt $\nu_{\pm}$ die Frequenz bei welcher die Filterkurve $\frac{1}{\sqrt{2}}$ erreicht.
