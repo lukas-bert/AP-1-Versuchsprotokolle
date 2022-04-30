@@ -18,6 +18,14 @@ Die Glockenkurve hat die Gestalt
   \label{eqn:Gaussglocke}
   f(x) = \symup{exp}\left(-\alpha(x-b)^2\right).
 \end{equation*}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics{plot.pdf}
+  \caption{Filterkurve des Selektivverstärkers. Erstellt mit \textit{matplotlib} \cite{matplotlib} unter Verwendung von \textit{scipy} \cite{scipy}.}
+  \label{fig:plot}
+\end{figure}
+
 Der Parameter $b$ dient dabei zur Verschiebung der Glockenkurve entlang der $x$-Achse und entspricht dem Wert $\nu_0$ des Maximums. 
 Durch eine Regression mittels \textit{scipy} \cite{scipy} ergeben sich die Parameter
 \begin{align}
@@ -34,16 +42,13 @@ Unter Beachtung der Gaußschen Fehlerfortpflanzung folgt
 \end{align*}
 Die relative Abweichung berechnet sich nach \autoref{eqn:Delta_rel}. Als Theoriewert der Güte wird der am Sinusgenerator einstellbare Wert $Q_\text{real} = 20$ verwendet.
 
-\begin{figure}
-  \centering
-  \includegraphics{plot.pdf}
-  \caption{Filterkurve des Selektivverstärkers. Erstellt mit \textit{matplotlib} \cite{matplotlib} unter Verwendung von \textit{scipy} \cite{scipy}.}
-  \label{fig:plot}
-\end{figure}
-
 \subsection{Bestimmung der Suszeptibilitäten}
 \label{subsec:A_Suszep}
-
+Die Suszptibilität wurde in diesem Versuch auf zwei Arten bestimmt, welche in \autoref{subsec:Messapparatur} beschrieben worden sind. Damit $\chi$ aus den Widerständen gemäß
+Formel \eqref{eqn:chimethode2} berechnet werden kann, wurden zunächst die Querschnittsflächen der Proben bestimmt. Diese wurden zu 
+$Q_{\text{Dy2O3}} = \qty{12.04}{\milli\metre\squared}$, $Q_{\text{Gd2O3}} = \qty{8.89}{\milli\metre\squared}$ und $Q_{\text{C6O12Pr3}} = \qty{56.75}{\milli\metre\squared}$
+bestimmt. Mit einem Spulenquerschnitt von $F = \qty{86,6}{\milli\metre\squared}$, einem $R_3 = \qty{998}{\ohm}$ und einem $\symup{\Delta}R$, welches den Orginalmessdaten 
+entnommen werden kann ergeben sich die Suszeptibilitäten der Proben. Diese werden in \autoref{tab:Chi_exp} dargestellt.
 \begin{table}
   \centering
   \caption{Experimentell ermittelte Suszeptibilitäten.}
@@ -66,9 +71,20 @@ Die relative Abweichung berechnet sich nach \autoref{eqn:Delta_rel}. Als Theorie
   \end{tabular}
 \end{table}
 
+Um die Suszeptibilität aus den Spannungen gemäß Formel \autoref{eqn:chi:näherung} zu berechnen sind ebenfalls die bereits beschriebenen Querschnitte nötig. Außerdem wird ein 
+$U_{\text{Sp}} = \qty{8.5}{\volt}$ verwendet und die gemessenen Brückenspannungen $U_{\text{Br}}$, welche ebenfalls den Orginalmessdaten im Anhang entnommen werden können.
+Mit diesen Werten ergeben sich dann erneut die Suszeptibilitäten. Diese werden in \autoref{tab:Chi_exp} dargestellt.
+Theoriewerte der Suszeptibilitäten lassen sich nach Formel \eqref{eqn:chi1} berechnen. Die Theoriewerte unterliegen allerdings der Annahme, dass die Proben bei konstanter 
+Raumtemperatur untersucht wurden. Daher wurde eine Raumtemperatur von $T = \qty{293.15}{\kelvin}$ verwendet. Außerdem werden die Quantenzahlen $J$, $S$ und $L$ benötigt. Diese
+können aus den Hundschen Regeln bestimmt werden. Für $\symup{Dy}_2\symup{O}_3$ lauten diese $J = 7.5$, $S = 2.5$ und $L = 5$. $\symup{Gd}_2\symup{O}_3$ hat die Quantenzahlen
+$J = 3.5$, $S = 3.5$ und $L = 0$. Da uns zu $\symup{C}_6\symup{O}_{12}\symup{Pr}_3$ keine Quantenzahlen bekannt sind, konnten auch keine Theoriewerte bestimmt werden.
+Mit dem Bohrschen Magneton und dem \textit{Landé-Faktor}, welche einfach von dem bekannten Quantenzahlen abhängt, können dann die theoretischen Suszeptibilitäten der Proben
+bestimmt werden. Die Theoriewerte werden in \autoref{tab:Chi_abwU} dargestellt. Aus diesen wird dann in derselben Tabelle noch die Abweichung vom Theoriewert zum experimentellen
+Wert berechnet. 
+
 \begin{table}
   \centering
-  \caption{Abweichung von Theoriewerten zu den Suszptibilitäten(Spannung).}
+  \caption{Abweichung von Theoriewerten zu den berechneten Suszptibilitäten(Spannung).}
   \label{tab:Chi_abwU}
   \begin{tabular}{c S[table-format = 1.4] S @{${}\pm{}$} l S}
     \toprule
@@ -82,7 +98,7 @@ Die relative Abweichung berechnet sich nach \autoref{eqn:Delta_rel}. Als Theorie
 \end{table}
 \begin{table}
   \centering
-  \caption{Abweichung von Theoriewerten zu den Suszptibilitäten(Widerstand).}
+  \caption{Abweichung von Theoriewerten zu den berechneten Suszptibilitäten(Widerstand).}
   \label{tab:Chi_abwR}
   \begin{tabular}{c S[table-format = 1.4] S @{${}\pm{}$} l S}
     \toprule

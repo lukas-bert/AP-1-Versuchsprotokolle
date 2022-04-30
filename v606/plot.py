@@ -89,7 +89,7 @@ rho_g = 7400
 Q_g = m_g/(l_g*rho_g)
 
 Q_c = (np.pi * (0.0085 / 2) ** 2)           # keine Literaturwerte zur Dichte, also Querschnitt der Probe
-#print(Q_d, Q_g, Q_c)
+print("Querschnittsflächen der Proben D,G,C ", Q_d, Q_g, Q_c)
 
 # Messdaten
 
