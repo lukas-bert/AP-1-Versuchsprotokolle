@@ -178,3 +178,15 @@ print("------------------------------------------------")
 #Probe 3
 #chi_c = chi_theo(3.5, 3.5, 0, rho_c, 362.4982*1e-3)
 #print("magnetische Suszeptibilität von c ", chi_c)
+
+#Abweichungen
+
+chi_abw1 = np.abs(unp.nominal_values(chi_Udm) - chi_d)/chi_d
+chi_abw2 = np.abs(unp.nominal_values(chi_Ugm) - chi_g)/chi_g
+
+print("Abwecihungen mit Spannung: ", chi_abw1*100, chi_abw2*100)
+
+chi_abw1 = np.abs(unp.nominal_values(chi_Rdm) - chi_d)/chi_d
+chi_abw2 = np.abs(unp.nominal_values(chi_Rgm) - chi_g)/chi_g
+
+print("Abwecihungen mit Spannung: ", chi_abw1*100, chi_abw2*100)
