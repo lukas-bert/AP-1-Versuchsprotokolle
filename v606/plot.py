@@ -121,16 +121,32 @@ chi_Rd = chi_R(R_0d - R_2d, Q_d)
 chi_Rg = chi_R(R_0g - R_2g, Q_g)
 chi_Rc = chi_R(R_0c - R_2c, Q_c)
 
-chi_Ud = chi_U(1, np.abs(U_bd - U_0d), Q_d)
-chi_Ug = chi_U(1, np.abs(U_bg - U_0g), Q_g)
-chi_Uc = chi_U(1, np.abs(U_bc - U_0c), Q_c)
+chi_Ud = chi_U(8.5, np.abs(U_bd - U_0d), Q_d)
+chi_Ug = chi_U(8.5, np.abs(U_bg - U_0g), Q_g)
+chi_Uc = chi_U(8.5, np.abs(U_bc - U_0c), Q_c)
 
+# d: Dy_2 O_3 (Dysprosium(3)oxid)
+# g: Gd_2 O_3 (Gadolinium(3)oxid)
+# c: C_6 O_12 Pr_2 (Praseodymium oxalate)
+
+# Mittelwerte (und Fehler): 
+chi_Rdm = ufloat(np.mean(chi_Rd), np.std(chi_Rd))
+chi_Rgm = ufloat(np.mean(chi_Rg), np.std(chi_Rg))
+chi_Rcm = ufloat(np.mean(chi_Rc), np.std(chi_Rc))
+
+chi_Udm = ufloat(np.mean(chi_Ud), np.std(chi_Ud))
+chi_Ugm = ufloat(np.mean(chi_Ug), np.std(chi_Ug))
+chi_Ucm = ufloat(np.mean(chi_Uc), np.std(chi_Uc))
+
+# Übersichtliche Ausgabe der Werte
 print("------------------------------------------------")
-print("Suszeptibilität aus Widerständen:")
+print("Suszeptibilität aus Widerständen: (Dy, Gd, C)")
 print(chi_Rd, chi_Rg, chi_Rc)
+print(chi_Rdm, "\t\t   ", chi_Rgm, "\t\t   ",chi_Rcm)
 print("------------------------------------------------")
-print("Suszeptibilität aus Spannungen:")
+print("Suszeptibilität aus Spannungen: (Dy, Gd, C)")
 print(chi_Ud, chi_Ug, chi_Uc)
+print(chi_Udm, "\t\t   ", chi_Ugm, "\t\t   ", chi_Ucm)
 print("------------------------------------------------")
 
 
@@ -149,32 +165,16 @@ def chi_theo(J,S,L,rho,M):
 
 #Probe 1
 chi_d = chi_theo(7.5, 2.5, 5, rho_d, 372.998*(10**-3))
+print("------------------------------------------------")
+print("Theoriewerte:")
 print("magnetische Suszeptibilität von Dy ", chi_d)
 
 #Probe 2
 chi_g = chi_theo(3.5, 3.5, 0, rho_g, 362.4982*1e-3)
+print("------------------------------------------------")
 print("magnetische Suszeptibilität von Gd ", chi_g)
+print("------------------------------------------------")
 
 #Probe 3
 #chi_c = chi_theo(3.5, 3.5, 0, rho_c, 362.4982*1e-3)
 #print("magnetische Suszeptibilität von c ", chi_c)
-
-# x = np.linspace(0, 10, 1000)
-# y = x ** np.sin(x)
-#
-# plt.subplot(1, 2, 1)
-# plt.plot(x, y, label='Kurve')
-# plt.xlabel(r'$\alpha \mathbin{/} \unit{\ohm}$')
-# plt.ylabel(r'$y \mathbin{/} \unit{\micro\joule}$')
-# plt.legend(loc='best')
-#
-# plt.subplot(1, 2, 2)
-# plt.plot(x, y, label='Kurve')
-# plt.xlabel(r'$\alpha \mathbin{/} \unit{\ohm}$')
-# plt.ylabel(r'$y \mathbin{/} \unit{\micro\joule}$')
-# plt.legend(loc='best')
-#
-## in matplotlibrc leider (noch) nicht möglich
-# plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-# plt.savefig('build/plot.pdf')
-#
