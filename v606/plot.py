@@ -3,6 +3,7 @@ import numpy as np
 import scipy.optimize as op
 from uncertainties import ufloat
 import uncertainties.unumpy as unp
+import scipy.constants as const
 
 # Bestimmung der Filterkurve
 
@@ -98,10 +99,10 @@ R_0c, R_2c, U_bc, U_0c, U_2c = np.genfromtxt("content/data/Probe1.txt", unpack=T
 
 R_0d = R_0d * 5
 R_2d = R_2d * 5
-R_0g = R_0d * 5
-R_2g = R_2d * 5
-R_0c = R_0d * 5
-R_2c = R_2d * 5
+R_0g = R_0g * 5
+R_2g = R_2g * 5
+R_0c = R_0c * 5
+R_2c = R_2c * 5
 
 # Funktionen zur Berechnung der Suszeptibilität
 
@@ -131,6 +132,32 @@ print("------------------------------------------------")
 print("Suszeptibilität aus Spannungen:")
 print(chi_Ud, chi_Ug, chi_Uc)
 print("------------------------------------------------")
+
+
+#theoretische Suszeptibilität
+def g_j(J,S,L):
+    return (3*J*(J+1) + S*(S+1) - L*(L+1))/(2*J*(J+1))
+
+mu_b = (const.e*const.h)/(4*const.pi*const.m_e)
+
+def N(rho,M):
+    return (2*const.N_A*rho)/M
+T = 293.15 #K == Raumtemperatur
+
+def chi_theo(J,S,L,rho,M):
+    return const.mu_0 * mu_b**2 * g_j(J,S,L)**2 * N(rho,M)*J*(J+1)/(3*const.k*T)
+
+#Probe 1
+chi_d = chi_theo(7.5, 2.5, 5, rho_d, 372.998*(10**-3))
+print("magnetische Suszeptibilität von Dy ", chi_d)
+
+#Probe 2
+chi_g = chi_theo(3.5, 3.5, 0, rho_g, 362.4982*1e-3)
+print("magnetische Suszeptibilität von Gd ", chi_g)
+
+#Probe 3
+#chi_c = chi_theo(3.5, 3.5, 0, rho_c, 362.4982*1e-3)
+#print("magnetische Suszeptibilität von c ", chi_c)
 
 # x = np.linspace(0, 10, 1000)
 # y = x ** np.sin(x)
