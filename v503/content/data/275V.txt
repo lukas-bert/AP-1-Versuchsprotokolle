@@ -1,0 +1,13 @@
+# Messung bei 275
+# Spalten: Messreihen zu verschiedenen Öltröpfchen
+# Angaben: Zeit in Sekunden pro 0.5mm
+# ersten 3 Werte: nach oben, letzten 3: nach unten
+# letzter Wert = v_0
+#  T = 30°C
+12.38  3.63  5.43 3.80  5.96
+12.07  3.12  5.20 3.76  5.83
+12.33  3.16  5.16 3.83  5.44 
+ 4.26  2.65  2.64 1.86  3.44 
+ 3.86  2.64  2.73 1.73  3.76 
+ 4.30  2.58  2.69 1.80  2.87 
+14.35 21.86 10.13 6.33 19.15   
