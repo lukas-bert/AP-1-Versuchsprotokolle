@@ -1,0 +1,12 @@
+# Messung bei 175V, Temperatur konstant 2.2 MOhm
+# Spalten: Messreihen zu verschiedenen Öltröpfchen
+# Angaben: Zeit in Sekunden pro 0.5mm
+# ersten 3 Werte: nach oben, letzten 3: nach unten
+14.87 4.54  9.64 3.89
+12.72 3.94  9.49 3.88
+16.84 4.28 10.69 3.49
+ 6.17 4.07  7.40 2.63
+ 6.43 4.16  8.28 2.69
+ 6.10 4.08  7.68 2.51
+
+ # v_0 zu 1: 0.1mm/6.3s
