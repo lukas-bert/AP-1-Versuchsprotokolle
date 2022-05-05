@@ -280,6 +280,8 @@ temp1err = [temp, temp1, 0]
 t5v275 = unp.uarray(temp2, temp1err)
 print(t5v275)
 
+
+
 #plt.subplot(1, 2, 1)
 #plt.plot(x, y, label='Kurve')
 #plt.xlabel(r'$\alpha \mathbin{/} \unit{\ohm}$')
