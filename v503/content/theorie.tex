@@ -1,4 +1,80 @@
+\section{Zielsetzung}
+\label{sec:Ziel}
+In diesem Versuch wird die Elementarladung $e$ mithilfe des historischen \textit{Milikan-Versuchs} bestimmt. Dabei wird das Verhalten geladener
+Öltröpfchen in dem $\vec{E}$-Feld eines Plattenkondensators untersucht. Ebenso werden die Advogradokonstante $\symup{N}_{\text{A}}$ und die Faraday-Konstante
+experimentell ermittelt.
+
 \section{Theorie}
 \label{sec:Theorie}
+Bei der Bestimmung der Elementarladung über die Milikan-Methode werden Öltröpfchen in das elektrische Feld eines Plattenkondensators zerstäubt.
+Durch Reibung der Tröpfchen mit der Luft, werden diese elektrisch geladen. Die Ladung $q$ der Tröpfchen kann dabei nur ein ganzzahliges
+Vielfaches der Elementarladung sein.
+Das elektrische Feld des Plattenkondensators ist vertikal ausgerichtet, sodass die auf geladene Teilchen wirkende elektrische Kraft 
+$\vec{F}_\text{el}$ genau parallel (oder antiparallel) zur Gravitationskraft $\vec{F}_\text{g}$ wirkt. Da die Teilchen sich mit einer 
+Geschwindigkeit $\vec{v}$ durch den luftgefüllten Raum bewegen, wirkt zusätzlich die Stokesche Reibungskraft $\vec{F}_\text{R}$ entgegen der Bewegungsrichtung.
+Die Wirkung dieser Kräfte auf ein Teilchen können gemäß
+\begin{align}
+    \label{eqn:Kraefte}
+    \vec{F}_\text{g} &= m \vec{g} \\
+    \vec{F}_\text{el} &= q \vec{E} \\
+    \vec{F}_\text{g} &= -6\symup{\pi}r\eta_\text{L} \vec{v}
+\end{align}
+berechnet werden. Das Teilchen hat die Masse $m$, $\vec{g}$ ist die Fallbeschleunigung, $\eta_\text{L}$ die
+Viskosität der Luft und $r$ der Radius des Teilchens.
+Nach kurzer Zeit stellt sich ein Kräftegleichgewicht ein, wodurch sich die Tröpfchen dann mit einer konstanten Geschwindigkeit bewegen.
+Bei abgeschalteten elektrischen Feld bewegen sich die Öltröpfchen dann mit der Geschwindigkeit $v_0$ und erhalten durch den Auftrieb der Luft den Radius
+\begin{equation*}
+    \label{eqn:Radius}
+    r = \sqrt{\frac{9 \eta_\text{L}v_0}{2g(\rho_\text{Oel}- \rho_\text{L})}}.
+\end{equation*}
+Das Kräftegleichgewicht führt in diesem Fall zu der Gleichung
+\begin{equation*}
+    \frac{4\symup{\pi}}{3}r^3(\rho_\text{Oel}- \rho_\text{L})g = 6 \symup{\pi} \eta_\text{L}r v_0.
+\end{equation*}
+Je nach Polung des $\vec{E}$-Feldes wirken die elektrostatische- und die Reibungskraft in verschiedene Richtungen. 
+Die Orientierung der Kräfte kann \autoref{fig:Kraeftegleichgewicht} entnommen werden.
 
-\cite{sample}
+\begin{figure}
+    \centering
+    \includegraphics[width = .9\textwidth]{content/Kräftegleichgewicht.jpg}
+    \label{fig:Kraeftegleichgewicht}
+    \caption{Orientierung der wirkenden Kräfte bei unterschiedlicher Polung des elektrischen Feldes. \cite{v503}}
+\end{figure}
+
+Wenn die obere Platte des Kondensators positiv geladen ist und eine ausreichend große Spannung anliegt, bewegt sich das Öltröpfchen mit der Geschwindigkeit $v_\text{auf}$
+nach oben. 
+Es folgt das Kräftegleichgewicht
+\begin{equation*}
+    \label{eqn:Kraefte_v_auf}
+    \frac{4\symup{\pi}}{3}r^3(\rho_\text{Oel} + \rho_\text{L})g + 6 \symup{\pi} \eta_\text{L}r v_\text{auf} = qE.
+\end{equation*}
+Bei entgegengesetzter Polung ergibt sich 
+\begin{equation*}
+    \label{eqn:Kraefte_v_auf}
+    \frac{4\symup{\pi}}{3}r^3(\rho_\text{Oel}- \rho_\text{L})g - 6 \symup{\pi} \eta_\text{L}r v_ab = -qE.
+\end{equation*}
+mit der nach unten gerichteten Geschwindigkeit $v_\text{ab}$.
+
+Aus diesen beiden Gleichungen kann die Ladung $q$ des Öltröpfchen zu 
+\begin{equation}
+    \label{eqn:q}
+    q = \frac{9}{2} \symup{\pi} \sqrt{\frac{\eta_\text{L}^3(v_\text{ab} - v_\text{auf})}{g(\rho_\text{Oel}- \rho_\text{L})}} \cdot \frac{v_\text{ab} + v_\text{auf}}{E},
+\end{equation}
+wobei $E$ der Betrag des elektrischen Feldes ist. Für die Geschwindigkeiten folgt der Zusammenhang
+\begin{equation}
+    \label{eqn:v_0}
+    v_0 = v_\text{ab} - v_\text{auf}.
+\end{equation}    
+Da die Tröpfchen in diesem Versuch kleiner sind als die mittlere freie Weglänge $\overline{l}$ in Luft, gilt die das Stokesche Reibungsgesetzt nicht in der genannten Form.
+Um dies zu korrigieren muss eine effektive Viskosität der Luft über den \textit{Cunningham-Korrekturterm}
+\begin{equation}
+    \label{eqn:n_eff}
+    \eta_\text{eff} = \eta_\text{L} \left(\frac{1}{1 + B \frac{1}{pr}}\right)
+\end{equation}
+berechnet werden. Dazu wird der Luftdruck $p$ und die experimentell bestimmbare Konstante $B =  \num{6.17e-3}\, \text{Torr}\cdot\unit{\centi\metre}$ \cite{v503} verwendet.
+Es gilt $1\,\text{Torr} \approx \qty{133.322}{\pascal}$ \textbf{Quellenangabe maybe??}.
+Für die korrigierte Ladung gilt
+\begin{equation}
+    \label{eqn:q_korrigiert}
+    q_\text{real} = q_0 \left(1+ \frac{B}{pr}\right)^{3/2}.
+\end{equation}
