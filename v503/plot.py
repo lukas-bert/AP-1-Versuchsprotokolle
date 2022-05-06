@@ -3,6 +3,10 @@ import numpy as np
 from scipy.stats import sem
 import scipy as sp
 import uncertainties.unumpy as unp
+import scipy.constants as const
+from uncertainties.unumpy import nominal_values as noms
+from uncertainties.unumpy import std_devs as devs
+from uncertainties import ufloat
 
 #Einlesen der Daten
 v_t1v175, v_t2v175, v_t3v175, v_t4v175, v_t5v175 = np.genfromtxt("content/data/175V.txt", unpack = True)
@@ -15,7 +19,7 @@ v_t1v275, v_t2v275, v_t3v275, v_t4v275, v_t5v275 = np.genfromtxt("content/data/2
 #Messreihe 1:
 
 v_01v175 = 0.1*10**(-3)/6.3 #m/s
-v_02v175 = 0.5*10**(-3)/27.9
+v_05v175 = 0.5*10**(-3)/27.9
 
 #Messreihe 2:
 
@@ -25,8 +29,7 @@ v_03v200 = 0.5*10**(-3)/26.44
 v_04v200 = 0.5*10**(-3)/20.00
 v_05v200 = 0.5*10**(-3)/25.30
 
-#Berechnung der geschwindigkeiten:
-
+#Berechnung der Geschwindigkeiten:
 
 v_t1v175 = 0.5*10**(-3)/v_t1v175
 v_t2v175 = 0.5*10**(-3)/v_t2v175 
@@ -68,7 +71,7 @@ v_t2v175om = np.mean(v_t2v175[0:3])
 temp = sem(v_t2v175[0:3])
 v_t2v175um = np.mean(v_t2v175[3:6])
 temp1 = sem(v_t2v175[3:6])
-temp2 = [v_t2v175om, v_t2v175um, v_02v175]
+temp2 = [v_t2v175om, v_t2v175um, 0]
 temp1err = [temp, temp1, 0]
 t2v175 = unp.uarray(temp2, temp1err)
 print(t2v175)
@@ -95,7 +98,7 @@ v_t5v175om = np.mean(v_t5v175[0:3])
 temp = sem(v_t5v175[0:3])
 v_t5v175um = np.mean(v_t5v175[3:6])
 temp1 = sem(v_t5v175[3:6])
-temp2 = [v_t5v175om, v_t5v175um, 0]
+temp2 = [v_t5v175om, v_t5v175um, v_05v175]
 temp1err = [temp, temp1, 0]
 t5v175 = unp.uarray(temp2, temp1err)
 print(t5v175)
@@ -280,7 +283,56 @@ temp1err = [temp, temp1, 0]
 t5v275 = unp.uarray(temp2, temp1err)
 print(t5v275)
 
+############################################################################################################################
+############################################################################################################################
+############################################################################################################################
 
+# Konstanten
+g = const.g
+n_L = 18.21548e-6
+d = ufloat(7.6250, 0.0051)*10**(-3)   # Abstand der Kondensatorplatten
+p_oel = 886     # kg/m^3 
+p_L = 1.204  # kg/m^3 bei 20°C
+
+def Radius(v_0):        # beachte: 2*v_o = v_ab - v_auf
+    return unp.sqrt((9*n_L*v_0)(2*g*(p_oel- p_L)))
+
+def Ladung(v_ab, v_auf, U):
+    return 9/2*np.pi*unp.sqrt((n_L**3*(v_ab-v_auf))/(g*(p_oel-p_L))) * d*(v_ab + v_auf)/U
+
+# Überprüfung der Bedingung 2v_0 = v_ab - v_auf
+
+def test(v_0, v_auf, v_ab, tol, name):
+    err = np.abs(2*noms(v_0)-(noms(v_ab)-noms(v_auf)))/(noms(v_0)*2)
+    if(err > tol):
+        print("Die Bedingung 2v_0 = v_ab - v_auf ist mit einer Toleranz von: ", tol, " für ", name, " nicht erfüllt (Abweichung: ", err , ")")
+    return
+
+# Ausführen auf Messreihen zuerst U = 175V und U = 200V, nicht immer v_o vorhanden :():
+
+# tXvYyy : Teilchen X, Spannung Yyy Volt 
+# tXvYyy = [v_auf, v_ab, v_0] mit Fehlern
+
+test(t1v175[1], t1v175[2], t1v175[0], 0.5, "T1, U = 175V")
+test(t5v175[1], t5v175[2], t5v175[0], 0.5, "T5, U = 175V")
+
+test(t1v200[1], t1v200[2], t1v200[0], 0.5, "T1, U = 200V")
+test(t2v200[1], t2v200[2], t2v200[0], 0.5, "T2, U = 200V")
+test(t3v200[1], t3v200[2], t3v200[0], 0.5, "T3, U = 200V")
+test(t4v200[1], t4v200[2], t4v200[0], 0.5, "T4, U = 200V")
+test(t5v200[1], t5v200[2], t5v200[0], 0.5, "T5, U = 200V")
+
+test(t1v225[1], t1v225[2], t1v225[0], 0.5, "T1, U = 225V")
+test(t2v225[1], t2v225[2], t2v225[0], 0.5, "T2, U = 225V")
+test(t3v225[1], t3v225[2], t3v225[0], 0.5, "T3, U = 225V")
+test(t4v225[1], t4v225[2], t4v225[0], 0.5, "T4, U = 225V")
+test(t5v225[1], t5v225[2], t5v225[0], 0.5, "T5, U = 225V")
+
+test(t1v250[1], t1v250[2], t1v250[0], 0.5, "T1, U = 250V")
+test(t2v250[1], t2v250[2], t2v250[0], 0.5, "T2, U = 250V")
+test(t3v250[1], t3v250[2], t3v250[0], 0.5, "T3, U = 250V")
+test(t4v250[1], t4v250[2], t4v250[0], 0.5, "T4, U = 250V")
+test(t5v250[1], t5v250[2], t5v250[0], 0.5, "T5, U = 250V")
 
 #plt.subplot(1, 2, 1)
 #plt.plot(x, y, label='Kurve')
