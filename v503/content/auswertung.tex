@@ -1,2 +1,37 @@
 \section{Auswertung}
 \label{sec:Auswertung}
+Die in diesem Kapitel erwähnten Fehler genügen der Gaußschen Fehlerfortpflanzung beziehungsweise dem Standardfehler des Mittelwertes und wurden mit \textit{uncertainties}
+\cite{uncertainties} in \textit{Python} berechnet. Die relative Abweichung eines Messwertes $x$ zu einem Theoriewert $x^*$ wird nach 
+\begin{equation}
+  \label{eqn:Delta_rel}
+  \symup{\Delta}_\text{rel}(x) = \frac{|x^* - x|}{x^*}
+\end{equation}
+berechnet.
+\subsection{Überprüfung der Messdaten im Rahmen der Messungenauigkeit}
+\label{subsec:bedingung}
+Zunächst soll für die einzelnen Messungen überprüft werden, ob diese die Formel \eqref{eqn:v_0} erfüllen. Sollte dies nicht der Fall sein werden diejenigen Messwerte aus der 
+Auswertung ausgelassen, da sich die Ladung dieser Teilchen im Verlauf der Messung geändert haben sollte. Die Messwerte von $v_{\text{auf}}$, $v_{\text{ab}}$ und $v_0$ 
+sind in der folgenden \autoref{fig:SCHEIßTABELLEKOMMT NOCH} dargestellt. Ebenfalls wird in dieser Tabelle die Bedingung mit zugehöriger Abweichung der Werte dargestellt.
+
+%%
+%
+%       TABELLE
+%
+%
+
+Trotz der hohen Abweichungen werden für die nötige Quantität der Messreihe alle Messwerte im weiteren betrachtet. Daher wird auch angenommen, dass sich die Ladung im Laufe der 
+Messung nicht geändert haben. 
+
+\subsection{Bestimmung der Ladung und der Radien der Öltröpfchen}
+\label{subsec:ladungradius}
+Nun wird zunächst der Radius der Öltröpfchen bestimmt. Dieser kann gemäß Formel \eqref{eqn:Radius} berechnet werden. Der Radius ist allerdings abhängig von der Viskosität
+der Luft, der Dichte der Luft und der Dichte des Öltröpfchens. Die Viskosität der Luft hängt von der Temperatur der Luft ab. Die Temperatur kann jedoch aus dem gemessenen 
+Thermowiderstand bestimmt werden. Der Wert kann der Tabelle in \autoref{fig:Temperatur} entgenommen werden. Die Dichte der Luft beträgt $\qty{1.204}{\kilo\gram\per\cubic\metre}$
+und die Dichte des Öls beträgt $\qty{886}{\kilo\gram\per\cubic\metre}$. Außerdem sind die gemessenen Geschwindigkeiten relevant. Diese können \autoref{fig:SCHEIßTABELLEKOMMT NOCH}
+entnommen werden. Damit lassen sich die Radien bestimmen und werden dann in \autoref{fig:KOMMT NOCH IWAN MA KAGGE} dargestellt. 
+
+Nun wird die Ladung der einzelnen Öltröpfchen bestimmt. Dies geschieht gemäß Formel \eqref{eqn:q}. Dabei bestehen zunächst noch die gleichen Abhänigkeiten wie die des Radiuses.
+Hier kommt allerdings noch die Energie des elektrischen Feldes im Kondensator hinzu. Diese kann durch den Abstand der Platten $d = \qty{7.6250(0.0051)}{\milli\metre}$ und die 
+Spannung am Kondensator bestimmt werden. Die verwendeten Spannungen für die Teilchen können ebenfalls \autoref{fig:ganzoberetabbelle duasua} entnommen werden. Die berechneten,
+aber noch unkorregierten, Ladungen können \autoref{fig:TABLELLE VON DIESES ABSCHNITT JUNGE} entnommen werden. Aus diesen Ladungen kann nun eine gemittelte Elementarladung $e_0$
+bestimmmt werden. Diese werden in \autoref{fig:NÄCHSTETABELLEHALTDUSAU} dargestellt.
