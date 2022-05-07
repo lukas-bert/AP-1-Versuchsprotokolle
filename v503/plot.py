@@ -297,8 +297,8 @@ B = 6.17*10**(-5)*133.322               # B in Pa*m
 def Radius(v_0, n_L):        # beachte: 2*v_o = v_ab - v_auf
     return unp.sqrt((9*n_L*v_0)/(2*g*(p_oel- p_L)))
 
-def Ladung(v_ab, v_auf, U, eta):
-    return 9/2*np.pi*unp.sqrt((eta**3*(v_ab-v_auf))/(g*(p_oel-p_L))) * d*(v_ab + v_auf)/U
+def Ladung(v_ab, v_auf, U, v_0, n_L):
+    return 9/2*np.pi*unp.sqrt((n_L**3*(v_ab-v_auf))/(g*(p_oel-p_L))) * d*(v_ab + v_auf)/U
 
 # Korrektur der viskosität nach cunningham:
 def eta_eff(v_0, n_L):
@@ -315,7 +315,7 @@ def test(v_0, v_auf, v_ab, tol, name):
 # Korrektur der Ladung nach Cunnningham:
 
 def q_real(v_ab, v_auf, U, v_0, n_L):
-    return Ladung(v_ab, v_auf, U, n_L)*(1 + (B/(100000*Radius(v_0, n_L))))**(3/2)
+    return Ladung(v_ab, v_auf, U, v_0, n_L)*(1 + (B/(100000*Radius((v_ab - v_auf)/2, n_L))))**(3/2)
 
 # Ausführen auf Messreihen zuerst U = 175V und U = 200V, nicht immer v_o vorhanden :():
 
@@ -371,98 +371,294 @@ n_L275_eff = eta_eff(1/2*(t5v275[1] - t5v275[0]), n_L275)
 
 #######################################################################
 
-r_T5_275 = Radius(1/2*(t5v275[1] - t5v275[0]), n_L275)
-
-e_T5_275 = Ladung(t5v275[1], t5v275[0], 275, n_L275_eff)
-print(e_T5_275)
-
-r_T1_275 = Radius(1/2*(t1v275[1] - t1v275[0]), n_L275)
-print(r_T1_275)
-
-e_T1_275 = Ladung(t1v275[1], t1v275[0], 275, n_L275_eff)
-print(e_T1_275)
 
 
+ladungenv175 = unp.uarray([noms(q_real(t1v175[1], t1v175[0], 175, t1v175[2], n_L175)),
+noms(q_real(t2v175[1], t2v175[0], 175, t2v175[2], n_L175)),
+noms(q_real(t3v175[1], t3v175[0], 175, t3v175[2], n_L175)),
+noms(q_real(t4v175[1], t4v175[0], 175, t4v175[2], n_L175)),
+noms(q_real(t5v175[1], t5v175[0], 175, t5v175[2], n_L175_5))],[devs(q_real(t1v175[1], t1v175[0], 175, t1v175[2], n_L175)),
+devs(q_real(t2v175[1], t2v175[0], 175, t2v175[2], n_L175)),
+devs(q_real(t3v175[1], t3v175[0], 175, t3v175[2], n_L175)),
+devs(q_real(t4v175[1], t4v175[0], 175, t4v175[2], n_L175)),
+devs(q_real(t5v175[1], t5v175[0], 175, t5v175[2], n_L175_5))])
 
-#Plot der korregierten Ladungen zu v200
-plt.plot(200, noms(q_real(t1v200[1], t1v200[0], 200, t1v200[2], n_L200_12)), marker = "x")
-plt.plot(200, noms(q_real(t2v200[1], t2v200[0], 200, t2v200[2], n_L200_12)), marker = "x")
-plt.plot(200, noms(q_real(t3v200[1], t3v200[0], 200, t3v200[2], n_L200)), marker = "x")
-plt.plot(200, noms(q_real(t4v200[1], t4v200[0], 200, t4v200[2], n_L200)), marker = "x")
-plt.plot(200, noms(q_real(t5v200[1], t5v200[0], 200, t5v200[2], n_L200)), marker = "x")
-#plt.show()
 
-#Plot der korregierten Ladungen zu v225
-plt.plot(225, noms(q_real(t1v225[1], t1v225[0], 225, t1v225[2], n_L225)), marker = "x")
-plt.plot(225, noms(q_real(t2v225[1], t2v225[0], 225, t2v225[2], n_L225)), marker = "x")
-plt.plot(225, noms(q_real(t3v225[1], t3v225[0], 225, t3v225[2], n_L225)), marker = "x")
-plt.plot(225, noms(q_real(t4v225[1], t4v225[0], 225, t4v225[2], n_L225)), marker = "x")
-plt.plot(225, noms(q_real(t5v225[1], t5v225[0], 225, t5v225[2], n_L225)), marker = "x")
-#plt.show()
 
-#Plot der korregierten Ladungen zu v250
-plt.plot(250, noms(q_real(t1v250[1], t1v250[0], 250, t1v250[2], n_L250)), marker = "x")
-plt.plot(250, noms(q_real(t2v250[1], t2v250[0], 250, t2v250[2], n_L250)), marker = "x")
-plt.plot(250, noms(q_real(t3v250[1], t3v250[0], 250, t3v250[2], n_L250)), marker = "x")
-plt.plot(250, noms(q_real(t4v250[1], t4v250[0], 250, t4v250[2], n_L250)), marker = "x")
-plt.plot(250, noms(q_real(t5v250[1], t5v250[0], 250, t5v250[2], n_L250)), marker = "x")
-#plt.show()
 
-#Plot der korregierten Ladungen zu v275
-plt.plot(275, noms(q_real(t1v275[1], t1v275[0], 275, t1v275[2], n_L275)), marker = "x")
-plt.plot(275, noms(q_real(t2v275[1], t2v275[0], 275, t2v275[2], n_L275)), marker = "x")
-plt.plot(275, noms(q_real(t3v275[1], t3v275[0], 275, t3v275[2], n_L275)), marker = "x")
-plt.plot(275, noms(q_real(t4v275[1], t4v275[0], 275, t4v275[2], n_L275)), marker = "x")
-plt.plot(275, noms(q_real(t5v275[1], t5v275[0], 275, t5v275[2], n_L275)), marker = "x")
+ladungenv200 = unp.uarray([noms(q_real(t1v200[1], t1v200[0], 200, t1v200[2], n_L200_12)),
+noms(q_real(t2v200[1], t2v200[0], 200, t2v200[2], n_L200_12)),
+noms(q_real(t3v200[1], t3v200[0], 200, t3v200[2], n_L200)),
+noms(q_real(t4v200[1], t4v200[0], 200, t4v200[2], n_L200)),
+noms(q_real(t5v200[1], t5v200[0], 200, t5v200[2], n_L200))],[devs(q_real(t1v200[1], t1v200[0], 200, t1v200[2], n_L200_12)),
+devs(q_real(t2v200[1], t2v200[0], 200, t2v200[2], n_L200_12)),
+devs(q_real(t3v200[1], t3v200[0], 200, t3v200[2], n_L200)),
+devs(q_real(t4v200[1], t4v200[0], 200, t4v200[2], n_L200)),
+devs(q_real(t5v200[1], t5v200[0], 200, t5v200[2], n_L200))])
+
+
+
+
+ladungenv225 = unp.uarray([noms(q_real(t1v225[1], t1v225[0], 225, t1v225[2], n_L225)),
+noms(q_real(t2v225[1], t2v225[0], 225, t2v225[2], n_L225)),
+noms(q_real(t3v225[1], t3v225[0], 225, t3v225[2], n_L225)),
+noms(q_real(t4v225[1], t4v225[0], 225, t4v225[2], n_L225)),
+noms(q_real(t5v225[1], t5v225[0], 225, t5v225[2], n_L225))],[devs(q_real(t1v225[1], t1v225[0], 225, t1v225[2], n_L225)),
+noms(q_real(t2v225[1], t2v225[0], 225, t2v225[2], n_L225)),
+devs(q_real(t3v225[1], t3v225[0], 225, t3v225[2], n_L225)),
+devs(q_real(t4v225[1], t4v225[0], 225, t4v225[2], n_L225)),
+devs(q_real(t5v225[1], t5v225[0], 225, t5v225[2], n_L225))])
+
+
+ladungenv250 = unp.uarray([noms(q_real(t1v250[1], t1v250[0], 250, t1v250[2], n_L250)),
+noms(q_real(t2v250[1], t2v250[0], 250, t2v250[2], n_L250)),
+noms(q_real(t3v250[1], t3v250[0], 250, t3v250[2], n_L250)),
+noms(q_real(t4v250[1], t4v250[0], 250, t4v250[2], n_L250)),
+noms(q_real(t5v250[1], t5v250[0], 250, t5v250[2], n_L250))],[devs(q_real(t1v250[1], t1v250[0], 250, t1v250[2], n_L250)),
+devs(q_real(t2v250[1], t2v250[0], 250, t2v250[2], n_L250)),
+devs(q_real(t3v250[1], t3v250[0], 250, t3v250[2], n_L250)),
+devs(q_real(t4v250[1], t4v250[0], 250, t4v250[2], n_L250)),
+devs(q_real(t5v250[1], t5v250[0], 250, t5v250[2], n_L250))])
+
+
+ladungenv275 = unp.uarray([noms(q_real(t1v275[1], t1v275[0], 275, t1v275[2], n_L275)),
+noms(q_real(t2v275[1], t2v275[0], 275, t2v275[2], n_L275)),
+noms(q_real(t3v275[1], t3v275[0], 275, t3v275[2], n_L275)),
+noms(q_real(t4v275[1], t4v275[0], 275, t4v275[2], n_L275)),
+noms(q_real(t5v275[1], t5v275[0], 275, t5v275[2], n_L275))],[devs(q_real(t1v275[1], t1v275[0], 275, t1v275[2], n_L275)),
+devs(q_real(t2v275[1], t2v275[0], 275, t2v275[2], n_L275)),
+devs(q_real(t3v275[1], t3v275[0], 275, t3v275[2], n_L275)),
+devs(q_real(t4v275[1], t4v275[0], 275, t4v275[2], n_L275)),
+devs(q_real(t5v275[1], t5v275[0], 275, t5v275[2], n_L275))])
+
+
+
+#bestimmung der e_0 aus den Messwerten v175 (dubios)
+eladungenv175 = np.around(noms(ladungenv175)/const.e)
+#print(eladungenv175)
+
+arraye_0v175 = ladungenv175/eladungenv175 
+#print(arraye_0v175)
+e_0v175 = np.mean(arraye_0v175)
+print(e_0v175)
+
+
+#bestimmung der e_0 aus den Messwerten v200 (dubios)
+eladungenv200 = np.around(noms(ladungenv200)/const.e)
+#print(eladungenv200)
+
+arraye_0v200 = ladungenv200/eladungenv200 
+#print(arraye_0v200)
+e_0v200 = np.mean(arraye_0v200)
+print(e_0v200)
+
+#bestimmung der e_0 aus den Messwerten v225 (dubios)
+eladungenv225 = np.around(noms(ladungenv225)/const.e)
+#print(eladungenv225)
+
+arraye_0v225 = ladungenv225/eladungenv225 
+#print(arraye_0v225)
+e_0v225 = np.mean(arraye_0v225)
+print(e_0v225)
+
+
+#bestimmung der e_0 aus den Messwerten v250 (dubios)
+eladungenv250 = np.around(noms(ladungenv250)/const.e)
+#print(eladungenv250)
+
+arraye_0v250 = ladungenv250/eladungenv250 
+#print(arraye_0v250)
+e_0v250 = np.mean(arraye_0v250)
+print(e_0v250)
+
+#bestimmung der e_0 aus den Messwerten v275 (dubios)
+eladungenv275 = np.around(noms(ladungenv275)/const.e)
+#print(eladungenv275)
+
+arraye_0v275 = ladungenv275/eladungenv275 
+#print(arraye_0v275)
+e_0v275 = np.mean(arraye_0v275)
+print(e_0v275)
+
+#Mittelwert der e_0s
+e_0m = (e_0v175 + e_0v200 + e_0v225 + e_0v250 + e_0v275)/5
+print(e_0m)
+
+#Abweichung zu lit
+deltae_0m = np.abs(e_0m - const.e)*100/const.e
+print(deltae_0m)
+
+
+# PLOTTTTSSSSS
+x = np.ones(5)
+plt.plot(x,   noms(ladungenv175),linewidth = 0, marker = "x")
+plt.plot(2*x, noms(ladungenv200),linewidth = 0, marker = "x")
+plt.plot(3*x, noms(ladungenv225),linewidth = 0, marker = "x")
+plt.plot(4*x, noms(ladungenv250),linewidth = 0, marker = "x")
+plt.plot(5*x, noms(ladungenv275),linewidth = 0, marker = "x")
 plt.show()
 
-#
-##Plot der korregierten Ladungen zu v200
-#plt.plot(1, noms(Ladung(t1v200[1], t1v200[0], 200, eta_eff(t1v200[2]))), marker = "x")
-#plt.plot(2, noms(Ladung(t2v200[1], t2v200[0], 200, eta_eff(t2v200[2]))), marker = "x")
-#plt.plot(3, noms(Ladung(t3v200[1], t3v200[0], 200, eta_eff(t3v200[2]))), marker = "x")
-#plt.plot(4, noms(Ladung(t4v200[1], t4v200[0], 200, eta_eff(t4v200[2]))), marker = "x")
-#plt.plot(5, noms(Ladung(t5v200[1], t5v200[0], 200, eta_eff(t5v200[2]))), marker = "x")
-#plt.show()
-#
-#
-##Plot der korregierten Ladungen zu v225
-#plt.plot(1, noms(Ladung(t1v225[1], t1v225[0], 225, eta_eff(t1v225[2]))), marker = "x")
-#plt.plot(2, noms(Ladung(t2v225[1], t2v225[0], 225, eta_eff(t2v225[2]))), marker = "x")
-#plt.plot(3, noms(Ladung(t3v225[1], t3v225[0], 225, eta_eff(t3v225[2]))), marker = "x")
-#plt.plot(4, noms(Ladung(t4v225[1], t4v225[0], 225, eta_eff(t4v225[2]))), marker = "x")
-#plt.plot(5, noms(Ladung(t5v225[1], t5v225[0], 225, eta_eff(t5v225[2]))), marker = "x")
-#plt.show()
-#
-##Plot der korregierten Ladungen zu v250
-#plt.plot(1, noms(Ladung(t1v250[1], t1v250[0], 250, eta_eff(t1v250[2]))), marker = "x")
-#plt.plot(2, noms(Ladung(t2v250[1], t2v250[0], 250, eta_eff(t2v250[2]))), marker = "x")
-#plt.plot(3, noms(Ladung(t3v250[1], t3v250[0], 250, eta_eff(t3v250[2]))), marker = "x")
-#plt.plot(4, noms(Ladung(t4v250[1], t4v250[0], 250, eta_eff(t4v250[2]))), marker = "x")
-#plt.plot(5, noms(Ladung(t5v250[1], t5v250[0], 250, eta_eff(t5v250[2]))), marker = "x")
-#plt.show()
-#
-##Plot der korregierten Ladungen zu v275
-#plt.plot(1, noms(Ladung(t1v275[1], t1v275[0], 275, eta_eff(t1v275[2]))), marker = "x")
-#plt.plot(2, noms(Ladung(t2v275[1], t2v275[0], 275, eta_eff(t2v275[2]))), marker = "x")
-#plt.plot(3, noms(Ladung(t3v275[1], t3v275[0], 275, eta_eff(t3v275[2]))), marker = "x")
-#plt.plot(4, noms(Ladung(t4v275[1], t4v275[0], 275, eta_eff(t4v275[2]))), marker = "x")
-#plt.plot(5, noms(Ladung(t5v275[1], t5v275[0], 275, eta_eff(t5v275[2]))), marker = "x")
-#plt.show()
 
 
-#plt.subplot(1, 2, 1)
-#plt.plot(x, y, label='Kurve')
-#plt.xlabel(r'$\alpha \mathbin{/} \unit{\ohm}$')
-#plt.ylabel(r'$y \mathbin{/} \unit{\micro\joule}$')
-#plt.legend(loc='best')
-#
-#plt.subplot(1, 2, 2)
-#plt.plot(x, y, label='Kurve')
-#plt.xlabel(r'$\alpha \mathbin{/} \unit{\ohm}$')
-#plt.ylabel(r'$y \mathbin{/} \unit{\micro\joule}$')
-#plt.legend(loc='best')
-#
-## in matplotlibrc leider (noch) nicht möglich
-#plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-#plt.savefig('build/plot.pdf')
+
+
+
+########################### METHODE 2 #########################################################
+print("methode 2")
+
+ladungenv175 = unp.uarray([noms(q_real(t1v175[1], t1v175[0], 175, t1v175[2], n_L175)),
+noms(Ladung(t2v175[1], t2v175[0], 175, t2v175[2], n_L175)),
+noms(Ladung(t3v175[1], t3v175[0], 175, t3v175[2], n_L175)),
+noms(Ladung(t4v175[1], t4v175[0], 175, t4v175[2], n_L175)),
+noms(Ladung(t5v175[1], t5v175[0], 175, t5v175[2], n_L175_5))],[devs(Ladung(t1v175[1], t1v175[0], 175, t1v175[2], n_L175)),
+devs(Ladung(t2v175[1], t2v175[0], 175, t2v175[2], n_L175)),
+devs(Ladung(t3v175[1], t3v175[0], 175, t3v175[2], n_L175)),
+devs(Ladung(t4v175[1], t4v175[0], 175, t4v175[2], n_L175)),
+devs(Ladung(t5v175[1], t5v175[0], 175, t5v175[2], n_L175_5))])
+
+
+
+
+ladungenv200 = unp.uarray([noms(q_real(t1v200[1], t1v200[0], 200, t1v200[2], n_L200_12)),
+noms(Ladung(t2v200[1], t2v200[0], 200, t2v200[2], n_L200_12)),
+noms(Ladung(t3v200[1], t3v200[0], 200, t3v200[2], n_L200)),
+noms(Ladung(t4v200[1], t4v200[0], 200, t4v200[2], n_L200)),
+noms(Ladung(t5v200[1], t5v200[0], 200, t5v200[2], n_L200))],[devs(Ladung(t1v200[1], t1v200[0], 200, t1v200[2], n_L200_12)),
+devs(Ladung(t2v200[1], t2v200[0], 200, t2v200[2], n_L200_12)),
+devs(Ladung(t3v200[1], t3v200[0], 200, t3v200[2], n_L200)),
+devs(Ladung(t4v200[1], t4v200[0], 200, t4v200[2], n_L200)),
+devs(Ladung(t5v200[1], t5v200[0], 200, t5v200[2], n_L200))])
+
+
+
+
+ladungenv225 = unp.uarray([noms(q_real(t1v225[1], t1v225[0], 225, t1v225[2], n_L225)),
+noms(Ladung(t2v225[1], t2v225[0], 225, t2v225[2], n_L225)),
+noms(Ladung(t3v225[1], t3v225[0], 225, t3v225[2], n_L225)),
+noms(Ladung(t4v225[1], t4v225[0], 225, t4v225[2], n_L225)),
+noms(Ladung(t5v225[1], t5v225[0], 225, t5v225[2], n_L225))],[devs(Ladung(t1v225[1], t1v225[0], 225, t1v225[2], n_L225)),
+noms(Ladung(t2v225[1], t2v225[0], 225, t2v225[2], n_L225)),
+devs(Ladung(t3v225[1], t3v225[0], 225, t3v225[2], n_L225)),
+devs(Ladung(t4v225[1], t4v225[0], 225, t4v225[2], n_L225)),
+devs(Ladung(t5v225[1], t5v225[0], 225, t5v225[2], n_L225))])
+
+
+ladungenv250 = unp.uarray([noms(q_real(t1v250[1], t1v250[0], 250, t1v250[2], n_L250)),
+noms(Ladung(t2v250[1], t2v250[0], 250, t2v250[2], n_L250)),
+noms(Ladung(t3v250[1], t3v250[0], 250, t3v250[2], n_L250)),
+noms(Ladung(t4v250[1], t4v250[0], 250, t4v250[2], n_L250)),
+noms(Ladung(t5v250[1], t5v250[0], 250, t5v250[2], n_L250))],[devs(Ladung(t1v250[1], t1v250[0], 250, t1v250[2], n_L250)),
+devs(Ladung(t2v250[1], t2v250[0], 250, t2v250[2], n_L250)),
+devs(Ladung(t3v250[1], t3v250[0], 250, t3v250[2], n_L250)),
+devs(Ladung(t4v250[1], t4v250[0], 250, t4v250[2], n_L250)),
+devs(Ladung(t5v250[1], t5v250[0], 250, t5v250[2], n_L250))])
+
+
+ladungenv275 = unp.uarray([noms(q_real(t1v275[1], t1v275[0], 275, t1v275[2], n_L275)),
+noms(Ladung(t2v275[1], t2v275[0], 275, t2v275[2], n_L275)),
+noms(Ladung(t3v275[1], t3v275[0], 275, t3v275[2], n_L275)),
+noms(Ladung(t4v275[1], t4v275[0], 275, t4v275[2], n_L275)),
+noms(Ladung(t5v275[1], t5v275[0], 275, t5v275[2], n_L275))],[devs(Ladung(t1v275[1], t1v275[0], 275, t1v275[2], n_L275)),
+devs(Ladung(t2v275[1], t2v275[0], 275, t2v275[2], n_L275)),
+devs(Ladung(t3v275[1], t3v275[0], 275, t3v275[2], n_L275)),
+devs(Ladung(t4v275[1], t4v275[0], 275, t4v275[2], n_L275)),
+devs(Ladung(t5v275[1], t5v275[0], 275, t5v275[2], n_L275))])
+
+
+
+#bestimmung der e_0 aus den Messwerten v175 (dubios)
+eladungenv175 = np.around(noms(ladungenv175)/const.e)
+#print(eladungenv175)
+
+arraye_0v175 = ladungenv175/eladungenv175 
+#print(arraye_0v175)
+e_0v175 = np.mean(arraye_0v175)
+print(e_0v175)
+
+
+#bestimmung der e_0 aus den Messwerten v200 (dubios)
+eladungenv200 = np.around(noms(ladungenv200)/const.e)
+#print(eladungenv200)
+
+arraye_0v200 = ladungenv200/eladungenv200 
+#print(arraye_0v200)
+e_0v200 = np.mean(arraye_0v200)
+print(e_0v200)
+
+#bestimmung der e_0 aus den Messwerten v225 (dubios)
+eladungenv225 = np.around(noms(ladungenv225)/const.e)
+#print(eladungenv225)
+
+arraye_0v225 = ladungenv225/eladungenv225 
+#print(arraye_0v225)
+e_0v225 = np.mean(arraye_0v225)
+print(e_0v225)
+
+
+#bestimmung der e_0 aus den Messwerten v250 (dubios)
+eladungenv250 = np.around(noms(ladungenv250)/const.e)
+#print(eladungenv250)
+
+arraye_0v250 = ladungenv250/eladungenv250 
+#print(arraye_0v250)
+e_0v250 = np.mean(arraye_0v250)
+print(e_0v250)
+
+#bestimmung der e_0 aus den Messwerten v275 (dubios)
+eladungenv275 = np.around(noms(ladungenv275)/const.e)
+#print(eladungenv275)
+
+arraye_0v275 = ladungenv275/eladungenv275 
+#print(arraye_0v275)
+e_0v275 = np.mean(arraye_0v275)
+print(e_0v275)
+
+#Mittelwert der e_0s
+e_0m = (e_0v175 + e_0v200 + e_0v225 + e_0v250 + e_0v275)/5
+print(e_0m)
+
+#Abweichung zu lit
+deltae_0m = np.abs(e_0m - const.e)*100/const.e
+print(deltae_0m)
+
+
+print(
+ Radius((t1v175[1] - t1v175[0])/2, n_L175),
+ Radius((t2v175[1] - t2v175[0])/2, n_L175),
+ Radius((t3v175[1] - t3v175[0])/2, n_L175),
+ Radius((t4v175[1] - t4v175[0])/2, n_L175),
+ Radius((t5v175[1] - t5v175[0])/2, n_L175_5))
+print(
+ Radius((t1v200[1] - t1v200[0])/2, n_L200_12),
+ Radius((t2v200[1] - t2v200[0])/2, n_L200_12),
+ Radius((t3v200[1] - t3v200[0])/2, n_L200),
+ Radius((t4v200[1] - t4v200[0])/2, n_L200),
+ Radius((t5v200[1] - t5v200[0])/2, n_L200)
+)
+print(
+ Radius((t1v225[1] - t1v225[0])/2, n_L225),
+ Radius((t2v225[1] - t2v225[0])/2, n_L225),
+ Radius((t3v225[1] - t3v225[0])/2, n_L225),
+ Radius((t4v225[1] - t4v225[0])/2, n_L225),
+ Radius((t5v225[1] - t5v225[0])/2, n_L225)
+)
+print(
+ Radius((t1v250[1] - t1v250[0])/2, n_L250),
+ Radius((t2v250[1] - t2v250[0])/2, n_L250),
+ Radius((t3v250[1] - t3v250[0])/2, n_L250),
+ Radius((t4v250[1] - t4v250[0])/2, n_L250),
+ Radius((t5v250[1] - t5v250[0])/2, n_L250)
+)
+print(
+ Radius((t1v275[1] - t1v275[0])/2, n_L275),
+ Radius((t2v275[1] - t2v275[0])/2, n_L275),
+ Radius((t3v275[1] - t3v275[0])/2, n_L275),
+ Radius((t4v275[1] - t4v275[0])/2, n_L275),
+ Radius((t5v275[1] - t5v275[0])/2, n_L275)
+)
+
+print(ladungenv175)
+print(ladungenv200)
+print(ladungenv225)
+print(ladungenv250)
+print(ladungenv275)
