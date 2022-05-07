@@ -292,7 +292,8 @@ g = const.g
 d = ufloat(7.6250, 0.0051)*10**(-3)     # Abstand der Kondensatorplatten
 p_oel = 886     # kg/m^3 
 p_L = 1.204  # kg/m^3 bei 20°C
-B = 6.17*10**(-5)*133.322               # B in Pa*m            
+B = 6.17*10**(-5)*133.322               # B in Pa*m  
+e = const.e          
 
 def Radius(v_0, n_L):        # beachte: 2*v_o = v_ab - v_auf
     return unp.sqrt((9*n_L*v_0)/(2*g*(p_oel- p_L)))
@@ -490,17 +491,20 @@ print(deltae_0m)
 
 
 # PLOTTTTSSSSS
-x = np.ones(5)
-plt.plot(x,   noms(ladungenv175),linewidth = 0, marker = "x")
-plt.plot(2*x, noms(ladungenv200),linewidth = 0, marker = "x")
-plt.plot(3*x, noms(ladungenv225),linewidth = 0, marker = "x")
-plt.plot(4*x, noms(ladungenv250),linewidth = 0, marker = "x")
-plt.plot(5*x, noms(ladungenv275),linewidth = 0, marker = "x")
+x = np.array([0.9, 0.95, 1, 1.05, 1.1])
+plt.errorbar(x,   noms(ladungenv175), yerr = devs(ladungenv175), elinewidth = 0.7, linewidth = 0, marker = ".", markersize = 7, capsize=3)
+plt.errorbar(1+x, noms(ladungenv200), yerr = devs(ladungenv200), elinewidth = 0.7, linewidth = 0, marker = ".", markersize = 7, capsize=3)
+plt.errorbar(2+x, noms(ladungenv225), yerr = devs(ladungenv225), elinewidth = 0.7, linewidth = 0, marker = ".", markersize = 7, capsize=3)
+plt.errorbar(3+x, noms(ladungenv250), yerr = devs(ladungenv250), elinewidth = 0.7, linewidth = 0, marker = ".", markersize = 7, capsize=3)
+plt.errorbar(4+x, noms(ladungenv275), yerr = devs(ladungenv275), elinewidth = 0.7, linewidth = 0, marker = ".", markersize = 7, capsize=3)
+
+plt.grid()
+plt.yticks([0, e, 2*e, 3*e, 4*e, 5*e, 6*e, 7*e, 10*e, 12*e], [0, r"$e$", r"$2e$", r"$3e$", r"$4e$", r"$5e$", r"$6e$", r"$7e$", r"$10e$", r"$12e$"])
+plt.xticks([1, 2, 3, 4, 5], [r"$175 \unit{\volt}$", r"$200 \unit{\volt}$", r"$225 \unit{\volt}$", r"$250 \unit{\volt}$", r"$275 \unit{\volt}$"])
+plt.tight_layout()
+
 plt.show()
-
-
-
-
+plt.savefig("build/plot.pdf")
 
 
 ########################### METHODE 2 #########################################################
@@ -517,8 +521,6 @@ devs(Ladung(t4v175[1], t4v175[0], 175, t4v175[2], n_L175)),
 devs(Ladung(t5v175[1], t5v175[0], 175, t5v175[2], n_L175_5))])
 
 
-
-
 ladungenv200 = unp.uarray([noms(q_real(t1v200[1], t1v200[0], 200, t1v200[2], n_L200_12)),
 noms(Ladung(t2v200[1], t2v200[0], 200, t2v200[2], n_L200_12)),
 noms(Ladung(t3v200[1], t3v200[0], 200, t3v200[2], n_L200)),
@@ -528,8 +530,6 @@ devs(Ladung(t2v200[1], t2v200[0], 200, t2v200[2], n_L200_12)),
 devs(Ladung(t3v200[1], t3v200[0], 200, t3v200[2], n_L200)),
 devs(Ladung(t4v200[1], t4v200[0], 200, t4v200[2], n_L200)),
 devs(Ladung(t5v200[1], t5v200[0], 200, t5v200[2], n_L200))])
-
-
 
 
 ladungenv225 = unp.uarray([noms(q_real(t1v225[1], t1v225[0], 225, t1v225[2], n_L225)),
@@ -563,7 +563,6 @@ devs(Ladung(t2v275[1], t2v275[0], 275, t2v275[2], n_L275)),
 devs(Ladung(t3v275[1], t3v275[0], 275, t3v275[2], n_L275)),
 devs(Ladung(t4v275[1], t4v275[0], 275, t4v275[2], n_L275)),
 devs(Ladung(t5v275[1], t5v275[0], 275, t5v275[2], n_L275))])
-
 
 
 #bestimmung der e_0 aus den Messwerten v175 (dubios)
