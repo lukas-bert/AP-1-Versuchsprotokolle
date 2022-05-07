@@ -501,6 +501,7 @@ plt.errorbar(4+x, noms(ladungenv275), yerr = devs(ladungenv275), elinewidth = 0.
 plt.grid()
 plt.yticks([0, e, 2*e, 3*e, 4*e, 5*e, 6*e, 7*e, 10*e, 12*e], [0, r"$e$", r"$2e$", r"$3e$", r"$4e$", r"$5e$", r"$6e$", r"$7e$", r"$10e$", r"$12e$"])
 plt.xticks([1, 2, 3, 4, 5], [r"$175 \unit{\volt}$", r"$200 \unit{\volt}$", r"$225 \unit{\volt}$", r"$250 \unit{\volt}$", r"$275 \unit{\volt}$"])
+plt.ylim(0, 13*e)
 plt.tight_layout()
 
 plt.show()
