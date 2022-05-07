@@ -289,17 +289,20 @@ print(t5v275)
 
 # Konstanten
 g = const.g
-n_L = 18.21548e-6
-d = ufloat(7.6250, 0.0051)*10**(-3)   # Abstand der Kondensatorplatten
+d = ufloat(7.6250, 0.0051)*10**(-3)     # Abstand der Kondensatorplatten
 p_oel = 886     # kg/m^3 
 p_L = 1.204  # kg/m^3 bei 20°C
-B = 6.17*10**(-3)*10**(-2)*133.322
+B = 6.17*10**(-5)*133.322               # B in Pa*m            
 
-def Radius(v_0):        # beachte: 2*v_o = v_ab - v_auf
+def Radius(v_0, n_L):        # beachte: 2*v_o = v_ab - v_auf
     return unp.sqrt((9*n_L*v_0)/(2*g*(p_oel- p_L)))
 
-def Ladung(v_ab, v_auf, U,eta):
+def Ladung(v_ab, v_auf, U, eta):
     return 9/2*np.pi*unp.sqrt((eta**3*(v_ab-v_auf))/(g*(p_oel-p_L))) * d*(v_ab + v_auf)/U
+
+# Korrektur der viskosität nach cunningham:
+def eta_eff(v_0, n_L):
+    return n_L*(1/(1 + B/(100000*Radius(v_0, n_L))))    
 
 # Überprüfung der Bedingung 2v_0 = v_ab - v_auf
 
@@ -308,6 +311,11 @@ def test(v_0, v_auf, v_ab, tol, name):
     if(err > tol):
         print("Die Bedingung 2v_0 = v_ab - v_auf ist mit einer Toleranz von: ", tol, " für ", name, " nicht erfüllt (Abweichung: ", err , ")")
     return
+
+# Korrektur der Ladung nach Cunnningham:
+
+def q_real(v_ab, v_auf, U, v_0, n_L):
+    return Ladung(v_ab, v_auf, U, n_L)*(1 + (B/(100000*Radius(v_0, n_L))))**(3/2)
 
 # Ausführen auf Messreihen zuerst U = 175V und U = 200V, nicht immer v_o vorhanden :():
 
@@ -337,97 +345,110 @@ test(t5v250[1], t5v250[2], t5v250[0], 0.5, "T5, U = 250V")
 
 
 #Temperatur zu der Messreihe v175:
-T_v175 = 303.15 #Kelvin
+T_v175   = 295.15 # Kelvin
+T_v175_5 = 303.15 # Kelvin
+n_L175 = 1.833e-5
+n_L175_5 = 1.8715e-5
 
 #Temperatur zu der Messreihe v200:
-T_v200 = 302.15 #Kelvin
+T_v200_12 = 295.15 # Kelvin
+T_v200 = 302.15 # Kelvin
+n_L200_12 = 1.833e-5
+n_L200 = 1.866e-5
 
 #Temperatur zu der Messreihe v225:
-T_v225 = 300.15 #Kelvin
+T_v225 = 300.15 # Kelvin
+n_L225 = 1.867e-5
 
 #Temperatur zu der Messreihe v250:
-T_v250 = 298.15 #Kelvin
+T_v250 = 298.15 # Kelvin
+n_L250 = 1.848e-5
 
 #Temperatur zu der Messreihe v275:
-T_v275 = 303.15 #Kelvin
+T_v275 = 303.15 # Kelvin
+n_L275 = 1.8715e-5
+n_L275_eff = eta_eff(1/2*(t5v275[1] - t5v275[0]), n_L275)
+
+#######################################################################
+
+r_T5_275 = Radius(1/2*(t5v275[1] - t5v275[0]), n_L275)
+
+e_T5_275 = Ladung(t5v275[1], t5v275[0], 275, n_L275_eff)
+print(e_T5_275)
+
+r_T1_275 = Radius(1/2*(t1v275[1] - t1v275[0]), n_L275)
+print(r_T1_275)
+
+e_T1_275 = Ladung(t1v275[1], t1v275[0], 275, n_L275_eff)
+print(e_T1_275)
 
 
-#Korrektur der Ladung nach Cunnningham:
-
-def q_real(v_ab, v_auf, U, v_0):
-    return Ladung(v_ab, v_auf, U, n_L)*(1 + (B/(p_L*Radius(v_0))))**(3/2)
 
 #Plot der korregierten Ladungen zu v200
-plt.plot(1, noms(q_real(t1v200[1], t1v200[0], 200, t1v200[2])), marker = "x")
-plt.plot(2, noms(q_real(t2v200[1], t2v200[0], 200, t2v200[2])), marker = "x")
-plt.plot(3, noms(q_real(t3v200[1], t3v200[0], 200, t3v200[2])), marker = "x")
-plt.plot(4, noms(q_real(t4v200[1], t4v200[0], 200, t4v200[2])), marker = "x")
-plt.plot(5, noms(q_real(t5v200[1], t5v200[0], 200, t5v200[2])), marker = "x")
-plt.show()
-
-
-#Plot der korregierten Ladungen zu v225
-plt.plot(1, noms(q_real(t1v225[1], t1v225[0], 225, t1v225[2])), marker = "x")
-plt.plot(2, noms(q_real(t2v225[1], t2v225[0], 225, t2v225[2])), marker = "x")
-plt.plot(3, noms(q_real(t3v225[1], t3v225[0], 225, t3v225[2])), marker = "x")
-plt.plot(4, noms(q_real(t4v225[1], t4v225[0], 225, t4v225[2])), marker = "x")
-plt.plot(5, noms(q_real(t5v225[1], t5v225[0], 225, t5v225[2])), marker = "x")
-plt.show()
-
-#Plot der korregierten Ladungen zu v250
-plt.plot(1, noms(q_real(t1v250[1], t1v250[0], 250, t1v250[2])), marker = "x")
-plt.plot(2, noms(q_real(t2v250[1], t2v250[0], 250, t2v250[2])), marker = "x")
-plt.plot(3, noms(q_real(t3v250[1], t3v250[0], 250, t3v250[2])), marker = "x")
-plt.plot(4, noms(q_real(t4v250[1], t4v250[0], 250, t4v250[2])), marker = "x")
-plt.plot(5, noms(q_real(t5v250[1], t5v250[0], 250, t5v250[2])), marker = "x")
-plt.show()
-
-#Plot der korregierten Ladungen zu v275
-plt.plot(1, noms(q_real(t1v275[1], t1v275[0], 275, t1v275[2])), marker = "x")
-plt.plot(2, noms(q_real(t2v275[1], t2v275[0], 275, t2v275[2])), marker = "x")
-plt.plot(3, noms(q_real(t3v275[1], t3v275[0], 275, t3v275[2])), marker = "x")
-plt.plot(4, noms(q_real(t4v275[1], t4v275[0], 275, t4v275[2])), marker = "x")
-plt.plot(5, noms(q_real(t5v275[1], t5v275[0], 275, t5v275[2])), marker = "x")
-plt.show()
-
-
-
-#Korrektur der viskosität nach cunningham:
-def eta_eff(v_0):
-    return n_L*(1/(1 + B/(p_L*Radius(v_0))))
-
-#Plot der korregierten Ladungen zu v200
-plt.plot(1, noms(Ladung(t1v200[1], t1v200[0], 200, eta_eff(t1v200[2]))), marker = "x")
-plt.plot(2, noms(Ladung(t2v200[1], t2v200[0], 200, eta_eff(t2v200[2]))), marker = "x")
-plt.plot(3, noms(Ladung(t3v200[1], t3v200[0], 200, eta_eff(t3v200[2]))), marker = "x")
-plt.plot(4, noms(Ladung(t4v200[1], t4v200[0], 200, eta_eff(t4v200[2]))), marker = "x")
-plt.plot(5, noms(Ladung(t5v200[1], t5v200[0], 200, eta_eff(t5v200[2]))), marker = "x")
-plt.show()
-
+plt.plot(200, noms(q_real(t1v200[1], t1v200[0], 200, t1v200[2], n_L200_12)), marker = "x")
+plt.plot(200, noms(q_real(t2v200[1], t2v200[0], 200, t2v200[2], n_L200_12)), marker = "x")
+plt.plot(200, noms(q_real(t3v200[1], t3v200[0], 200, t3v200[2], n_L200)), marker = "x")
+plt.plot(200, noms(q_real(t4v200[1], t4v200[0], 200, t4v200[2], n_L200)), marker = "x")
+plt.plot(200, noms(q_real(t5v200[1], t5v200[0], 200, t5v200[2], n_L200)), marker = "x")
+#plt.show()
 
 #Plot der korregierten Ladungen zu v225
-plt.plot(1, noms(Ladung(t1v225[1], t1v225[0], 225, eta_eff(t1v225[2]))), marker = "x")
-plt.plot(2, noms(Ladung(t2v225[1], t2v225[0], 225, eta_eff(t2v225[2]))), marker = "x")
-plt.plot(3, noms(Ladung(t3v225[1], t3v225[0], 225, eta_eff(t3v225[2]))), marker = "x")
-plt.plot(4, noms(Ladung(t4v225[1], t4v225[0], 225, eta_eff(t4v225[2]))), marker = "x")
-plt.plot(5, noms(Ladung(t5v225[1], t5v225[0], 225, eta_eff(t5v225[2]))), marker = "x")
-plt.show()
+plt.plot(225, noms(q_real(t1v225[1], t1v225[0], 225, t1v225[2], n_L225)), marker = "x")
+plt.plot(225, noms(q_real(t2v225[1], t2v225[0], 225, t2v225[2], n_L225)), marker = "x")
+plt.plot(225, noms(q_real(t3v225[1], t3v225[0], 225, t3v225[2], n_L225)), marker = "x")
+plt.plot(225, noms(q_real(t4v225[1], t4v225[0], 225, t4v225[2], n_L225)), marker = "x")
+plt.plot(225, noms(q_real(t5v225[1], t5v225[0], 225, t5v225[2], n_L225)), marker = "x")
+#plt.show()
 
 #Plot der korregierten Ladungen zu v250
-plt.plot(1, noms(Ladung(t1v250[1], t1v250[0], 250, eta_eff(t1v250[2]))), marker = "x")
-plt.plot(2, noms(Ladung(t2v250[1], t2v250[0], 250, eta_eff(t2v250[2]))), marker = "x")
-plt.plot(3, noms(Ladung(t3v250[1], t3v250[0], 250, eta_eff(t3v250[2]))), marker = "x")
-plt.plot(4, noms(Ladung(t4v250[1], t4v250[0], 250, eta_eff(t4v250[2]))), marker = "x")
-plt.plot(5, noms(Ladung(t5v250[1], t5v250[0], 250, eta_eff(t5v250[2]))), marker = "x")
-plt.show()
+plt.plot(250, noms(q_real(t1v250[1], t1v250[0], 250, t1v250[2], n_L250)), marker = "x")
+plt.plot(250, noms(q_real(t2v250[1], t2v250[0], 250, t2v250[2], n_L250)), marker = "x")
+plt.plot(250, noms(q_real(t3v250[1], t3v250[0], 250, t3v250[2], n_L250)), marker = "x")
+plt.plot(250, noms(q_real(t4v250[1], t4v250[0], 250, t4v250[2], n_L250)), marker = "x")
+plt.plot(250, noms(q_real(t5v250[1], t5v250[0], 250, t5v250[2], n_L250)), marker = "x")
+#plt.show()
 
 #Plot der korregierten Ladungen zu v275
-plt.plot(1, noms(Ladung(t1v275[1], t1v275[0], 275, eta_eff(t1v275[2]))), marker = "x")
-plt.plot(2, noms(Ladung(t2v275[1], t2v275[0], 275, eta_eff(t2v275[2]))), marker = "x")
-plt.plot(3, noms(Ladung(t3v275[1], t3v275[0], 275, eta_eff(t3v275[2]))), marker = "x")
-plt.plot(4, noms(Ladung(t4v275[1], t4v275[0], 275, eta_eff(t4v275[2]))), marker = "x")
-plt.plot(5, noms(Ladung(t5v275[1], t5v275[0], 275, eta_eff(t5v275[2]))), marker = "x")
+plt.plot(275, noms(q_real(t1v275[1], t1v275[0], 275, t1v275[2], n_L275)), marker = "x")
+plt.plot(275, noms(q_real(t2v275[1], t2v275[0], 275, t2v275[2], n_L275)), marker = "x")
+plt.plot(275, noms(q_real(t3v275[1], t3v275[0], 275, t3v275[2], n_L275)), marker = "x")
+plt.plot(275, noms(q_real(t4v275[1], t4v275[0], 275, t4v275[2], n_L275)), marker = "x")
+plt.plot(275, noms(q_real(t5v275[1], t5v275[0], 275, t5v275[2], n_L275)), marker = "x")
 plt.show()
+
+#
+##Plot der korregierten Ladungen zu v200
+#plt.plot(1, noms(Ladung(t1v200[1], t1v200[0], 200, eta_eff(t1v200[2]))), marker = "x")
+#plt.plot(2, noms(Ladung(t2v200[1], t2v200[0], 200, eta_eff(t2v200[2]))), marker = "x")
+#plt.plot(3, noms(Ladung(t3v200[1], t3v200[0], 200, eta_eff(t3v200[2]))), marker = "x")
+#plt.plot(4, noms(Ladung(t4v200[1], t4v200[0], 200, eta_eff(t4v200[2]))), marker = "x")
+#plt.plot(5, noms(Ladung(t5v200[1], t5v200[0], 200, eta_eff(t5v200[2]))), marker = "x")
+#plt.show()
+#
+#
+##Plot der korregierten Ladungen zu v225
+#plt.plot(1, noms(Ladung(t1v225[1], t1v225[0], 225, eta_eff(t1v225[2]))), marker = "x")
+#plt.plot(2, noms(Ladung(t2v225[1], t2v225[0], 225, eta_eff(t2v225[2]))), marker = "x")
+#plt.plot(3, noms(Ladung(t3v225[1], t3v225[0], 225, eta_eff(t3v225[2]))), marker = "x")
+#plt.plot(4, noms(Ladung(t4v225[1], t4v225[0], 225, eta_eff(t4v225[2]))), marker = "x")
+#plt.plot(5, noms(Ladung(t5v225[1], t5v225[0], 225, eta_eff(t5v225[2]))), marker = "x")
+#plt.show()
+#
+##Plot der korregierten Ladungen zu v250
+#plt.plot(1, noms(Ladung(t1v250[1], t1v250[0], 250, eta_eff(t1v250[2]))), marker = "x")
+#plt.plot(2, noms(Ladung(t2v250[1], t2v250[0], 250, eta_eff(t2v250[2]))), marker = "x")
+#plt.plot(3, noms(Ladung(t3v250[1], t3v250[0], 250, eta_eff(t3v250[2]))), marker = "x")
+#plt.plot(4, noms(Ladung(t4v250[1], t4v250[0], 250, eta_eff(t4v250[2]))), marker = "x")
+#plt.plot(5, noms(Ladung(t5v250[1], t5v250[0], 250, eta_eff(t5v250[2]))), marker = "x")
+#plt.show()
+#
+##Plot der korregierten Ladungen zu v275
+#plt.plot(1, noms(Ladung(t1v275[1], t1v275[0], 275, eta_eff(t1v275[2]))), marker = "x")
+#plt.plot(2, noms(Ladung(t2v275[1], t2v275[0], 275, eta_eff(t2v275[2]))), marker = "x")
+#plt.plot(3, noms(Ladung(t3v275[1], t3v275[0], 275, eta_eff(t3v275[2]))), marker = "x")
+#plt.plot(4, noms(Ladung(t4v275[1], t4v275[0], 275, eta_eff(t4v275[2]))), marker = "x")
+#plt.plot(5, noms(Ladung(t5v275[1], t5v275[0], 275, eta_eff(t5v275[2]))), marker = "x")
+#plt.show()
 
 
 #plt.subplot(1, 2, 1)
