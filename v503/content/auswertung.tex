@@ -9,29 +9,155 @@ Die in diesem Kapitel erwähnten Fehler genügen der Gaußschen Fehlerfortpflanz
 berechnet.
 \subsection{Überprüfung der Messdaten im Rahmen der Messungenauigkeit}
 \label{subsec:bedingung}
-Zunächst soll für die einzelnen Messungen überprüft werden, ob diese die Formel \eqref{eqn:v_0} erfüllen. Sollte dies nicht der Fall sein werden diejenigen Messwerte aus der 
-Auswertung ausgelassen, da sich die Ladung dieser Teilchen im Verlauf der Messung geändert haben sollte. Die Messwerte von $v_{\text{auf}}$, $v_{\text{ab}}$ und $v_0$ 
-sind in der folgenden \autoref{fig:SCHEIßTABELLEKOMMT NOCH} dargestellt. Ebenfalls wird in dieser Tabelle die Bedingung mit zugehöriger Abweichung der Werte dargestellt.
+Zunächst wird für die einzelnen Messungen überprüft, ob diese den Zusammenhang \eqref{eqn:v_0} der Geschwindigkeiten erfüllen. 
+Sollte dies nicht der Fall sein, werden diejenigen Messwerte aus der 
+Auswertung ausgelassen, da sich die Ladung dieser Teilchen im Verlauf der Messung geändert haben könnte. Die Messwerte von $v_{\text{auf}}$, $v_{\text{ab}}$ und $v_0$ 
+sind in der folgenden \autoref{tab:Geschwindigkeiten} dargestellt. Ebenfalls wird in dieser Tabelle die Abweichung Geschwindigkeiten zur oben genannten Bedingung
+\eqref{eqn:v_0} dargestellt.
 
-%%
-%
-%       TABELLE
-%
-%
+\begin{table}[H]
+    \centering
+    \caption{Geschwindigkeiten der Öltröpfchen und Abweichung zur Idealbedingung $2v_0 = v_\text{ab}- v_\text{auf}$. Zwecks Übersichtlichkeit wird auf die Angabe der 
+    Messunsicherheiten verzichtet. $N$: Nummer des Öltröpfchens.}
+    \label{tab:Geschwindigkeiten}
+    \begin{tabular}{c l S[table-format = 2.2] S S S[table-format = 1.2] S[table-format = 2.2]}
+      \toprule
+        {} & {$N$} & {$v_\text{auf} \mathbin{/} 10^{-5} \unit{\metre\per\second}$} & {$v_\text{ab} \mathbin{/} 10^{-5} \unit{\metre\per\second}$} &% 
+        {$v_0 \mathbin{/} 10^{-5} \unit{\metre\per\second}$} & {$\symup{\Delta} v_0 \mathbin{/} \unit{\percent}$} \\
+        \midrule
+        {$\qty{175}{\volt}:$} &  {1} & 3.42  &  8.03 & 1.59 & 45.05 \\
+        {                   } &  {2} & 11.80 & 12.19 &      &       \\
+        {                   } &  {3} &  5.04 &  6.44 &      &       \\
+        {                   } &  {4} & 13.36 & 19.17 &      &       \\
+        {                   } &  {5} &  7.01 &  8.83 & 1.79 & 49.14 \\
+        {$\qty{200}{\volt}:$} &  {6} &  9.68 & 10.83 & 0.82 & 29.84 \\
+        {                   } &  {7} & 15.34 & 16.56 & 0.60 &  0.50 \\
+        {                   } &  {8} &  2.12 &  4.84 & 1.89 & 28.03 \\
+        {                   } &  {9} &  1.60 &  5.75 & 2.50 & 17.07 \\
+        {                   } & {10} &  7.17 &  9.46 & 1.98 & 41.94 \\ 
+        {$\qty{225}{\volt}:$} & {11} &  4.57 &  8.57 & 2.16 &  7.29 \\ 
+        {                   } & {12} &  4.12 &  8.26 & 1.61 & 28.85 \\
+        {                   } & {13} &  9.06 & 14.15 & 3.46 & 26.54 \\
+        {                   } & {14} & 11.97 & 15.08 & 1.71 &  8.80 \\
+        {                   } & {15} &  4.03 & 11.39 & 3.35 &  9.98 \\
+        {$\qty{250}{\volt}:$} & {16} &  2.98 &  9.49 & 3.07 &  6.00 \\
+        {                   } & {17} &  8.75 & 15.98 & 3.38 &  6.83 \\
+        {                   } & {18} & 14.70 & 16.32 & 1.04 & 22.06 \\
+        {                   } & {19} &  5.09 & 11.97 & 3.67 &  6.31 \\
+        {                   } & {20} &  3.98 &  9.22 & 1.81 & 45.18 \\
+        {$\qty{275}{\volt}:$} & {21} &  4.08 & 12.11 & 3.48 & 15.19 \\
+        {                   } & {22} & 15.21 & 19.06 & 2.29 & 15.73 \\
+        {                   } & {23} &  9.51 & 18.61 & 4.94 &  7.72 \\
+        {                   } & {24} & 13.17 & 27.85 & 7.90 &  7.05 \\
+        {                   } & {25} &  8.72 & 15.08 & 2.61 & 21.90 \\
+      \bottomrule
+    \end{tabular}
+  \end{table}
 
-Trotz der hohen Abweichungen werden für die nötige Quantität der Messreihe alle Messwerte im weiteren betrachtet. Daher wird auch angenommen, dass sich die Ladung im Laufe der 
-Messung nicht geändert haben. 
+Wie sich in \autoref{tab:Geschwindigkeiten} erkennen lässt, sind nicht für alle Messpunkte die Geschwindigkeiten $v_0$ bekannt. Des Weiteren weichen einzelne Werte um fast 
+$\qty{50}{\percent}$ von der Idealbedingung $2v_0 = v_\text{ab} - v_\text{auf}$ ab. Dennoch werden alle Messwerte in den folgenden Berechnungen verwendet um die Quantität
+zu sichern. 
 
 \subsection{Bestimmung der Ladung und der Radien der Öltröpfchen}
 \label{subsec:ladungradius}
-Nun wird zunächst der Radius der Öltröpfchen bestimmt. Dieser kann gemäß Formel \eqref{eqn:Radius} berechnet werden. Der Radius ist allerdings abhängig von der Viskosität
-der Luft, der Dichte der Luft und der Dichte des Öltröpfchens. Die Viskosität der Luft hängt von der Temperatur der Luft ab. Die Temperatur kann jedoch aus dem gemessenen 
-Thermowiderstand bestimmt werden. Der Wert kann der Tabelle in \autoref{fig:Temperatur} entgenommen werden. Die Dichte der Luft beträgt $\qty{1.204}{\kilo\gram\per\cubic\metre}$
-und die Dichte des Öls beträgt $\qty{886}{\kilo\gram\per\cubic\metre}$. Außerdem sind die gemessenen Geschwindigkeiten relevant. Diese können \autoref{fig:SCHEIßTABELLEKOMMT NOCH}
-entnommen werden. Damit lassen sich die Radien bestimmen und werden dann in \autoref{fig:KOMMT NOCH IWAN MA KAGGE} dargestellt. 
+Der Radius der Öltröpfchen kann gemäß \autoref{eqn:Radius} berechnet werden. Dieser hängt von der Viskosität-
+und der Dichte der Luft, sowie von der Dichte der Öltröpfchen ab. Die Viskosität wiederum, hängt von der Umgebungstemperatur ab. Die Temperatur kann aus dem gemessenen 
+Thermowiderstand mithilfe der Tabelle \ref{fig:Temperatur} bestimmmt werden. Die Dichte der Luft beträgt $\qty{1.204}{\kilo\gram\per\cubic\metre}$
+und die Dichte des Öls beträgt $\qty{886}{\kilo\gram\per\cubic\metre}$ \cite{v503}. Die relevanten Geschwindigkeiten können der oben aufgeführten \autoref{tab:Geschwindigkeiten}
+entnommen werden. Die ermittelten Radien sind \autoref{tab:Ladungen} zu entnehmen. 
 
-Nun wird die Ladung der einzelnen Öltröpfchen bestimmt. Dies geschieht gemäß Formel \eqref{eqn:q}. Dabei bestehen zunächst noch die gleichen Abhänigkeiten wie die des Radiuses.
-Hier kommt allerdings noch die Energie des elektrischen Feldes im Kondensator hinzu. Diese kann durch den Abstand der Platten $d = \qty{7.6250(0.0051)}{\milli\metre}$ und die 
-Spannung am Kondensator bestimmt werden. Die verwendeten Spannungen für die Teilchen können ebenfalls \autoref{fig:ganzoberetabbelle duasua} entnommen werden. Die berechneten,
-aber noch unkorregierten, Ladungen können \autoref{fig:TABLELLE VON DIESES ABSCHNITT JUNGE} entnommen werden. Aus diesen Ladungen kann nun eine gemittelte Elementarladung $e_0$
-bestimmmt werden. Diese werden in \autoref{fig:NÄCHSTETABELLEHALTDUSAU} dargestellt.
+Zur Bestimmung der Ladungen der Öltröpfchen wird \autoref{eqn:q} verwendetr.
+Der Betrag des elektrischen Feldes des Plattenkondensators kann über den Zusammenhang $E = U/d$ berechnet werden. Der Abstand der Platten beträgt $d = \qty{7.6250(0.0051)}{\milli\metre}$.
+Die verwendeten Spannungen für die Teilchen können ebenfalls \autoref{tab:Geschwindigkeiten} entnommen werden. Die berechneten,
+aber noch unkorregierten, Ladungen sind in \autoref{tab:Ladungen} dargestellt. Die korrigierte Ladung berechnet sich nach \autoref{eqn:q_korrigiert} und ist ebenfalls In
+\autoref{tab:Ladungen} zu finden.
+
+\begin{table}
+    \centering
+    \caption{Aus den Messwerten bestimmte, unkorrigierte und korrigierte Ladungen $q$, sowie Radien der Öltröpfchen. Es wird erneut auf die Angabe der 
+            Messunischerheiten verzichtet. $N$: Nummer des Öltröpfchens.}
+    \label{tab:Ladungen}
+    \begin{tabular}{c l S[table-format = 1.2] S[table-format = 2.2] S}
+      \toprule
+        {} & {$N$} & {$r \mathbin{/} 10^{-7} \unit{\metre}$} & {$q \mathbin{/} {10}^{-19} \unit{\coulomb}$} & {$q_\text{korr.} \mathbin{/} {10}^{-19} \unit{\coulomb}$} \\
+        \midrule
+        {$\qty{175}{\volt}:$} &  {1} & 4.68 &  5.14 &  5.14 \\
+        {                   } &  {2} & 1.40 &  2.46 &  5.00 \\
+        {                   } &  {3} & 2.57 &  2.22 &  3.37 \\
+        {                   } &  {4} & 5.26 & 12.87 & 16.01 \\
+        {                   } &  {5} & 2.97 &  3.62 &  5.22 \\
+        {$\qty{200}{\volt}:$} &  {6} & 2.34 &  4.97 &  4.97 \\
+        {                   } &  {7} & 2.40 &  5.05 &  7.85 \\
+        {                   } &  {8} & 3.63 &  1.69 &  2.30 \\
+        {                   } &  {9} & 4.48 &  2.21 &  2.84 \\
+        {                   } & {10} & 3.33 &  3.71 &  5.17 \\
+        {$\qty{225}{\volt}:$} & {11} & 4.40 &  4.46 &  4.46 \\
+        {                   } & {12} & 4.48 &  3.30 &  4.26 \\
+        {                   } & {13} & 4.96 &  6.87 &  8.64 \\
+        {                   } & {14} & 3.88 &  6.26 &  8.35 \\
+        {                   } & {15} & 5.97 &  5.49 &  6.66 \\
+        {$\qty{250}{\volt}:$} & {16} & 5.58 &  4.54 &  4.54 \\
+        {                   } & {17} & 5.89 &  7.73 &  9.41 \\
+        {                   } & {18} & 2.79 &  4.60 &  6.78 \\
+        {                   } & {19} & 5.74 &  5.20 &  6.36 \\
+        {                   } & {20} & 5.01 &  3.51 &  4.41 \\
+        {$\qty{275}{\volt}:$} & {21} & 6.24 &  5.95 &  5.95 \\
+        {                   } & {22} & 4.30 &  7.25 &  9.41 \\
+        {                   } & {23} & 6.65 &  9.14 & 10.89 \\
+        {                   } & {24} & 8.44 & 16.93 & 19.47 \\
+        {                   } & {25} & 5.60 &  6.47 &  7.96 \\
+      \bottomrule
+    \end{tabular}
+  \end{table}
+
+\subsection{Bestimmung der Elementarladung}
+\label{subsec:Elementarladung}
+
+Die Messdaten zur korrigierten Ladung der Öltröpfchen sind in \autoref{fig:plot} grafisch dargestellt. Es lässt sich erkennen, dass die meisten Fehler 
+(bis auf einige Ausnahmen) in einem Bereich von unter $\qty{1e-19}{\coulomb}$ liegen. Ebenfalls gibt es Häufungspunkte der Messwerte, die in einem 
+Abstand genau unter dieser Schwelle liegen. Bei diesen Werten liegt die Vermutung nahe, dass es sich um gleich geladene Tröpfchen handelt, deren
+berechneter Ladungswert sich nur auf Grund von Messunsicherheiten unterscheidet.
+
+\begin{figure}
+    \centering
+    \includegraphics{build/plot.pdf}
+    \caption{Messdaten der korrigierten Ladungen zu den verschiedenen Spannungen (mit Fehlerbalken). Erstellt mit \textit{matplotlib} \cite{matplotlib}.}
+    \label{fig:plot}
+\end{figure}
+
+Die Elementarladung $e$ ist der größte gemeinsame Teiler der Werte. Dieser Teiler ist jedoch nicht exakt berechenbar, da es sich um fehlerbehaftete Größen handelt, die
+kein ganzzahliges Vielfaches voneinander sind. Aus diesem Grund wird zur Bestimmung der Elementarladung der geringste Abstand zwischen zwei Messpunkten 
+einer Messreihe ermittelt, dabei wird beachtet, dass Abstände unter der oben begründeten Grenze von $\qty{1e-19}{\coulomb}$ verworfen werden, da diese
+dieselbe Ladung beschreiben.
+Das Verfahren wird für alle Messreihen mit den Ergebnissen der korrigierten und unkorregierten Ladung durchgeführt. Die bestimmten Elementarladungen werden anschließend
+gemittelt um einen experimentellen Wert aus allen Messreihen zu erhalten. Die Zwischenergebnisse sind \autoref{tab:elementar} zu entnehmen.
+
+\begin{table}
+    \centering
+    \caption{Ergebnisse der Ermittlung der Elementarladung aus korrigierten und unkorregierten Ladungen.}
+    \label{tab:elementar}
+    \begin{tabular}{l S[table-format = 1.3] S}
+      \toprule
+        {} & {$e_0 \mathbin{/} 10^{-19} \unit{\coulomb}$} & {$e_{0\text{, korr.}} \mathbin{/} 10^{-19} \unit{\coulomb}$} \\
+        \midrule
+        {$\qty{175}{\volt}$} & 1.161 & 1.627 \\
+        {$\qty{200}{\volt}$} & 1.252 & 2.125 \\
+        {$\qty{225}{\volt}$} & 1.033 & 1.689 \\
+        {$\qty{250}{\volt}$} & 1.030 & 1.817 \\
+        {$\qty{275}{\volt}$} & 1.301 & 1.454 \\
+        {Mittelwert}         & 1.155 & 1.742 \\
+      \bottomrule
+    \end{tabular}
+  \end{table}
+Die experimentell bestimmten Mittelwerte lauten mit Fehler $e_0 = \qty{1.155(0.348)e-19}{\coulomb}$ und $e_{0 \text{, korr.}} = \qty{1.742(0.361)e-19}{\coulomb}$. 
+\subsection{Berechnung der Advogradokonstante}
+\label{subsec:Avogadro}
+Die Advogradokonstante gibt an wie viele Teilchen eines einer chemischen Verbindung in einem $\unit{\mol}$ enthalten sind.
+Sie lässt sich mithilfe der \textit{Faraday-Konstante} $F$ und der Elementarladung durch
+\begin{equation*}
+    \label{eqn:N_A}
+    N_\text{A} = \frac{F}{e}
+\end{equation*}
+berechnen. Die Faraday-Konstante hat den Wert $F = \qty{96485.3399(0.0024)}{\coulomb\per\mol}$ \cite{Ingenieurwissen}.
+Mit dem experimentell bestimmten Wert der Elementarladung aus den korrigierten Ladungen folgt $N_\text{A, exp} = \qty{5.5374(1.1469)e23}{\per\mol}$.
+Der Literaturwert beträgt $N_\text{A} = \qty{6.02214179e23}{\per\mol}$ \cite{Ingenieurwissen}.

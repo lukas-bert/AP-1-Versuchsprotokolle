@@ -161,7 +161,7 @@ v_t2v225om = np.mean(v_t2v225[0:3])
 temp = sem(v_t2v225[0:3])
 v_t2v225um = np.mean(v_t2v225[3:6])
 temp1 = sem(v_t2v225[3:6])
-temp2 = [v_t2v225om, v_t2v225um, v_t1v225[6]]
+temp2 = [v_t2v225om, v_t2v225um, v_t2v225[6]]
 temp1err = [temp, temp1, 0]
 t2v225 = unp.uarray(temp2, temp1err)
 print(t2v225)
@@ -170,7 +170,7 @@ v_t3v225om = np.mean(v_t3v225[0:3])
 temp = sem(v_t3v225[0:3])
 v_t3v225um = np.mean(v_t3v225[3:6])
 temp1 = sem(v_t3v225[3:6])
-temp2 = [v_t3v225om, v_t3v225um, v_t1v225[6]]
+temp2 = [v_t3v225om, v_t3v225um, v_t3v225[6]]
 temp1err = [temp, temp1, 0]
 t3v225 = unp.uarray(temp2, temp1err)
 print(t3v225)
@@ -179,7 +179,7 @@ v_t4v225om = np.mean(v_t4v225[0:3])
 temp = sem(v_t4v225[0:3])
 v_t4v225um = np.mean(v_t4v225[3:6])
 temp1 = sem(v_t4v225[3:6])
-temp2 = [v_t4v225om, v_t4v225um, v_t1v225[6]]
+temp2 = [v_t4v225om, v_t4v225um, v_t4v225[6]]
 temp1err = [temp, temp1, 0]
 t4v225 = unp.uarray(temp2, temp1err)
 print(t4v225)
@@ -188,7 +188,7 @@ v_t5v225om = np.mean(v_t5v225[0:3])
 temp = sem(v_t5v225[0:3])
 v_t5v225um = np.mean(v_t5v225[3:6])
 temp1 = sem(v_t5v225[3:6])
-temp2 = [v_t5v225om, v_t5v225um, v_t1v225[6]]
+temp2 = [v_t5v225om, v_t5v225um, v_t5v225[6]]
 temp1err = [temp, temp1, 0]
 t5v225 = unp.uarray(temp2, temp1err)
 print(t5v225)
@@ -206,7 +206,7 @@ v_t2v250om = np.mean(v_t2v250[0:3])
 temp = sem(v_t2v250[0:3])
 v_t2v250um = np.mean(v_t2v250[3:6])
 temp1 = sem(v_t2v250[3:6])
-temp2 = [v_t2v250om, v_t2v250um, v_t1v250[6]]
+temp2 = [v_t2v250om, v_t2v250um, v_t2v250[6]]
 temp1err = [temp, temp1, 0]
 t2v250 = unp.uarray(temp2, temp1err)
 print(t2v250)
@@ -215,7 +215,7 @@ v_t3v250om = np.mean(v_t3v250[0:3])
 temp = sem(v_t3v250[0:3])
 v_t3v250um = np.mean(v_t3v250[3:6])
 temp1 = sem(v_t3v250[3:6])
-temp2 = [v_t3v250om, v_t3v250um, v_t1v250[6]]
+temp2 = [v_t3v250om, v_t3v250um, v_t3v250[6]]
 temp1err = [temp, temp1, 0]
 t3v250 = unp.uarray(temp2, temp1err)
 print(t3v250)
@@ -224,7 +224,7 @@ v_t4v250om = np.mean(v_t4v250[0:3])
 temp = sem(v_t4v250[0:3])
 v_t4v250um = np.mean(v_t4v250[3:6])
 temp1 = sem(v_t4v250[3:6])
-temp2 = [v_t4v250om, v_t4v250um, v_t1v250[6]]
+temp2 = [v_t4v250om, v_t4v250um, v_t4v250[6]]
 temp1err = [temp, temp1, 0]
 t4v250 = unp.uarray(temp2, temp1err)
 print(t4v250)
@@ -233,7 +233,7 @@ v_t5v250om = np.mean(v_t5v250[0:3])
 temp = sem(v_t5v250[0:3])
 v_t5v250um = np.mean(v_t5v250[3:6])
 temp1 = sem(v_t5v250[3:6])
-temp2 = [v_t5v250om, v_t5v250um, v_t1v250[6]]
+temp2 = [v_t5v250om, v_t5v250um, v_t5v250[6]]
 temp1err = [temp, temp1, 0]
 t5v250 = unp.uarray(temp2, temp1err)
 print(t5v250)
@@ -251,7 +251,7 @@ v_t2v275om = np.mean(v_t2v275[0:3])
 temp = sem(v_t2v275[0:3])
 v_t2v275um = np.mean(v_t2v275[3:6])
 temp1 = sem(v_t2v275[3:6])
-temp2 = [v_t2v275om, v_t2v275um, v_t1v275[6]]
+temp2 = [v_t2v275om, v_t2v275um, v_t2v275[6]]
 temp1err = [temp, temp1, 0]
 t2v275 = unp.uarray(temp2, temp1err)
 print(t2v275)
@@ -260,7 +260,7 @@ v_t3v275om = np.mean(v_t3v275[0:3])
 temp = sem(v_t3v275[0:3])
 v_t3v275um = np.mean(v_t3v275[3:6])
 temp1 = sem(v_t3v275[3:6])
-temp2 = [v_t3v275om, v_t3v275um, v_t1v275[6]]
+temp2 = [v_t3v275om, v_t3v275um, v_t3v275[6]]
 temp1err = [temp, temp1, 0]
 t3v275 = unp.uarray(temp2, temp1err)
 print(t3v275)
@@ -269,7 +269,7 @@ v_t4v275om = np.mean(v_t4v275[0:3])
 temp = sem(v_t4v275[0:3])
 v_t4v275um = np.mean(v_t4v275[3:6])
 temp1 = sem(v_t4v275[3:6])
-temp2 = [v_t4v275om, v_t4v275um, v_t1v275[6]]
+temp2 = [v_t4v275om, v_t4v275um, v_t4v275[6]]
 temp1err = [temp, temp1, 0]
 t4v275 = unp.uarray(temp2, temp1err)
 print(t4v275)
@@ -278,7 +278,7 @@ v_t5v275om = np.mean(v_t5v275[0:3])
 temp = sem(v_t5v275[0:3])
 v_t5v275um = np.mean(v_t5v275[3:6])
 temp1 = sem(v_t5v275[3:6])
-temp2 = [v_t5v275om, v_t5v275um, v_t1v275[6]]
+temp2 = [v_t5v275om, v_t5v275um, v_t5v275[6]]
 temp1err = [temp, temp1, 0]
 t5v275 = unp.uarray(temp2, temp1err)
 print(t5v275)
@@ -307,7 +307,7 @@ def eta_eff(v_0, n_L):
 
 # Überprüfung der Bedingung 2v_0 = v_ab - v_auf
 
-def test(v_0, v_auf, v_ab, tol, name):
+def test(v_ab, v_0, v_auf, tol, name):
     err = np.abs(2*noms(v_0)-(noms(v_ab)-noms(v_auf)))/(noms(v_0)*2)
     if(err > tol):
         print("Die Bedingung 2v_0 = v_ab - v_auf ist mit einer Toleranz von: ", tol, " für ", name, " nicht erfüllt (Abweichung: ", err , ")")
@@ -323,26 +323,32 @@ def q_real(v_ab, v_auf, U, v_0, n_L):
 # tXvYyy : Teilchen X, Spannung Yyy Volt 
 # tXvYyy = [v_auf, v_ab, v_0] mit Fehlern
 
-test(t1v175[1], t1v175[2], t1v175[0], 0.5, "T1, U = 175V")
-test(t5v175[1], t5v175[2], t5v175[0], 0.5, "T5, U = 175V")
+test(t1v175[1], t1v175[2], t1v175[0], 0, "T1, U = 175V")
+test(t5v175[1], t5v175[2], t5v175[0], 0, "T5, U = 175V")
 
-test(t1v200[1], t1v200[2], t1v200[0], 0.5, "T1, U = 200V")
-test(t2v200[1], t2v200[2], t2v200[0], 0.5, "T2, U = 200V")
-test(t3v200[1], t3v200[2], t3v200[0], 0.5, "T3, U = 200V")
-test(t4v200[1], t4v200[2], t4v200[0], 0.5, "T4, U = 200V")
-test(t5v200[1], t5v200[2], t5v200[0], 0.5, "T5, U = 200V")
+test(t1v200[1], t1v200[2], t1v200[0], 0, "T1, U = 200V")
+test(t2v200[1], t2v200[2], t2v200[0], 0, "T2, U = 200V")
+test(t3v200[1], t3v200[2], t3v200[0], 0, "T3, U = 200V")
+test(t4v200[1], t4v200[2], t4v200[0], 0, "T4, U = 200V")
+test(t5v200[1], t5v200[2], t5v200[0], 0, "T5, U = 200V")
 
-test(t1v225[1], t1v225[2], t1v225[0], 0.5, "T1, U = 225V")
-test(t2v225[1], t2v225[2], t2v225[0], 0.5, "T2, U = 225V")
-test(t3v225[1], t3v225[2], t3v225[0], 0.5, "T3, U = 225V")
-test(t4v225[1], t4v225[2], t4v225[0], 0.5, "T4, U = 225V")
-test(t5v225[1], t5v225[2], t5v225[0], 0.5, "T5, U = 225V")
+test(t1v225[1], t1v225[2], t1v225[0], 0, "T1, U = 225V")
+test(t2v225[1], t2v225[2], t2v225[0], 0, "T2, U = 225V")
+test(t3v225[1], t3v225[2], t3v225[0], 0, "T3, U = 225V")
+test(t4v225[1], t4v225[2], t4v225[0], 0, "T4, U = 225V")
+test(t5v225[1], t5v225[2], t5v225[0], 0, "T5, U = 225V")
 
-test(t1v250[1], t1v250[2], t1v250[0], 0.5, "T1, U = 250V")
-test(t2v250[1], t2v250[2], t2v250[0], 0.5, "T2, U = 250V")
-test(t3v250[1], t3v250[2], t3v250[0], 0.5, "T3, U = 250V")
-test(t4v250[1], t4v250[2], t4v250[0], 0.5, "T4, U = 250V")
-test(t5v250[1], t5v250[2], t5v250[0], 0.5, "T5, U = 250V")
+test(t1v250[1], t1v250[2], t1v250[0], 0, "T1, U = 250V")
+test(t2v250[1], t2v250[2], t2v250[0], 0, "T2, U = 250V")
+test(t3v250[1], t3v250[2], t3v250[0], 0, "T3, U = 250V")
+test(t4v250[1], t4v250[2], t4v250[0], 0, "T4, U = 250V")
+test(t5v250[1], t5v250[2], t5v250[0], 0, "T5, U = 250V")
+
+test(t1v275[1], t1v275[2], t1v275[0], 0, "T1, U = 275V")
+test(t2v275[1], t2v275[2], t2v275[0], 0, "T2, U = 275V")
+test(t3v275[1], t3v275[2], t3v275[0], 0, "T3, U = 275V")
+test(t4v275[1], t4v275[2], t4v275[0], 0, "T4, U = 275V")
+test(t5v275[1], t5v275[2], t5v275[0], 0, "T5, U = 275V")
 
 
 #Temperatur zu der Messreihe v175:
@@ -432,65 +438,104 @@ devs(q_real(t3v275[1], t3v275[0], 275, t3v275[2], n_L275)),
 devs(q_real(t4v275[1], t4v275[0], 275, t4v275[2], n_L275)),
 devs(q_real(t5v275[1], t5v275[0], 275, t5v275[2], n_L275))])
 
+print(ladungenv175)
+print(ladungenv200)
+print(ladungenv225)
+print(ladungenv250)
+print(ladungenv275)
 
+# Bestimmung der Elementarladung aus den Messdaten
 
-#bestimmung der e_0 aus den Messwerten v175 (dubios)
-eladungenv175 = np.around(noms(ladungenv175)/const.e)
-#print(eladungenv175)
+def elementar(arr):
+    e_0 = 999
+    for i in range(len(arr)):
+        for j in (np.array(range(len(ladungenv175)-1)) + 1):
+            a = np.abs(arr[i] - arr[j])
+            if a > 1e-19 and a < e_0:
+                e_0 = a
+    return e_0       
 
-arraye_0v175 = ladungenv175/eladungenv175 
-#print(arraye_0v175)
-e_0v175 = np.mean(arraye_0v175)
-print(e_0v175)
+e_0v175 = elementar(ladungenv175)
+e_0v200 = elementar(ladungenv200)
+e_0v225 = elementar(ladungenv225)
+e_0v250 = elementar(ladungenv250)
+e_0v275 = elementar(ladungenv275)
 
+print("--------------------------------------------------------------------------------------------------")
+print("korrigierte Ladungen")
+print("Elementarladung aus V = 175V: ", '{0:.3e}'.format(e_0v175))
+print("Elementarladung aus V = 200V: ", '{0:.3e}'.format(e_0v200))
+print("Elementarladung aus V = 225V: ", '{0:.3e}'.format(e_0v225))
+print("Elementarladung aus V = 250V: ", '{0:.3e}'.format(e_0v250))
+print("Elementarladung aus V = 275V: ", '{0:.3e}'.format(e_0v275))
+print("--------------------------------------------------------------------------------------------------")
 
-#bestimmung der e_0 aus den Messwerten v200 (dubios)
-eladungenv200 = np.around(noms(ladungenv200)/const.e)
-#print(eladungenv200)
-
-arraye_0v200 = ladungenv200/eladungenv200 
-#print(arraye_0v200)
-e_0v200 = np.mean(arraye_0v200)
-print(e_0v200)
-
-#bestimmung der e_0 aus den Messwerten v225 (dubios)
-eladungenv225 = np.around(noms(ladungenv225)/const.e)
-#print(eladungenv225)
-
-arraye_0v225 = ladungenv225/eladungenv225 
-#print(arraye_0v225)
-e_0v225 = np.mean(arraye_0v225)
-print(e_0v225)
-
-
-#bestimmung der e_0 aus den Messwerten v250 (dubios)
-eladungenv250 = np.around(noms(ladungenv250)/const.e)
-#print(eladungenv250)
-
-arraye_0v250 = ladungenv250/eladungenv250 
-#print(arraye_0v250)
-e_0v250 = np.mean(arraye_0v250)
-print(e_0v250)
-
-#bestimmung der e_0 aus den Messwerten v275 (dubios)
-eladungenv275 = np.around(noms(ladungenv275)/const.e)
-#print(eladungenv275)
-
-arraye_0v275 = ladungenv275/eladungenv275 
-#print(arraye_0v275)
-e_0v275 = np.mean(arraye_0v275)
-print(e_0v275)
+##bestimmung der e_0 aus den Messwerten v175 (dubios)
+#eladungenv175 = np.around(noms(ladungenv175)/const.e)
+##print(eladungenv175)
+#
+#arraye_0v175 = ladungenv175/eladungenv175 
+##print(arraye_0v175)
+#e_0v175 = np.mean(arraye_0v175)
+#print(e_0v175)
+#
+#
+##bestimmung der e_0 aus den Messwerten v200 (dubios)
+#eladungenv200 = np.around(noms(ladungenv200)/const.e)
+##print(eladungenv200)
+#
+#arraye_0v200 = ladungenv200/eladungenv200 
+##print(arraye_0v200)
+#e_0v200 = np.mean(arraye_0v200)
+#print(e_0v200)
+#
+##bestimmung der e_0 aus den Messwerten v225 (dubios)
+#eladungenv225 = np.around(noms(ladungenv225)/const.e)
+##print(eladungenv225)
+#
+#arraye_0v225 = ladungenv225/eladungenv225 
+##print(arraye_0v225)
+#e_0v225 = np.mean(arraye_0v225)
+#print(e_0v225)
+#
+#
+##bestimmung der e_0 aus den Messwerten v250 (dubios)
+#eladungenv250 = np.around(noms(ladungenv250)/const.e)
+##print(eladungenv250)
+#
+#arraye_0v250 = ladungenv250/eladungenv250 
+##print(arraye_0v250)
+#e_0v250 = np.mean(arraye_0v250)
+#print(e_0v250)
+#
+##bestimmung der e_0 aus den Messwerten v275 (dubios)
+#eladungenv275 = np.around(noms(ladungenv275)/const.e)
+##print(eladungenv275)
+#
+#arraye_0v275 = ladungenv275/eladungenv275 
+##print(arraye_0v275)
+#e_0v275 = np.mean(arraye_0v275)
+#print(e_0v275)
 
 #Mittelwert der e_0s
+print("--------------------------------------------------------------------------------------------------")
 e_0m = (e_0v175 + e_0v200 + e_0v225 + e_0v250 + e_0v275)/5
-print(e_0m)
+print("Mittelwert: ", '{0:.3e}'.format(e_0m))
 
 #Abweichung zu lit
-deltae_0m = np.abs(e_0m - const.e)*100/const.e
-print(deltae_0m)
+deltae_0m = np.abs(e_0m - const.e)/const.e
+print("Abweichung e zum Literaturwert: ", '{0:.4f}'.format(deltae_0m))
+print("--------------------------------------------------------------------------------------------------")
 
+# Avogadrokonstante
 
-# PLOTTTTSSSSS
+F = ufloat(96485.3399, 0.0024)
+N_A = F/e_0m
+dN_A = np.abs(noms(N_A)- const.N_A)/(const.N_A)
+print("Avogadrokonstante: ", '{0:.4e}'.format(N_A))
+print("Abweichung: ", '{0:.4f}'.format(dN_A))
+
+# Plot zur Ladungsverteilung
 x = np.array([0.9, 0.95, 1, 1.05, 1.1])
 plt.errorbar(x,   noms(ladungenv175), yerr = devs(ladungenv175), elinewidth = 0.7, linewidth = 0, marker = ".", markersize = 7, capsize=3)
 plt.errorbar(1+x, noms(ladungenv200), yerr = devs(ladungenv200), elinewidth = 0.7, linewidth = 0, marker = ".", markersize = 7, capsize=3)
@@ -501,7 +546,7 @@ plt.errorbar(4+x, noms(ladungenv275), yerr = devs(ladungenv275), elinewidth = 0.
 plt.grid()
 plt.yticks([0, e, 2*e, 3*e, 4*e, 5*e, 6*e, 7*e, 10*e, 12*e], [0, r"$e$", r"$2e$", r"$3e$", r"$4e$", r"$5e$", r"$6e$", r"$7e$", r"$10e$", r"$12e$"])
 plt.xticks([1, 2, 3, 4, 5], [r"$175 \unit{\volt}$", r"$200 \unit{\volt}$", r"$225 \unit{\volt}$", r"$250 \unit{\volt}$", r"$275 \unit{\volt}$"])
-plt.ylim(0, 13*e)
+plt.ylim(0*e, 13*e)
 plt.tight_layout()
 
 plt.show()
@@ -565,100 +610,126 @@ devs(Ladung(t3v275[1], t3v275[0], 275, t3v275[2], n_L275)),
 devs(Ladung(t4v275[1], t4v275[0], 275, t4v275[2], n_L275)),
 devs(Ladung(t5v275[1], t5v275[0], 275, t5v275[2], n_L275))])
 
+e_0v175 = elementar(ladungenv175)
+e_0v200 = elementar(ladungenv200)
+e_0v225 = elementar(ladungenv225)
+e_0v250 = elementar(ladungenv250)
+e_0v275 = elementar(ladungenv275)
 
-#bestimmung der e_0 aus den Messwerten v175 (dubios)
-eladungenv175 = np.around(noms(ladungenv175)/const.e)
-#print(eladungenv175)
-
-arraye_0v175 = ladungenv175/eladungenv175 
-#print(arraye_0v175)
-e_0v175 = np.mean(arraye_0v175)
-print(e_0v175)
-
-
-#bestimmung der e_0 aus den Messwerten v200 (dubios)
-eladungenv200 = np.around(noms(ladungenv200)/const.e)
-#print(eladungenv200)
-
-arraye_0v200 = ladungenv200/eladungenv200 
-#print(arraye_0v200)
-e_0v200 = np.mean(arraye_0v200)
-print(e_0v200)
-
-#bestimmung der e_0 aus den Messwerten v225 (dubios)
-eladungenv225 = np.around(noms(ladungenv225)/const.e)
-#print(eladungenv225)
-
-arraye_0v225 = ladungenv225/eladungenv225 
-#print(arraye_0v225)
-e_0v225 = np.mean(arraye_0v225)
-print(e_0v225)
-
-
-#bestimmung der e_0 aus den Messwerten v250 (dubios)
-eladungenv250 = np.around(noms(ladungenv250)/const.e)
-#print(eladungenv250)
-
-arraye_0v250 = ladungenv250/eladungenv250 
-#print(arraye_0v250)
-e_0v250 = np.mean(arraye_0v250)
-print(e_0v250)
-
-#bestimmung der e_0 aus den Messwerten v275 (dubios)
-eladungenv275 = np.around(noms(ladungenv275)/const.e)
-#print(eladungenv275)
-
-arraye_0v275 = ladungenv275/eladungenv275 
-#print(arraye_0v275)
-e_0v275 = np.mean(arraye_0v275)
-print(e_0v275)
+print("--------------------------------------------------------------------------------------------------")
+print("unkorrigierte Ladungen")
+print("Elementarladung aus V = 175V: ", '{0:.3e}'.format(e_0v175))
+print("Elementarladung aus V = 200V: ", '{0:.3e}'.format(e_0v200))
+print("Elementarladung aus V = 225V: ", '{0:.3e}'.format(e_0v225))
+print("Elementarladung aus V = 250V: ", '{0:.3e}'.format(e_0v250))
+print("Elementarladung aus V = 275V: ", '{0:.3e}'.format(e_0v275))
+print("--------------------------------------------------------------------------------------------------")
 
 #Mittelwert der e_0s
+print("--------------------------------------------------------------------------------------------------")
 e_0m = (e_0v175 + e_0v200 + e_0v225 + e_0v250 + e_0v275)/5
-print(e_0m)
+print("Mittelwert: ", '{0:.3e}'.format(e_0m))
 
 #Abweichung zu lit
-deltae_0m = np.abs(e_0m - const.e)*100/const.e
-print(deltae_0m)
+deltae_0m = np.abs(e_0m - const.e)/const.e
+print("Abweichung e zum Literaturwert: ", '{0:.4f}'.format(deltae_0m))
+print("--------------------------------------------------------------------------------------------------")
 
+##bestimmung der e_0 aus den Messwerten v175 (dubios)
+#eladungenv175 = np.around(noms(ladungenv175)/const.e)
+##print(eladungenv175)
+#
+#arraye_0v175 = ladungenv175/eladungenv175 
+##print(arraye_0v175)
+#e_0v175 = np.mean(arraye_0v175)
+#print(e_0v175)
+#
+#
+##bestimmung der e_0 aus den Messwerten v200 (dubios)
+#eladungenv200 = np.around(noms(ladungenv200)/const.e)
+##print(eladungenv200)
+#
+#arraye_0v200 = ladungenv200/eladungenv200 
+##print(arraye_0v200)
+#e_0v200 = np.mean(arraye_0v200)
+#print(e_0v200)
+#
+##bestimmung der e_0 aus den Messwerten v225 (dubios)
+#eladungenv225 = np.around(noms(ladungenv225)/const.e)
+##print(eladungenv225)
+#
+#arraye_0v225 = ladungenv225/eladungenv225 
+##print(arraye_0v225)
+#e_0v225 = np.mean(arraye_0v225)
+#print(e_0v225)
+#
+#
+##bestimmung der e_0 aus den Messwerten v250 (dubios)
+#eladungenv250 = np.around(noms(ladungenv250)/const.e)
+##print(eladungenv250)
+#
+#arraye_0v250 = ladungenv250/eladungenv250 
+##print(arraye_0v250)
+#e_0v250 = np.mean(arraye_0v250)
+#print(e_0v250)
+#
+##bestimmung der e_0 aus den Messwerten v275 (dubios)
+#eladungenv275 = np.around(noms(ladungenv275)/const.e)
+##print(eladungenv275)
+#
+#arraye_0v275 = ladungenv275/eladungenv275 
+##print(arraye_0v275)
+#e_0v275 = np.mean(arraye_0v275)
+#print(e_0v275)
+#
+##Mittelwert der e_0s
+#e_0m = (e_0v175 + e_0v200 + e_0v225 + e_0v250 + e_0v275)/5
+#print(e_0m)
+#
+##Abweichung zu lit
+#deltae_0m = np.abs(e_0m - const.e)*100/const.e
+#print(deltae_0m)
 
-print(
- Radius((t1v175[1] - t1v175[0])/2, n_L175),
- Radius((t2v175[1] - t2v175[0])/2, n_L175),
- Radius((t3v175[1] - t3v175[0])/2, n_L175),
- Radius((t4v175[1] - t4v175[0])/2, n_L175),
- Radius((t5v175[1] - t5v175[0])/2, n_L175_5))
-print(
- Radius((t1v200[1] - t1v200[0])/2, n_L200_12),
- Radius((t2v200[1] - t2v200[0])/2, n_L200_12),
- Radius((t3v200[1] - t3v200[0])/2, n_L200),
- Radius((t4v200[1] - t4v200[0])/2, n_L200),
- Radius((t5v200[1] - t5v200[0])/2, n_L200)
-)
-print(
- Radius((t1v225[1] - t1v225[0])/2, n_L225),
- Radius((t2v225[1] - t2v225[0])/2, n_L225),
- Radius((t3v225[1] - t3v225[0])/2, n_L225),
- Radius((t4v225[1] - t4v225[0])/2, n_L225),
- Radius((t5v225[1] - t5v225[0])/2, n_L225)
-)
-print(
- Radius((t1v250[1] - t1v250[0])/2, n_L250),
- Radius((t2v250[1] - t2v250[0])/2, n_L250),
- Radius((t3v250[1] - t3v250[0])/2, n_L250),
- Radius((t4v250[1] - t4v250[0])/2, n_L250),
- Radius((t5v250[1] - t5v250[0])/2, n_L250)
-)
-print(
- Radius((t1v275[1] - t1v275[0])/2, n_L275),
- Radius((t2v275[1] - t2v275[0])/2, n_L275),
- Radius((t3v275[1] - t3v275[0])/2, n_L275),
- Radius((t4v275[1] - t4v275[0])/2, n_L275),
- Radius((t5v275[1] - t5v275[0])/2, n_L275)
-)
+# Print der Radien für Tabelle
 
-print(ladungenv175)
-print(ladungenv200)
-print(ladungenv225)
-print(ladungenv250)
-print(ladungenv275)
+#print(
+# Radius((t1v175[1] - t1v175[0])/2, n_L175),
+# Radius((t2v175[1] - t2v175[0])/2, n_L175),
+# Radius((t3v175[1] - t3v175[0])/2, n_L175),
+# Radius((t4v175[1] - t4v175[0])/2, n_L175),
+# Radius((t5v175[1] - t5v175[0])/2, n_L175_5))
+#print(
+# Radius((t1v200[1] - t1v200[0])/2, n_L200_12),
+# Radius((t2v200[1] - t2v200[0])/2, n_L200_12),
+# Radius((t3v200[1] - t3v200[0])/2, n_L200),
+# Radius((t4v200[1] - t4v200[0])/2, n_L200),
+# Radius((t5v200[1] - t5v200[0])/2, n_L200)
+#)
+#print(
+# Radius((t1v225[1] - t1v225[0])/2, n_L225),
+# Radius((t2v225[1] - t2v225[0])/2, n_L225),
+# Radius((t3v225[1] - t3v225[0])/2, n_L225),
+# Radius((t4v225[1] - t4v225[0])/2, n_L225),
+# Radius((t5v225[1] - t5v225[0])/2, n_L225)
+#)
+#print(
+# Radius((t1v250[1] - t1v250[0])/2, n_L250),
+# Radius((t2v250[1] - t2v250[0])/2, n_L250),
+# Radius((t3v250[1] - t3v250[0])/2, n_L250),
+# Radius((t4v250[1] - t4v250[0])/2, n_L250),
+# Radius((t5v250[1] - t5v250[0])/2, n_L250)
+#)
+#print(
+# Radius((t1v275[1] - t1v275[0])/2, n_L275),
+# Radius((t2v275[1] - t2v275[0])/2, n_L275),
+# Radius((t3v275[1] - t3v275[0])/2, n_L275),
+# Radius((t4v275[1] - t4v275[0])/2, n_L275),
+# Radius((t5v275[1] - t5v275[0])/2, n_L275)
+#)
+#
+#print(ladungenv175)
+#print(ladungenv200)
+#print(ladungenv225)
+#print(ladungenv250)
+#print(ladungenv275)
+#
