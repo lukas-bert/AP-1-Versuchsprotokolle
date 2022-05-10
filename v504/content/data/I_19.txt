@@ -1,5 +1,6 @@
 # Kennlinienmessung der Hochvakuumiode
 # I_H = 1.9A, U_H = 3.2V
+# U_B / V, I_A / mA
  0   0
  3   0.002
  5   0.004
