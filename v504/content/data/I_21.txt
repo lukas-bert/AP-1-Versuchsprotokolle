@@ -1,0 +1,3 @@
+# Kennlinienmessung der Hochvakuumiode
+# I_H = 2.1A, U_H = 4V
+
