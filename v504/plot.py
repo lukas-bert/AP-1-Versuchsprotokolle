@@ -12,16 +12,16 @@ U_22, I_22 = np.genfromtxt("content/data/I_22.txt", unpack = True)
 U_25, I_25 = np.genfromtxt("content/data/I_25.txt", unpack = True)
 
 def prettyPlot():
-    #plt.ylabel(r'$I \mathbin{/} \unit{\milli\ampere}$')
-    #plt.xlabel(r'$U \mathbin{/} \unit{\volt}$')
+    plt.ylabel(r'$I \mathbin{/} \unit{\milli\ampere}$')
+    plt.xlabel(r'$U \mathbin{/} \unit{\volt}$')
     plt.grid()
     plt.legend()
     plt.tight_layout()
 
 # Erster Plot zu den Kennlinien
 
-plt.plot(U_19, I_19, "." , linewidth = 0, label = "Kennlinie zu: I = 1.9A", color = "mediumblue")
-plt.hlines(0.042, 45, 60, label = "Sättigungsstrom", linestyle = "dashed", color = "mediumblue")
+plt.plot(U_19, I_19, "." , linewidth = 0, label = "I = 1.9A", color = "mediumblue")
+plt.hlines(0.042, 45, 60, linestyle = "dashed", color = "mediumblue")  #label = "Sättigungsstrom",
 
 plt.plot(U_20, I_20, "." , linewidth = 0, label = "I = 2.0A", color = "firebrick")
 plt.hlines(0.116, 90, 130, linestyle = "dashed", color = "firebrick")
@@ -90,29 +90,62 @@ print("Mittelwert: ", W_A)
 # Raumladungsdichte (Langmuir-Schottkysch)
 
 a = 0.03 # m Plattenabstand?
+##I_25 = I_25*10**(-3)
+#
+#def I(U, exp, a):
+#    return a* U**(exp)
+#
+#m, mcov = op.curve_fit(I, U_25, I_25)
+#m_err = np.sqrt(np.diag(mcov))
+#print(m, m_err)
+#
+#x = np.linspace(0, 150, 10000)
+#
+#plt.subplot(121)
+#plt.plot(U_25, I_25**(2/3), "x" , linewidth = 0, label = "Messwerte", color = "firebrick")
+#plt.xlabel("I^(2/3)")
+#plt.grid()
+#
+#plt.subplot(122)
+#
+#plt.plot(x, I(x, m), color = "cornflowerblue", label = "Fit")                           # da muss noch nen Fehler sein amk
+#plt.plot(np.log(U_25), np.log(I_25), "x" , linewidth = 0, label = "Messwerte", color = "firebrick")
+#
+#plt.tight_layout()
+#plt.grid()
+#plt.xlim(0, 150)
+#plt.ylim(0)
+#
+#plt.show()
+#plt.savefig("build/Raumladung.pdf")
+#plt.close()
 
-def I(U, exp):
-    return 4/9*f*e_0*np.sqrt(2*e/m)* U**(exp)/(a**2)
+# Try über lineare Regression:
 
-m, mcov = op.curve_fit(I, U_25, I_25)
-m_err = np.sqrt(np.diag(mcov))
-print(m, m_err)
+I_log = np.log(I_25[1:])
+U_log = np.log(U_25[1:])
 
-x = np.linspace(0, 150, 10000)
+def f(x, m, b):
+    return (m*x + b) 
 
-plt.subplot(121)
-plt.plot(U_25, I_25**(2/3), "x" , linewidth = 0, label = "Messwerte", color = "firebrick")
-plt.xlabel("I^(2/3)")
+params, pcov = op.curve_fit(f, U_log, I_log)
+errors = np.sqrt(np.diag(pcov))
+
+print("Parameter Raumladung-Fit:", params, errors)
+
+x = np.linspace(0, 5.5, 1000)
+
+plt.plot(x, f(x, *params), color = "cornflowerblue", label = "Lineare Regression")                           # da muss noch nen Fehler sein amk
+plt.plot(U_log, I_log, "x" , linewidth = 0, label = "Messwerte", color = "firebrick")
+
 plt.grid()
+plt.xlim(0.5, 5.2)
+plt.ylim(-6, 1)
 
-plt.subplot(122)
-
-plt.plot(x, I(x, m), color = "cornflowerblue", label = "Fit")                           # da muss noch nen Fehler sein amk
-plt.plot(U_25, I_25, "x" , linewidth = 0, label = "Messwerte", color = "firebrick")
-
-plt.grid()
-plt.xlim(0, 150)
-plt.ylim(0)
+plt.ylabel(r'$\mathrm{log}(I \mathbin{/} \unit{\milli\ampere}$)')
+plt.xlabel(r'$\mathrm{log}(U \mathbin{/} \unit{\volt}$)')
+plt.legend()
+plt.tight_layout()
 
 #plt.show()
 plt.savefig("build/Raumladung.pdf")
@@ -129,9 +162,6 @@ U_G = U_G + I_A*R_I # Korrektur der gemessenen Spannung
 
 # I ~ c* exp(a*U),  a ~ 1/T
 
-def f(x, m, b):
-    return (m*x + b) 
-
 params, pcov = op.curve_fit(f, U_G, np.log(I_A))   
 err = np.sqrt(np.diag(pcov))
 
@@ -147,10 +177,15 @@ plt.plot(x, f(x, *params), color = "cornflowerblue", label = "Linearer Fit")
 plt.plot(U_G, np.log(I_A), "x", color = "firebrick", linewidth = 0, label = "Messwerte")
 plt.xlim(0, 1)
 plt.ylim(-24, -17.5)
+
+
+plt.ylabel(r'$\mathrm{log}(I \mathbin{/} \unit{\ampere}$)')
+plt.xlabel(r'$U \mathbin{/} \unit{\volt}$')
 plt.grid()
 plt.legend()
+plt.tight_layout()
 
-plt.show()
+#plt.show()
 plt.savefig("build/Anlaufstrom.pdf")
 plt.close()
 
