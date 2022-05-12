@@ -40,7 +40,7 @@ plt.close()
 
 # Zweiter Plot zur missratenen Kennlinie
 
-plt.plot(U_25, I_25, "." , linewidth = 0, label = "Kennlinie zu I = 2.5A")
+plt.plot(U_25, I_25, "." , linewidth = 0, label = "Kennlinie zu I = 2.5A", color = "royalblue")
 prettyPlot()
 
 #plt.show()
@@ -70,6 +70,9 @@ m = const.m_e
 k_B = const.k
 h = const.h
 e_0 = const.epsilon_0
+
+print("e: ", e)
+print("k: ", k_B)
 
 I_S = np.array([0.042, 0.116, 0.243, 0.562, 1.391])*10**(-3) # Sättigungsströme in A
 
