@@ -1,21 +1,57 @@
 \section{Auswertung}
 \label{sec:Auswertung}
+Zu Beginn werden die Kennlinien der Hochvakuumdiode ausgewertet. In \autoref{fig:plot1} sind die Kennlinien der ersten $4$ eingestellten Stromstärken zu erkennen. 
+Die Originalmessdaten sind der genannten Abbildung beziehungsweise dem Anhang zu entnehmen. Für den Sättgungswert einer Kennlinie wird das Maximum der Messwerte
+festgestellt. Die ermittelten Sättigungswerte sind in \autoref{tab:Saettigung} aufgelistet.
 
 \begin{figure}
   \centering
   \includegraphics{plot1.pdf}
   \caption{4 Kennlinien der Hochvakuumdiode. Der ungefähre Wert des Sättigungsstromes ist als gestrichelte Linie eingezeichnet.
            Erstellt mit \textit{matplotlib} \cite{matplotlib}.}
-  \label{fig:plot}
+  \label{fig:plot1}
 \end{figure}
 
+Die Kennlinie zur maximalen Stromstärke $I = \qty{2.5}{\ampere}$ ist in \autoref{fig:plot2} abgebildet. Es fällt auf, dass der Graph sein Krümmungsverhalten nicht ändert, 
+da der Sättigungsbereich eigentlich noch nicht erreicht wird. Dennoch wird auch hier die maximal gemessene Stromstärke als bestmöglicher Wert angenommen.
 
-\begin{figure}
+\begin{figure}[H]
   \centering
   \includegraphics{plot2.pdf}
   \caption{Aufgezeichnete Kennlinie zur maximalen Stromstärke $I = \qty{2.5}{\ampere}$. Es ist zu erkennen, dass der Sättigungsbereich noch nicht erreicht wurde.}
   \label{fig:plot2}
 \end{figure}
+
+\begin{table}[H]
+  \centering
+  \caption{Aus den Messwerten abgelesene Werte des Sättigungsstroms.}
+  \label{tab:Saettigung}
+  \begin{tabular}{l S[table-format = 1.3]}
+    \toprule
+      {Heizstrom} & {$I_\text{S} \mathbin{/} \unit{\milli\ampere}$} \\
+      \midrule
+      {$ I = \qty{1.9}{\ampere}$} & 0.042 \\
+      {$ I = \qty{2.0}{\ampere}$} & 0.116 \\
+      {$ I = \qty{2.1}{\ampere}$} & 0.243 \\
+      {$ I = \qty{2.2}{\ampere}$} & 0.562 \\
+      {$ I = \qty{2.5}{\ampere}$} & 1.391 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{Gültigkeitsbereich des Langmuir-Schottkyschen Raumladungsgesetzes}
+\label{subsec:A_Raumladung}
+Anhand \autoref{eqn:Raumladung} lässt sich erkennen, dass für den Strom $I$ im Raumladungsgebiet ein Zusammenhang der Form $I = \tilde{b} \cdot U^m$ gilt. Durch Anwenden des 
+Logarithmus auf beiden Seiten der Gleichung ergibt sich die Geradengleichung
+\begin{align}
+  \label{eqn:Raumgerade}
+  \mathrm{log}(I) &= \mathrm{log}\left(\tilde{b} \cdot U^m \right) \nonumber \\
+  \Leftrightarrow \mathrm{log}(I) &= m \cdot \mathrm{log}(U) + b   \nonumber \\ 
+  \Leftrightarrow f(x) &= mx + b
+\end{align}
+die einen Zusammenhang zwischen den Logarithmen der Spannung ($x$) und des Stroms ($f(x)$) beschreibt. In \autoref{fig:Raumladung} sind diese Logarithmen auf den Achsen der Grafik aufgetragen,
+da die Messwerte in dieser Darstellung annähernd eine Gerade modellieren ist anzunehmen, dass alle aufgenommenen Messpunkte in den Gültigkeitsbereich des Raumladungsgesetzes
+fallen.
 
 \begin{figure}
   \centering
@@ -24,9 +60,104 @@
   \label{fig:Raumladung}
 \end{figure}
 
+Mithilfe einer linearen Regression mittels \textit{scipy} \cite{scipy} werden die Parameter der Geradengleichung \eqref{eqn:Raumgerade} ermittelt. 
+Es ergeben sich die Werte
+\begin{align*}
+  \label{eqn:Parameter1}
+  m &= \num{1.429(0.017)} & b &= \num{-6.80(0.06)} \\
+\end{align*}
+für die Parameter der Regression. Die Größe $b$ ist nicht von Interesse. Für den Exponenten $m$ kann der Theoriewert aus \autoref{eqn:Raumladung} entnommen werden. Er lautet
+$m_\text{theo} = \frac{3}{2}$.
+
+\subsection{Untersuchung des Anlaufstromgebietes}
+\label{subsec:A_Anlaufstrom}
+An \autoref{eqn:j_Anlauf} kann abgelesen werden, dass im Bereich des Anlaufstroms ein exponentieller Zusammenhang zwischen Strom und Spannung besteht. Wie im vorherigen
+Abschnitt, kann durch Anwenden des Logarithmus ein linearer Zusammenhang zwischen $\mathrm{log}(I \mathbin{/} \unit{\ampere})$ und der Gegenspannung $U_\text{G}$ erzeugt werden. 
+Es kann wieder die Geradengleichung \eqref{eqn:Raumgerade} verwendet werden, um einen experimentellen Wert des Exponenten $m$ zu bestimmen.
+Mit dem Exponenten aus \autoref{eqn:j_Anlauf} gilt
+\begin{equation}
+  \label{eqn:m}
+  m = -\frac{e}{kT},
+\end{equation}
+woraus sich die Kathodentemperatur $T$ berechnen lässt.
+In \autoref{fig:Anlaufstrom} wird der Logarithmus der gemessenen Stromstärke $I$ in Abhängigkeit zur Gegenspannung $U_\text{G}$ dargestellt.
+
 \begin{figure}
   \centering
-  \includegraphics{Anlaufstrom.pdf}
+  \includegraphics{build/Anlaufstrom.pdf}
   \caption{Anlaufstromgebiet mit logarithmischer Darstellung der Stromstärken zur Bestimmung einer linearen Ausgleichsgeraden.}
   \label{fig:Anlaufstrom}
 \end{figure}
+
+Wie oben wird eine lineare Regression mit \textit{scipy} \cite{scipy} durchgeführt, die die Parameter 
+\begin{align*}
+  \label{eqn:Parameter2}
+  m &= \qty{-4.69(0.15)}{\per\volt} & b &= \num{-18.41(0.09)} \\
+\end{align*}
+ergibt. Durch Auflösen des Zusammenhangs \eqref{eqn:m} nach der Temperatur folgt mit der Elementarladung $e = \qty{1.602e-19}{\coulomb}$ \cite{scipy} für die Kathodentemperatur
+\begin{equation}
+  \label{eqn:Temperatur}
+  T = -\frac{e}{k \cdot m} = \qty{2473+-80}{\kelvin}.
+\end{equation}
+
+\subsection{Bestimmung der Kathodentemperaturen und der Austrittsarbeit von Wolfram}
+\label{subsec:Austrittsarbeit}
+Mit den in \autoref{tab:Saettigung} aufgeführten Sättgungsströmen kann die Austrittsarbeit des verwendeten Kathodenmaterials bestimmt werden, wenn die Kathodentemperatur
+bekannt ist. Die Temperatur der Kathoden kann aus der Leistungsbilanz des Spannungsgeräts mithilfe der \autoref{eqn:Leistung} bestimmt werden. 
+Die Wärmeleistung der verwendeten Kathode beträgt $N_\text{WL} = \qty{0.95}{\watt}$, die emittierende Fläche ist $f = \qty{0.32}{\square\centi\metre}$ und der
+Emissionsgrad lautet $\eta = 0.28$.
+Durch Auflösen nach T folgt aus \eqref{eqn:Leistung}
+\begin{equation*}
+T = \left(\frac{I\cdot U - N_\text{WL}}{f \eta \sigma}\right)^{\frac{1}{4}},
+\end{equation*}
+woraus die Temperaturen der Kathode zu den verschiedenen Leistungen ($U \cdot I$) bestimmt werden kann. Die entsprechenden Werte sind in \autoref{tab:Temperaturen}
+dargestellt.
+
+\begin{table}
+  \centering
+  \caption{Eingestellte Spannungen/Stromstärken und daraus resultierende Temperaturen der Kathode.}
+  \label{tab:Temperaturen}
+  \begin{tabular}{S[table-format = 1.1] S S[table-format = 4.1]}
+    \toprule
+      {$I_\text{H} \mathbin{/} \unit{\ampere}$} & {$U_\text{H} \mathbin{/} \unit{\volt}$} & {$T \mathbin{/} \unit{\kelvin}$} \\
+      \midrule
+      1.9 & 3.2 & 1780.3 \\
+      2.0 & 3.5 & 1855.2 \\
+      2.1 & 4.0 & 1954.3 \\
+      2.2 & 4.3 & 2020.4 \\
+      2.5 & 5.5 & 2237.5 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Mit den Sättgungsströmen aus \autoref{tab:Saettigung} und den Temperaturen aus \autoref{tab:Temperaturen} kann die Austrittsarbeit $e \cdot \phi$ für das verwendete
+Material -Wolfram- bestimmt werden. Durch Einsetzen von $j_\text{S} = \sfrac{I_\text{S}}{f}$ und Umstellen auf $\phi$ folgt aus \autoref{eqn:J_S}
+\begin{equation*}
+  \phi = -\frac{kT}{e} \cdot \mathrm{log}\left(\frac{I_\text{S} \cdot h^3}{4\symup{\pi}f \cdot e  m_0 k^2 T^2}\right)
+\end{equation*}
+für die Austrittsarbeit $\phi$ in Elektronenvolt. $m_0$ ist die Ruhemasse des Elektrons, $h$ das Plancksche Wirkungsquantum und $k$ die Boltzmannkonstante.
+Mit den in Sättigungsströmen und Kathodentemperaturen der verschiedenen Messreihen folgen fünf experimentelle Werte der Austrittsarbeit von Wolfram. 
+Die Ergebnisse sind in \autoref{tab:Austrittsarbeit} aufgelistet.
+
+\begin{table}
+  \centering
+  \caption{Experimentell ermittelte Austrittsarbeiten von Wolfram zu den verschiedenen Messreihen.}
+  \label{tab:Austrittsarbeit}
+  \begin{tabular}{S[table-format = 1.1] S[table-format = 1.2] }
+    \toprule
+      {$I_\text{H} \mathbin{/} \unit{\ampere}$} & {$\phi \mathbin{/} \unit{\electronvolt}$} \\
+      \midrule
+      1.9 & 4.40 \\
+      2.0 & 4.44 \\
+      2.1 & 4.57 \\
+      2.2 & 4.59 \\
+      2.5 & 4.95 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Aus diesen Ergebnissen wird ein Mittelwert gebildet. Der Standardfehler des Mittelwertes ergibt sich nach 
+\begin{equation*}
+  \sigma_{\overline{x}} = \sqrt{\frac{1}{n(n-1)} \sum_i \left(x_i - \overline{x}\right)^2}.
+\end{equation*}
+Der Mittelwert ergibt sich zu $\overline{\phi} = \qty{4.59(0.19)}{\electronvolt}$.

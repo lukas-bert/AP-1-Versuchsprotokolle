@@ -65,7 +65,7 @@ für den Strom aus dem Kathodenmaterial
     j_\text{S}(T) = 4 \symup{\pi}\frac{e m_0 k^2}{h^3}T^2 \cdot \symup{e}^{-\frac{e\phi}{kT}},
 \end{equation}
 wobei $k$ die Boltzmannkonstante, $h$ das Plancksche-Wirkungsquantum und $m_0$ die Ruhemasse des Elektrons ist. Die an der Anode messbare Stromstärke berechnet sich mit der 
-emmitierenden Kathodenoberfläche $f$ zu $I_\text{S} = j_\text{S}/f$.
+emmitierenden Kathodenoberfläche $f$ zu $I_\text{S} = j_\text{S} \cdot f$.
 
 \subsubsection{Raumladungsgebiet}
 Bei der Beobachtung der Kennlinie einer Diode kann festgestellt werden, dass bevor der Sättigungsstrom $I_\text{S}$ erreicht wird, der Anodenstrom eine Abhängigkeit zur 
@@ -100,7 +100,7 @@ Die Strahlungsleistung der Diode lässt sich mithilfe des \textit{Stefan-Boltzma
     N_\text{Str} = f \eta \sigma T^4
 \end{equation*}
 berechnen. Für die \textit{Stefan-Boltzmannkonstante} gilt $\sigma = \qty{5.7e-12}{\watt\per\centi\metre\squared\kelvin^4}$ \cite{scipy}. $\eta$ ist der Emissionsgrad
-der Kathode. Wenn die Wärmelesitung $N_\text{WL}$ der Kathode bekannt ist, ergibt sich mit der zugeführten Leistung $N_\text{zu} = U \cdot I$ die Bilanz
+der Kathode. Wenn die Wärmeleistung $N_\text{WL}$ der Kathode bekannt ist, ergibt sich mit der zugeführten Leistung $N_\text{zu} = U \cdot I$ die Bilanz
 \begin{equation}
     \label{eqn:Leistung}
     U \cdot I = f \eta \sigma T^4 - N_\text{WL}

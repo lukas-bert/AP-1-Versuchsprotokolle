@@ -71,9 +71,6 @@ k_B = const.k
 h = const.h
 e_0 = const.epsilon_0
 
-print("e: ", e)
-print("k: ", k_B)
-
 I_S = np.array([0.042, 0.116, 0.243, 0.562, 1.391])*10**(-3) # Sättigungsströme in A
 
 def phi(T, I):
@@ -190,5 +187,4 @@ plt.savefig("build/Anlaufstrom.pdf")
 plt.close()
 
 T = -e/(k_B*m)
-print("Aus Anlaufstrom bestimmte Temperatur:", T)
-
+print("Aus Anlaufstrom bestimmte Temperatur:", '{:.4f}%'.format(T))
