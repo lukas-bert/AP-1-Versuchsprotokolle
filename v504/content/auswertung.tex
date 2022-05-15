@@ -1,7 +1,7 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 Zu Beginn werden die Kennlinien der Hochvakuumdiode ausgewertet. In \autoref{fig:plot1} sind die Kennlinien der ersten $4$ eingestellten Stromstärken zu erkennen. 
-Die Originalmessdaten sind der genannten Abbildung beziehungsweise dem Anhang zu entnehmen. Für den Sättgungswert einer Kennlinie wird das Maximum der Messwerte
+Die Originalmessdaten sind der genannten Abbildung beziehungsweise dem Anhang zu entnehmen. Zur Bestimmung des Sättigungswertes einer Kennlinie wird das Maximum der Messwerte
 festgestellt. Die ermittelten Sättigungswerte sind in \autoref{tab:Saettigung} aufgelistet.
 
 \begin{figure}
@@ -30,11 +30,11 @@ da der Sättigungsbereich eigentlich noch nicht erreicht wird. Dennoch wird auch
     \toprule
       {Heizstrom} & {$I_\text{S} \mathbin{/} \unit{\milli\ampere}$} \\
       \midrule
-      {$ I = \qty{1.9}{\ampere}$} & 0.042 \\
-      {$ I = \qty{2.0}{\ampere}$} & 0.116 \\
-      {$ I = \qty{2.1}{\ampere}$} & 0.243 \\
-      {$ I = \qty{2.2}{\ampere}$} & 0.562 \\
-      {$ I = \qty{2.5}{\ampere}$} & 1.391 \\
+      {$ I_\text{H} = \qty{1.9}{\ampere}$} & 0.042 \\
+      {$ I_\text{H} = \qty{2.0}{\ampere}$} & 0.116 \\
+      {$ I_\text{H} = \qty{2.1}{\ampere}$} & 0.243 \\
+      {$ I_\text{H} = \qty{2.2}{\ampere}$} & 0.562 \\
+      {$ I_\text{H} = \qty{2.5}{\ampere}$} & 1.391 \\
     \bottomrule
   \end{tabular}
 \end{table}
@@ -49,8 +49,9 @@ Logarithmus auf beiden Seiten der Gleichung ergibt sich die Geradengleichung
   \Leftrightarrow \mathrm{log}(I) &= m \cdot \mathrm{log}(U) + b   \nonumber \\ 
   \Leftrightarrow f(x) &= mx + b
 \end{align}
-die einen Zusammenhang zwischen den Logarithmen der Spannung ($x$) und des Stroms ($f(x)$) beschreibt. In \autoref{fig:Raumladung} sind diese Logarithmen auf den Achsen der Grafik aufgetragen,
-da die Messwerte in dieser Darstellung annähernd eine Gerade modellieren ist anzunehmen, dass alle aufgenommenen Messpunkte in den Gültigkeitsbereich des Raumladungsgesetzes
+die einen Zusammenhang zwischen den Logarithmen der Spannung ($x$) und des Stroms ($f(x)$) beschreibt. In \autoref{fig:Raumladung} sind diese Logarithmen auf den Achsen der 
+Grafik aufgetragen.
+Da die Messwerte in dieser Darstellung annähernd eine Gerade modellieren ist anzunehmen, dass alle aufgenommenen Messpunkte in den Gültigkeitsbereich des Raumladungsgesetzes
 fallen.
 
 \begin{figure}
@@ -108,9 +109,9 @@ Die Wärmeleistung der verwendeten Kathode beträgt $N_\text{WL} = \qty{0.95}{\w
 Emissionsgrad lautet $\eta = 0.28$.
 Durch Auflösen nach T folgt aus \eqref{eqn:Leistung}
 \begin{equation*}
-T = \left(\frac{I\cdot U - N_\text{WL}}{f \eta \sigma}\right)^{\frac{1}{4}},
+T = \left(\frac{I_\text{H}\cdot U_\text{H} - N_\text{WL}}{f \eta \sigma}\right)^{\frac{1}{4}},
 \end{equation*}
-woraus die Temperaturen der Kathode zu den verschiedenen Leistungen ($U \cdot I$) bestimmt werden kann. Die entsprechenden Werte sind in \autoref{tab:Temperaturen}
+woraus die Temperaturen der Kathode zu den verschiedenen Leistungen ($U_\text{H} \cdot I_\text{H}$) bestimmt werden können. Die entsprechenden Werte sind in \autoref{tab:Temperaturen}
 dargestellt.
 
 \begin{table}
