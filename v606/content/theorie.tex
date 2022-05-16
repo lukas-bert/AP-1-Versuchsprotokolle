@@ -6,6 +6,28 @@ Größen geschieht über eine Brückenschaltung.
 \section{Theorie}
 \label{sec:Theorie}
 
+\subsection{Suszeptibilität paramagnetischer Substanzen}
+\label{subsec:Berechnung}
+
+Zunächst wird der Zusammenhang zwischen der Magnetfeldstärke $\vec{H}$ und der Suszeptibilität $\chi$ untersucht. Dabei hängen die Magnetfeldstärke $\vec{H}$ und 
+die magnetische Flussdichte $\vec{B}$ über 
+\begin{equation*}
+    \vec{B} = \mu_0 \vec{H}
+\end{equation*}
+zusammen. Dies gilt allerdings nur für ein homogenes Magnetfeld. Befindet sich Materie in einem Magnetfeld ändert sich der Zusammenhang zu
+\begin{equation}
+    \label{eqn:magnetfeld}
+    \vec{B} = \mu_0 \left(\vec{H} + \vec{M}\right),
+\end{equation}
+wobei der Summand $\vec{M}$ \textit{Magnetisierung} gennant wird. 
+Die Magnetisierung entsteht durch magnetische Momente der Atome in einer Substanz. Mittels der Suszeptibilität kann die Magnetisierung
+\begin{equation}
+    \label{eqn:Mchi}
+    \vec{M} = \mu_0 (\chi+1) \vec{H}
+\end{equation}
+in Abhängigkeit von $\vec{H}$ ausgedrückt werden. 
+Hierbei besteht in aller Allgemeinheit kein linearer Zusammenhang zwischen $\vec{M}$ und $\vec{H}$, da $\chi$ sowohl von der Temperatur der Probe, sowie von $\vec{H}$ selbst abhängt.
+
 \subsection{Paramagnetismus}
 \label{subsec:paramagnetismus}
 Paramagnetismus ist eine eine Eigenschaft von Materie in einem Magnetfeld. Allerdings existiert diese Eigenschaft nur für bestimmte Stoffe. Paramagnetische Stoffe haben ohne 
@@ -39,39 +61,18 @@ berechnen zukönnen, muss die Häufigkeit bestimmter Orientierungen der magnetis
 auf die  Energieunterniveaus. Nach Summation über die Enrgieniveaus kann ein mittleres magnetisches Moment berechnet werden. Dieses lässt sich gemäß der \textit{Brillouin-Funktion}
 berechnen. Diese Formel lässt sich allerdings im allgemeinen nicht analytisch lösen. 
 Aus diesem Grund wird die Näherung verwendet, dass das Problem bei Raumtemperatur und schwachen Feldern betrachtet wird.
-In dieser Näherung kann die Magnetisierung bestimmt werden.
+In dieser Näherung kann die Magnetisierung
 \begin{equation*}
     M = \frac{1}{3}\mu_0 N g^2_{\text{J}} \mu^2_{\text{B}} \frac{J(J+1)B}{kT}
 \end{equation*}
+bestimmt werden.
 Daraus lässt sich gemäß \autoref{eqn:Mchi}
 \begin{equation}
     \label{eqn:chi1}
     \chi = \frac{1}{3}\mu_0 N g^2_{\text{J}} \mu^2_{\text{B}} \frac{J(J+1)}{kT}
 \end{equation}  
 bestimmen.
-Es folgt eine $\frac{1}{T}$-Abhängigkeit für $\chi$. Man nennt Formel \eqref{eqn:chi1} \textit{Curiesches Gesetz}.
-
-\subsection{Suszeptibilität paramagnetischer Substanzen}
-\label{subsec:Berechnung}
-
-Zunächst wird der Zusammenhang zwischen der Magnetfeldstärke $\vec{H}$ und der Suszeptibilität $\chi$ untersucht. Dabei hängen die Magnetfeldstärke $\vec{H}$ und 
-die magnetische Flussdichte $\vec{B}$ über 
-\begin{equation*}
-    \vec{B} = \mu_0 \vec{H}
-\end{equation*}
-zusammen. Dies gilt allerdings nur für ein homogenes Magnetfeld. Befindet sich Materie in einem Magnetfeld ändert sich der Zusammenhang um einen Summanden $\vec{M}$, welcher 
-\textit{Magnetisierung} gennant wird.
-\begin{equation}
-    \label{eqn:magnetfeld}
-    \vec{B} = \mu_0 \left(\vec{H} + \vec{M}\right)
-\end{equation}
-Die Magnetisierung entsteht durch magnetische Momente der Atome in einer Substanz. Mittels der Suszeptibilität kann die Magnetisierung in Abhängigkeit von $\vec{H}$
-ausgedrückt werden. 
-\begin{equation}
-    \label{eqn:Mchi}
-    \vec{M} = \mu_0 (\chi+1) \vec{H}
-\end{equation}
-Hierbei besteht in aller Allgemeinheit kein linearer Zusammenhang zwischen $\vec{M}$ und $\vec{H}$, da $\chi$ sowohl von der Temperatur der Probe, sowie von $\vec{H}$ selbst abhängt.
+Es folgt eine $\frac{1}{T}$-Abhängigkeit für $\chi$. Formel \eqref{eqn:chi1} wird \textit{Curiesches Gesetz} genannt.
 
 \subsection{Suszeptibilität Seltener-Erd-Verbindungen}
 \label{subsec:suzepseltenererden}
@@ -83,15 +84,16 @@ mehr als zur Hälfte gefüllt, berechnet sich der Gesamtdrehimpuls nach $\vec{J}
 
 \subsection{Beschreibung einer Messapparatur zur Bestimmung der Suszeptibilität}
 \label{subsec:Messapparatur}
-Für eine Messapparatur der Suszeptibilität ist es nötig ein Magnetfeld zu erzeugen. Dies geschieht häufig über eine \textit{Lange Spule}, da das Magnetfeld im Inneren Dieser
+Für eine Messapparatur der Suszeptibilität ist es nötig ein Magnetfeld zu erzeugen. Dies geschieht häufig über eine \textit{Lange Spule}, da das Magnetfeld im Inneren dieser
 annähernd homogen ist. Um mit einer solchen Spule zu rechnen, ist die Induktivität eine relevante Größe.
 Für eine Spule in einem Vakuum gilt für die Induktivität die Formel $L = \mu_0 \frac{n^2}{l}F$. Dabei beschreibt $l$ die Länge der Spule und $F$ den Querschnitt der Spule.
 Um die Suszeptibilität eines Materials zu bestimmen, wird ein Stoff nun in das Magnetfeld der Spule eingeführt, wobei sich die Induktivität der Spule ändert. 
-Da in der Realität eine Spule nicht vollständig mit einer Probe gefüllt wird, kann man die Formel der Induktivität anpassen.
+Da in der Realität eine Spule nicht vollständig mit einer Probe gefüllt wird, muss die Formel zu 
 \begin{equation}
     \label{eqn:L_M}
     L_{\text{M}} = \mu_0 \frac{n^2 Q}{l} + \chi \mu_0 \frac{n^2 Q}{l}
 \end{equation} 
+angepasst werden.
 Da der Unterschied zwischen der gefüllten Spule und einer im Vakuum nur sehr gering ist, wird eine sehr hohe Auflösung für die Messung von $L$ benötigt,
 um die Suszeptibilität zu bestimmen. Um die nötige Auflösung zu erreichen, können zwei möglichst identische Spulen verwendet werden. Dabei wird eine der beiden Spule nicht 
 gefüllt und in die Andere wird die Messprobe eingeführt. Die beiden Spulen werden über eine Brückenschaltung zusammengeschlossen. Mit einer solchen Schaltung, wie sie in
@@ -99,7 +101,7 @@ gefüllt und in die Andere wird die Messprobe eingeführt. Die beiden Spulen wer
 \begin{figure}
     \centering
     \includegraphics[width = .5\textwidth]{content/Schaltung1.PNG}
-    \caption{Schaltplan einer Brückenschaltung zweier identischer Spulen. \cite{v606}}
+    \caption{Schaltplan einer Brückenschaltung zweier identischer Spulen \cite{v606}.}
     \label{fig:schaltplan}
 \end{figure} 
 Für die erste Methode müssen zunächst beide Spulen ohne Probe aufeinander abgestimmt werden. Dann wird die Brückenspannung gemessen, welche beim Einführen der Probe in eine der 
@@ -108,15 +110,17 @@ Spulen entsteht. Aus der entstandenen Brückenspannung kann dann die Suszeptibil
 Bei der zweiten Methode werden erneut beide Spulen aufeinander abgestimmt. Dann wird die Probe eingeführt und die beiden Brücken werden erneut aufeinander abgestimmt. Aus der
 Änderung der Abgleichelemente kann nun die Suszeptibilität bestimmt werden.
 
-Die Brückenspannung der ersten Methode kann aus Knoten- und Maschenregeln, sowie der Annahme, dass $\Delta L << L$, bestimmt werden. 
+Die Brückenspannung der ersten Methode kann aus Knoten- und Maschenregeln, sowie der Annahme  $\Delta L << L$ zu
 \begin{equation*}
     U_{\text{Br}} = \frac{\omega\mu_0\chi n^2Q}{4l}\frac{1}{\sqrt{R^2 + \omega^2\left(\mu_0\frac{n^2}{l}F\right)^2}}U_{\text{Sp}}
 \end{equation*}
-Um $\chi$ zu berechnen kann diese Formel nach $\chi$ umgestellt werden.
+bestimmt werden.
+Um $\chi$ zu berechnen kann diese Formel nach
 \begin{equation}
     \label{eqn:chi_theo}
     \chi = \frac{U_{\text{Br}}}{U_{\text{Sp}}}\frac{4l}{\omega\mu_0n^2Q}\sqrt{R^2 + \omega^2\left(\mu_0\frac{n^2}{l}F\right)^2}
 \end{equation}
+umgestellt werden.
 Dabei kann für hinreichend große Messfrequenzen $\omega$, die Gleichung für $\chi$ zu
 \begin{equation}
     \label{eqn:chi:näherung}
@@ -125,14 +129,15 @@ Dabei kann für hinreichend große Messfrequenzen $\omega$, die Gleichung für $
 genähert werden.
 
 Für die Bestimmung von $\chi$ über die zweite Methode wird die Abgleichbedingung $r_1R_4 = r_2R_3$ unter kleiner Abweichung $\Delta R$ betrachtet. Diese Abweichung entsteht
-durch das Einführen der Probe in eine der Spulen. Die Abweichung $\Delta R$ lässt sich aus der Abgleichbedingung und der Näherung $\Delta L << L$ bestimmen.
+durch das Einführen der Probe in eine der Spulen. Die Abweichung $\Delta R$ lässt sich aus der Abgleichbedingung und der Näherung $\Delta L << L$ zu
 \begin{equation*}
     \Delta R = \chi\frac{R_3}{2}\frac{Q}{F}
 \end{equation*}
-Damit folgt dann wieder eine Gleichung für $\chi$.
+bestimmen.
+Damit folgt dann wieder ein Zusammenhang für die Suszeptibilität
 \begin{equation}
     \label{eqn:chimethode2}
-    \chi = 2\frac{\Delta R}{R_3}\frac{F}{Q}
+    \chi = 2\frac{\Delta R}{R_3}\frac{F}{Q}.
 \end{equation}
 
 \subsection{Unterdrückung von Störspannungen}
