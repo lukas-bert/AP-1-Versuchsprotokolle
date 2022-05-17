@@ -1,0 +1,12 @@
+# Wellenlänge Laser: 635nm, Übersetzung der Apparatur: 1:5.046
+# Zählstände der Photokathode
+3019
+3011
+2956
+3007
+3013
+2948
+3004
+3013
+3008
+3014
