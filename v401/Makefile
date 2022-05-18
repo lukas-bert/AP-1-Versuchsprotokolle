@@ -1,4 +1,4 @@
-all: build/V401.pdf
+all: build/v401.pdf
 
 # hier Python-Skripte:
 build/plot.pdf: plot.py ../matplotlibrc ../header-matplotlib.tex | build
@@ -7,10 +7,10 @@ build/plot.pdf: plot.py ../matplotlibrc ../header-matplotlib.tex | build
 	# and set the matplotlibrc
 	TEXINPUTS=$$(pwd)/..: MATPLOTLIBRC=../matplotlibrc python plot.py
 
-# hier weitere Abhängigkeiten für build/V401.pdf deklarieren:
-build/V401.pdf: build/plot.pdf
+# hier weitere Abhängigkeiten für build/v401.pdf deklarieren:
+build/v401.pdf: build/plot.pdf
 
-build/V401.pdf: FORCE | build
+build/v401.pdf: FORCE | build
 	# to find header and bib files in the main directory
 	TEXINPUTS=..: \
 	BIBINPUTS=..: \
@@ -20,7 +20,7 @@ build/V401.pdf: FORCE | build
 	  --output-directory=build \
 	  --interaction=nonstopmode \
 	  --halt-on-error \
-	V401.tex
+	v401.tex
 
 build:
 	mkdir -p build
