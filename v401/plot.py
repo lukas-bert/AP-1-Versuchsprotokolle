@@ -24,7 +24,7 @@ b = 0.05            # Dicke der Druckkammer in m
 
 z1 = ufloat(np.mean(n1), np.std(n1))
 print("Mittelwert der Zählraten: ", z1)
-
+print("Armlängenänderung", '{0:.5e}'.format(d*u))
 laser_exp = 2*d*u/z1
 d_laser = np.abs(noms(laser_exp)- laser)/laser
 
@@ -33,5 +33,6 @@ print("Abweíchung:                 ", d_laser)
 
 z2 = ufloat(np.mean(n2), np.std(n2))
 print("Mittelwert der Zählraten(Druck): ", z2)
-n_exp = 1 + z2*laser_exp/(2*b)*(T/T_0)*(p_0/(p_0 - d_p))
-print("Experimenteller Brechungsindex: ", '{0:.5e}'.format(n_exp))
+print("Delta(n):                        ", z2*laser/(2*b))
+n_exp = 1 + z2*laser/(2*b)*(T/T_0)*(p_0/(p_0 - d_p))
+print("Experimenteller Brechungsindex: ", '{0:.6f}'.format(n_exp))

@@ -1,12 +1,51 @@
 \section{Auswertung}
 \label{sec:Auswertung}
+Die in diesem Kapitel genannten Standardfehler des Mittelwertes ergeben sich nach
+\begin{equation*}
+  \label{eqn:MW-Fehler}
+  \sigma(x) = \sqrt{\frac{1}{n(n-1)} \sum_i (x_i - \overline{x})^2}.
+\end{equation*}
+Daraus resultierende Unsicherheiten genügen der Gaußschen Fehlerfortpflanzung.
+Die Fehlerrechnung wird in \textit{Python} unter Verwendung des Paketes \textit{uncertainties} \cite{uncertainties} durchgeführt.
 
-\begin{figure}
+\subsection{Bestimmung der Wellenlänge des Lasers}
+\label{subsec:A_Wellenlaenge}
+Zur experimentellen Bestimmung der Wellenlänge des Lasers werden die in \autoref{tab:Messwerte} aufgeführten Messwerte der Zählraten verwendet.
+Aus diesen ergibt sich der Mittelwert $z_1 = \num{2999+-24}$. 
+Die Stellschraube des Spiegels wurde um jeweils $\qty{5}{\milli\metre}$ gedreht. Durch Multiplikation mit dem Untersetzungsverhältnis $u = 1:5,046$ ergibt sich die
+Armlängenänderung $\symup{\Delta}d = \qty{0.991}{\milli\metre}$.
+Nach Einsetzen der Werte in \autoref{eqn:lambda} folgt die Wellenlänge $\lambda_\text{exp} = \qty{661(5)}{\nano\metre}$. Die reale Wellenlänge des Lasers ist mit 
+$\lambda = \qty{635}{\nano\metre}$ angegeben.
+\begin{table}
   \centering
-  \includegraphics{plot.pdf}
-  \caption{Plot.}
-  \label{fig:plot}
-\end{figure}
+  \caption{Messwerte der Zählraten zur Bestimmung der Laserwellenlänge ($N_\lambda$) und des Brechungsindex ($N_n$).}
+  \label{tab:Messwerte}
+  \begin{tabular}{c c}
+    \toprule
+      {$N_\lambda$} & {$N_n$} \\
+      \midrule
+      3019 & 27 \\
+      3011 & 25 \\
+      2956 & 27 \\
+      3007 & 25 \\
+      3013 & 32 \\
+      2948 & 27 \\
+      3004 & 40 \\
+      3013 & 24 \\
+      3008 & 29 \\
+      3014 & 25 \\
+           & 31 \\
+           & 26 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
 
-
-Siehe \autoref{fig:plot}!
+\subsection{Bestimmung des Brechungsindex von Luft bei Normalbedingungen}
+\label{subsec:A_Index_Luft}
+Die Messwerte zur Bestimmung des Brechungsindex von Luft sind ebenfalls in \autoref{tab:Messwerte} aufgeführt. Der Mittelwert dieser ergibt sich zu $z_2 = \num{28(4)}$.
+Die Länge der Messzelle, in welcher der Unterdruck erzeugt wird, lautet $b = \qty{5}{\centi\metre}$. Mit der Laserwellenlänge $\lambda = \qty{635}{\nano\metre}$ folgt aus
+\autoref{eqn:Delta_n} die Änderung des Brechungsindex $\symup{\Delta}n = \num{0.000179+-0.000027}$. Diese kann wiederum in \autoref{eqn:Brechungsindex} eingesetzt werden um den
+Brechungsindex bei Normalbedingungen ($p_0 = \qty{1013.25}{\hecto\pascal}$, $T_0 = \qty{273.15}{\kelvin}$) zu erhalten. Die Messtemperatur $T$ wird als 
+$T = \qty{295.15}{\kelvin} = \qty{22}{\celsius}$ angenommen, ebenso wird $p = p_0$ für den Luftdruck während der Messung verwendet. Die Druckänderung wurde im Experiment zu 
+konstant $p' = \qty{0.6}{\bar} = \qty{60}{\kilo\pascal}$ eingestellt. Mit diesen Werten lässt sich aus \autoref{eqn:Brechungsindex} der Brechungsindex
+$n = \num{1.000474+-0.000072}$ ermitteln.
