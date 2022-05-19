@@ -18,7 +18,7 @@ b = 50e-3           # m Schichtdicke der Messzelle
 T_0 = 273.15        # K
 T   = 295.14        # K, Raumtemperatur (22°C)
 p_0 = 101325        # Pascal
-d_p =  60000        # Pascal Druch nach Vakkumpumpen
+d_p =  41325        # Pascal Druch nach Vakkumpumpen
 b = 0.05            # Dicke der Druckkammer in m
 
 
