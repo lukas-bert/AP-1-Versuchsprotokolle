@@ -19,6 +19,8 @@ T_0 = 273.15        # K
 T   = 295.14        # K, Raumtemperatur (22°C)
 p_0 = 101325        # Pascal
 d_p =  60000        # Pascal Druch nach Vakkumpumpen
+b = 0.05            # Dicke der Druckkammer in m
+
 
 z1 = ufloat(np.mean(n1), np.std(n1))
 print("Mittelwert der Zählraten: ", z1)
@@ -29,4 +31,7 @@ d_laser = np.abs(noms(laser_exp)- laser)/laser
 print("Experimentelle Wellenlänge: ", '{0:.5e}'.format(laser_exp))
 print("Abweíchung:                 ", d_laser)
 
-
+z2 = ufloat(np.mean(n2), np.std(n2))
+print("Mittelwert der Zählraten(Druck): ", z2)
+n_exp = 1 + z2*laser_exp/(2*b)*(T/T_0)*(p_0/(p_0 - d_p))
+print("Experimenteller Brechungsindex: ", '{0:.5e}'.format(n_exp))
