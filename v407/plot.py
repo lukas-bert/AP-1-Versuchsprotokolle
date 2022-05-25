@@ -1,21 +1,16 @@
 import matplotlib.pyplot as plt
 import numpy as np
-
-x = np.linspace(0, 10, 1000)
-y = x ** np.sin(x)
-
-plt.subplot(1, 2, 1)
-plt.plot(x, y, label='Kurve')
-plt.xlabel(r'$\alpha \mathbin{/} \unit{\ohm}$')
-plt.ylabel(r'$y \mathbin{/} \unit{\micro\joule}$')
-plt.legend(loc='best')
-
-plt.subplot(1, 2, 2)
-plt.plot(x, y, label='Kurve')
-plt.xlabel(r'$\alpha \mathbin{/} \unit{\ohm}$')
-plt.ylabel(r'$y \mathbin{/} \unit{\micro\joule}$')
-plt.legend(loc='best')
-
-# in matplotlibrc leider (noch) nicht möglich
-plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-plt.savefig('build/plot.pdf')
+I_0 = 180*10**(-6)
+I_dunkel = 62*10**(-9)
+alpha_s, I_s = np.genfromtxt("content/data/s_pol.txt", unpack = True)
+alpha_p, I_p = np.genfromtxt("content/data/p_pol.txt", unpack = True)
+I_s = I_s*10**(-6)
+I_p = I_p*10**(-6)
+n_s = np.sqrt(1 + ((4*np.sqrt(I_s/I_0)*(np.cos(alpha_s))**2)/((np.sqrt(I_s/I_0) - 1)**2)))
+print((n_s))
+plt.plot(alpha_s,np.sqrt(I_s/I_0))
+plt.show()
+I_Pa = I_p[0:37]
+I_Pb = I_p[37:]
+alpha_pa = alpha_p[0:37]
+alpha_pb = alpha_p[37:]
