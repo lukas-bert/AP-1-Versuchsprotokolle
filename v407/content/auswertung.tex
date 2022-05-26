@@ -1,5 +1,76 @@
 \section{Auswertung}
 \label{sec:Auswertung}
+Zur Auswertung des Versuches werden Mittelwerte gebildet. Diese führen zu einem Standardfehler des Mittelwertes, welcher gemäß
+\begin{equation*}
+  \label{eqn:MW-Fehler}
+  \sigma(x) = \sqrt{\frac{1}{n(n-1)} \sum_i (x_i - \overline{x})^2}.
+\end{equation*}
+berechnet werden kann. Die Fehlerrechnung der Messwerte genügt der gaußschen Fehlerfortpflanzung und wird in \textit{Python} mittels \textit{Scipy} \cite{scipy} durchgeführt.
+
+\subsection{Bestimmung der Brechungsindizes über die Fresnelschen Formeln}
+\label{subsec:Index_Fresnel}
+Die Messwerte der gemessenen Ströme des Photoelements sind in \autoref{tab:Messwerte} aufgeführt. 
+
+\begin{table}
+  \centering
+  \caption{Messwerte der Ströme des Photoelements und daraus resultierende Brechungsindizes. Der Strom ohne Reflexion beträgt $I_0 = \qty{180}{\micro\ampere}$, der
+  Dunkelstrom $I_\text{D} = \qty{62}{\nano\ampere}$. Die mit '*' markierten Werte werden nicht in nachfolgende Rechnungen einbezogen.}
+  \label{tab:Messwerte}
+  \begin{tabular}{S[table-format = 2.0] | c S[table-format = 3.2] | c S[table-format = 1.2]}
+      {} & \multicolumn{2}{c}{p-polarisiert} & \multicolumn{2}{c}{s-polarisiert} \\
+      \toprule
+        {$\alpha \mathbin{/} \unit{\degree}$} & {$I_\text{r} \mathbin{/} \unit{\micro\ampere}$} & {$n_\text{p}(\alpha)$} &%
+        {$I_\text{r} \mathbin{/} \unit{\micro\ampere}$} & {$n_\text{p}(\alpha)$} \\
+        \midrule
+         6 & 66  &   4.09  & 64  & 3.93  \\  
+         8 & 66  &   4.11  & 66  & 4.03  \\
+        10 & 64  &   4.01  & 62  & 3.79  \\
+        12 & 64  &   4.04  & 64  & 3.87  \\
+        14 & 66  &   4.19  & 66  & 3.96  \\
+        16 & 66  &   4.23  & 68  & 4.04  \\
+        18 & 64  &   4.15  & 68  & 4.00  \\
+        20 & 62  &   4.07  & 68  & 3.95  \\
+        22 & 56  &   3.78  & 62  & 3.58  \\
+        24 & 60  &   4.06  & 70  & 3.96  \\
+        26 & 56  &   3.89  & 68  & 3.79  \\
+        28 & 60  &   4.20  & 76  & 4.19  \\
+        30 & 52  &   3.81  & 68  & 3.66  \\
+        32 & 52  &   3.88  & 72  & 3.80  \\
+        34 & 54  &   4.09  & 80  & 4.18  \\
+        36 & 52  &   4.07  & 80  & 4.09  \\
+        38 & 50  &   4.05  & 82  & 4.11  \\
+        40 & 48  &   4.04  & 86  & 4.24  \\
+        42 & 44  &   3.92  & 86  & 4.12  \\
+        44 & 42  &   3.93  & 90  & 4.25  \\
+        46 & 38  &   3.82  & 90  & 4.11  \\
+        48 & 36  &   3.84  & 88  & 3.85  \\
+        50 & 32  &   3.74  & 92  & 3.94  \\
+        52 & 28  &   3.65  & 90  & 3.67  \\
+        54 & 28  &   3.83  & 100 & 4.11  \\
+        56 & 26  &   3.89  & 100 & 3.92  \\
+        58 & 24  &   3.96  & 105 & 4.05  \\
+        60 & 20  &   3.90  & 110 & 4.17  \\
+        62 & 16  &   3.83  & 110 & 3.93  \\
+        64 & 14  &   3.94  & 115 & 4.03  \\
+        66 & 10  &   3.86  & 110 & 3.44  \\
+        68 & 7.6 &   3.94  & 120 & 3.82  \\
+        70 & 4.8 &   3.95  & 120 & 3.51  \\
+        72 & 2.1 &   3.90  & 120 & 3.20  \\
+        73 & 1.8 &   4.06  &     &       \\
+        74 & 1.2 &   4.16  & 125 & 3.18  \\
+        75 & 0.92&   4.35  &     &       \\
+        76 & 1.0 &   4.70* & 135 & 3.51  \\
+        77 & 1.4 &   5.21* &     &       \\
+        78 & 2.6 &   6.04* & 140 & 3.45  \\
+        79 & 4.4 &   7.11* &     &       \\
+        80 & 7.0 &   8.53* & 145 & 3.36  \\ 
+        82 & 16  &  13.25* & 150 & 3.21  \\     
+        84 & 30  &  22.75* & 150 & 2.50* \\    
+        86 & 52  &  47.64* & 140 & 1.49* \\    
+        88 & 82  & 147.65* & 130 & 1.09* \\    
+    \bottomrule
+  \end{tabular}
+\end{table}
 
 \begin{figure}
   \centering
@@ -8,5 +79,3 @@
   \label{fig:plot}
 \end{figure}
 
-
-Siehe \autoref{fig:plot}!
