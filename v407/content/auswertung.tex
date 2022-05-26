@@ -9,14 +9,38 @@ berechnet werden kann. Die Fehlerrechnung der Messwerte genügt der gaußschen F
 
 \subsection{Bestimmung der Brechungsindizes über die Fresnelschen Formeln}
 \label{subsec:Index_Fresnel}
-Die Messwerte der gemessenen Ströme des Photoelements sind in \autoref{tab:Messwerte} aufgeführt. 
+Die Messwerte der gemessenen Ströme des Photoelements sind in \autoref{tab:Messwerte} aufgeführt. Eine Korrektur durch den Dunkelstrom kann vernachlässigt werden, da 
+Größenordnung des Dunkelstroms nicht signifikant im Vergleich zur allgemeinen Messunsicherheit dieses Versuches ist. 
+
+Nun wird der Brechungsindex $n$ aus der p- und s-polarisierten Messreihe berechnet. 
+Dazu werden die fresnelschen Formeln für p-polarisiertes Licht \eqref{eqn:Fresnel_parallel} und für s-polarisiertes Licht \eqref{eqn:Fresnel_senkrecht} jeweils auf den 
+Brechungsinx umgestellt. Dabei wird ausgenutzt, dass die Intensität proportional zum quadrat der Amplitude ist. 
+Daher gilt $\frac{E_\text{r}}{E_\text{e}} = \sqrt{\frac{I_r}{I_0}} = E$. Mit dieser Bedingung kann man die Fresnel-Formeln für p-polarisiertes Licht 
+auf den Brechungsindex umformen. Der Brechungsindex $n_\text{p}$ wird durch 
+\begin{equation}
+  \label{eqn:n_p}
+  n_\text{p} = \left(\frac{E + 1}{E - 1}\right)^2 \frac{1}{2\cos^2(\alpha)} + \sqrt{\frac{1}{4\cos^2(\alpha)}\left(\frac{E + 1}{E - 1}\right)^4 - \left(\frac{E + 1}{E - 1}\right)^2\tan^2(\alpha)}
+\end{equation}
+beschrieben. Nun wird verwendet, dass die Intensität $I_r, I_0$ auch proportional zur gemessenen Stromsärke ist. Daher gilt $E = \sqrt{\frac{I_p}{I_0}}$ für p-polarisiertes
+Licht, webei $I_p$ nun die gemessene Stromsärke beschreibt. Diese Bedingung gilt gleichermaßen für s-polarisiertes Licht. Die mit \autoref{eqn:n_p} berechneten Werte Brechungsindizes $n_\text{p}$
+werden in \autoref{tab:Messwerte} dargestllt. Der Mittelwert dieser Brechungsindizes lautet $\overline{n_\text{p}} = \num{3.98+-0.15}$.
+
+Die fresnelsche Formel für s-polarisiertes Licht \eqref{eqn:Fresnel_senkrecht} wird ebenfalls auf den Brechungsindex $n_\text{s}$ umgestellt.
+Daher wird wird der Brechungsindex durch 
+\begin{equation}
+  \label{eqn:n_s}
+  n_\text{s} = \sqrt{\frac{1 + E^2 + 2E\cos(2\alpha)}{1 - 2E + E^2}}
+\end{equation}
+beschrieben. 
+Die durch \autoref{eqn:n_s} berechneten Brechungsindizes werden ebenfalls in \autoref{tab:Messwerte} dargestellt. Der daraus berechnete Mittelwert lautet
+$\overline{n_\text{p}} = \num{3.85+-0.30}$.
 
 \begin{table}
   \centering
   \caption{Messwerte der Ströme des Photoelements und daraus resultierende Brechungsindizes. Der Strom ohne Reflexion beträgt $I_0 = \qty{180}{\micro\ampere}$, der
-  Dunkelstrom $I_\text{D} = \qty{62}{\nano\ampere}$. Die mit '*' markierten Werte werden nicht in nachfolgende Rechnungen einbezogen.}
+  Dunkelstrom $I_\text{D} = \qty{62}{\nano\ampere}$. Die mit '*' markierten Werte werden in der Auswertung dieses Versuches nicht einbezogen.}
   \label{tab:Messwerte}
-  \begin{tabular}{S[table-format = 2.0] | c S[table-format = 3.2] | c S[table-format = 1.2]}
+  \begin{longtable}{S[table-format = 2.0] | c S[table-format = 3.2] | c S[table-format = 1.2]}
       {} & \multicolumn{2}{c}{p-polarisiert} & \multicolumn{2}{c}{s-polarisiert} \\
       \toprule
         {$\alpha \mathbin{/} \unit{\degree}$} & {$I_\text{r} \mathbin{/} \unit{\micro\ampere}$} & {$n_\text{p}(\alpha)$} &%
@@ -69,13 +93,20 @@ Die Messwerte der gemessenen Ströme des Photoelements sind in \autoref{tab:Mess
         86 & 52  &  47.64* & 140 & 1.49* \\    
         88 & 82  & 147.65* & 130 & 1.09* \\    
     \bottomrule
-  \end{tabular}
+  \end{longtable}
 \end{table}
+
+\subsection{Bestimmung des Brechungsindizes mittels des Brewsterwinkels}
+\label{subsec:Brewsterwinkel}
+Der experimentell bestimmte Brewsterwinkel $\alpha_\text{p}$ kann den Messwerten in \autoref{tab:Messwerte} entnommen werden. Dabei kann lediglich der Messwert mit der 
+niedrigsten Stromstärke als Brewsterwinkel angenommen werden, da keine detailiertere Messung der Winkel möglich war.
+Daher lautet der beste Messwert des Brewsterwinkels $\alpha_\text{p} = \qty{75}{\degree}$.
+Mit Hilfe von \autoref{eqn:Brewster} kann der Brechungsindex berechnet werden. Dieser ergibt sich zu $n_{\alpha_{\text{p}}} = \num{3.73}$.
 
 \begin{figure}
   \centering
   \includegraphics{plot.pdf}
-  \caption{Plot.}
+  \caption{In dieser Abbildung sind die Messwerte, sowie die dazugehörigen Theoriekurven von p- und s-polarisiertem Licht dargestellt.}
   \label{fig:plot}
 \end{figure}
 

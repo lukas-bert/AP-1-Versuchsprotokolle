@@ -78,8 +78,8 @@ plt.plot(alpha_s, np.sqrt(I_s/I_0), marker = "x", color = "firebrick", linewidth
 plt.plot(alpha_p, np.sqrt(I_p/I_0), marker = "+", markersize = 8, color = "coral", linewidth = 0, label = "Messwerte p-polarisiert")
 
 plt.grid()
-plt.xlabel(r"$alpha / °$")
-plt.ylabel(r"$I / I_0$")
+plt.xlabel(r"$\alpha / °$")
+plt.ylabel(r"$\sqrt{I / I_0}$")
 plt.xlim(0, 90)
 plt.ylim(0, 1)
 plt.legend()
