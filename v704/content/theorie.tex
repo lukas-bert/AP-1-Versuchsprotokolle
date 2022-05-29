@@ -47,7 +47,7 @@ Daher kann die Energie des Elektrons durch
 beschrieben werden. Dabei ist $E_{\symup{B}}$ die Bindungsenergie des Elektrons und $h\nu$ die übertragene Energie des $\gamma$\,-Quants. Gilt nun $h\nu > E_{\symup{B}}$, wird
 das Elektron aus der Hülle gelöst(Photoeffekt). Ist jedoch die Bindungsenergie größer ist der Photoeffekt nicht möglich.  Der Impuls des $\gamma$\,-Quants geht dabei auf den 
 Atomkern über. Dies geschieht aber nur, wenn das Elektron fest genug an das Atom gebunden ist, woraus folgt das die Wahrscheinlichkeit des Photoeffekts auf inneren 
-Elektronenschalen größer ist. Daraus folgt wiederum, dass der Wirkungsquerschnitt, welcher im \autoref{subesc:Wirkungsquerschnitt} erläutert wird, propotional zur fünften 
+Elektronenschalen größer ist. Daraus folgt wiederum, dass der Wirkungsquerschnitt, welcher im \autoref{subesc:Wirkungsquerschnitt} erläutert wird, proportional zur fünften 
 Potenz der Ordnungszahl und zu $E_\gamma^{-3.5}$ ist.
 
 
@@ -83,11 +83,27 @@ zufolge. Außerdem kann es durch diese Streuung passieren, dass die Reichweite $
 Des weiteren kann aber auch eine inelastische Streuung an den Atomkernen stattfinden. Durch die Ablenkungen im elektrischen Feld muss Energie abgestrahlt werden. Diese 
 Energie wird Bremsstrahlung genannt, weil die $\beta$\,-Teilchen durch die abgestrahlte Energie an Geschwindigkeit verlieren. Die Wahrscheinlichkeit für diesen Prozess
 wird durch den Wirkungsquerschnitt
-\begin{equation}
+\begin{equation*}
     \sigma_{\symup{Br}} = \alpha r_e^2 z^2
-\end{equation}
+\end{equation*}
 beschrieben. Die Energie der Bremsstrahlung kann durch Integration aller Streuwinkel zu 
-\begin{equation}
+\begin{equation*}
     E_{\symup{Br}} = 7\cdot 10^{-7} z E_\beta^2
+\end{equation*}
+berechnet werden. Dabei ist $E_\beta$ die Energie der $\beta$\,-Teilchen. Diese Gleichung gilt nur Näherungsweise für Energien $E_\beta$ bis zu $\qty{2500}{\kilo\electronvolt}$. 
+Aus verschiedenen Berchungen zeigt sich, dass diese Form der Energieabgabe nur eine untergeordnete Rolle in der Absorption von $\beta$\,-Teilchen spielt.
+
+Eine weitere Energieabgabe der $\beta$\,-Teilchen liegt in der inelastischen Streuung an Elektronen. Hierbei gibt des $\beta$\,-Teilchen bei jedem Stoß einen kleinen Teil der
+Energie ab, wodruch des gestoßene Atom ionisiert wird. Dieser Prozess kann für jedes $\beta$\,-Teilchen häufig auftreten. Die Wahrscheinlichkeit für für diesen Prozess
+ist proportional zur Ordnungszahl und zu Anzahl der Atome pro Volumen im Material. Der Energieverlust pro Stoßprozess kann bei $\beta$\,-Teilchen mit Energien kleiner als
+$m_0 c^2$ ist durch 
+\begin{equation}
+    \label{eqn:inelast_elek_everlust}
+    \frac{\symup{d}E}{\symup{d}x} = -\frac{2\pi r_e^2}{E_\beta}\frac{N_L\rho}{M}z\symup{ln}\frac{E_\beta}{I}
 \end{equation}
-berechnet werden.
+beschrieben. Hier beschreibt $I$ die Ionisationsenergie des Absorbermaterials.
+
+\subsection{Wirkungsquerschnitt}
+\label{subsec:Wirkungsquerschnitt}
+Wie bisher beschrieben treten verschiedene Wechselwirkungen beim Eintreten von Strahlung in Materie auf. Die Häufigkeit dieser Wechselwirkungen pro Teilchen und pro Fläch
+wird Wirkungsquerschnitt $\sigma$ genannt.
