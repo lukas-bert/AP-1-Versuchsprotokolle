@@ -1,0 +1,14 @@
+# Messung der Absorptionskurve des gamma-Strahlers für Plumbum
+# N_0 = 1295/900s (ohne Strahler), N_0_gamma = 3081/30s (mit Strahler)
+# d / mm, N, t / s 
+ 0    3081  30
+ 1.2 10470 100
+ 2.4  9246 100
+ 4.7  7415 100
+ 7.4  6229 100
+10.3  6297 150
+13.8  4481 150
+17.7  3532 150
+20.0  2460 150
+30.3  1141 150
+40.8   892 200

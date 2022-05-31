@@ -1,0 +1,14 @@
+# Messung der Absorptionskurve des gamma-Strahlers für Zink
+# N_0 = 1295/900s (ohne Strahler), N_0_gamma = 3081/30s (mit Strahler)
+# d / mm, N, t / s
+ 0  3081  30
+ 2 10602 100
+ 4  9766 100
+ 6  8812 100
+ 8  8462 100
+10  8034 100 
+12  7018 100 
+14  6549 100
+16  5925 100 
+18  5727 100
+20  5020 100
