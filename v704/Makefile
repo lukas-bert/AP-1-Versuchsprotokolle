@@ -1,14 +1,14 @@
 all: build/v704.pdf
 
 # hier Python-Skripte:
-build/plot.pdf: plot.py ../matplotlibrc ../header-matplotlib.tex | build
+build/gamma.pdf build/beta.pdf: plot.py ../matplotlibrc ../header-matplotlib.tex | build
 	# so that matplotlib can find the tex header when running
 	# LaTeX in the tmp directory
 	# and set the matplotlibrc
 	TEXINPUTS=$$(pwd)/..: MATPLOTLIBRC=../matplotlibrc python plot.py
 
 # hier weitere Abhängigkeiten für build/v704.pdf deklarieren:
-build/v704.pdf: build/plot.pdf
+build/v704.pdf: build/gamma.pdf build/beta.pdf
 
 build/v704.pdf: FORCE | build
 	# to find header and bib files in the main directory
