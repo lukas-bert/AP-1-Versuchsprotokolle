@@ -9,7 +9,7 @@ Gelingt dies wird ebenfalls auf den vorliegenden Absorptionsmechanismus geschlos
 Für diesen Versuch werden grundlegende Kenntnisse zur Erzeugung und Eigenschaften von $\beta$\,- und $\gamma$\,-Strahlung benötigt. Außerdem muss das Wechselwirkungsverhalten der
 beiden verwendeten Strahlungsarten bekannt sein. Diese Themen werden in den folgenden Abschnitten erklärt.
 
-\subsection{Gamma-Strahlung}
+\subsection{\texorpdfstring{$\gamma$-Strahlung}{Gamma-Strahlung}}
 \label{subec:Gammastrahlung}
 $\gamma$\,-Quanten können entstehen, wenn ein angeregter Atomkern, also ein Atomkern mit erhöhter Energie, in einen niederenergetischen und stabileren Zustand zurückfällt. Die 
 dabei entstehende Energiedifferenz wird in Form von $\gamma$\,-Quanten frei. Ein $\gamma$\,-Quant ist allerdings kein Teilchen im klassischem Sinne. Ebenfalls können "einzelne"
@@ -22,7 +22,7 @@ betrachtet werden. Daher gilt für $\gamma$\,-Strahlung gemäß der Quantentheor
 Dabei ist h das Planksche Wirkungsquantum, c die Lichtgeschwindigkeit, $\nu$ die Frequenz und $\lambda$ die Wellenlänge der $\gamma$\,-Strahlung. Das $\gamma$\,-Spektrum ist 
 nicht kontinuierlich, sonder sehr diskret. Dies folgt aus der Eigenschaft der Energieniveaus der Kerne, denn die Kernenergieniveaus sind genau definiert.
 
-\subsection{Wechselwirkungsverhalten von Gamma-Strahlung mit Materie}
+\subsection{\texorpdfstring{Wechselwirkungsverhalten von $\gamma$-Strahlung mit Materie}{Wechselwirkungsverhalten von Gamma-Strahlung mit Materie}}
 \label{Gammawechselwirkung}
 Trifft ein $\gamma$\,-Quant auf Materie tritt es in Wechselwirkung mit dieser. Dabei kann $\gamma$\,-Quant mit unterschiedlichen Bausteinen der Materie wechselwirken. 
 Alle bisher bekannten Wechselwirkungen werden in \autoref{fig:TabelleGamma} dargestellt.
@@ -64,13 +64,13 @@ Ordnungszahlabhängigkeiten. Daher kann zu einer gegebenen Ordnungszahl eine Ver
 Für kleine Ordnungszahlen dominiert bei kleinen Energien der Photoeffekt. Ab $\qty{200}{\kilo\electronvolt}$ übernimmt dann hauptsächlich der Comptoneffekt. Mit steigender 
 Energie ab $\qty{1}{\mega\electronvolt}$ setzt die Paarbildung ein. Ab circa $\qty{5}{\mega\electronvolt}$ findet praktisch ausschließlich Paarbildung statt.
 
-\subsection{Beta-Strahlung}
+\subsection{\texorpdfstring{$\beta$-Strahlung}{Beta-Strahlung}}
 \label{subsec:Betastrahlung}
 $\beta$\,-Teilchen können in instabilen Atomkernen entstehen. Dabei kann ein Neutron in ein Proton, ein $\beta^+$\,-Teilchen und ein Antielektronenneutrino oder
 ein Proton in ein Neutron, ein $\beta^-$\,-Teilchen und ein Elektronenneutrino zerfallen. Die dabei entstehenden $\beta$\,-Teilchen sind positive oder negative schnelle
 Elektronen. Da sich die freiwerdene Umwandlungsenergie statistisch auf die entstehenden Teilchen verteilt, entsteht beim $\beta$\,-Strahler ein kontinuierliches Spektrum.
 
-\subsection{Wechselwirkungsverhalten von Beta-Strahlung mit Materie}
+\subsection{\texorpdfstring{Wechselwirkungsverhalten von $\beta$-Strahlung mit Materie}{Wechselwirkungsverhalten von Beta-Strahlung mit Materie}}
 \label{BetaWechselwirkung}
 Trifft ein $\beta$\,-Teilchen nun auf eine Absorberschicht können im wesentlichen drei dominierende Prozesse auftreten.
 
@@ -113,4 +113,64 @@ Teilchen gemäß
     \sigma = \frac{W}{nD},
 \end{equation*}
 mit der Wahrscheinlichkeit einer Wechselwirkung $W$, berechnet werden. Bei einem \textit{vereinfachter} Absorber würden die einzelnen Atome einander in Strahlungsrichtung nicht
-überdecken. Da diese Annahme allerdings sehr realitätsfern ist, wird nun eine allgemeinere Form für den Wirkungsquerschnitt benötigt.  
+überdecken. Da diese Annahme allerdings sehr realitätsfern ist, wird eine allgemeinere Form für den Wirkungsquerschnitt benötigt. Dieser kann durch Betrachtung infinitesimaler
+kleiner Absorberstücke erreciht werden. Integriert man über alle Schichten ergibt sich ein exponentielles Absorptionsgesetz. Dieses ist mit 
+\begin{equation}
+    \label{eqn:eabsorbgesetz}
+    N(D) = N_0 \symup{e}^{-n\sigma D}
+\end{equation}
+gegeben. Der Faktor im exponenten wird nun als Absorptionskoeffizient $\mu$ definiert mit 
+\begin{equation}
+    \mu = n\sigma.
+\end{equation}
+Da es sich bei dem Absorptionsgesetz um einen einfachen exponentiellen Zusammenhang handelt gilt hier das Halbwärtsproblem und es ergibt sich 
+\begin{equation}
+    \label{eqn:halbswärtsdicke}
+    D_{1/2} = \frac{\symup{ln}2}{\mu},
+\end{equation}
+mit der Halbswärtsdicke $D_{1/2}$.
+
+Nachdem nun ein grundlegendes Verständnis des Wirkungsquerschnittes vorhanden ist, wird nun über die speizifischen Wirkungsquerschnitte der einzelnen Effekte, welche
+bei den verschiedenen Teilchen auftreten. 
+Der Wirkungsquerschnitt des Comptoneffektes ist durch
+\begin{equation}
+    \label{eqn:sigma_com}
+    \sigma_{\symup{com}} = 2\pi r_{e}^2\left(\frac{1 + \epsilon}{\epsilon^2}\left( \frac{2(1+\epsilon)}{1+2\epsilon} - \frac{1}{\epsilon}\symup{ln}(1+2\epsilon)\right)+\frac{1}{2\epsilon}\symup{ln}(1+2\epsilon) - \frac{1 + 3\epsilon}{(1+2\epsilon)^2}\right)
+\end{equation}
+gegeben. Dabei ist $\epsilon$ das Verhältnis von der Gammaquantenenergie zur Ruheenergie des Elektrons. Mit diesem Wirkungsquerschnitt lässt sich die Comptonabsorptionskonstante 
+bestimmen. Diese ist gegeben durch 
+\begin{equation*}
+    \mu_{\symup{com}} = n\sigma_{\symup{com}}(\epsilon) = \frac{zN_L\rho}{M}\sigma_{\symup{com}}(\epsilon)
+\end{equation*}
+gegeben. Aufgrund der Energieabhängigkeit des Comptonwirkungsquerschnittes kann für kleine Energien, was physikalisch eine elastische Streuung beschreibt, der 
+\textit{Thomasonsche Wirkungsquerschnitt $\sigma_com$} genähert werden. Dieser lautet 
+\begin{equation}
+    \sigma_{\symup{com}} = \frac{8}{3}\pi r_e^2
+\end{equation}
+
+Für $\beta$\,-Strahlung ist der Wirkungsquerschnitt, welcher aus der Bremsstrahlung entsteht, gegeben durch 
+\begin{equation}
+    \label{eqn:sigma_br}
+    \sigma_{\symup{Br}} = \alpha r_e^2z^2,
+\end{equation}
+mit $\alpha$ als Sommerfeldschen Feinstruckturkonstanten.
+
+\subsection{Absorptionskurve von Betastrahlung}
+\label{subsec:Absorptionskurve}
+Wie bereits erwähnt wurde, treten bei $\beta$\,-Teilchen in einer Absorberschicht viele verschiedene Wechselwirkungen auf. Daher ist ein analytischer Zusammenhang zwischen 
+der Dicke des Absorbers und der Intensität der Strahlung nur schwierig aufzustellen. Allerdings kann für natürliche  $\beta$\,-Strahlung eine Näherung durch ein bereits 
+beschriebenes einfaches Absorptionsgesetz verwendet werden. Diese ist nur für relativ dünne Absorberschichten gültig. In der \autoref{fig:Absorptionskurve} Skizze wird der
+gewollte Zusammenhang von $D$ und $n(D)$ mit der Näherung dargestllt. Dabei wird anstatt der Dicke $D$ die Massenbelegung $R$, welche über $R = \rho D$ zusammenhängen, verwendet.
+Der in der \autoref{fig:Absorptionskurve} eingezeichnete Punkt $R_{\symup{max}}$ beschreibt die maximale Reichweite der Strahlung.
+
+\begin{figure}
+    \centering
+    \includegraphics[width = 0.7\textwidth]{content/Absorptionskurve.PNG}
+    \caption{In dieser Abbildung ist der allgemeine Verlauf eine Absorptionskurve dargestellt. \cite{v704}.}
+    \label{fig:Absorptionskurve}
+\end{figure}
+
+Aus der maximalen Reichweite kann ebenfalls die maximale Energie der $\beta$\,-Teilchen bestimmt werden. Dies gelingt über den Zusammenhang 
+\begin{equation}
+    E_{\symup{max}} = 1.92\sqrt{E_{\symup{max}}^2 + 0.22E_{\symup{max}}}.
+\end{equation}
