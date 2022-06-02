@@ -7,13 +7,16 @@ from uncertainties.unumpy import (nominal_values as noms, std_devs as stds)
 import scipy.constants as const
 import scipy.optimize as op
 
+N_00g = ufloat(1295, np.sqrt(1295))/900     # Signale ohne Strahlungsquelle bei Gamma-Apparatur
+N_00b = ufloat(553, np.sqrt(553))/900       # Signale ohne Strahlungsquelle bei Beta-Apparatur
+
 # Einlesen der Daten
 d_pb, N_pb, t_pb = np.genfromtxt("content/data/gamma_Pb.txt", unpack = True)    # Daten des Gamma-Strahler zu Blei (Pb)
 d_zn, N_zn, t_zn = np.genfromtxt("content/data/gamma_Zn.txt", unpack = True)    # Daten des Gamma-Strahler zu Zink (Zn)
 
 # Fehler des Messwertes N ist sqrt(N) wegene 
-N_pb = unp.uarray(N_pb, np.sqrt(N_pb))
-N_zn = unp.uarray(N_zn, np.sqrt(N_zn))
+N_pb = unp.uarray(N_pb, np.sqrt(N_pb)) - N_00g
+N_zn = unp.uarray(N_zn, np.sqrt(N_zn)) - N_00g
 
 
 # Umrechnungen usw.
@@ -25,16 +28,23 @@ N_zn = N_zn/t_zn
 d_b, err_d_b, N_b, t_b = np.genfromtxt("content/data/beta.txt", unpack = True)  # Daten des Beta-Strahlers (Al)
 d_b = unp.uarray(d_b, err_d_b)#*10**(-6) # m
 N_b = unp.uarray(N_b, np.sqrt(N_b))
-N_b = N_b/t_b
+N_b = N_b/t_b - N_00b
+
+# Ausgabe der Nullmessungen
+print("--------------------------------------------------------------------------------")
+print("Nullmessungen:")
+print("Gamma:       , ohne Strahler: ", N_00g, " Messwert ohne Absorber: ", N_pb[0])
+print("Beta: ", N_00b)
+print("--------------------------------------------------------------------------------")
 
 # Konstanten
 
 Z_pb = 82
 Z_zn = 30
-rho_pb = 11400 # kg/m^3
-rho_zn =  7100 # kg/m^3
+rho_pb = 11300 # kg/m^3
+rho_zn =  7140 # kg/m^3
 M_pb =  0.2072 # kg/mol
-M_zn = 0.06538 # kg/mol
+M_zn = 0.06539 # kg/mol
 
 # Regression der Messwerte
 
@@ -57,13 +67,15 @@ err_zn = np.sqrt(np.diag(pcov_zn))
 mu_pb = ufloat(params_pb[0], err_pb[0])*10**3   # Umrechnen pro meter
 mu_zn = ufloat(params_zn[0], err_zn[0])*10**3
 
-N_0_pb = ufloat(params_pb[1], err_pb[1])
-N_0_zn = ufloat(params_zn[1], err_zn[1])
+b_pb = ufloat(params_pb[1], err_pb[1])
+b_zn = ufloat(params_zn[1], err_zn[1])
+N_0_pb = unp.exp(b_pb)
+N_0_zn = unp.exp(b_zn)
 
 print("--------------------------------------------------------------------------------")
 print("Parameter des Fits:")
-print("Blei:    a*10^3 = mu = ", mu_pb, "    b = N_0 = ", N_0_pb)
-print("Zink:    a*10^3 = mu = ", mu_zn, "    b = N_0 = ", N_0_zn)
+print("Blei:    a*10^3 = mu = ", mu_pb, "    b = log(N_0) = ", b_pb, "      N_0 = ", N_0_pb)
+print("Zink:    a*10^3 = mu = ", mu_zn, "    b = log(N_0) = ", b_zn, "      N_0 = ", N_0_zn)
 print("--------------------------------------------------------------------------------")
 
 # Theoriewerte
@@ -79,9 +91,9 @@ mu_pb_theo = sigma_com*n_pb
 mu_zn_theo = sigma_com*n_zn
 print("--------------------------------------------------------------------------------")
 print("Theoriewerte:")
-print("Sigma_com: ", sigma_com)
-print("Blei:    mu_pb = ", mu_pb_theo)
-print("Zink:    mu_zn = ", mu_zn_theo)
+print("Sigma_com: ", sigma_com, "[m^2]")
+print("Blei:    mu_pb = ", mu_pb_theo, "[m^{-1}]")
+print("Zink:    mu_zn = ", mu_zn_theo, "[m^{-1}]")
 print("--------------------------------------------------------------------------------")
 
 # Plots
@@ -91,10 +103,10 @@ x = np.linspace(-2, 45, 100)
 
 plt.subplot(1, 2, 1)
 plt.plot(x, f(x, *params_pb), color = "cornflowerblue", label = "Linearer Fit")
-plt.errorbar(d_pb, noms(N_pb_log), yerr = stds(N_pb_log), linestyle = None, color = "firebrick", fmt = ".", label = "Messwerte")
+plt.errorbar(d_pb, noms(N_pb_log), yerr = stds(N_pb_log), linestyle = None, color = "firebrick", fmt = ".", label = "Messwerte", capsize = 3)
 plt.xlabel(r'$d \mathbin{/} \unit{\milli\metre}$')
-plt.ylabel(r'$\mathrm{log}(N)$')
-plt.title("Plumbum")
+plt.ylabel(r'$\mathrm{log}(N \mathrm{s})$')
+plt.title("Blei")
 
 plt.xlim(0, 45)
 plt.grid()
@@ -105,9 +117,9 @@ x2 = np.linspace(-2, 25, 100)
 
 plt.subplot(1, 2, 2)
 plt.plot(x2, f(x2, *params_zn), color = "cornflowerblue", label = "Linearer Fit")
-plt.errorbar(d_zn, noms(N_zn_log), yerr = stds(N_zn_log), linestyle = None, color = "firebrick", fmt = ".", label = "Messwerte")
+plt.errorbar(d_zn, noms(N_zn_log), yerr = stds(N_zn_log), linestyle = None, color = "firebrick", fmt = ".", label = "Messwerte", capsize = 3)
 plt.xlabel(r'$d \mathbin{/} \unit{\milli\metre}$')
-plt.ylabel(r'$\mathrm{log}(N)$')
+plt.ylabel(r'$\mathrm{log}(N \mathrm{s})$')
 plt.title("Zink")
 
 plt.xlim(0, 25)
@@ -124,46 +136,53 @@ plt.close()
 
 N_b_log = unp.log(N_b)
 
-params, pcov = op.curve_fit(f, noms(d_b[:6]), noms(N_b_log[:6]))
+divider = 7 # Zur Unterteilung der Messwerte (rote und blaue Punkte)
+
+params, pcov = op.curve_fit(f, noms(d_b[:divider]), noms(N_b_log[:divider]))
 err = np.sqrt(np.diag(pcov))
 a = ufloat(params[0], err[0])
 b = ufloat(params[1], err[1])
 
-const = np.mean(noms(N_b_log[6:]))
-D_max = -(const - b)/a # micro metre
+const_ = np.mean(noms(N_b_log[divider:]))
+const_err = np.std(noms(N_b_log[divider:]))
+D_max = -(const_ - b)/a # micro metre
 
 rho_Al = 2.7 # g/cm^3
 R_max = rho_Al*D_max*10**(-4)   # g/cm^2 
 
 E_max = 1.92*unp.sqrt(R_max**2 + 0.22*R_max) # MeV
+wave = const.c*const.h/(E_max*10**6*const.e)
 
 print("--------------------------------------------------------------------------------")
 print("Parameter des zweiten Fits:")
 print("a = ", a)
 print("b = ", b)
-print("const = ", const)
+print("const = ", const_,"+-", const_err)
 print("D_max = ", D_max, "[µm]")
 print("R_max = ", R_max, "[g/cm^2]")
 print("E_max = ", E_max, "[MeV]")
+print("lambda_max = ", wave, "[m]")
 print("--------------------------------------------------------------------------------")
 
 # Plot
-x = np.linspace(50, 300, 10)
+x = np.linspace(50, 500, 10)
 
-plt.plot(x, f(x, *params), color = "cornflowerblue")
-plt.hlines(y = const, xmin=50, xmax=500, colors='chocolate', linestyles='-')
-plt.plot(noms(D_max), const, marker = "o", color = "forestgreen", label = "Schnittpunkt", lw = 0)
-plt.text(noms(D_max) - 20, const -0.3, r"$D_\text{max} = 257 \unit{\micro\metre}$",)
-plt.errorbar(noms(d_b[:6]), noms(N_b_log[:6]), xerr = stds(d_b[:6]), yerr = stds(N_b_log[:6]), linestyle = None, color = "mediumblue", fmt = "x", label = "Messwerte")
-plt.errorbar(noms(d_b[6:]), noms(N_b_log[6:]), xerr = stds(d_b[6:]), yerr = stds(N_b_log[6:]), linestyle = None, color = "firebrick", fmt = "x", label = "Messwerte")
+plt.plot(x, f(x, *params), color = "cornflowerblue", label = "Absorptionskurve")
+plt.hlines(y = const_, xmin=50, xmax=500, colors='chocolate', linestyles='-', label = "Hintergrund")
+plt.text(noms(D_max) - 100, const_ -1, r"$D_\text{max} = 341 \unit{\micro\metre}$",)
+plt.errorbar(noms(d_b[:divider]), noms(N_b_log[:divider]), xerr = stds(d_b[:divider]), yerr = stds(N_b_log[:divider]), linestyle = None, color = "mediumblue", fmt = ".", label = "Messwerte", capsize=3)
+plt.errorbar(noms(d_b[divider:]), noms(N_b_log[divider:]), xerr = stds(d_b[divider:]), yerr = stds(N_b_log[divider:]), linestyle = None, color = "firebrick", fmt = ".", label = "Messwerte", capsize=3)
+
+plt.plot(noms(D_max), const_, marker = "o", color = "forestgreen", label = "Schnittpunkt", lw = 0)
 plt.grid()
 
 plt.xlabel(r'$d \mathbin{/} \unit{\micro\metre}$')
-plt.ylabel(r'$\mathrm{log}(N)$')
-plt.ylim(-1, 4)
+plt.ylabel(r'$\mathrm{log}(N \mathrm{s})$')
+plt.ylim(-10, 5)
 plt.xlim(50, 500)
 plt.legend()
+plt.tight_layout()
 
-plt.show()
+#plt.show()
 plt.savefig('build/beta.pdf')
-#plt.close()
+plt.close()

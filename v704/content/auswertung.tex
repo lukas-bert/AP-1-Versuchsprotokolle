@@ -12,20 +12,20 @@ Die Standardfehler des Mittelwertes ergeben sich nach
 \end{equation*}
 Die Fehlerrechnung wird in \textit{Python} unter Verwendung des Paketes \textit{uncertainties} \cite{uncertainties} durchgeführt.
 
-\subsection{Schöner Titel noch iwas mit gamma Strahlung oder so}
-Zur Bestimmung der Absorptionskoeffizienten von Blei und Zink werden die Messwerte aus \autoref{tab:Mess_gamma} verwendet. Die Zählraten des \textit{GMZ} folgen einer
-Poissoin-Verteilung, weshalb sich die Unsicherheit der Messwerte $N$ als $\symup{\Delta}N = \sqrt{N}$ annehmen lässt.
+\subsection{\texorpdfstring{Bestimmung der Absorptionskoeffizienten verschiedener Stoffe bei $\gamma$-Strahlung}
+{Bestimmung der Absorptionskoeffizienten verschiedener Stoffe bei Gamma-Strahlung}}
+\label{subsec:A_Koeffizienten}
 
 \begin{table}
   \centering
   \caption{Messwerte der Absorption von $\gamma$-Strahlung eines Cäsium-137-Strahlers. Es werden Blei und Zink als Absorber verwendet. $d$ beschreibt die Dicke der Absorberschicht und
-  $N$ die Zählraten des \textit{GMZ} während der Zeit$t$.}
+  $N$ die Zählraten des \textit{GMZ} während der Zeit $t$.}
   \label{tab:Mess_gamma}
   \begin{tabular}{S[table-format = 2.1] S[table-format = 5.0] S[table-format = 3.0] | S[table-format = 2.0] S[table-format = 5.0] S[table-format = 3.0]}
     \toprule
     \multicolumn{3}{c}{Blei} & \multicolumn{3}{c}{Zink} \\
       \midrule
-      {$d \mathbin{/} \unit{\milli\metre}$} & {$N$} & {$t \mathbin{/} \unit{\second}$} & {$d \mathbin{/} \unit{\milli\metre}$} & {$N$} & {$t \mathbin{/} \unit{\second}$} \\
+      {$d \mathbin{/} \unit{\milli\metre}$} & {$N_t$} & {$t \mathbin{/} \unit{\second}$} & {$d \mathbin{/} \unit{\milli\metre}$} & {$N_t$} & {$t \mathbin{/} \unit{\second}$} \\
       \midrule
        0   &  3081 &  30 &  0 &  3081 &  30 \\
        1.2 & 10470 & 100 &  2 & 10602 & 100 \\
@@ -42,17 +42,132 @@ Poissoin-Verteilung, weshalb sich die Unsicherheit der Messwerte $N$ als $\symup
   \end{tabular}
 \end{table}
 
+Zur Bestimmung der Absorptionskoeffizienten von Blei und Zink werden die Messwerte aus \autoref{tab:Mess_gamma} verwendet. Die Zählraten des \textit{GMZ} folgen einer
+Poissoin-Verteilung, weshalb sich die Unsicherheit der Messwerte $N$ als $\symup{\Delta}N = \sqrt{N}$ annehmen lässt. 
+Die Nullmessung zur Bestimmung des Hintergrund-/Störsignals ergibt $N_{00} = \qty{1.44}{\second^{-1}}$ (Es wurden $1295$ Signale in $\qty{900}{\second}$ gemessen). 
+Die Zählraten werden zeitlich gemittelt. Anschließend wird die Nullmessung (Hintergrund) subtrahiert und es 
+wird der Logarithmus der dimensionslosen Größe $N(d) \cdot  \mathrm{s} = N_t/t \cdot  \mathrm{s}$ gegen die Dicke der Absorberschicht aufgetragen. 
+Die so entstehenden Diagramme sind für beide Absorbermaterialien in 
+\autoref{fig:gamma} abgebildet. 
+Da die Absorption von Strahlung nach \autoref{eqn:eabsorbgesetz} einem exponentiellen Gesetz der Form 
+\begin{equation}
+  \label{eqn:Absorption}
+  N(d) = N_0 \cdot \mathrm{e}^{-\mu \cdot d}
+\end{equation}
+folgt, gilt für den Logarithmus
+\begin{equation*}
+  \mathrm{log}(N(d)\cdot\mathrm{s}) = -\mu \cdot d + \mathrm{log(N_0) \cdot  \mathrm{s}},
+\end{equation*}
+was eine Geradengleichung $f(x) = -ax + b$ beschreibt. 
 
 \begin{figure}
   \centering
   \includegraphics{gamma.pdf}
-  \caption{Plot.}
+  \caption{Absorptionskurven der beiden Absorbermaterialien und lineare Regression. Erstellt mit \textit{matplotlib} \cite{matplotlib}.}
   \label{fig:gamma}
 \end{figure}
+
+Durch eine lineare Regression mittels \textit{scipy} \cite{scipy} ergeben sich die Parameter
+\begin{align*}
+    \text{Blei:} \\
+    a &= \qty{82.7(3.1)e-3}{\per\milli\metre}, & b &= \num{4.65+-0.06} \\
+    \text{Zink:} \\
+    a &= \qty{37.8(1.9)e-3}{\per\milli\metre}, & b &= \num{4.71+-0.02} \\
+\end{align*}
+der Geradengleichungen für die beiden Absorber. Da $b = \mathrm{log}(N_0 \cdot  \mathrm{s})$ und $\mu = a$ gilt, ergeben sich die Werte
+\begin{align*}
+  \mu_\text{Blei} &= \qty{82.7(3.1)}{\per\metre}, & N_{0 \text{,Blei}} &= \qty{105+-6}{\second^{-1}} \\
+  \mu_\text{Zink} &= \qty{37.8(1.9)}{\per\metre}, &  N_{0 \text{,Zink}} &= \qty{111.1+-2.5}{\second^{-1}} \\
+\end{align*}
+für die Absorptionskoeffizienten $\mu$ und die Größe $N_0 = N(0)$. Der Messwert ohne Absorber ergab sich zu $N_{0, gemessen} = \qty{102.7(1.9)}{\second^{-1}}$.
+
+Mithilfe von \autoref{eqn:sigma_com} kann der Wirkungsquerschnitt des Comptoneffektes berechnet werden. Dazu wird das Energieverhältnis $\varepsilon = 1.295$ und
+der klassische Elektronenradius $r_e = \qty{2.82e-15}{\metre}$ \cite{v704} verwendet. Der Wirkungsquerschnitt ergibt sich zu 
+$\sigma_\text{com} = \qty{2.57e-29}{\metre^2}$. Mit \autoref{eqn:mu_com} kann die Comptonabsorptionskonstante für die beiden Absorbermaterialien berechnet werden.
+Dazu werden die in \autoref{tab:Material} aufgeführten Materialkonstanten verwendet.
+
+\begin{table}[H]
+  \centering
+  \caption{Materialkonstanten zu Blei und Zink. $Z$: Ordnungszahl, $\rho$: Dichte, $M$: Molmasse \cite{Gestis}.}
+  \label{tab:Material}
+  \begin{tabular}{c c c}
+    \toprule
+      {} & {Blei} & {Zink} \\
+      \midrule
+      {$Z$}                                                    & 82    & 30    \\
+      {$\rho \mathbin{/} \unit{\gram\per\cubic\centi\metre}$} & 11.3  & 7.14  \\
+      {$M \mathbin{/} \unit{\gram\per\mol}$}                  & 207.2 & 65.39 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Es ergeben sich die Theoriewerte des Compton-Absorptionskoeffizienten 
+\begin{align*}
+  \mu_\text{com, Pb} &= \qty{69.09}{\per\metre} & \mu_\text{com, Zn} &= \qty{50.61}{\per\metre}
+\end{align*}
+für die beiden Absorberstoffe.
+
+\subsection{\texorpdfstring{Absorptionskurve des $\beta$-Strahlers}{Absorptionskurve des Beta-Strahlers}}
+\label{subsec:A_beta}
+Als $\beta$-Strahlungsquelle wird Technezium-99 verwendet. Das Absorbermaterial ist Aluminium. Zur Nullmessung der Hintergrundstrahlung werden $553$ Impulse In
+$\qty{900}{\second}$ gemessen. Dies ergibt ein Hintergrundsignal von $\qty{ 0.614+-0.026}{\second^{-1}}$. Die Messwerte der Absorptionskurve sind in 
+\autoref{tab:Mess_beta} aufgeführt.
+
+\begin{table}
+  \centering
+  \caption{Messwerte der Absorption von $\beta$-Strahlung eines Technezium-99-Strahlers. Das Absorbermaterial ist Aluminium. $d$ beschreibt die Dicke der Absorberschicht und
+  $N$ die Zählraten des \textit{GMZ} während der Zeit $t$.}
+  \label{tab:Mess_beta}
+  \begin{tabular}{S[table-format = 3.0] @{${}\pm{}$} S[table-format = 1.1] S[table-format = 4.0] S[table-format = 3.0]}
+    \toprule
+      \multicolumn{2}{c}{$d \mathbin{/} \unit{\micro\metre}$} & {$N_t$} & {$t \mathbin{/} \unit{\second}$} \\
+      \midrule
+      125 & 0   & 2470 & 200 \\
+      100 & 0   & 7508 & 200 \\
+      153 & 0.5 & 1964 & 220 \\
+      160 & 1   & 1258 & 240 \\
+      200 & 1   &  550 & 280 \\
+      253 & 1   &  275 & 300 \\
+      302 & 1   &  220 & 320 \\
+      338 & 5   &  228 & 360 \\
+      400 & 1   &  252 & 400 \\
+      444 & 1   &  249 & 400 \\
+      482 & 1   &  280 & 400 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Wieder wird der Logarithmus der zeitlich gemittelten Zählraten $N$ gegen die Dicke der Absorberschicht aufgetragen. Das Hintergrundsignal wird wie zuvor von den
+Messwerten subtrahiert.
+Anhand der \autoref{fig:beta} lässt sich ein Bereich
+linearer Steigung (blaue Marker) und ein Bereich einer konstanten Gerade (rote Marker) feststellen. Zweiterer Bereich ist ein Untergrundrauschen, welches nicht in Verbindung
+mit der eigentlichen Absorptionskurve steht. 
 
 \begin{figure}
   \centering
   \includegraphics{beta.pdf}
-  \caption{Plot.}
+  \caption{Absorptionskurve des $\beta$-Strahlers und Regressionsgeraden.}
   \label{fig:beta}
 \end{figure}
+
+Mit den jeweiligen Messwerten wird eine Regression beziehungsweise Mittelung durchgeführt. 
+Für die blaue Gerade ergeben sich die Parameter
+\begin{align*}
+  a &= \qty{-30.4(1.1)}{\per\milli\metre} & b &= \num{6.5(0.21)}.
+\end{align*}
+Der Wert der konstanten (orangen) Gerade ist $y = const = \num{-3.85(0.86)}$.
+Der $x$-Wert des Schnittpunktes dieser beiden Geraden ist die maximale Reichweite der Strahlung im Absorbermaterial (Aluminium). Er kann über
+\begin{equation*}
+  D_\text{max} = \frac{const -b}{a} = \qty{341(14)}{\micro\metre}
+\end{equation*}
+berechnet werden.
+Mit diesem Wert lässt sich wiederum die Massenbelegung
+\begin{equation*}
+    R_\text{max} = \rho \cdot D_\text{max} = \qty{0.092+-0.004}{\gram\per\square\centi\metre}
+\end{equation*}
+ermitteln. Dazu wird die Dichte von Aluminium $\rho_\text{Alu} = \qty{2.7}{\gram\per\cubic\centi\metre}$ \cite{Gestis} verwendet.
+Mit \autoref{eqn:E_max} ergibt sich die maximale Energie der $\gamma$-Strahlung zu
+\begin{equation*}
+  E_\text{max} = \qty{0.325(0.009)}{\mega\electronvolt}.
+\end{equation*}
+Dies entspricht einer Wellenlänge von $\lambda_\text{max} = \qty{3.81(0.10)}{\pico\metre}$.
