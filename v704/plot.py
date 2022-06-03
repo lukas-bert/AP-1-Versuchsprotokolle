@@ -186,3 +186,12 @@ plt.tight_layout()
 #plt.show()
 plt.savefig('build/beta.pdf')
 plt.close()
+
+#####Abweichungen#######
+deltaEmax = np.abs(0.294 - E_max)/(0.294)
+print("Abweichung der Energie der Betateilchen",deltaEmax)
+N_0_exp = ufloat(102.7,1.9)
+deltan0pb = np.abs(N_0_exp - N_0_pb)/N_0_exp
+deltan0zn = np.abs(N_0_exp - N_0_zn)/N_0_exp
+print("Abw. der Nullrate zu Pb:", deltan0pb)
+print("Abw. der Nullrate zu Zn:", deltan0zn)
