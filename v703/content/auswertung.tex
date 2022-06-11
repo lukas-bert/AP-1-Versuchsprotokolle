@@ -39,9 +39,25 @@ Durch eine lineare Regression mittels \textit{scipy} \cite{scipy} folgen die Par
 der Ausgleichsgeraden $f(x) = ax + b$. Dies bedeutet eine Plateau-Steigung von $\qty{1.25+-0.22}{\percent}$. Die Länge des Plateaus ist die Differenz der äußersten Messpunkte,
 welche zum Plateau gezählt werden. Sie lautet $L = \qty{270}{\volt}$
 
+\subsection{Untersuchung der Nachentladung}
+\label{subsec:Nachentladung}
+
+\begin{figure}
+  \centering
+  \includegraphics[width = .8\textwidth]{content/Oszilloskop_bild.jpg}
+  \caption{In dieser Abbildung sind die Messdaten zur Nachentladung und zur Totzeit dargestellt, welche mittels eines Oszilloskops aufgenommen wurden.}
+  \label{fig:Oszilloskop}
+\end{figure}
+
 \subsection{Bestimmung der Totzeit des Zählrohres}
 \label{subsec:A_Totzeit}
-
+Die Totzeit des verwendeten Zählrohres wird im folgendem über zwei Methode bestimmt. 
+In der ersten Methode wird die Totzeit aus einer Messung mit einem Oszilloskops bestimmt. Die aufgenommen Messdaten sind in \autoref{fig:Oszilloskop} dargestellt.
+% nochma besprechen wie dat überhaupt geht
+Als zweite Methode wird die Zwei-Quellen-Methode verwendet. Bei einer Spannung $U = \qty{500}{\volt}$ und eine Messdauer von $\qty{120}{\second}$ wurde für den ersten 
+$\beta$\,-Strahler eine Zählrate $N_1 = \num{20182 +- 142}$ gemessen. Der zweite $\beta$\,-Strahler Zählrate von $N_2 = \num{16262 +- 128}$. Die Messung beider 
+Strahler zusammen ergab eine Zählrate von $N_{1+2} = \num{36370 +- 191}$. Wie bereits diskutiert kann die Totzeit $T$ des Zählrohres gemäß Formel \ref{eqn:Totzeit}
+berechnet werden. Mit der Zwei-Quellen-Methode ergibt sich eine Totzeit des Zählrohres von $T = \qty{112.7+-410.3}{\nano\second}$.
 
 \begin{table}
   \centering
