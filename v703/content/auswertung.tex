@@ -56,8 +56,13 @@ In der ersten Methode wird die Totzeit aus einer Messung mit einem Oszilloskops 
 % nochma besprechen wie dat überhaupt geht
 Als zweite Methode wird die Zwei-Quellen-Methode verwendet. Bei einer Spannung $U = \qty{500}{\volt}$ und eine Messdauer von $\qty{120}{\second}$ wurde für den ersten 
 $\beta$\,-Strahler eine Zählrate $N_1 = \num{20182 +- 142}$ gemessen. Der zweite $\beta$\,-Strahler Zählrate von $N_2 = \num{16262 +- 128}$. Die Messung beider 
-Strahler zusammen ergab eine Zählrate von $N_{1+2} = \num{36370 +- 191}$. Wie bereits diskutiert kann die Totzeit $T$ des Zählrohres gemäß Formel \ref{eqn:Totzeit}
-berechnet werden. Mit der Zwei-Quellen-Methode ergibt sich eine Totzeit des Zählrohres von $T = \qty{112.7+-410.3}{\nano\second}$.
+Strahler zusammen ergab eine Zählrate von $N_{1+2} = \num{36370 +- 191}$. 
+Die Totzeit kann gemäß 
+\begin{equation}
+  \label{eqn:Totzeit}
+  T = \frac{N_1 + N_2 - N_{1+2}}{2N_1N_2}
+\end{equation}
+bestimmt werden. Mit der Zwei-Quellen-Methode ergibt sich eine Totzeit des Zählrohres von $T = \qty{13.53+-49.23}{\micro\second}$.
 
 \begin{table}
   \centering
@@ -110,3 +115,18 @@ berechnet werden. Mit der Zwei-Quellen-Methode ergibt sich eine Totzeit des Zäh
     \bottomrule
   \end{tabular}
 \end{table}
+
+\subsection{Freigesetze Ladung des Zählrohres}
+\label{subsec:Ladung}
+Die freiwerdende Ladungsmenge $\mathrm{\Delta}Q$ kann aus der Formel \ref{eqn:Strom} durch umstellen nach $dQ$ errechnet werden. Daraus ergibt sich die Gleichung
+\begin{equation}
+  \mathrm{\Delta}Q = \frac{\overline{I}\mathrm{\Delta}t}{Ze}.
+\end{equation}
+Die daraus resultierenden Ladungswerte sind \autoref{fig:plot1} in Abhänigkeit von der Spannung zu entnehmen.
+
+\begin{figure}
+  \centering
+  \includegraphics{plot1.pdf}
+  \caption{In dieser Abbildung ist freigesetzte Ladungen des Zählrohres gegen die Spannung aufgetragen.}
+  \label{fig:plot1}
+\end{figure}

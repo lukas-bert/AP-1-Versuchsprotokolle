@@ -59,9 +59,9 @@ plt.close()
 N1, N12, N2 = np.genfromtxt("content/data/data2.txt", unpack = True)
 
 # Fehler der Messgrößen
-N1 = ufloat(N1, np.sqrt(N1))
-N2 = ufloat(N2, np.sqrt(N2))
-N12 = ufloat(N12, np.sqrt(N12))
+N1 = ufloat(N1, np.sqrt(N1))/120
+N2 = ufloat(N2, np.sqrt(N2))/120
+N12 = ufloat(N12, np.sqrt(N12))/120
 
 T = (N1 + N2 - N12)/(2*N1*N2)
 
@@ -78,3 +78,13 @@ print("Ladungen in eV")
 for i in range(len(dQ)):
     print('{0:.3e}'.format(dQ[i]), "eV")
 print("------------------------------------------------------------------------")
+#plot der freigesetzten Ladung
+plt.errorbar(U, noms(dQ)*10**9, yerr = stds(dQ)*10**9, marker = ".", linestyle = None, label = "freigesetzte Ladung", color = "firebrick", capsize = 3, linewidth = 0, elinewidth = 1)
+
+plt.xlabel(r"$U \mathbin{/} \unit{\volt}$")
+plt.ylabel(r"$dQ \mathbin{/} \unit{\nano\electronvolt}$")
+
+plt.grid()
+plt.legend()
+plt.savefig('build/plot1.pdf')
+plt.close()
