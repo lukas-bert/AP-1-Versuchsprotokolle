@@ -65,6 +65,8 @@ N12 = ufloat(N12, np.sqrt(N12))/120
 
 T = (N1 + N2 - N12)/(2*N1*N2)
 
+#print(np.sqrt((noms((N2-N12)/(2*N2*N1**2)) *stds(N1) )**2 + (noms((N12-N1)/(2*N1*N2**2)) *stds(N2) )**2 + (stds(N12)/noms(2*N1*N2))**2)) überprüfung weil fehler sehr groß lul
+
 print("------------------------------------------------------------------------")
 print("Totzeit über 2-Quellen-Methode:", '{0:.3e}'.format(T))
 print("------------------------------------------------------------------------")

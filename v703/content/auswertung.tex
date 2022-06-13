@@ -3,7 +3,7 @@
 Die Fehlerrechnung dieses Kapitels genügt der gaußschen Fehlerfortpflanzung
 \begin{equation}
   \label{eqn:Gauss}
-  \Delta F = \sqrt{\sum_i\left(\frac{\symup{d}F}{\symup{d}y_i}\Delta y_i \right)^2}.
+  \symup{\Delta} F = \sqrt{\sum_i\left(\frac{\symup{d}F}{\symup{d}y_i}\Delta y_i \right)^2}.
 \end{equation}
 %Die Standardfehler des Mittelwertes ergeben sich nach
 %\begin{equation*}
@@ -47,7 +47,7 @@ in der \autoref{fig:Oszilloskop} beträgt. Ein Kästchen entspricht einem zeitli
 auseinander.
 \begin{figure}
   \centering
-  \includegraphics[width = .8\textwidth]{content/Oszilloskop_bild.jpg}
+  \includegraphics[width = .7\textwidth]{content/Oszilloskop_bild.jpg}
   \caption{In dieser Abbildung sind die Messdaten zur Nachentladung und zur Totzeit dargestellt, welche mittels eines Oszilloskops aufgenommen wurden.}
   \label{fig:Oszilloskop}
 \end{figure}
@@ -60,14 +60,21 @@ Die Totzeit kann bestimmt werden durch den zeitlichen Abstand des \textit{Hauptp
 werden, dass dieser Abstand $\num{2.6}$ Kästchen entspricht. Daher folgt, äquivalent zum \autoref{subsec:Nachentladung}, dass die Totzeit über diese Methode 
 $T = \qty{130}{\micro\second}$ beträgt.
 Als zweite Methode wird die Zwei-Quellen-Methode verwendet. Bei einer Spannung $U = \qty{500}{\volt}$ und eine Messdauer von $\qty{120}{\second}$ wurde für den ersten 
-$\beta$\,-Strahler eine Zählrate $N_1 = \num{20182 +- 142}$ gemessen. Der zweite $\beta$\,-Strahler Zählrate von $N_2 = \num{16262 +- 128}$. Die Messung beider 
-Strahler zusammen ergab eine Zählrate von $N_{1+2} = \num{36370 +- 191}$. 
+$\beta$\,-Strahler eine Zählrate $Z_1 = \num{20182 +- 142}$ gemessen. Die Zählrate des zweiten $\beta$\,-Strahlers lautet $Z_2 = \num{16262 +- 128}$. Die Messung beider 
+Strahler zusammen ergab eine Zählrate von $Z_{1+2} = \num{36370 +- 191}$. Nach Division durch $t = \qty{120}{\second}$ folgen die Werte der Größen $N_i$.
 Die Totzeit kann gemäß 
 \begin{equation}
   \label{eqn:Totzeit}
   T = \frac{N_1 + N_2 - N_{1+2}}{2N_1N_2}
 \end{equation}
-bestimmt werden. Mit der Zwei-Quellen-Methode ergibt sich eine Totzeit des Zählrohres von $T = \qty{13.53+-49.23}{\micro\second}$.
+bestimmt werden. 
+Aus der Gaußschen Fehlerfortpflanzung \eqref{eqn:Gauss} folgt der Fehler
+\begin{equation*}
+  \symup{\Delta}T = \sqrt{\left(\frac{N_1 - N_{1+2}}{2N_2 N_1^2} \cdot \symup{\Delta}N_1 \right)^2 + \left(\frac{N_{1+2} - N_{1}}{2N_1 N_2^2} \cdot \symup{\Delta}N_2 \right)^2
+  + \left( \frac{\symup{\Delta}N_{1+2}}{2N_1 N_2}\right)^2} 
+\end{equation*}
+der Totzeit.
+Mit der Zwei-Quellen-Methode ergibt sich eine Totzeit des Zählrohres von $T = \qty{13.53+-49.23}{\micro\second}$.
 
 \begin{table}
   \centering
@@ -123,10 +130,16 @@ bestimmt werden. Mit der Zwei-Quellen-Methode ergibt sich eine Totzeit des Zähl
 
 \subsection{Freigesetze Ladung des Zählrohres}
 \label{subsec:Ladung}
-Die freiwerdende Ladungsmenge $\mathrm{\Delta}Q$ kann aus der \autoref{eqn:Strom} durch umstellen nach $dQ$ errechnet werden. Daraus ergibt sich die Gleichung
+Die freiwerdende Ladungsmenge $Q$ kann aus der \autoref{eqn:Strom} durch umstellen nach $dQ$ errechnet werden. Daraus ergibt sich die Gleichung
 \begin{equation}
-  \mathrm{\Delta}Q = \frac{\overline{I}\mathrm{\Delta}t}{Ze}.
+  Q = \frac{\overline{I}\mathrm{\Delta}t}{Ze}.
 \end{equation}
+Da zu $\overline{I}$ die Unsicherheit $\symup{\Delta}\overline{I} = \qty{0.1}{\micro\ampere}$ angenommen wird und $Z$ ebenfalls mit $\symup{\Delta}Z = \sqrt{Z}$
+fehlerbehaftet ist, folgt die Unsicherheit
+\begin{equation*}
+  \symup{\Delta}Q = \sqrt{\left(\frac{t}{Ze} \cdot \symup{\Delta}\overline{I}\right)^2 + \left(\frac{\overline{I}t}{Z^2 e} \cdot \symup{\Delta}Z\right)^2}
+\end{equation*}
+der Ladungen.
 Die daraus resultierenden Ladungswerte sind \autoref{fig:plot1} in Abhänigkeit von der Spannung zu entnehmen.
 
 \begin{figure}
