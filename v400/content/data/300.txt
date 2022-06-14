@@ -1,0 +1,9 @@
+# Messung der Interferenzmaxima für Gitterkonstante 300/mm
+# roter Laser: 635nm, grün: 532nm
+# Nummer des Maxima, Winkel grüner Laser / °, Winkel roter Laser / °
+1  9   11
+1  9.5 11
+2 19 22.5
+2 19 23.5
+3 29 35
+3 29 35

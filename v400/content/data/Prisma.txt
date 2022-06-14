@@ -1,0 +1,8 @@
+# Brechung im Prisma
+# roter Laser: 635nm, grün: 532nm
+# Einfallswinkel / °, Austrittswinkel grün / °, Austrittswinkel rot / °
+60 38.5 38
+50 47.5 47
+40 60   59
+30 78   76.5
+35 66.5 65.5

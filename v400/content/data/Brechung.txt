@@ -1,0 +1,9 @@
+# Einfallswinkel / °, Austrittswinkel / °
+# Fehler +/- 1°
+25 16.5
+30 19.5
+35 23
+40 25.5
+45 28.5
+50 31
+55 33.5
