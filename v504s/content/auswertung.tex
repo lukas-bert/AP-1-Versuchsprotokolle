@@ -1,0 +1,141 @@
+\section{Auswertung}
+\label{sec:Auswertung}
+
+Die Fehlerrechnung dieses Kapitels genügt der gaußschen Fehlerfortpflanzung
+\begin{equation*}
+  \label{eqn:Gauss}
+  \Delta F = \sqrt{\sum_i\left(\frac{\symup{d}F}{\symup{d}y_i}\Delta y_i \right)^2}.
+\end{equation*}
+Die Standardfehler des Mittelwertes ergeben sich nach
+\begin{equation*}
+  \label{eqn:MW-Fehler}
+  \sigma(x) = \sqrt{\frac{1}{n(n-1)} \sum_i (x_i - \overline{x})^2}.
+\end{equation*}
+Die Fehlerrechnung wird in \textit{Python} unter Verwendung des Paketes \textit{uncertainties} \cite{uncertainties} durchgeführt.
+
+\subsection{Kennlinien der Hochvakuumdiode}
+\label{subsec:AKennlinie}
+Zunächst wurden die Kennlinien der Hochvakuumdiode untersucht. Die aufgenommenen Kennlinien der vier niedrigsten Spannungen sind in \autoref{fig:AKennlinien} dargestellt.
+
+\begin{figure}
+  \centering
+  \includegraphics{plot1.pdf}
+  \caption{In dieser Abbildung sind die Kennlinien der Hochvakuumdiode für vier verschiedene Spannungen dargestellt. Die gestrichelte Linie beschreibt den Sättigungsstrom der jeweiligen Kennlinie.
+           Erstellt mit \textit{matplotlib} \cite{matplotlib}.}
+  \label{fig:AKennlinien}
+\end{figure}
+
+Aus diesen Kennlinien kann der Sättigungsstrom ermittelt werden. Dieser ist gegeben durch den höhsten Stromwert der Kennlinien in \autoref{fig:AKennlinien}. Die Sättigungsströme
+können der Legende der \autoref{fig:AKennlinien} entnommen werden. Die Kennlinie zur maximalen Stromstärke von $\qty{2.4}{\ampere}$ wird seperat in \autoref{fig:plot2} 
+dargestellt.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics{plot2.pdf}
+  \caption{In dieser Abbildung ist die Kennlinie der Hochvakuumdiode zu einer Heizstromstärke von $I = \qty{2.4}{\ampere}$ dargestellt. Erstellt mit \textit{matplotlib} \cite{matplotlib}.}
+  \label{fig:plot2}
+\end{figure} 
+
+\subsection{Gültigkeitsbereich des Langmuir-Raumladungsgesetzes}
+\label{subsec:Raumladung}
+Wie im \autoref{subsec:Raumladungsgebiet} diskutiert, kann der Strom im Raumladungsgebiet durch die Formel \eqref{eqn:langmuirraumladung} beschrieben werden. Daher ergibt sich
+bei logarithmischer Betrachtung ein linearer Zusammenhang von Spannung und Stromstärke. Daher wird der Gültigkeitsbereich mittels eine linearen Regression bestimmt. 
+Eine Regression der Form $f(x) = mx+b$ durch \textit{scipy}\cite{scipy} liefert die folgenden Parameter.
+\begin{equation*}
+  m = \num{1.33 +- 0.01} \quad\quad\quad\quad b = \num{-7.13 +- 0.06}
+\end{equation*}
+
+\begin{figure}
+  \centering
+  \includegraphics{Raumladung.pdf}
+  \caption{In diesr Abbildung ist der logarithmisch dargestellte Raumladungsbereich aufgezeichnet.}
+  \label{fig:Raumladung}
+\end{figure}
+
+Der resultierende Fit und die Messwerte zu einer Stromstärke von $\qty{2.4}{\ampere}$ sind in \autoref{fig:Raumladung} dargestellt.
+Der Parameter $m$ beschreibt aufgrund der logarithmischen Betrachtung den Exponenten der Gleichung \eqref{eqn:langmuirraumladung}. 
+
+\subsection{Untersuchung des Anlaufstromgebietes}
+\label{subsec:Anlaufstromgebiet}
+Nun wird das Anlaufstromgebiet der Hochvakuumdiode untersucht. Auf diesem Gebiet verhält sich der Strom in Abhänigkeit von der Spannung gemäß Formel \eqref{eqn:Anlaufstromgebiet}.
+Da diese exponentiell abhängig sind, wird mittels logarithmischer Betrachtung eine lineare Regression erstellt. Dabei beschreibt der Steigungsparameter den Faktor im Exponenten,
+sodass für den Steigungsparameter $m$
+\begin{equation*}
+  m = -\frac{e}{kT}
+\end{equation*}    
+gilt. Aus diesem Zusammenhang kann bei bekanntem $m$ die Temperatur $T$ bestimmt werden. Diese Temperatur beschreibt Kathodentemperatur und lässt sich gemäß
+\begin{equation}
+  \label{eqn:ATemperatur}
+  T = -\frac{e}{mk}
+\end{equation}
+bestimmen. 
+Die logarithmisch dargestellte Regression ist in \autoref{fig:Anlaufstrom} zusammen mit den Messwerten dargestellt. Die Regression liefert die folgenden Parameter.
+\begin{equation*}
+  m=\qty{-4.77 +- 0.47}{\per\volt} \quad\quad\quad\quad b = \num{-18.43 +- 0.27}
+\end{equation*}
+
+\begin{figure}
+  \centering
+  \includegraphics{build/Anlaufstrom.pdf}
+  \caption{In dieser Abbildung sind in logarithmischer Darstellung die Messwerte des Anlaufstromgebietes mit der zugehörigen Regression dargestellt.}
+  \label{fig:Anlaufstrom}
+\end{figure}
+
+Mit dem bestimmten Parameter $m$ und der Gleichung \eqref{eqn:ATemperatur} ergibt sich eine Kathodentemperatur von 
+\begin{equation*}
+  T = \qty{2433.06 +- 237.35}{\kelvin}.
+\end{equation*}
+
+\subsection{Untersuchung der Austrittsarbeit von Wolfram-74}
+\label{subsec:Austrittsarbeit}
+Zuletzt wird die Austrittsarbeit von Wolfram untersucht. Die Austrittsarbeit kann gemäß Formel \eqref{eqn:Sättigungsstrom} berechnet werden. Die verwendete
+Hochvakuumdiode hat eine Wärmeleistung von $N_\text{WL} = \qty{0.95}{\watt}$, eine Emissionsfläche von $f = \qty{0.32}{\centi\metre\squared}$ und einen Emissionsgrad
+$\eta = \num{0.28}$. Außerdem wird der Heizstrom $I_\text{H}$ und die Heizspannung $U_\text{H}$ benötigt. Diese werden in \autoref{tab:Heizwerte} dargestellt.
+Die Temperatur der Kathode kann gemäß Formel \eqref{eqn:Temp} durch umstellen nach $T$ bestimmt werden. Diese Temperaturen werden ebenfalls in \autoref{tab:Heizwerte} 
+dargestellt.
+
+\begin{table}
+  \centering
+  \caption{In dieser Tabelle sind die Heizspannung und Heizstromstärke, sowie die dazugehörigen Kathodentemperaturen dargestellt.}
+  \label{tab:Heizwerte}
+  \begin{tabular}{S[table-format = 1.1] S S[table-format = 4.2]}
+    \toprule
+      {$I_\text{H} \mathbin{/} \unit{\ampere}$} & {$U_\text{H} \mathbin{/} \unit{\volt}$} & {$T \mathbin{/} \unit{\kelvin}$} \\
+      \midrule
+      2.0 & 3.5 & 1855.21 \\
+      2.1 & 4.0 & 1954.31 \\
+      2.2 & 4.3 & 2020.40 \\
+      2.3 & 4.7 & 2096.16 \\
+      2.4 & 5.0 & 2156.73 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Nun kann die Formel \eqref{eqn:Sättigungsstrom} nach $\Phi$ umgestellt werden. Es ergibt sich die Formel
+\begin{equation}
+  \Phi = -\frac{kT}{e}\mathrm{log}\left(\frac{I_s h^3}{4\pi em_0k^2T^2}\right)
+\end{equation}
+für die Austrittsarbeit aus Wolfram.
+Die Sättigungsströme $I_s$ können den Abbildungen \ref{fig:AKennlinien} und \ref{fig:plot2} entnommen werden. Die dazugehörigen Kathodentemperaturen sind in \autoref{tab:Heizwerte}
+dargestellt. Mit der Ruhemasse des Elektrons $m_0$, der Ladung des Elektrons $e$ und dem Plankschen Wirkungsquantum kann die Austrittsarbeit bestimmt werden. Diese werden in 
+der \autoref{tab:Austrittsarbeit} abgebildet.
+
+\begin{table}
+  \centering
+  \caption{In dieser Tabelle werden die experimentell bestimmten Austrittsarbeiten zu den verschiedenen Heizströmen dargestellt.}
+  \label{tab:Austrittsarbeit}
+  \begin{tabular}{S[table-format = 1.1] S[table-format = 1.2] }
+    \toprule
+      {$I_\text{H} \mathbin{/} \unit{\ampere}$} & {$\phi \mathbin{/} \unit{\electronvolt}$} \\
+      \midrule
+      2.0 & 4.51 \\
+      2.1 & 4.65 \\
+      2.2 & 4.67 \\
+      2.3 & 4.75 \\
+      2.4 & 4.80 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Diese Werte werden nun gemittelt. Dabei ergibt sich ein Mittelwertfehler gemäß Formel \eqref{eqn:MW-Fehler}. 
+Die experimentell bestimmte mittlere Austrittsarbeit für Wolfram beträgt $\overline{\Phi} = \qty{4.68 +- 0.1}{\electronvolt}$.
