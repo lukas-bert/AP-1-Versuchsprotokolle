@@ -1,12 +1,137 @@
 \section{Auswertung}
 \label{sec:Auswertung}
+Die Fehlerrechnung dieses Kapitels genügt der Gauß'schen Fehlerfortpflanzung
+\begin{equation*}
+  \label{eqn:Gauss}
+  \Delta F = \sqrt{\sum_i\left(\frac{\symup{d}F}{\symup{d}y_i}\Delta y_i \right)^2}.
+\end{equation*}
+Die Standardfehler des Mittelwertes ergeben sich nach
+\begin{equation*}
+  \label{eqn:MW-Fehler}
+  \sigma(x) = \sqrt{\frac{1}{n(n-1)} \sum_i (x_i - \overline{x})^2}.
+\end{equation*}
+Die Fehlerrechnung wird in \textit{Python} unter Verwendung des Paketes \textit{uncertainties} \cite{uncertainties} durchgeführt.
 
-\begin{figure}
+\subsection{Reflexionsgesetz}
+\label{subsec:A_Reflexion}
+Zur Überprüfung des Reflexionsgesetzes werden die in \autoref{tab:Reflexion} aufgeführten Messwerte betrachtet. 
+Die Differenz zwischen Einfallswinkel $\alpha_1$ und Ausfallswinkel $\alpha_2$ sollte nach der Theorie $0$ ergeben.
+
+\begin{table}
   \centering
-  \includegraphics{plot.pdf}
-  \caption{Plot.}
-  \label{fig:plot}
-\end{figure}
+  \caption{Messwerte zur Überprüfung des Reflexionsgesetzes. $\alpha_1$: Einfallswinkel, $\alpha_2$: Ausfallswinkel.}
+  \label{tab:Reflexion}
+  \begin{tabular}{S[table-format = 2.0] S[table-format = 2.1] S[table-format = 1.1]}
+    \toprule
+      {$\alpha_1 \mathbin{/} \unit{\degree}$} & {$\alpha_2 \mathbin{/} \unit{\degree}$} & {$|\alpha_1 - \alpha_2| \mathbin{/} \unit{\degree}$} \\
+      \midrule
+      25 & 22.5 & 2.5 \\
+      30 & 28   & 2   \\
+      35 & 32.5 & 2.5 \\
+      40 & 37   & 3   \\
+      45 & 43   & 2   \\
+      50 & 47   & 3   \\
+      55 & 51.5 & 3.5 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
 
+Zu den Messwerten kann eine Unsicherheit von jeweils $\qty{1}{\degree}$ angenommen werden, die auf Ableseungenauigkeiten und Abweichungen durch den Aufbau der Apparatur beruht.
+Auch in Anbetracht dieser Unsicherheit von insgesamt $\pm \qty{2}{\degree}$ lässt sich das Reflexionsgesetz nicht bestätigen, die Ursachen für dieses Ergebnis werden i
+\autoref{sec:Diskussion} erörtert.
 
-Siehe \autoref{fig:plot}!
+\subsection{Brechungsgesetz}
+\label{subsec:A_Brechung}
+Um das Brechungsgesetz \ eqref{eqn:Brechung} zu überprüfen werden Messwerte der Einfallswinkel $\alpha$ und zugehörige Brechungswinkel $\beta$ aus \autoref{tab:Brechung} verwendet.
+Durch Umstellen der \ autoref{eqn:Brechung} und Einsetzen des Brechungsindizes von Luft $n_\text{Luft} \approx 1$ ergibt sich der Brechungsindex 
+\begin{equation*}
+  n = \frac{\sin{\alpha}}{\sin{\beta}}
+\end{equation*}
+des verwendeten Acrylglases (Plexiglas). Dieser ist ebenfalls zu den jeweiligen Messwerten in \autoref{tab:Brechung} eingetragen. 
+
+\begin{table}
+  \centering
+  \caption{Messwerte zur Überprüfung des Brechungsgesetzes. $\alpha$: Einfallswinkel, $\beta$: Brechungswinkel.
+          Zu Jedem Messwert wird wieder eine Unsicherheit von $\qty{1}{\degree}$ angenommen.
+          Die Theoriewerte $\beta_\text{Theo}$ ergeben sich durch das Brechungsgesetz unter Verwendung des im Folgenden berechneten Brechungsindizes.}
+  \label{tab:Brechung}
+  \begin{tabular}{S[table-format = 2.0] S[table-format = 2.1] S[table-format = 1.2] @{${}\pm{}$} S S[table-format = 2.1] @{${}\pm{}$} S}
+    \toprule
+      {$\alpha \mathbin{/} \unit{\degree}$} & {$\beta \mathbin{/} \unit{\degree}$} &%
+      \multicolumn{2}{c}{$n$} & \multicolumn{2}{c}{$\beta_\text{Theo} \mathbin{/} \unit{\degree} $} \\
+      \midrule
+      25 & 16.5 & 1.49 & 0.10 & 16.5 & 0.6\\
+      30 & 19.5 & 1.50 & 0.09 & 19.7 & 0.6\\
+      35 & 23   & 1.47 & 0.07 & 22.7 & 0.7\\
+      40 & 25.5 & 1.49 & 0.06 & 25.6 & 0.7\\
+      45 & 28.5 & 1.48 & 0.05 & 28.4 & 0.7\\
+      50 & 31   & 1.49 & 0.05 & 31.0 & 0.7\\
+      55 & 33.5 & 1.48 & 0.04 & 33.5 & 0.8\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+Als Mittelwert ergibt sich $n_\text{exp} = \num{1.486+-0.026}$. Der Literaturwert des Brechungsindizes von Acrylglas lautet $n_\text{Lit} = \num{1.489}$ \cite{czichos}.
+Aus dem experimentell ermittelten Wert lässt sich die Ausbreitungsgeschwindigkeit von Licht in Acrylglas zu 
+\begin{equation*}
+  c_\text{Acryl} = \frac{c_\text{Vakuum}}{n_\text{Acryl}} = \qty{2.018(0.036)e8}{\metre\per\second}
+\end{equation*}
+bestimmen. Dazu wird die Vakuum-Lichtgeschwindigkeit $c_\text{Vakuum} = \qty{2.998}{\metre\per\second}$ \cite{scipy} verwendet.
+
+Der Strahlenversatz $s$ des gebrochenen Strahles zu einem Strahl, welcher den Acrylblock nicht durchläuft kann über \ autoref{eqn:Strahlenversatz} berechnet werden. 
+Dazu wird die Dicke $d = \qty{5.85}{\centi\metre}$ und der Brechungswinkel $\beta$ benötigt. Für den Brechungwinkel werden zu einer Methode 1 die direkt 
+aufgenommenen Messwerte und für eine Methode 2, die aus dem Brechungsgesetz berechneten Werte verwendet. Dabei wird der zuvor bestimmte Mittelwert 
+des Brechungsindizes verwendet. Die entsprechenden Werte sind in \autoref{tab:Brechung} eingetragen.
+Die Ergebnisse der Rechnung sind in \autoref{tab:Strahlenversatz} aufgeführt.
+
+\begin{table}
+  \centering
+  \caption{Berechnter Strahlenversatz der zwei genannten Methoden zu den ausgewählten Einfallswinkeln.}
+  \label{tab:Strahlenversatz}
+  \begin{tabular}{S[table-format = 2.0] S[table-format = 1.2] @{${}\pm{}$} l S @{${}\pm{}$} l}
+    \toprule
+    {} & \multicolumn{2}{c}{Methode 1} & \multicolumn{2}{c}{Methode 2} \\
+      \midrule
+      {$\alpha \mathbin{/} \unit{\degree}$} & \multicolumn{2}{c}{$s \mathbin{/} \unit{\centi\metre}$} &% 
+      \multicolumn{2}{c}{$s \mathbin{/} \unit{\centi\metre}$} \\
+      \midrule
+      25 & 0.90 & 0.15 & 0.90 & 0.06 \\
+      30 & 1.13 & 0.15 & 1.11 & 0.06 \\
+      35 & 1.32 & 0.15 & 1.35 & 0.07 \\
+      40 & 1.62 & 0.15 & 1.61 & 0.08 \\
+      45 & 1.89 & 0.15 & 1.90 & 0.09 \\
+      50 & 2.22 & 0.14 & 2.22 & 0.09 \\
+      55 & 2.57 & 0.14 & 2.57 & 0.10 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{Brechung im Prisma}
+\label{subsec:A_Prisma}
+Bei der Untersuchung der Brechung im Prisma, wurden Messwerte der Einfallswinkel $\alpha_1$ und der Austrittswinkel $\alpha_2$ zu einem grünen- und einem roten Laser genommen.
+Aus diesen Messwerten lässt sich die Ablenkung $\delta$ gemäß \ autoref{eqn:delta} der Strahlen berechnen. Dazu werden die Brechungswinkel $\beta_1$ über das Brechungsgesetz 
+\ autoref{eqn:Brechung} bestimmt und der Winkel $\beta_2$ über den Zusammenhang $\beta_1 + \beta_2 = \gamma$ berechnet. Der brechende Winkel des Prismas ist 
+$\gamma = \qty{60}{\degree}$. Das Prisma besteht aus Kronglas und hat somit einen Brechungsindex von $n_\text{Prisma} =  1.5067$ \cite{czichos}.
+Die Messwerte, sowie die Ergebnisse der Rechnung sind \autoref{tab:Prisma} zu entnehmen.
+
+\begin{table}
+  \centering
+  \caption{Messwerte zur Brechung im Prisma und daraus resultierende Ablenkung $\delta$.}
+  \label{tab:Prisma}
+  \begin{tabular}{S[table-format = 2.0] | S[table-format = 2.1] S S S}
+    \toprule
+    {} & \multicolumn{2}{c}{Grüner Laser} & \multicolumn{2}{c}{Roter Laser} \\
+      \midrule
+      {$\alpha_1 \mathbin{/} \unit{\degree}$} & {$\alpha_2 \mathbin{/} \unit{\degree}$} & {$\delta \mathbin{/} \unit{\degree}$} &%
+      {$\alpha_2 \mathbin{/} \unit{\degree}$} & {$\delta \mathbin{/} \unit{\degree}$} \\
+      \midrule
+      60 & 38.5 & 38.5 & 38   & 38   \\
+      50 & 47.5 & 37.5 & 47   & 37   \\
+      40 & 60   & 40   & 59   & 39   \\
+      30 & 78   & 48   & 76.5 & 46.5 \\
+      35 & 66.5 & 41.5 & 65.5 & 40.5 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{Beugung am Gitter}
+\label{subsec:A_Beugung}

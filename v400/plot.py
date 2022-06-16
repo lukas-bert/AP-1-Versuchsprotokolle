@@ -20,12 +20,19 @@ for i in range(len(n)):
     n_mean = n_mean + n[i]
 
 n_mean = n_mean/len(n)
+n_mean2 = ufloat(np.mean(noms(n)), np.std(noms(n)))
 
 print("-------------------------------------------------------------------------------")
 print("Brechungsindizes Plexiglas:")
 print(n)
 print("Mittelwert:", n_mean)
+print("Mittelwert, ohne Fehlerrechnung:", n_mean2)
 print("-------------------------------------------------------------------------------")
+
+# Lichtgeschwindigkeit
+
+print("c_0:     ", const.c)
+print("c_acryl: ", '{:.4e}'.format(const.c/n_mean))
 
 # Strahlenversatz (3)
 
@@ -40,6 +47,8 @@ print("-------------------------------------------------------------------------
 print(f'Strahlenversatz 1.Methode: {s_m1}')
 print("-------------------------------------------------------------------------------")
 print(f'Strahlenversatz 2.Methode: {s_m2}')
+print("Berechnter Winkel beta:")
+print(beta_calc*180/np.pi)
 print("-------------------------------------------------------------------------------")
 
 # Messaufgabe 3 (4): Prisma
@@ -58,16 +67,16 @@ beta_2= gamma - beta_1
 
 print("-------------------------------------------------------------------------------")
 print("beta_1:")
-print(beta_1)
+print(beta_1*180/np.pi)
 print("-------------------------------------------------------------------------------")
 
 delta_rot = (a1 + a2_r) - (beta_1 + beta_2)
 delta_grün = (a1 + a2_g) - (beta_1 + beta_2)
 
 print("-------------------------------------------------------------------------------")
-print(f'Ablenkung rot: {delta_rot}')
+print(f'Ablenkung rot: {noms(delta_rot*180/np.pi)}')
 print("-------------------------------------------------------------------------------")
-print(f'Ablenkung grün: {delta_grün}')
+print(f'Ablenkung grün: {noms(delta_grün*180/np.pi)}')
 print("-------------------------------------------------------------------------------")
 
 # Messaufgabe 5: Beugung am Gitter
