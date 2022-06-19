@@ -42,8 +42,8 @@ Auch in Anbetracht dieser Unsicherheit von insgesamt $\pm \qty{2}{\degree}$ läs
 
 \subsection{Brechungsgesetz}
 \label{subsec:A_Brechung}
-Um das Brechungsgesetz \ eqref{eqn:Brechung} zu überprüfen werden Messwerte der Einfallswinkel $\alpha$ und zugehörige Brechungswinkel $\beta$ aus \autoref{tab:Brechung} verwendet.
-Durch Umstellen der \ autoref{eqn:Brechung} und Einsetzen des Brechungsindizes von Luft $n_\text{Luft} \approx 1$ ergibt sich der Brechungsindex 
+Um das Brechungsgesetz \eqref{eqn:Brechung} zu überprüfen werden Messwerte der Einfallswinkel $\alpha$ und zugehörige Brechungswinkel $\beta$ aus \autoref{tab:Brechung} verwendet.
+Durch Umstellen der \autoref{eqn:Brechung} und Einsetzen des Brechungsindizes von Luft $n_\text{Luft} \approx 1$ ergibt sich der Brechungsindex 
 \begin{equation*}
   n = \frac{\sin{\alpha}}{\sin{\beta}}
 \end{equation*}
@@ -77,7 +77,7 @@ Aus dem experimentell ermittelten Wert lässt sich die Ausbreitungsgeschwindigke
 \end{equation*}
 bestimmen. Dazu wird die Vakuum-Lichtgeschwindigkeit $c_\text{Vakuum} = \qty{2.998}{\metre\per\second}$ \cite{scipy} verwendet.
 
-Der Strahlenversatz $s$ des gebrochenen Strahles zu einem Strahl, welcher den Acrylblock nicht durchläuft kann über \ autoref{eqn:Strahlenversatz} berechnet werden. 
+Der Strahlenversatz $s$ des gebrochenen Strahles zu einem Strahl, welcher den Acrylblock nicht durchläuft kann über \autoref{eqn:Strahlenversatz} berechnet werden. 
 Dazu wird die Dicke $d = \qty{5.85}{\centi\metre}$ und der Brechungswinkel $\beta$ benötigt. Für den Brechungwinkel werden zu einer Methode 1 die direkt 
 aufgenommenen Messwerte und für eine Methode 2, die aus dem Brechungsgesetz berechneten Werte verwendet. Dabei wird der zuvor bestimmte Mittelwert 
 des Brechungsindizes verwendet. Die entsprechenden Werte sind in \autoref{tab:Brechung} eingetragen.
@@ -108,8 +108,8 @@ Die Ergebnisse der Rechnung sind in \autoref{tab:Strahlenversatz} aufgeführt.
 \subsection{Brechung im Prisma}
 \label{subsec:A_Prisma}
 Bei der Untersuchung der Brechung im Prisma, wurden Messwerte der Einfallswinkel $\alpha_1$ und der Austrittswinkel $\alpha_2$ zu einem grünen- und einem roten Laser genommen.
-Aus diesen Messwerten lässt sich die Ablenkung $\delta$ gemäß \ autoref{eqn:delta} der Strahlen berechnen. Dazu werden die Brechungswinkel $\beta_1$ über das Brechungsgesetz 
-\ autoref{eqn:Brechung} bestimmt und der Winkel $\beta_2$ über den Zusammenhang $\beta_1 + \beta_2 = \gamma$ berechnet. Der brechende Winkel des Prismas ist 
+Aus diesen Messwerten lässt sich die Ablenkung $\delta$ gemäß \autoref{eqn:delta} der Strahlen berechnen. Dazu werden die Brechungswinkel $\beta_1$ über das Brechungsgesetz 
+\autoref{eqn:Brechung} bestimmt und der Winkel $\beta_2$ über den Zusammenhang $\beta_1 + \beta_2 = \gamma$ berechnet. Der brechende Winkel des Prismas ist 
 $\gamma = \qty{60}{\degree}$. Das Prisma besteht aus Kronglas und hat somit einen Brechungsindex von $n_\text{Prisma} =  1.5067$ \cite{czichos}.
 Die Messwerte, sowie die Ergebnisse der Rechnung sind \autoref{tab:Prisma} zu entnehmen.
 
@@ -135,3 +135,73 @@ Die Messwerte, sowie die Ergebnisse der Rechnung sind \autoref{tab:Prisma} zu en
 
 \subsection{Beugung am Gitter}
 \label{subsec:A_Beugung}
+Im letzten Teil des Versuches wurde die Beugung eines roten und eines grünen Lasers an einem Gitter untersucht. Dazu wurden drei verschiedene Gitter verwendet mit den 
+Gitterkonstanten $d_1 = \qty{1.67}{\micro\metre}$, $d_2 = \qty{3.3}{\micro\metre}$ und $d_3 = \qty{10}{\micro\metre}$ verwendet. Bei der Messungen wurden, wenn optisch
+möglich, zwei Beugungswinkel pro Ordnung $k$ gemessen, da theoretisch eine symetrische Verteilung um das Lot auftreten sollte. Es wurde ein roter Laser und ein grüner Laser
+verwendet. Die augenommenen Messwerte sind in den Tabellen \ref{tab:Beugung600}, \ref{tab:Beugung300} und \ref{tab:Beugung100} dargestellt. Aus den aufgenommenen Beugungswinkeln kann 
+für die $k$-te Ordnung mit der zugehörigen Gitterkonstante $d$ gemäß Formel \eqref{eqn:Beugung} eine exerimentelle Wellenlänge bestimmt werden. Dies wird zu jedem Beugungswinkel
+gemacht und die daraus resultierenden Wellenlängen werden in den Tabellen \ref{tab:Beugung600}, \ref{tab:Beugung300} und \ref{tab:Beugung100} dargestellt.
+
+\begin{table}
+  \centering
+  \caption{In dieser Tabelle sind die Messwerte zur Beugung am Gitter der Gitterkonstante $\qty{1.67}{\micro\metre}$, sowie die daraus resultierenden Wellenlängen aufgeführt.}
+  \label{tab:Beugung600}
+  \begin{tabular}{c S[table-format = 2.1] S[table-format = 2.1] S[table-format = 3.2] S[table-format = 3.2]}
+    \toprule
+    {Ordnung $k$} & {$\alpha_{\text{grün}} \mathbin{/}\unit{\degree}$} & {$\alpha_{\text{rot}} \mathbin{/}\unit{\degree}$} & {$\lambda_{\text{grün}} \mathbin{/}\unit{\nano\metre}$} & {$\lambda_{\text{rot}} \mathbin{/}\unit{\nano\metre}$}\\
+      \midrule
+      1 & 19.5 & 23.5 & 556.34 & 664.58 \\
+      1 & 20.0 & 24.0 & 570.03 & 677.89 \\
+      \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{table}
+  \centering
+  \caption{In dieser Tabelle sind die Messwerte zur Beugung am Gitter der Gitterkonstante $\qty{3.3}{\micro\metre}$, sowie die daraus resultierenden Wellenlängen aufgeführt.}
+  \label{tab:Beugung300}
+  \begin{tabular}{c S[table-format = 2.1] S[table-format = 2.1] S[table-format = 3.2] S[table-format = 3.2]}
+    \toprule
+    {Ordnung $k$} & {$\alpha_{\text{grün}} \mathbin{/}\unit{\degree}$} & {$\alpha_{\text{rot}} \mathbin{/}\unit{\degree}$} & {$\lambda_{\text{grün}} \mathbin{/}\unit{\nano\metre}$} & {$\lambda_{\text{rot}} \mathbin{/}\unit{\nano\metre}$}\\
+      \midrule
+      
+      1 & 9.0  & 11.0 & 521.45 & 636.03 \\
+      1 & 9.5  & 11.0 & 550.16 & 636.03 \\
+      2 & 19.0 & 22.5 & 542.61 & 637.81 \\
+    	2 & 19.0 & 23.0 & 542.61 & 664.58 \\    
+    	3 & 29.0 & 35.0 & 538.68 & 637.31 \\
+    	3 & 29.0 & 35.0 & 538.68 & 637.31 \\
+
+      \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{table}
+  \centering
+  \caption{In dieser Tabelle sind die Messwerte zur Beugung am Gitter der Gitterkonstante $\qty{10}{\micro\metre}$, sowie die daraus resultierenden Wellenlängen aufgeführt.}
+  \label{tab:Beugung100}
+  \begin{tabular}{c S[table-format = 2.1] S[table-format = 2.1] S[table-format = 3.2] S[table-format = 3.2]}
+    \toprule
+    {Ordnung $k$} & {$\alpha_{\text{grün}} \mathbin{/}\unit{\degree}$} & {$\alpha_{\text{rot}} \mathbin{/}\unit{\degree}$} & {$\lambda_{\text{grün}} \mathbin{/}\unit{\nano\metre}$} & {$\lambda_{\text{rot}} \mathbin{/}\unit{\nano\metre}$}\\
+      \midrule
+      
+      1 &  3.0 &  4.0 & 523.36 & 697.56 \\
+      1 &  3.0 &  3.5 & 523.36 & 610.49 \\
+      2 &  6.0 &  7.5 & 522.64 & 652.63 \\
+    	2 &  6.0 &  7.5 & 522.64 & 652.63 \\    
+    	3 &  9.5 & 11.0 & 550.16 & 636.03 \\
+    	3 &  9.5 & 11.5 & 550.16 & 664.56 \\
+      4 & 12.5 & 15.0 & 541.10 & 647.05 \\
+      4 & 13.0 & 15.0 & 562.38 & 647.05 \\
+      5 & 16.0 & 19.0 & 551.27 & 651.14 \\
+      6 & 19.5 & 23.0 & 556.34 & 651.22 \\
+      7 & 23.0 & 27.0 & 558.19 & 648.56 \\
+      8 & 26.0 & 31.5 & 547.96 & 653.12 \\
+      
+      \bottomrule
+  \end{tabular}
+\end{table}
+
+Aus den berechneten Wellenlängen wird nun ein Mittelwert der Wellenlänge gebildet. Für den grünen Laser ergibt sich eine Wellenlänge von 
+$\overline{\lambda}_{\text{grün}} = \qty{543.51 +- 14.21}{\nano\metre}$. Der Fehler genügt dem Mittelwertfehler gemäß der Formel \eqref{eqn:MW-Fehler}.
+Für den roten Laser wurde eine Wellenlänge von $\overline{\lambda}_{\text{rot}} = \qty{650.18 +- 17.81}{\nano\metre}$ bestimmt.

@@ -46,7 +46,7 @@ kann. Aufgrund der unterschiedlichen Ausbreitungsgeschwindigkeiten läuft das Li
 \autoref{fig:Brechung}dargestellt. Dieses Konzept kann ebenfalls aus dem 
 Huygenschen Prinzip hergeleitet werden. Nach dem \textit{Snelliusschen Brechungsgesetz} verhalten sich Einfalls- und Brechungswinkel gemäß
 \begin{equation}
-  \label{eqn:Brechungsgesetz}
+  \label{eqn:Brechung}
   n_1\sin\alpha = n_2\sin\beta
 \end{equation}
 zueinander.
@@ -56,6 +56,37 @@ zueinander.
   \includegraphics[width=0.5\textwidth]{content/Brechung.png}
   \caption{In dieser Abbildung wird die Brechung eines Lichtsstrahles gemäß der Strahlenoptik dargestellt. \cite{v400}.}
   \label{fig:Brechung}
+\end{figure}
+
+Wird nun die Brechung an einem Quader betrachtet fällt auf, dass bei vollständigem durchlauf eines Lichtstrahls, der austretende Lichtstrahl parallel zu einfallenden verläuft.
+Allerdings mit einem \textit{Strahlenversatz}. Diese Situation kann der \autoref{fig:Strahlenversatz} entnommen werden.
+Der Strahlenversatz kann gemäß
+\begin{equation}
+  \label{eqn:Strahlenversatz}
+  s = d\frac{\sin(\alpha - \beta)}{\cos\beta}
+\end{equation}
+berchnet werden.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.5\textwidth]{content/Quader.png}
+  \caption{In dieser Abbildung wird der Effekt des Strahlenversatzes dargestellt. \cite{v400}.}
+  \label{fig:Strahlenversatz}
+\end{figure}
+
+Weiter kann nun auf eine Doppelbrechung durch ein Prisma betrachtet werden. Die hierbei entstehende Situation kann \autoref{fig:Prismabrechung} entnommen werden.
+Der Gesamte Ablenkwinkel $\delta$ kann gemäß 
+\begin{equation}
+  \label{eqn:delta}
+  \delta = (\alpha_1 + \alpha_2) - (\beta_1 + \beta_2)
+\end{equation}
+berechnet werden.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.5\textwidth]{content/Prismabrechung.png}
+  \caption{In dieser Abbildung wird die Doppelbrechung in einem Prisma dargestellt. \cite{v400}.}
+  \label{fig:Prismabrechung}
 \end{figure}
 
 \subsection{Reflexion und Transmission}
@@ -70,4 +101,13 @@ reflektierten Intensität an der einfallenden Intensität und $T$ den Anteil der
 Die Beugung einer Welle kann nicht durch die Strahlenoptik beschrieben werden. Daher wird nun das Phänomen der Beugung durch \textit{Wellenoptik} beschrieben. Licht ist eine
 elektromagnetische Welle, weshalb das Superpositionsprinzip gelten muss. Daher können zwei Lichtwellen miteinander interferieren. Beugung beschreibt allerdings das Phänomen,
 dass eine Welle an einem Objekt gebeugt wird. Trifft eine Lichtwelle auf ein Objekt oder einen Spalt, welches oder welcher jeweils klein gegenüber der Wellenlänge sind tritt
-nach der Wechselwirkung ein Interferenzmuster auf.   
+nach der Wechselwirkung ein Interferenzmuster auf einem Schirm auf. Dies bestätigt sich durch einfache Überlegungen gemäß des Huygensschen Gesetzes für eine Welle, welche auf 
+einen Spalt trifft. Nun wird nicht nur ein Spalt betrachtet, sondern ein Gitter. Ein Gitter kann vereinfacht als zahlreiche Einzelspalte betrachet werden. Dabei wird erkannt, 
+dass sich an einem Gitter derselbe Beugungseffekt auftritt. Allerdings treten aufgrund der Anzahl der Einzelspalte nun für jede Wellenlänge Intensitätsmaxima $k$-ter Ordnung auf.
+Das Interferenzmuster einer monochromatischen Lichtwelle der Wellenlänge $\lambda$, welche an einem Gitter mit der Gitterkonstante $d$ gebeugt wird, kann in Abhänigkeit vom 
+Winkel $\alpha$ durch die Formel
+\begin{equation}
+  \label{eqn:Beugung}
+  d\sin\alpha = k\lambda
+\end{equation} 
+beschrieben werden.

@@ -141,3 +141,7 @@ print("Mittelwerte der Wellenlängen")
 print("rot  :", '{:.4e}'.format(lam_rot))
 print("grün :", '{:.4e}'.format(lam_grün))
 print("-------------------------------------------------------------------------------")
+
+#ABw:
+abw = np.abs((lam_grün) - 532*(10**-9))/(532*(10**-9))
+print(abw)
