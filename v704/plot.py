@@ -15,19 +15,19 @@ d_pb, N_pb, t_pb = np.genfromtxt("content/data/gamma_Pb.txt", unpack = True)    
 d_zn, N_zn, t_zn = np.genfromtxt("content/data/gamma_Zn.txt", unpack = True)    # Daten des Gamma-Strahler zu Zink (Zn)
 
 # Fehler des Messwertes N ist sqrt(N) wegene 
-N_pb = unp.uarray(N_pb, np.sqrt(N_pb)) - N_00g
-N_zn = unp.uarray(N_zn, np.sqrt(N_zn)) - N_00g
-
+N_pb = unp.uarray(N_pb, np.sqrt(N_pb))
+N_zn = unp.uarray(N_zn, np.sqrt(N_zn))
 
 # Umrechnungen usw.
-N_pb = N_pb/t_pb
-N_zn = N_zn/t_zn
+N_pb = N_pb/t_pb - N_00g
+N_zn = N_zn/t_zn - N_00g
 # d_pb = d_pb *10**(-3) # m     
 # d_zn = d_zn *10**(-3) # m 
 
 d_b, err_d_b, N_b, t_b = np.genfromtxt("content/data/beta.txt", unpack = True)  # Daten des Beta-Strahlers (Al)
 d_b = unp.uarray(d_b, err_d_b)#*10**(-6) # m
 N_b = unp.uarray(N_b, np.sqrt(N_b))
+
 N_b = N_b/t_b - N_00b
 
 # Ausgabe der Nullmessungen
@@ -167,13 +167,14 @@ print("-------------------------------------------------------------------------
 # Plot
 x = np.linspace(50, 500, 10)
 
+
+plt.vlines(noms(D_max), ymin = -10, ymax = 5, color = "forestgreen", label = r"$D_\text{max}$", ls = "dashed")
 plt.plot(x, f(x, *params), color = "cornflowerblue", label = "Absorptionskurve")
 plt.hlines(y = const_, xmin=50, xmax=500, colors='chocolate', linestyles='-', label = "Hintergrund")
-plt.text(noms(D_max) - 100, const_ -1, r"$D_\text{max} = 341 \unit{\micro\metre}$",)
+#plt.text(noms(D_max) - 100, const_ -1, r"$D_\text{max} = 341 \unit{\micro\metre}$",)
 plt.errorbar(noms(d_b[:divider]), noms(N_b_log[:divider]), xerr = stds(d_b[:divider]), yerr = stds(N_b_log[:divider]), linestyle = None, color = "mediumblue", fmt = ".", label = "Messwerte", capsize=3)
 plt.errorbar(noms(d_b[divider:]), noms(N_b_log[divider:]), xerr = stds(d_b[divider:]), yerr = stds(N_b_log[divider:]), linestyle = None, color = "firebrick", fmt = ".", label = "Messwerte", capsize=3)
 
-plt.plot(noms(D_max), const_, marker = "o", color = "forestgreen", label = "Schnittpunkt", lw = 0)
 plt.grid()
 
 plt.xlabel(r'$d \mathbin{/} \unit{\micro\metre}$')

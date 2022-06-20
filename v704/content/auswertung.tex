@@ -21,23 +21,24 @@ Die Fehlerrechnung wird in \textit{Python} unter Verwendung des Paketes \textit{
   \caption{Messwerte der Absorption von $\gamma$-Strahlung eines Cäsium-137-Strahlers. Es werden Blei und Zink als Absorber verwendet. $d$ beschreibt die Dicke der Absorberschicht und
   $N_t$ die Zählraten des \textit{GMZ} während der Zeit $t$.}
   \label{tab:Mess_gamma}
-  \begin{tabular}{S[table-format = 2.1] S[table-format = 5.0] S[table-format = 3.0] | S[table-format = 2.0] S[table-format = 5.0] S[table-format = 3.0]}
+  \begin{tabular}{S[table-format = 2.1] S[table-format = 5.0] @{${}\pm{}$} S[table-format = 3.0] S | S[table-format = 2.0] S[table-format = 5.0] @{${}\pm{}$} S[table-format = 3.0] S}
     \toprule
-    \multicolumn{3}{c}{Blei} & \multicolumn{3}{c}{Zink} \\
+    \multicolumn{4}{c}{Blei} & \multicolumn{4}{c}{Zink} \\
       \midrule
-      {$d \mathbin{/} \unit{\milli\metre}$} & {$N_t$} & {$t \mathbin{/} \unit{\second}$} & {$d \mathbin{/} \unit{\milli\metre}$} & {$N_t$} & {$t \mathbin{/} \unit{\second}$} \\
+      {$d \mathbin{/} \unit{\milli\metre}$} & \multicolumn{2}{c}{$N_t$} & {$t \mathbin{/} \unit{\second}$} &%
+      {$d \mathbin{/} \unit{\milli\metre}$} & \multicolumn{2}{c}{$N_t$} & {$t \mathbin{/} \unit{\second}$} \\
       \midrule
-       0   &  3081 &  30 &  0 &  3081 &  30 \\
-       1.2 & 10470 & 100 &  2 & 10602 & 100 \\
-       2.4 &  9246 & 100 &  4 &  9766 & 100 \\
-       4.7 &  7415 & 100 &  6 &  8812 & 100 \\
-       7.4 &  6229 & 100 &  8 &  8462 & 100 \\
-      10.3 &  6297 & 150 & 10 &  8034 & 100 \\
-      13.8 &  4481 & 150 & 12 &  7018 & 100 \\
-      17.7 &  3532 & 150 & 14 &  6549 & 100 \\
-      20.0 &  2460 & 150 & 16 &  5925 & 100 \\
-      30.3 &  1141 & 150 & 18 &  5727 & 100 \\
-      40.8 &   892 & 200 & 20 &  5020 & 100 \\
+       0   &  3081 & 56  &  30 &  0 &  3081 & 56  &  30 \\
+       1.2 & 10470 & 102 & 100 &  2 & 10602 & 103 & 100 \\
+       2.4 &  9246 & 96  & 100 &  4 &  9766 & 99  & 100 \\
+       4.7 &  7415 & 86  & 100 &  6 &  8812 & 94  & 100 \\
+       7.4 &  6229 & 79  & 100 &  8 &  8462 & 92  & 100 \\
+      10.3 &  6297 & 79  & 150 & 10 &  8034 & 90  & 100 \\
+      13.8 &  4481 & 67  & 150 & 12 &  7018 & 84  & 100 \\
+      17.7 &  3532 & 59  & 150 & 14 &  6549 & 81  & 100 \\
+      20.0 &  2460 & 50  & 150 & 16 &  5925 & 77  & 100 \\
+      30.3 &  1141 & 34  & 150 & 18 &  5727 & 76  & 100 \\
+      40.8 &   892 & 30  & 200 & 20 &  5020 & 71  & 100 \\
     \bottomrule
   \end{tabular}
 \end{table}
@@ -118,21 +119,21 @@ $\qty{900}{\second}$ gemessen. Dies ergibt ein Hintergrundsignal von $\qty{ 0.61
   \caption{Messwerte der Absorption von $\beta$-Strahlung eines Technezium-99-Strahlers. Das Absorbermaterial ist Aluminium. $d$ beschreibt die Dicke der Absorberschicht und
   $N_t$ die Zählraten des \textit{GMZ} während der Zeit $t$.}
   \label{tab:Mess_beta}
-  \begin{tabular}{S[table-format = 3.0] @{${}\pm{}$} S[table-format = 1.1] S[table-format = 4.0] S[table-format = 3.0]}
+  \begin{tabular}{S[table-format = 3.0] @{${}\pm{}$} S[table-format = 1.1] S[table-format = 4.0] @{${}\pm{}$} S[table-format = 2.0] S[table-format = 3.0]}
     \toprule
-      \multicolumn{2}{c}{$d \mathbin{/} \unit{\micro\metre}$} & {$N_t$} & {$t \mathbin{/} \unit{\second}$} \\
+      \multicolumn{2}{c}{$d \mathbin{/} \unit{\micro\metre}$} & \multicolumn{2}{c}{$N_t$} & {$t \mathbin{/} \unit{\second}$} \\
       \midrule
-      125 & 0   & 2470 & 200 \\
-      100 & 0   & 7508 & 200 \\
-      153 & 0.5 & 1964 & 220 \\
-      160 & 1   & 1258 & 240 \\
-      200 & 1   &  550 & 280 \\
-      253 & 1   &  275 & 300 \\
-      302 & 1   &  220 & 320 \\
-      338 & 5   &  228 & 360 \\
-      400 & 1   &  252 & 400 \\
-      444 & 1   &  249 & 400 \\
-      482 & 1   &  280 & 400 \\
+      125 & 0   & 2470 & 50 & 200 \\
+      100 & 0   & 7508 & 87 & 200 \\
+      153 & 0.5 & 1964 & 44 & 220 \\
+      160 & 1   & 1258 & 35 & 240 \\
+      200 & 1   &  550 & 23 & 280 \\
+      253 & 1   &  275 & 17 & 300 \\
+      302 & 1   &  220 & 15 & 320 \\
+      338 & 5   &  228 & 15 & 360 \\
+      400 & 1   &  252 & 16 & 400 \\
+      444 & 1   &  249 & 16 & 400 \\
+      482 & 1   &  280 & 17 & 400 \\
     \bottomrule
   \end{tabular}
 \end{table}
