@@ -27,10 +27,13 @@ params, pcov = op.curve_fit(f, U[down:up], noms(N[down:up]))
 err = np.sqrt(np.diag(pcov))
 a = ufloat(params[0], err[0])
 b = ufloat(params[1], err[1])
+Steigung = a*100/f(500, *params)
+print(f(500, *params))
 
 print("------------------------------------------------------------------------")
 print("Parameter des Fits")
-print("a:               ", a, "[1/V] = ", 100*a, "[1/100V]")
+print("a:               ", a, "[1/V]")
+print("Plateausteigung: ", Steigung, "[1/V]")
 print("b:               ", b, "[V]")
 print("Plateaulänge:    ", U[up-1] - U[down], "[V]")
 print("------------------------------------------------------------------------")
@@ -81,10 +84,10 @@ for i in range(len(dQ)):
     print('{0:.3e}'.format(dQ[i]), "eV")
 print("------------------------------------------------------------------------")
 #plot der freigesetzten Ladung
-plt.errorbar(U, noms(dQ)*10**9, yerr = stds(dQ)*10**9, marker = ".", linestyle = None, label = "freigesetzte Ladung", color = "firebrick", capsize = 3, linewidth = 0, elinewidth = 1)
+plt.errorbar(noms(I), noms(dQ), xerr = stds(I), yerr = stds(dQ), marker = ".", linestyle = None, label = "freigesetzte Ladung", color = "firebrick", capsize = 3, linewidth = 0, elinewidth = 1)
 
-plt.xlabel(r"$U \mathbin{/} \unit{\volt}$")
-plt.ylabel(r"$dQ \mathbin{/} \unit{\nano\electronvolt}$")
+plt.xlabel(r"$ I\mathbin{/} \unit{\ampere}$")
+plt.ylabel(r"$dQ \mathbin{/} e_0")
 
 plt.grid()
 plt.legend()

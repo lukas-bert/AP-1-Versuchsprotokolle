@@ -34,9 +34,26 @@ dargestellt. Es lässt sich ein Bereich feststellen, in welchem die Kurve annäh
 
 Durch eine lineare Regression mittels \textit{scipy} \cite{scipy} folgen die Parameter
 \begin{align*}
-  a &= \qty{0.0125+-0.0022}{\volt^{-1}} & b &= \qty{104.4+-1.1}{\volt}
+  a &= \qty{0.0125+-0.0022}{\volt^{-1}\second^{-1}} & b &= \qty{104.4+-1.1}{\volt}
 \end{align*}
-der Ausgleichsgeraden $f(x) = ax + b$. Dies bedeutet eine Plateau-Steigung von $\qty{1.25+-0.22}{\percent}$. Die Länge des Plateaus ist die Differenz der äußersten Messpunkte,
+der Ausgleichsgeraden $f(x) = ax + b$.
+Die Plateausteigung folgt durch 
+\begin{equation*}
+  m_\text{Plateau} = \frac{a \cdot 100}{N(U_\text{m})},
+\end{equation*}
+wobei $U_\text{m}$ als Plateaumitte gewählt wird.
+Die Fehler der Zählraten ergeben sich zu 
+\begin{equation*}
+  \symup{\Delta}N(U) = \sqrt{\left(U \cdot \symup{\Delta}a\right)^2 + \symup{\Delta}b^2}.
+\end{equation*}
+Der Fehler der Plateausteigung kann über 
+\begin{equation*}
+  \symup{\Delta}m = \sqrt{\left(\frac{100}{N}\symup{\Delta}a\right)^2 + \left(\frac{100a}{N^2} \symup{\Delta}N\right)^2}
+\end{equation*}
+berechnet werden. Durch Einsetzen einer Plateaumitte von $U_\text{m} \approx \qty{500}{\volt}$ folgt die Plateausteigung
+$m_\text{Plateau} = \qty{1.13+-0.20}{\percent\per\volt}$ 
+
+Die Länge des Plateaus ist die Differenz der äußersten Messpunkte,
 welche zum Plateau gezählt werden. Sie lautet $L = \qty{270}{\volt}$
 
 \subsection{Untersuchung der Nachentladung}
