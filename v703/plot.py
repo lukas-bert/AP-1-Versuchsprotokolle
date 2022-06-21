@@ -84,10 +84,20 @@ for i in range(len(dQ)):
     print('{0:.3e}'.format(dQ[i]), "eV")
 print("------------------------------------------------------------------------")
 #plot der freigesetzten Ladung
-plt.errorbar(noms(I), noms(dQ), xerr = stds(I), yerr = stds(dQ), marker = ".", linestyle = None, label = "freigesetzte Ladung", color = "firebrick", capsize = 3, linewidth = 0, elinewidth = 1)
+
+params, pcov = op.curve_fit(f, noms(I), noms(dQ), p0 = (noms(dQ[5]-dQ[0])/noms(I[5]-I[0]), 0))
+
+x = np.linspace(0, 9, 100)*10**(-7)
+
+plt.plot(x, f(x, *params), color = "cornflowerblue", label = "Ausgleichsgerade")
+plt.errorbar(noms(I), noms(dQ), yerr = stds(dQ), marker = ".", linestyle = None,
+     label = "freigesetzte Ladung", color = "firebrick", capsize = 3, linewidth = 0, elinewidth = 1)
 
 plt.xlabel(r"$ I\mathbin{/} \unit{\ampere}$")
 plt.ylabel(r"$dQ \mathbin{/} e_0")
+
+plt.xlim(0, 9*10**(-7))
+plt.ylim(0, 5*10**10)
 
 plt.grid()
 plt.legend()
