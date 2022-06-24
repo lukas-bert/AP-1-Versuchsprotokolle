@@ -1,12 +1,98 @@
 \section{Auswertung}
 \label{sec:Auswertung}
+Um aus den aufgenommenen Zerfallskurven die Halbwertszeiten bestimmen zu können, bietet es sich an, den Logarithmus der Messwerte gegen die Zeit aufzutragen.
+Durch dieses Vorgehen kann \autoref{eqn:N_dt} als lineare Funktion 
+\begin{equation}
+  \label{eqn:linear}
+  \symup{log}\left(N_{\symup{\Delta}t}(t) \right) = \symup{log}\left(N_0 \left(1- \symup{e}^{-\lambda \symup{\Delta}t}\right)\right) - \lambda t := f(t) = at + b
+\end{equation}
+dargestellt werden, womit sich durch lineare Ausgleichsrechnung die Zerfallskonstante $\lambda$ bestimmen lässt.
+Vor den Messungen der Zerfallskurven wird der Nulleffekt, also der durch äußere Einflüsse hervorgerufene Hintergrund der Zählraten, ermittelt. Dazu werden $\num{340}$
+Impulse in einer Zeit von $\qty{600}{\second}$ gemessen. Da die Zählraten eines Geiger-Müller-Zählrohres einer Poissonverteilung folgen, ergibt sich zu jeder Zählrate 
+$N$ eine Unsicherheit von $\symup{\Delta}N = \sqrt{N}$. Damit folgt für den Nulleffekt pro Sekunde $N_0 = \qty{0.567+-0.031}{\second^{-1}}$.
+
+\subsection{Bestimmung der Halbwertszeit von Vanadium}
+\label{subsec:A_Vanadium}
+Zur Bestimmung der Halbwertszeit von Vanadium werden die Messwerte aus \autoref{tab:Vanadium} verwendet. Die Länge der Messintervalle beträgt 
+$\symup{\Delta}t = \qty{30}{\second}$. Vor der Ausgleichsrechnung zur Bestimmung der Zerfallskonstante wird der Nulleffekt für $t = \qty{30}{\second}$ subtrahiert.
+Da sich dabei aufgrund von statistischen Schwankungen negative Werte ergeben, die sich jedoch nicht für die weitere Rechnung eignen, werden nur die neuen Zählraten
+mit einem Wert über $0$ betrachtet.
+
+\begin{table} [H]
+  \caption{Messwerte der Zählrate für Vanadium inklusive der jeweiligen Fehler.}
+  \label{tab:Vanadium}
+  \centering
+  \begin{tabular}{S[table-format = 3.0] S[table-format = 2.0] @{${}\pm{}$} S}
+    \toprule
+    {Messzeit $t/\unit{\second}$} & \multicolumn{2}{c}{Zählrate $N$} \\
+    \midrule
+     30 & 76 &  9 \\
+     60 & 94 & 10 \\
+     90 & 72 &  8 \\
+    120 & 70 &  8 \\
+    150 & 62 &  8 \\
+    180 & 66 &  8 \\
+    210 & 66 &  8 \\
+    240 & 53 &  7 \\
+    270 & 46 &  7 \\
+    300 & 49 &  7 \\
+    330 & 56 &  7 \\
+    360 & 45 &  7 \\
+    390 & 36 &  6 \\
+    420 & 31 &  6 \\
+    450 & 30 &  5 \\
+    \bottomrule
+  \end{tabular}
+  \begin{tabular}{S[table-format = 3.0] S[table-format = 2.0] @{${}\pm{}$} S}
+    \toprule
+    {Messzeit $t/\unit{\second}$} & \multicolumn{2}{c}{Zählrate $N$} \\
+    \midrule
+    480 & 19 & 4 \\
+    510 & 25 & 5 \\
+    540 & 31 & 6 \\
+    570 & 23 & 5 \\
+    600 & 25 & 5 \\
+    630 & 23 & 5 \\
+    660 & 21 & 5 \\
+    690 & 19 & 4 \\
+    720 & 18 & 4 \\
+    750 & 23 & 5 \\
+    780 & 16 & 4 \\
+    810 & 18 & 4 \\
+    840 & 21 & 5 \\
+    870 & 19 & 4 \\
+    900 & 12 & 3 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Durch Auftragen des Logarithmus der Zählraten pro Zeitintervall $\symup{\Delta}t$ gegen die Zeit $t$ ensteht das Diagramm \ref{fig:Vanadium}. Die Messwerte modellieren einen 
+annähernd linearen Verlauf. Mithilfe des Ansatzes \eqref{eqn:linear} wird eine lineare Regression mittels \textit{scipy} \cite{scipy} durchgeführt.
+Es ergeben sich die Parameter
+\begin{align*}
+  a &= \qty{-0.0048+-0.0004}{\second^{-1}} & b &= \num{ 4.49+-0.20}
+\end{align*}
+der Ausgleichsgeraden $f(t) = at + b$. Aus \autoref{eqn:linear} folgt sofort $\lambda_\text{V} = -a = \qty{0.0048+-0.0004}{\second^{-1}}$. Die Halbwertszeit kann nun gemäß 
+\autoref{eqn:Halbwertszeit} berechnet werden. Dabei ergibt sich durch die Gaußsche Fehlerfortpflanzung eine Unsicherheit von 
+\begin{equation}
+  \label{eqn:delta_T}
+  \symup{\Delta}T = \frac{\ln(2)}{\lambda^2} \cdot \symup{\Delta} \lambda. 
+\end{equation}
+Es folgt der Wert $T_\text{V} = \qty{144+-12}{\second}$ für die Halbwertszeit von Vanadium. 
 
 \begin{figure}
   \centering
-  \includegraphics{plot.pdf}
-  \caption{Plot.}
-  \label{fig:plot}
+  \includegraphics{Vanadium.pdf}
+  \caption{Logarithmus der Zählraten zu Vanadium und lineare Regression der Messwerte. Erstellt mit \textit{matplotlib} \cite{matplotlib}.}
+  \label{fig:Vanadium}
 \end{figure}
 
+\subsection{Bestimmung der Zerfallseigenschaften von Rhodium}
+\label{subsec:A_Rhodium}
 
-Siehe \autoref{fig:plot}!
+\begin{figure}
+  \centering
+  \includegraphics{Rhodium.pdf}
+  \caption{Plot.}
+  \label{fig:Rhodium}
+\end{figure}

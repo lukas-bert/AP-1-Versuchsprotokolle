@@ -1,7 +1,7 @@
 # Messung der Zählraten von Rhodium
 # N_0 = 340/600s
-# dT = 15s
-# N(dt)
+# dt = 15s
+# t, N(t+dt)
   0 398
  15 292
  30 258

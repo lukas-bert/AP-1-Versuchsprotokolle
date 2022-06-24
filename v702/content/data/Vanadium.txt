@@ -1,7 +1,7 @@
 # Messung der Zählraten von Vanadium
 # N_0 = 340/600s
-# dT = 30s
-# N(dt)
+# dt = 30s
+# t, N(t+dt)
   0 76
  30 94
  60 72
