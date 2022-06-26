@@ -147,11 +147,19 @@ T_2 = -np.log(2)/params2[0]
 print("----------------------------------------------------------------------")
 print("Parameter des Fits Langzeit:")
 print("a = -lambda =", params2[0])
-print("b =", params2[1])
+print("b =", np.e**params2[1])
 print("Halbwertszeit: T2 =", T_2)
 
 print("Parameter des Fits Kurzzeit:")
 print("a = -lambda =", params0[0])
-print("b =", params0[1])
+print("b =", np.e**params0[1])
 print("Halbwertszeit: T1 =", T_0)
 print("----------------------------------------------------------------------")
+
+#abw
+deltat2 = np.abs(224 - T)/224
+print(deltat2)
+deltarhi = np.abs(42.3 - T_0)/42.3
+deltarh = np.abs(260 - T_2)/260
+print("RH",deltarh)
+print("RHI",deltarhi)
