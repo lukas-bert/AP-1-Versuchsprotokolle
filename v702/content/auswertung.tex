@@ -19,7 +19,7 @@ Da sich dabei aufgrund von statistischen Schwankungen negative Werte ergeben, di
 mit einem Wert über $0$ betrachtet.
 
 \begin{table} [H]
-  \caption{Messwerte der Zählrate für Vanadium inklusive der jeweiligen Fehler.}
+  \caption{Messwerte der Zählraten für Vanadium inklusive der jeweiligen Fehler.}
   \label{tab:Vanadium}
   \centering
   \begin{tabular}{S[table-format = 3.0] S[table-format = 2.0] @{${}\pm{}$} S}
@@ -66,14 +66,14 @@ mit einem Wert über $0$ betrachtet.
   \end{tabular}
 \end{table}
 
-Durch Auftragen des Logarithmus der Zählraten pro Zeitintervall $\symup{\Delta}t$ gegen die Zeit $t$ ensteht das Diagramm \ref{fig:Vanadium}. Die Messwerte modellieren einen 
+Durch Auftragen des Logarithmus der Zählraten pro Zeitintervall $\symup{\Delta}t$ gegen die Zeit $t$ entsteht das Diagramm \ref{fig:Vanadium}. Die Messwerte modellieren einen 
 annähernd linearen Verlauf. Mithilfe des Ansatzes \eqref{eqn:linear} wird eine lineare Regression mittels \textit{scipy} \cite{scipy} durchgeführt.
 Es ergeben sich die Parameter
 \begin{align*}
   a &= \qty{-0.0048+-0.0004}{\second^{-1}} & b &= \num{ 4.49+-0.20}
 \end{align*}
 der Ausgleichsgeraden $f(t) = at + b$. Aus \autoref{eqn:linear} folgt sofort $\lambda_\text{V} = -a = \qty{0.0048+-0.0004}{\second^{-1}}$. Die Halbwertszeit kann nun gemäß 
-\autoref{eqn:Halbwertszeit} berechnet werden. Dabei ergibt sich durch die Gaußsche Fehlerfortpflanzung eine Unsicherheit von 
+\autoref{eqn:Halbwertszeit} berechnet werden. Dabei ergibt sich durch die Gauß'sche Fehlerfortpflanzung eine Unsicherheit von 
 \begin{equation}
   \label{eqn:delta_T}
   \symup{\Delta}T = \frac{\ln(2)}{\lambda^2} \cdot \symup{\Delta} \lambda. 
@@ -91,32 +91,50 @@ Es folgt der Wert $T_\text{V} = \qty{144+-12}{\second}$ für die Halbwertszeit v
 \label{subsec:A_Rhodium}
 
 Nun wird der Zerfall des Rhodium-Isotopes ausgewertet. Die Messdaten zu diesem Isotop werden in \autoref{tab:Rhodium} dargestellt. Die Abweichungen der Zählwerte
-verteilen sich gemäß einer Poissonverteilung. Da nur ganzzahlige Zählstände möglich sind werden die Abweichungen auf ganze Zahlen gerundet. Die verwendete Rhodium-Isotop kann 
+verteilen sich gemäß einer Poissonverteilung. Da nur ganzzahlige Zählstände möglich sind werden die Abweichungen auf ganze Zahlen gerundet. Das verwendete Rhodium-Isotop kann 
 den instabilen Zustand über zwei unterschiedliche Zerfälle verlassen, abhängig davon welches Isotop bei der Kernreaktion mit einem Neutron entstanden ist. Die Produkte und
-weiteren Zerfälle wurde bereits in dem \autoref{subsec:Zerfall} diskutiert.
+weiteren Zerfälle wurden bereits im \autoref{subsec:Zerfall} diskutiert.
 An dieser Stelle ist es lediglich relevant, dass  $\ce{^{104i}_{45}Rh}$ wesentlich schneller zerfällt, im Vergleich zum langsamen Zerfall des $\ce{^{104}_{45}Rh}$.
-Da die Zählung der Impulse aber nicht zwischen den Zerfällen unterscheidet, muss diese dementsprechend ausgewertet werden. Daher wird zunächst der 
-der Zerfall des langlebigen $\ce{^{104}_{45}Rh}$-Isotopes untersucht.
+Da die Zählung der Impulse aber nicht zwischen den Zerfällen unterscheidet, muss diese dementsprechend ausgewertet werden. Daher wird zunächst nur der 
+Zerfall des langlebigeren $\ce{^{104}_{45}Rh}$-Isotopes untersucht.
 
 \subsection{Zerfallsprozess von Rhodium-104}
 \label{subsec:Rh104}
-Die Messdaten des werden in der \autoref{tab:Rhodium} dargestellt. Diese Daten werden nun halblogarithmisch abgebildet, da so die exponentielle Zerfallskurve in eine Gerade
-übergeht. Diese halblogarithmische Darstellung wird in \autoref{fig:Rhodium} abgebildet. Aufgrund der längeren Zerfallsdauer der Rhodium-104-Isotope, muss die daraus 
+Die verwendeten Messdaten werden in der \autoref{tab:Rhodium} aufgelistet. Diese Daten werden nun halblogarithmisch abgebildet, da so die exponentielle Zerfallskurve in eine Gerade
+übergeht. Diese halblogarithmische Darstellung wird in \autoref{fig:Rhodium} dargestellt. Aufgrund der längeren Zerfallsdauer der Rhodium-104-Isotope, muss die daraus 
 resultierende Zerfallskurve in logarithmischer Darstellung eine geringere Steigung haben, als die Zerfallskurve des Rh-104i-Isotops. Da in \autoref{fig:Rhodium} eine Überlagerung
-beider Zerfallskurven dargestellt wird, muss ein logischer \textit{Cut} gefunden werden, ab welchem der Zerfall des Rh-104i-Isotops keinen Effekt mehr hat. Daher wird in der 
-rechten Hälfte der \autoref{fig:Rhodium} eine möglichst lange Gerade gesucht, anhand dessen ein \textit{Cut} festgelegt werden kann. Dieser \textit{Cut} wird bei
-$t^* = \qty{330}{\second}$ festgelegt. Ab diesem Punkt wird nun die Annahme getroffen, dass ausschließlich der Zerfall von Rh-104-Isotopen stattfindet. Daher wird für $t > t^*$
-eine lineare Regression angefertigt. Durch die Parameter der Regression ergeben sich die Zerfallskonstante $\lambda_\text{lang} = \num{2.9(0.4)e-3}$ und ein 
-$N_{0,\text{lang}} = \num{63 +- 14}$.
+beider Zerfallskurven dargestellt wird, muss ein sinnvoller \textit{Cut} gefunden werden, ab welchem der Zerfall des Rh-104i-Isotops vernachlässigt werden kann. 
+Der gesuchte Bereich sollte einen linearen Verlauf darstellen, da hier näherungsweise nur noch ein Zerfall stattfindet.
+Dieser \textit{Cut} wird bei
+$t^* = \qty{330}{\second}$ festgelegt. Es wird für $t > t^*$
+eine lineare Regression durchgeführt. Dabei werden offensichtliche Ausreißer nicht berücksichtigt, da diese das Ergebnis verfälschen würden. Diese \glqq Ausreißer\grqq \;
+werden in \autoref{fig:Rhodium} mit grauen Markern dargestellt.
+Durch die Parameter der Regression ergeben sich die Zerfallskonstante $\lambda_\text{Rh, lang} = -a = \qty{2.9(0.4)e-3}{\second}$ und 
+$b = \num{63 +- 14}$.
 
-Daraus ergibt sich gemäß der Formel \eqref{eqn:Halbwertszeit} die Halbwertszeit 
+Daraus ergibt sich gemäß \autoref{eqn:Halbwertszeit} die Halbwertszeit 
 \begin{equation*}
   T_\text{Rh, lang} = \qty{238 +- 33}{\second}
 \end{equation*}
-mit einem Fehler gemäß der Gaußschen Fehlerfortpflanzung druch Formel \eqref{eqn:delta_T}.
+mit einem Fehler gemäß der Gaußschen Fehlerfortpflanzung nach \autoref{eqn:delta_T}.
+
+\begin{figure}
+  \centering
+  \includegraphics{Rhodium.pdf}
+  \caption{Logarithmus der Messwerte zu Rhodium und Regressionsgeraden der verschiedenen Bereiche.}
+  \label{fig:Rhodium}
+\end{figure}
+
+\subsection{Zerfall von Rhodium-104i}
+\label{subsec:Rh104i}
+
+Nun kann die Zerfallskurve von Rh-104i untersucht werden. Damit nun die reine Zerfallskurve der Rh-104i-Isotope betrachtet werden kann, muss mittels der zuvor
+bestimmten Halbwertszeit des Rhodium-104 Isotopes eine Anpassung der Messwerte vorgenommen werden. Außerdem ist der mittlere Bereich der Messung nicht geeignet für eine Betrachtung, da die 
+Vermischung der beiden Zerfälle dort am größten ist. Daher werden nun lediglich Messwerte bis zu einem festgelegten $t_\text{max}$ betrachtet. Es wird ein 
+$t_\text{max} = \qty{270}{\second}$ gewählt. 
 
 \begin{table}
-  \caption{Messwerte der Zählrate für Rhodium inklusive der jeweiligen Fehler.}
+  \caption{Messwerte der Zählraten für Rhodium inklusive der jeweiligen Fehler.}
   \label{tab:Rhodium}
   \centering
   \begin{tabular}{S[table-format = 3.0] S[table-format = 3.0] @{${}\pm{}$} S}
@@ -183,38 +201,27 @@ mit einem Fehler gemäß der Gaußschen Fehlerfortpflanzung druch Formel \eqref{
   \end{tabular}
 \end{table}
 
-\subsection{Zerfall von Rhodium-104i}
-\label{subsec:Rh104i}
-
-Nun kann die Zerfallskurve von Rh-104i untersucht werden. Damit nun die reine Zerfallskurve der Rh-104i-Isotope betrachtet werden kann muss mittels der im \autoref{subsec:Rh104}
-bestimmten Halbwärtszeit eine Anpassung der Messwerte vorgenommen werden. Außerdem ist der mittlere Bereich der Messung nicht geeignet für eine Betrachtung, da die 
-Vermischung der beiden Zerfälle dort am größten ist. Daher werden nun lediglich Messwerte bis zu einem festgelegten $t_\text{max}$ betrachtet. Es wird ein 
-$t_\text{max} = \qty{270}{\second}$ gewählt. Die Anpassung der Messwerte wird nun über eine Differenz der Gesamtanzahl aller Isotope zur Anzahl der Rh-104-Isotope bestimmt.
+Die Anpassung der Messwerte wird nun über eine Differenz der Gesamtanzahl aller Isotope zur Anzahl der Rh-104-Isotope bestimmt.
 Daher ergibt sich
 \begin{equation*}
   N_{\text{kurz}}(t) = N_\text{Ges}(t) - N_\text{lang}(t) = N_\text{Ges}(t) -  N_{0,\text{lang}}e^{-\lambda_\text{lang}t}
 \end{equation*}
 
-Der Unsicherheit dieser Anpassung ergibt sich gemäß der Gaußschen Fehlerfortpflanzung durch 
+Die Unsicherheit dieser Anpassung ergibt sich gemäß der Gaußschen Fehlerfortpflanzung durch 
 \begin{equation*}
   \label{eqn:delta_kurz}
   \symup{\Delta}N_\text{kurz}(t) = \sqrt{\left(\symup{\Delta}N_\text{Ges}\right)^2 + \left(tN_{0,\text{lang}}e^{-\lambda_\text{lang}t}\right)^2(\symup{\Delta}\lambda_\text{lang})^2 + \left(N_{0,\text{lang}}e^{-\lambda_\text{lang}t}\right)^2(\symup{\Delta}N_{0,\text{lang}})^2}
 \end{equation*}
 
-Nun wird eine lineare Regression auf die korregierten Messwerte angewendet. Dabei ergeben sich aus den Parametern der Regression 
+Nun wird eine lineare Regression auf die korrigierten Messwerte angewendet. Dabei ergeben sich aus den Parametern der Regression 
 \begin{align*}
-  \lambda_\text{kurz} &= \num{15.5(0.7)e-3} \\
-  N_{0, \text{kurz}} &= \num{306(31)} 
+  \lambda_\text{Rh, kurz} &= -a = \qty{15.5(0.7)e-3}{\second} \\
+  &\text{und} \\
+   b &= \num{306(31)} 
 \end{align*}
 Die Abweichungen ergeben sich gemäß der bereits verwendeten Fehlerformeln.
-\begin{figure}
-  \centering
-  \includegraphics{Rhodium.pdf}
-  \caption{In dieser Abbildung sind die Messwerte samt Regressionen und signifikanten Bereichen dargestellt. Erstellt mit \textit{matplotlib} \cite{matplotlib}.}
-  \label{fig:Rhodium}
-\end{figure}
-
-Daraus kann nun gemäß der Formel \eqref{eqn:Halbwertszeit} mit dem bereits verwendeten Fehler eine Halbwertszeit 
+Daraus kann nun gemäß \autoref{eqn:Halbwertszeit} mit dem bereits verwendeten Fehler eine Halbwertszeit 
 \begin{equation*}
   T_\text{Rh, lang} = \qty{44.7+-1.9}{\second}.
 \end{equation*}
+des Zerfalles bestimmt werden.
